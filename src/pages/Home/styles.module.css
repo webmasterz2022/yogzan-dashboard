@@ -1,0 +1,16 @@
+.root {
+  padding: 1.5rem 7.75rem;
+  text-align: left;
+}
+
+.root > img {
+  height: 5.4375rem;
+  width: 14.6875rem;
+}
+
+.heading {
+  font-family: 'Avenir', sans-serif;
+  margin-top: 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+}

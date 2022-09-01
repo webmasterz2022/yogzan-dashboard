@@ -1,0 +1,26 @@
+.root {
+  padding: 0.5rem 1rem;
+  display: flex;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border: none;
+  width: auto;
+  height: fit-content;
+  align-items: center;
+  line-height: 1px;
+}
+
+.root > .icon {
+  margin-right: 0.25rem;
+}
+
+.active-rounded {
+  border-radius: 1.5rem;
+  color: var(--gray-25);
+  background-color: var(--primary);
+}
+
+.negative {
+  color: var(--primary);
+  background-color: transparent; 
+}

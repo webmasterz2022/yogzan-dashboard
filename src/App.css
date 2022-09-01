@@ -1,3 +1,7 @@
+* {
+  font-family: 'Comfortaa', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+:root {
+  font-size: calc(100vw * 16 / 1440);
+  --primary: #512B58;
+  --gray-25: #FCFCFD;
 }
