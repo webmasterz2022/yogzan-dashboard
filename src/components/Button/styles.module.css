@@ -12,6 +12,8 @@
 
 .root > .icon {
   margin-right: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .active-rounded {
@@ -20,7 +22,19 @@
   background-color: var(--primary);
 }
 
+.active-square {
+  border-radius: 0.25rem;
+  color: var(--gray-25);
+  background-color: var(--primary);
+}
+
 .negative {
   color: var(--primary);
   background-color: transparent; 
+}
+
+.highlight-rounded {
+  border-radius: 1.5rem;
+  color: var(--primary);
+  background-color: var(--white);
 }

@@ -5,6 +5,9 @@ import homeLight from '../../assets/home-light.svg'
 import homePrimary from '../../assets/home-primary.svg'
 import portfolioLight from '../../assets/portfolio-light.svg'
 import portfolioPrimary from '../../assets/portfolio-primary.svg'
+import hiringLight from '../../assets/hiring-light.svg'
+import hiringPrimary from '../../assets/hiring-primary.svg'
+import bookingPrimary from '../../assets/booking-primary.svg'
 import Button from '../Button'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { routes } from '../../configs/routes'
@@ -25,6 +28,16 @@ export default function Navbar() {
       icon: routes.GALLERY() === pathname ? portfolioLight : portfolioPrimary,
       handleClick: () => navigate(routes.GALLERY()),
       variant: routes.GALLERY() === pathname ? 'active-rounded' : 'negative',
+    },{
+      title: 'Hiring',
+      icon: routes.HIRING() === pathname ? hiringLight : hiringPrimary,
+      handleClick: () => { },
+      variant: routes.HIRING() === pathname ? 'active-rounded' : 'negative',
+    },{
+      title: 'Book Now!',
+      icon: bookingPrimary,
+      handleClick: () => { },
+      variant: 'highlight-rounded',
     }
   ]
 
