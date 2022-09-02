@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  border-radius: 0.25rem;
+  box-shadow: 0px 11px 12px -4px rgba(138, 132, 130, 0.21);
+  margin-top: 1.5rem;
+}
+
+.root > img {
+  width: 11.5625rem;
+  height: 5rem;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  object-fit: cover;
+}
+
+.root > div {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.root > div > p {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  margin: 0;
+}

@@ -18,6 +18,7 @@
 .galleries {
   display: grid;
   grid-template-columns: 0 44.875rem 28.125rem;
+  padding-top: 2.5rem;
 }
 
 .satu { grid-area: satu; }
@@ -53,7 +54,6 @@
 .galleries > div:nth-child(2) {
   height: 23rem;
   max-height: 23rem;
-  margin: 2.5rem 0;
   margin-right: 1.5rem;
   display: grid;
   grid-template-areas: 
@@ -69,11 +69,109 @@
 }
 
 .overlay {
-  width: 44.875rem;
+  width: 43.375rem;
   height: 23rem;
-  background-color: aqua;
   z-index: 1;
   position: relative;
-  top: 3rem;
+  top: 0.5rem;
   background: linear-gradient(0deg, #FFF5F1 1.23%, rgba(255, 255, 255, 0) 67.57%);
+}
+
+.galleries > div:nth-child(3) {
+  padding: 2.5rem;
+}
+
+.galleries > div:nth-child(3) > p {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  margin: 0;
+}
+
+.contentWhyUs {
+  border-radius: 0.25rem;
+  background-color: var(--white-bg);
+  padding: 3rem 2.5rem;
+}
+
+.contentWhyUs > h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  color: var(--gray-800);
+  margin: 0;
+}
+
+.contentWhyUs > p {
+  margin: 0;
+  margin-top: 0.5rem;
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--gray-800);
+  font-family: 'Avenir', sans-serif;
+}
+
+.contentWhyUs > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.contentWhyUs > div > div:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.testimonials {
+  padding-top: 5rem;
+}
+
+.testimonials > h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  color: var(--gray-800);
+  margin: 0;
+}
+
+.testimonials > p {
+  margin: 0;
+  margin-top: 0.5rem;
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--gray-800);
+  font-family: 'Avenir', sans-serif;
+}
+
+.testimonials > div:not(.overlayLeft, .overlayRight) {
+  display: flex;
+  overflow: auto;
+  margin-top: 1.5rem;
+}
+
+.testimonials > div > div:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.overlayLeft {
+  background: linear-gradient(90deg, #FFF5F1 1.23%, rgba(255, 255, 255, 0) 67.57%);
+  position: relative;
+  height: 8rem;
+  z-index: 2;
+  top: -7.5rem;
+  left: -0.05rem;
+  width: 15rem;
+}
+
+.overlayRight {
+  background: linear-gradient(270deg, #FFF5F1 1.23%, rgba(255, 255, 255, 0) 67.57%);
+  position: relative;
+  height: 8rem;
+  z-index: 2;
+  top: -15.5rem;
+  right: -0.1rem;
+  width: 15rem;
+  float: right;
 }

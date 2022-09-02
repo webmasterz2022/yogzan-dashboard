@@ -6,9 +6,9 @@ export default function Button(props) {
   const classname = [styles.root, styles[variant], className].join(' ')
 
   return (
-    <button className={classname} onClick={handleClick}>
+    <button className={classname} onClick={handleClick} type="button">
       {icon && <img className={styles.icon} src={icon} />}
-      {children}
+      <p>{children}</p>
     </button>
   )
 }

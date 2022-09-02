@@ -1,0 +1,38 @@
+.root {
+  background-color: var(--white-bg);
+  border-radius: 0.25rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  max-width: 17.5rem;
+  max-height: 5.875rem;
+  width: fit-content;
+  height: fit-content;
+}
+
+.root > img {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 1rem;
+  border-radius: 6.25rem;
+  object-fit: cover;
+}
+
+.root > div > p:first-child {
+  margin: 0;
+  font-family: 'Avenir', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--gray-800);
+  width: 12rem;
+}
+
+.root > div > p:last-child {
+  margin: 0;
+  margin-top: 1rem;
+  font-family: 'Avenir', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  width: 12rem;
+  color: var(--primary);
+}

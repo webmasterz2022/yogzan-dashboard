@@ -3,7 +3,13 @@ import styles from './styles.module.css'
 import logo from '../../assets/logo-dark.svg'
 import sampleVertical from '../../assets/sample-vertical.png'
 import sampleHorizontal from '../../assets/sample-horizontal.png'
+import write from '../../assets/writebook.svg'
+import world from '../../assets/worldconnect.svg'
+import schedule from '../../assets/scheduled.svg'
 import Button from '../../components/Button'
+import CategoryCard from '../../components/CategoryCard'
+import CardChooseUs from '../../components/CardChooseUs'
+import CardTestimony from '../../components/CardTestimony'
 
 export default function Home() {
   const galleryRef = useRef()
@@ -13,6 +19,40 @@ export default function Home() {
       galleryRef.current.scrollTo(0, window.screen.height/6)
     }, 100)
   }, [])
+
+  const categories = [
+    {
+      image: sampleHorizontal,
+      title: 'Graduation',
+      handleClick: () => {}
+    },{
+      image: sampleVertical,
+      title: 'Marriage',
+      handleClick: () => {}
+    },{
+      image: sampleHorizontal,
+      title: 'Family & Event',
+      handleClick: () => {}
+    }
+  ]
+
+  const chooseUs = [
+    {
+      image: write,
+      title: 'Hassle-Free Booking',
+      desc: 'Get inspired with some of the best ideas for your holiday photo shoot'
+    },{
+      image: world,
+      title: 'Hassle-Free Booking',
+      desc: 'Get inspired with some of the best ideas for your holiday photo shoot'
+    },{
+      image: schedule,
+      title: 'Hassle-Free Booking',
+      desc: 'Get inspired with some of the best ideas for your holiday photo shoot'
+    }
+  ]
+
+  console.log([...Array(10).keys()])
 
   return (
     <section className={styles.root}>
@@ -44,8 +84,36 @@ export default function Home() {
           <img className={styles.duabelas} alt="im" src={sampleVertical}/>
         </div>
         <div>
-          
+          <p>Category</p>
+          {categories.map(category => (
+            <CategoryCard key={category.title} {...category} />
+          ))}
         </div>
+      </div>
+      <div className={styles.contentWhyUs}>
+        <h3>Why choose us?</h3>
+        <p>Get inspired with some of the best ideas for your holiday photo shoot</p>
+        <div>
+          {chooseUs.map((why, idx) => (
+            <CardChooseUs key={idx} {...why} />
+          ))}
+        </div>
+      </div>
+      <div className={styles.testimonials}>
+        <h3>Why choose us?</h3>
+        <p>Get inspired with some of the best ideas for your holiday photo shoot</p>
+        <div>
+          {[...Array(10).keys()].map((_, idx) => (
+            <CardTestimony
+            key={idx}
+            image={sampleVertical}
+            desc="Harga terjangkau kualitas terbaik"
+            name="husamaziz"
+            />
+            ))}
+        </div>
+        <div className={styles.overlayLeft}/>
+        <div className={styles.overlayRight}/>
       </div>
     </section>
   )

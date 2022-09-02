@@ -51,5 +51,7 @@
   --primary: #512B58;
   --gray-25: #FCFCFD;
   --white: #FFFFFF;
-
+  --white-bg: #FFFDFD;
+  --gray-800: #1F2A37;
+  --light-blue: #D9F0F7;
 }

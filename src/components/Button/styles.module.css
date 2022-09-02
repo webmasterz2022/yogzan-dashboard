@@ -5,15 +5,21 @@
   font-weight: 700;
   border: none;
   width: auto;
-  height: fit-content;
   align-items: center;
+  justify-content: center;
   line-height: 1px;
+  cursor: pointer;
 }
 
 .root > .icon {
   margin-right: 0.25rem;
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.root > p {
+  margin: 0;
+  line-height: 1rem;
 }
 
 .active-rounded {
