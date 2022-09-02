@@ -52,8 +52,6 @@ export default function Home() {
     }
   ]
 
-  console.log([...Array(10).keys()])
-
   return (
     <section className={styles.root}>
       <div className={styles.header}>
