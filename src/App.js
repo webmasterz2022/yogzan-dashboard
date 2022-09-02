@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Gallery from './pages/Gallery';
 import Navbar from './components/Navbar';
 import { routes } from './configs/routes';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path={routes.GALLERY()} element={<Gallery />} />
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }
