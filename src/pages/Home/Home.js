@@ -17,7 +17,7 @@ export default function Home() {
     setTimeout(() => {
       galleryRef.current.scrollTo(0, window.screen.height/6)
     }, 100)
-  }, [])
+  }, [galleryRef])
 
   const categories = [
     {

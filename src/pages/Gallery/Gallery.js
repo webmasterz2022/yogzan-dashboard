@@ -48,20 +48,46 @@ export default function Gallery() {
         </div>
       </div>
       <div className={styles.galleries}>
-        <img src={sampleHorizontal} alt="img" />
-        <img src={sampleVertical} alt="img1" />
-        <img src={sampleHorizontal} alt="img" />
-        <img src={sampleVertical} alt="img1" />
-        <img src={sampleHorizontal} alt="img" />
-        <img src={sampleVertical} alt="img1" />
-        <img src={sampleHorizontal} alt="img" />
-        <img src={sampleVertical} alt="img1" />
-        <img src={sampleHorizontal} alt="img" />
-        <img src={sampleVertical} alt="img1" />
-        <img src={sampleHorizontal} alt="img" />
-        <img src={sampleVertical} alt="img1" />
-        <img src={sampleHorizontal} alt="img" />
-        <img src={sampleVertical} alt="img1" />
+        <div>
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleVertical} alt="img1" />
+        </div>
+        <div>
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleHorizontal} alt="img" />
+        </div>
+        <div>
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleVertical} alt="img1" />
+        </div>
+        <div>
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleVertical} alt="img1" />
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleHorizontal} alt="img" />
+        </div>
       </div>
     </div>
   )
