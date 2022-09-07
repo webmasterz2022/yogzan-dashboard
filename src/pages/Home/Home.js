@@ -65,7 +65,7 @@ export default function Home() {
         <div ref={galleryRef}>
           <img className={styles.satu} alt="im" src={sampleVertical}/>
           <img className={styles.dua} alt="im" src={sampleVertical}/>
-          {/* <div className={styles.empty} /> */}
+          <div className={styles.empty} />
           <img className={styles.tiga} alt="im" src={sampleHorizontal}/>
           <img className={styles.empat} alt="im" src={sampleVertical}/>
           <img className={styles.lima} alt="im" src={sampleVertical}/>

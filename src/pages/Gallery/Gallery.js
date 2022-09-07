@@ -51,8 +51,8 @@ export default function Gallery() {
         <div>
           <img src={sampleHorizontal} alt="img" />
           <img src={sampleVertical} alt="img1" />
-          <img src={sampleVertical} alt="img1" />
           <img src={sampleHorizontal} alt="img" />
+          <img src={sampleVertical} alt="img1" />
           <img src={sampleHorizontal} alt="img" />
           <img src={sampleVertical} alt="img1" />
           <img src={sampleHorizontal} alt="img" />
@@ -71,21 +71,21 @@ export default function Gallery() {
         <div>
           <img src={sampleHorizontal} alt="img" />
           <img src={sampleVertical} alt="img1" />
-          <img src={sampleVertical} alt="img1" />
-          <img src={sampleHorizontal} alt="img" />
           <img src={sampleHorizontal} alt="img" />
           <img src={sampleVertical} alt="img1" />
           <img src={sampleHorizontal} alt="img" />
+          <img src={sampleHorizontal} alt="img" />
+          <img src={sampleVertical} alt="img1" />
           <img src={sampleVertical} alt="img1" />
         </div>
         <div>
           <img src={sampleVertical} alt="img1" />
-          <img src={sampleVertical} alt="img1" />
           <img src={sampleHorizontal} alt="img" />
           <img src={sampleVertical} alt="img1" />
           <img src={sampleHorizontal} alt="img" />
           <img src={sampleVertical} alt="img1" />
           <img src={sampleHorizontal} alt="img" />
+          <img src={sampleVertical} alt="img1" />
           <img src={sampleHorizontal} alt="img" />
         </div>
       </div>
