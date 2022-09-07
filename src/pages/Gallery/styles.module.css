@@ -1,0 +1,60 @@
+.root {
+  padding: 1.5rem 7.75rem 1rem;
+  text-align: left;
+}
+
+.root > h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 2.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.filters > .groupButton {
+  display: flex;
+  align-items: center;
+}
+
+.groupButton > button:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.activeButton {
+  display: flex;
+  align-items: center;
+}
+
+.activeButton > img {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+.galleries {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: repeat(10, 8rem);
+  column-gap: 1rem;
+  row-gap: 1rem;
+}
+
+.galleries > img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  border-radius: 0.25rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .root {
+    padding: 1.5rem 0 !important;
+    display: none;
+  }
+}

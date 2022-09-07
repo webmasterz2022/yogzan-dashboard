@@ -34,7 +34,6 @@ export default function Footer() {
           <div>
             <Button icon={portfolioLight} variant="active-rounded" handleClick={() => navigate(routes.GALLERY())}>Portfolio</Button>
             <Button icon={hiringLight} variant="active-rounded" handleClick={() => {}}>Hiring</Button>
-            <Button icon={portfolioLight} variant="active-rounded" handleClick={() => navigate(routes.GALLERY())}>Portfolio</Button>
           </div>
           <div>
             <p>Hubungi Kami</p>

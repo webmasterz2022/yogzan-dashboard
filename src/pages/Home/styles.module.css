@@ -175,3 +175,179 @@
   width: 15rem;
   float: right;
 }
+
+@media only screen and (max-width: 768px) {
+  .root {
+    margin-top: 80px;
+    padding: 24px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .root > .header > img {
+    width: 280px;
+    height: 87px;
+  }
+
+  .heading {
+    font-family: 'Avenir', sans-serif;
+    margin-top: 24px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 0 40px;
+    text-align: left;
+  }
+
+  .galleries {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 0 543px 227px;
+    row-gap: 24px;
+    padding-top: 0;
+    width: 100vw;
+  }
+
+  .satu { grid-area: satu; }
+  .dua { grid-area: dua; }
+  .tiga { grid-area: tiga; }
+  .empat { grid-area: empat; }
+  .lima { grid-area: lima;}
+  .enam { grid-area: enam; }
+  .tujuh { grid-area: tujuh; }
+  .delapan { grid-area: delapan; }
+  .sembilan { grid-area: sembilan;}
+  .sepuluh { grid-area: sepuluh;}
+  .sebelas { grid-area: sebelas; }
+  .duabelas { grid-area: duabelas;}
+
+  .galleries > div:nth-child(2) {
+    margin: 0;
+    height: 543px;
+    max-height: 543px;
+    max-width: 100%;
+    display: grid;
+    grid-template-areas: 
+    'satu satu empty empty empty empat empat lima lima'
+    'satu satu dua tiga tiga empat empat lima lima'
+    'enam enam dua tiga tiga empat empat sepuluh sepuluh'
+    'enam enam tujuh delapan delapan delapan sembilan sembilan sepuluh'
+    'enam enam button delapan delapan delapan sembilan sembilan sepuluh'
+    'sebelas sebelas sebelas delapan delapan delapan duabelas duabelas duabelas'
+    'sebelas sebelas sebelas delapan delapan delapan duabelas duabelas duabelas';
+    gap: 16px;
+    overflow-x: scroll;
+  }
+
+  .galleries > div:nth-child(2) > img {
+    border-radius: 4px;
+  }
+
+  .galleries > div:nth-child(2) > button {
+    width: 177px;
+    height: 48px;
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .galleries > div:nth-child(3) {
+    padding: 0;
+  }
+  .galleries > div:nth-child(3) > p  {
+    padding-left: 40px;
+    font-size: 24px;
+    line-height: 27px;
+    text-align: left;
+    margin-bottom: 16px;
+  }
+
+  .galleries > div:nth-child(3) > div {
+    display: flex;
+    overflow: scroll;
+    position: relative;
+    padding: 0 40px 20px;
+  }
+
+  .galleries > div:nth-child(3) > div > div {
+    margin-right: 10px;
+  }
+
+  .overlay {
+    width: 100vw;
+    height: 552px;
+    top: 20px;
+  }
+
+  .contentWhyUs {
+    border-radius: 0;
+    background-color: var(--white-bg);
+    text-align: left;
+    padding: 40px 0;
+    width: 100vw;
+  }
+  
+  .contentWhyUs > h3 {
+    font-size: 24px;
+    line-height: 26px;
+    margin: 0;
+    padding: 0 40px;
+  }
+  
+  .contentWhyUs > p {
+    padding: 0 40px;
+    margin: 0;
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  .contentWhyUs > div {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px;
+  }
+  
+  .contentWhyUs > div > div:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  .testimonials {
+    padding-top: 40px;
+    text-align: left;
+    width: 100vw;
+  }
+  
+  .testimonials > h3 {
+    font-size: 24px;
+    line-height: 26px;
+    padding: 0 40px;
+  }
+  
+  .testimonials > p {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0 40px;
+  }
+  
+  .testimonials > div:not(.overlayLeft, .overlayRight) {
+    display: flex;
+    overflow: auto;
+    margin-top: 24px;
+    padding: 0 40px 20px;
+
+  }
+  
+  .testimonials > div > div:not(:last-child) {
+    margin-right: 8px;
+  }  
+
+  .overlayLeft,
+  .overlayRight {
+    display: none;
+  }
+}

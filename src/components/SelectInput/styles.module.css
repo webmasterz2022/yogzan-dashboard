@@ -1,0 +1,17 @@
+.root {
+  width: 19.5rem;
+  padding: 0.5rem;
+  border: solid 1px var(--tertiary-30);
+  border-radius: 0.5rem;
+}
+
+.root > option {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+.root > option:first-child {
+  display: none;
+}
+

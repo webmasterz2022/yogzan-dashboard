@@ -44,3 +44,36 @@
   color: var(--primary);
   background-color: var(--white);
 }
+
+@media only screen and (max-width: 768px) {
+  .root {
+    padding: 8px 16px;
+    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    line-height: 1px;
+    cursor: pointer;
+  }
+
+  .root > .icon {
+    margin-right: 4px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .active-rounded {
+    border-radius: 24px;
+  }
+
+  .negative > p {
+    display: none;
+  }
+
+  .highlight-rounded > p {
+    display: none;
+  }
+}

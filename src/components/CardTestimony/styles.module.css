@@ -8,6 +8,7 @@
   max-height: 5.875rem;
   width: fit-content;
   height: fit-content;
+  box-shadow: 0px 11px 12px -4px rgba(138, 132, 130, 0.21);
 }
 
 .root > img {
@@ -35,4 +36,36 @@
   line-height: 1rem;
   width: 12rem;
   color: var(--primary);
+}
+
+@media only screen and (max-width: 768px) {
+  .root {
+    border-radius: 4px;
+    padding: 16px;
+    width: 280px;
+    height: 94px;
+    max-width: 280px;
+    max-height: 94px;
+  }
+  
+  .root > img {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    border-radius: 100px;
+    object-fit: cover;
+  }
+  
+  .root > div > p:first-child {
+    font-size: 14px;
+    line-height: 20px;
+    width: 192px;
+  }
+  
+  .root > div > p:last-child {
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 16px;
+    width: 192px;
+  }
 }

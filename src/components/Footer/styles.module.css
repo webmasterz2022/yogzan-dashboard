@@ -20,7 +20,7 @@
   align-self: stretch;
 }
 
-.booking > h3 {
+.booking > div > h3 {
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 1.75rem;
@@ -28,7 +28,7 @@
   margin: 0;
 }
 
-.booking > p {
+.booking > div > p {
   margin: 0;
   margin-top: 0.5rem;
   font-weight: 300;
@@ -111,4 +111,88 @@
   line-height: 1.375rem;
   color: var(--gray-25);
   font-weight: 700;
+}
+
+@media only screen and (max-width: 768px) {  
+  .root > .booking {
+    padding: 40px;
+    display: block;
+    background-size: cover;
+  }
+  
+  .booking > div > h3 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  
+  .booking > div > p {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  .booking > button {
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  
+  .details > div:first-child {
+    padding: 40px;
+    display: block;
+  }
+  
+  .details > div:first-child > div:first-child {
+    margin-bottom: 32px;
+  }
+  
+  .details > div:first-child > div:first-child > .logo {
+    width: 280px;
+    height: 80px;
+    margin-bottom: 40px;
+  }
+  
+  .details > div:first-child > div:first-child > div > .socmed {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+  }
+  
+  .details > div:first-child > div:nth-child(2) {
+    display: none;
+  }
+  
+  .details > div:first-child > div:nth-child(3) > p {
+    margin: 0;
+    margin-bottom: 16px;
+  }
+  
+  .details > div:first-child > div:nth-child(3) > p:first-child {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  
+  .details > div:first-child > div:nth-child(3) > p:nth-child(2),
+  .details > div:first-child > div:nth-child(3) > p:nth-child(3),
+  .details > div:first-child > div:nth-child(3) > p:nth-child(4) {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  .details > div:nth-child(2) {
+    background-color: var(--gray-800);
+    padding: 0 40px 100px;
+  }
+  
+  .details > div:nth-child(2) > .line {
+    height: 2px;
+    margin-bottom: 24px;
+  }
+  
+  .details > div:nth-child(2) > p {
+    font-size: 14px;
+    line-height: 22px;
+  }
 }

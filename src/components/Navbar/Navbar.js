@@ -8,12 +8,14 @@ import portfolioPrimary from '../../assets/portfolio-primary.svg'
 import hiringLight from '../../assets/hiring-light.svg'
 import hiringPrimary from '../../assets/hiring-primary.svg'
 import bookingPrimary from '../../assets/booking-primary.svg'
+import appsIcon from '../../assets/apps.svg'
 import Button from '../Button'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { routes } from '../../configs/routes'
+import { getDeviceType } from '../../utils'
 
 export default function Navbar() {
-
+  const device = getDeviceType()
   const { pathname } = useLocation()
   const navigate = useNavigate()
 
@@ -43,6 +45,11 @@ export default function Navbar() {
 
   return (
     <div className={styles.root}>
+      {device === 'mobile' && (
+        <div className={styles.topBar}>
+          <img src={appsIcon} />
+        </div>
+      )}
       <img src={logoDark} alt="yogzan"/>
       <div className={styles.menuBar}>
         {menus.map((menu, idx) => (

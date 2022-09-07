@@ -13,7 +13,6 @@ import CardTestimony from '../../components/CardTestimony'
 
 export default function Home() {
   const galleryRef = useRef()
-
   useEffect(() => {
     setTimeout(() => {
       galleryRef.current.scrollTo(0, window.screen.height/6)
@@ -66,7 +65,7 @@ export default function Home() {
         <div ref={galleryRef}>
           <img className={styles.satu} alt="im" src={sampleVertical}/>
           <img className={styles.dua} alt="im" src={sampleVertical}/>
-          <div className={styles.empty} />
+          {/* <div className={styles.empty} /> */}
           <img className={styles.tiga} alt="im" src={sampleHorizontal}/>
           <img className={styles.empat} alt="im" src={sampleVertical}/>
           <img className={styles.lima} alt="im" src={sampleVertical}/>
@@ -83,9 +82,11 @@ export default function Home() {
         </div>
         <div>
           <p>Category</p>
-          {categories.map(category => (
-            <CategoryCard key={category.title} {...category} />
-          ))}
+          <div>
+            {categories.map(category => (
+              <CategoryCard key={category.title} {...category} />
+            ))}
+          </div>
         </div>
       </div>
       <div className={styles.contentWhyUs}>
@@ -98,7 +99,7 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.testimonials}>
-        <h3>Why choose us?</h3>
+        <h3>What they say?</h3>
         <p>Get inspired with some of the best ideas for your holiday photo shoot</p>
         <div>
           {[...Array(10).keys()].map((_, idx) => (
