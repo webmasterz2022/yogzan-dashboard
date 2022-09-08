@@ -21,19 +21,84 @@
   padding-top: 2.5rem;
 }
 
-.satu { grid-area: satu; }
-.dua { grid-area: dua; }
-.tiga { grid-area: tiga; }
-.empat { grid-area: empat; }
-.lima { grid-area: lima; }
-.enam { grid-area: enam; }
-.tujuh { grid-area: tujuh; }
-.delapan { grid-area: delapan; }
-.sembilan { grid-area: sembilan; }
-.sepuluh { grid-area: sepuluh; }
-.sebelas { grid-area: sebelas; }
-.duabelas { grid-area: duabelas; }
-.empty { grid-area: empty; }
+.satu { 
+  grid-area: satu; 
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.dua { 
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+.tiga { 
+  grid-area: tiga; 
+  grid-column-start: 4;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+.empat { 
+  grid-area: empat; 
+  grid-column-start: 6;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+.lima { 
+  grid-area: lima; 
+  grid-column-start: 7;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.enam { 
+  grid-area: enam;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 7;
+}
+.tujuh { 
+  grid-area: tujuh; 
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 4;
+  grid-row-end: 6;
+}
+.delapan {
+  grid-area: delapan;
+  grid-column-start: 5;
+  grid-column-end: 7;
+  grid-row-start: 4;
+  grid-row-end: 9;
+  object-position: top;
+}
+.sembilan { 
+  grid-area: sembilan; 
+  grid-column-start: 7;
+  grid-column-end: 9;
+  grid-row-start: 3;
+  grid-row-end: 7;
+}
+.sepuluh { 
+  grid-area: sepuluh; 
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 7;
+  grid-row-end: 9;
+}
+.sebelas { 
+  grid-area: sebelas; 
+  grid-column-start: 7;
+  grid-column-end: 9;
+  grid-row-start: 7;
+  grid-row-end: 9;
+}
+
 .galleries > div:nth-child(2) > button { 
   grid-area: button; 
   padding: 1rem;
@@ -42,6 +107,10 @@
   line-height: 1rem;
   z-index: 2;
   box-shadow: 0px 11px 12px -4px rgba(138, 132, 130, 0.21);
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 6;
+  grid-row-end: 7;
 }
 
 .galleries > div:nth-child(2) > img {
@@ -49,6 +118,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: fadeIn 3s;
+  -moz-animation: fadeIn 3s; /* Firefox */
+  -webkit-animation: fadeIn 3s; /* Safari and Chrome */
+  -o-animation: fadeIn 3s; /* Opera */
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .galleries > div:nth-child(2) {
@@ -56,14 +134,8 @@
   max-height: 23rem;
   margin-right: 1.5rem;
   display: grid;
-  grid-template-areas: 
-    'satu satu empty empty empty empat empat lima lima'
-    'satu satu empty empty empty empat empat lima lima'
-    'satu satu dua tiga tiga empat empat lima lima'
-    'enam enam dua tiga tiga empat empat sepuluh sepuluh'
-    'enam enam tujuh tujuh delapan delapan sembilan sepuluh sepuluh'
-    'enam enam button button delapan delapan sembilan sepuluh sepuluh'
-    'sebelas sebelas sebelas sebelas delapan delapan duabelas duabelas duabelas';
+  grid-template-columns: repeat(7, 5rem);
+  grid-template-rows: repeat(7, 2.3rem);
   gap: 1rem;
   overflow: hidden;
 }
@@ -125,6 +197,8 @@
 
 .testimonials {
   padding-top: 5rem;
+  max-height: 15rem;
+  overflow: hidden;
 }
 
 .testimonials > h3 {
@@ -146,6 +220,7 @@
 }
 
 .testimonials > div:not(.overlayLeft, .overlayRight) {
+  padding-bottom: 1.5rem;
   display: flex;
   overflow: auto;
   margin-top: 1.5rem;
@@ -210,18 +285,52 @@
     width: 100vw;
   }
 
-  .satu { grid-area: satu; }
-  .dua { grid-area: dua; }
-  .tiga { grid-area: tiga; }
-  .empat { grid-area: empat; }
-  .lima { grid-area: lima;}
-  .enam { grid-area: enam; }
-  .tujuh { grid-area: tujuh; }
-  .delapan { grid-area: delapan; }
-  .sembilan { grid-area: sembilan;}
-  .sepuluh { grid-area: sepuluh;}
-  .sebelas { grid-area: sebelas; }
-  .duabelas { grid-area: duabelas;}
+  .satu { 
+    grid-area: satu; 
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 4;
+  }
+  .dua { 
+    grid-area: dua;
+    grid-column-start: 6;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    grid-row-end: 5;
+  }
+  .tiga { 
+    grid-area: tiga; 
+    grid-column-start: 8;
+    grid-column-end: 10;
+    grid-row-start: 1;
+    grid-row-end: 5;
+  }
+  .empat { 
+    grid-area: empat; 
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 10;
+  }
+  .lima { 
+    grid-area: lima; 
+    grid-column-start: 6;
+    grid-column-end: 10;
+    grid-row-start: 5;
+    grid-row-end: 8;
+  }
+  .enam { 
+    grid-area: enam;
+    grid-column-start: 1;
+    grid-column-end: 10;
+    grid-row-start: 10;
+    grid-row-end: 15;
+  }
+
+  .tujuh, .delapan, .sembilan, .sepuluh, .sebelas {
+    display: none;
+  }
 
   .galleries > div:nth-child(2) {
     margin: 0;
@@ -229,14 +338,8 @@
     max-height: 543px;
     max-width: 100%;
     display: grid;
-    grid-template-areas: 
-    'satu satu empty empty empty empat empat lima lima'
-    'satu satu dua tiga tiga empat empat lima lima'
-    'enam enam dua tiga tiga empat empat sepuluh sepuluh'
-    'enam enam tujuh delapan delapan delapan sembilan sembilan sepuluh'
-    'enam enam button delapan delapan delapan sembilan sembilan sepuluh'
-    'sebelas sebelas sebelas delapan delapan delapan duabelas duabelas duabelas'
-    'sebelas sebelas sebelas delapan delapan delapan duabelas duabelas duabelas';
+    grid-template-columns: repeat(8, 20px);
+    grid-template-rows: repeat(15, 20px);
     gap: 16px;
     overflow-x: scroll;
   }
@@ -246,10 +349,14 @@
   }
 
   .galleries > div:nth-child(2) > button {
-    width: 177px;
+    width: fill;
     height: 48px;
     border-radius: 8px;
     padding: 16px;
+    grid-column-start: 6;
+    grid-column-end: 10;
+    grid-row-start: 8;
+    grid-row-end: 10;
   }
 
   .galleries > div:nth-child(3) {
@@ -277,7 +384,7 @@
   .overlay {
     width: 100vw;
     height: 552px;
-    top: 20px;
+    top: -30px;
   }
 
   .contentWhyUs {
@@ -319,6 +426,8 @@
     padding-top: 40px;
     text-align: left;
     width: 100vw;
+    max-height: fit-content;
+    height: fit-content;
   }
   
   .testimonials > h3 {
@@ -339,7 +448,6 @@
     overflow: auto;
     margin-top: 24px;
     padding: 0 40px 20px;
-
   }
   
   .testimonials > div > div:not(:last-child) {

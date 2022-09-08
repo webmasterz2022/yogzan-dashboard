@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.css'
 import logo from '../../assets/logo-dark.svg'
 import sampleVertical from '../../assets/sample-vertical.png'
@@ -10,14 +10,32 @@ import Button from '../../components/Button'
 import CategoryCard from '../../components/CategoryCard'
 import CardChooseUs from '../../components/CardChooseUs'
 import CardTestimony from '../../components/CardTestimony'
+// import { getHomepageImages } from '../../store/action'
+import { useSelector } from 'react-redux'
+import { shuffle } from '../../utils'
 
 export default function Home() {
-  const galleryRef = useRef()
+  // const dispatch = useDispatch()
+  const { homepageImages } = useSelector(s => s)
+  const [images, setImages] = useState([])
+
   useEffect(() => {
-    setTimeout(() => {
-      galleryRef.current.scrollTo(0, window.screen.height/6)
-    }, 100)
-  }, [galleryRef])
+    // dispatch(getHomepageImages())
+  }, [])
+
+  useEffect(() => {
+    let timer;
+    const shuffled = shuffle(homepageImages)
+    if(images.length === 0) {
+      setImages(shuffled.slice(0, 11))
+    } 
+    timer = setInterval(() => {
+      setImages(shuffled.slice(0, 11))
+    }, 10000)
+    return () => {
+      clearInterval(timer)
+    }
+  }, [homepageImages])
 
   const categories = [
     {
@@ -62,23 +80,21 @@ export default function Home() {
       </div>
       <div className={styles.galleries}>
         <div className={styles.overlay} />
-        <div ref={galleryRef}>
-          <img className={styles.satu} alt="im" src={sampleVertical}/>
-          <img className={styles.dua} alt="im" src={sampleVertical}/>
-          <div className={styles.empty} />
-          <img className={styles.tiga} alt="im" src={sampleHorizontal}/>
-          <img className={styles.empat} alt="im" src={sampleVertical}/>
-          <img className={styles.lima} alt="im" src={sampleVertical}/>
+        <div>
+          <img className={styles.satu} alt="im" src={images[0]}/>
+          <img className={styles.dua} alt="im" src={images[1]}/>
+          <img className={styles.tiga} alt="im" src={images[2]}/>
+          <img className={styles.empat} alt="im" src={images[3]}/>
+          <img className={styles.lima} alt="im" src={images[4]}/>
 
-          <img className={styles.enam} alt="im" src={sampleVertical}/>
-          <img className={styles.tujuh} alt="im" src={sampleHorizontal}/>
+          <img className={styles.enam} alt="im" src={images[5]}/>
+          <img className={styles.tujuh} alt="im" src={images[6]}/>
           <Button variant="active-square">Book Now</Button>
-          <img className={styles.delapan} alt="im" src={sampleVertical}/>
-          <img className={styles.sembilan} alt="im" src={sampleVertical}/>
-          <img className={styles.sepuluh} alt="im" src={sampleHorizontal}/>
+          <img className={styles.delapan} alt="im" src={images[7]}/>
+          <img className={styles.sembilan} alt="im" src={images[8]}/>
+          <img className={styles.sepuluh} alt="im" src={images[9]}/>
 
-          <img className={styles.sebelas} alt="im" src={sampleHorizontal}/>
-          <img className={styles.duabelas} alt="im" src={sampleVertical}/>
+          <img className={styles.sebelas} alt="im" src={images[10]}/>
         </div>
         <div>
           <p>Category</p>
