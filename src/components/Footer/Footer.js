@@ -5,8 +5,8 @@ import logo from '../../assets/logo-light.svg'
 import facebook from '../../assets/facebook.svg'
 import instagram from '../../assets/instagram.svg'
 import whatsapp from '../../assets/whatsapp.svg'
-import portfolioLight from '../../assets/portfolio-light.svg'
 import hiringLight from '../../assets/hiring-light.svg'
+import bookingLight from '../../assets/booking-light.svg'
 import { useNavigate } from 'react-router-dom'
 import { routes } from '../../configs/routes'
 
@@ -32,7 +32,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <Button icon={portfolioLight} variant="active-rounded" handleClick={() => navigate(routes.GALLERY())}>Portfolio</Button>
+            <Button icon={bookingLight} variant="active-rounded" handleClick={() => navigate(routes.GALLERY())}>Book now!</Button>
             <Button icon={hiringLight} variant="active-rounded" handleClick={() => {}}>Hiring</Button>
           </div>
           <div>

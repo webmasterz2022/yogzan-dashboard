@@ -67,6 +67,7 @@
 
 .details > div:first-child > div:nth-child(2) {
   margin-right: 2rem;
+  white-space: nowrap;
 }
 
 .details > div:first-child > div:nth-child(2) > button {
