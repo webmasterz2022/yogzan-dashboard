@@ -12,7 +12,7 @@ import appsIcon from '../../assets/apps.svg'
 import Button from '../Button'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { routes } from '../../configs/routes'
-import { getDeviceType } from '../../utils'
+import { bookingViaWA, getDeviceType } from '../../utils'
 
 export default function Navbar() {
   const device = getDeviceType()
@@ -21,24 +21,24 @@ export default function Navbar() {
 
   const menus = [
     {
-      title: 'Home',
+      title: 'Beranda',
       icon: routes.HOMEPAGE() === pathname ? homeLight : homePrimary,
       handleClick: () => navigate(routes.HOMEPAGE()),
       variant: routes.HOMEPAGE() === pathname ? 'active-rounded' : 'negative',
     },{
-      title: 'Portfolio',
+      title: 'Galeri',
       icon: routes.GALLERY() === pathname ? portfolioLight : portfolioPrimary,
       handleClick: () => navigate(routes.GALLERY()),
       variant: routes.GALLERY() === pathname ? 'active-rounded' : 'negative',
     },{
-      title: 'Hiring',
+      title: 'Karir',
       icon: routes.HIRING() === pathname ? hiringLight : hiringPrimary,
       handleClick: () => { },
       variant: routes.HIRING() === pathname ? 'active-rounded' : 'negative',
     },{
-      title: 'Book Now!',
+      title: 'Pesan Sekarang!',
       icon: bookingPrimary,
-      handleClick: () => { },
+      handleClick: bookingViaWA,
       variant: 'highlight-rounded',
     }
   ]

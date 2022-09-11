@@ -8,11 +8,21 @@
   width: 14.6875rem;
 }
 
-.heading {
-  font-family: 'Avenir', sans-serif;
+.heading1 {
+  text-align: left;
   margin-top: 1.5rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+}
+
+.heading2 {
+  font-family: 'Avenir', sans-serif;
+  text-align: left;
+  margin-top: 0.5rem;
   font-weight: 500;
   font-size: 1rem;
+  line-height: 1.375rem;
 }
 
 .galleries {
@@ -150,11 +160,12 @@
 }
 
 .galleries > div:nth-child(3) {
-  padding: 2.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(24.22deg, #D9F0F7 -46.53%, rgba(217, 240, 247, 0) 88.83%);
 }
 
 .galleries > div:nth-child(3) > p {
-  font-weight: 400;
+  font-weight: 700;
   font-size: 0.875rem;
   line-height: 1rem;
   margin: 0;
@@ -185,19 +196,15 @@
 }
 
 .contentWhyUs > div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
   margin-top: 1rem;
-}
-
-.contentWhyUs > div > div:not(:last-child) {
-  margin-right: 0.5rem;
 }
 
 .testimonials {
   padding-top: 5rem;
-  max-height: 15rem;
+  max-height: 24rem;
   overflow: hidden;
 }
 
@@ -233,9 +240,9 @@
 .overlayLeft {
   background: linear-gradient(90deg, #FFF5F1 1.23%, rgba(255, 255, 255, 0) 67.57%);
   position: relative;
-  height: 8rem;
+  height: 15.125rem;
   z-index: 2;
-  top: -7.5rem;
+  top: -16.5rem;
   left: -0.05rem;
   width: 15rem;
 }
@@ -243,9 +250,9 @@
 .overlayRight {
   background: linear-gradient(270deg, #FFF5F1 1.23%, rgba(255, 255, 255, 0) 67.57%);
   position: relative;
-  height: 8rem;
+  height: 15.125rem;
   z-index: 2;
-  top: -15.5rem;
+  top: -31.5rem;
   right: -0.1rem;
   width: 15rem;
   float: right;
@@ -266,14 +273,20 @@
     height: 87px;
   }
 
-  .heading {
-    font-family: 'Avenir', sans-serif;
+  .heading1 {
     margin-top: 24px;
-    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    padding: 0 40px;
+}
+  
+  .heading2 {
+    margin-top: 8px;
     font-size: 16px;
     line-height: 22px;
+    text-align: center;
     padding: 0 40px;
-    text-align: left;
   }
 
   .galleries {
@@ -360,7 +373,7 @@
   }
 
   .galleries > div:nth-child(3) {
-    padding: 0;
+    padding: 24px 0;
   }
   .galleries > div:nth-child(3) > p  {
     padding-left: 40px;

@@ -5,21 +5,19 @@ import logo from '../../assets/logo-light.svg'
 import facebook from '../../assets/facebook.svg'
 import instagram from '../../assets/instagram.svg'
 import whatsapp from '../../assets/whatsapp.svg'
+import youtube from '../../assets/youtube.svg'
 import hiringLight from '../../assets/hiring-light.svg'
 import bookingLight from '../../assets/booking-light.svg'
-import { useNavigate } from 'react-router-dom'
-import { routes } from '../../configs/routes'
+import { bookingViaWA } from '../../utils'
 
 export default function Footer() {
-  const navigate = useNavigate()
   return (
     <section className={styles.root}>
       <div className={styles.booking}>
         <div>
-          <h3>What they say?</h3>
-          <p>Get inspired with some of the best ideas for your holiday photo shoot</p>
+          <p>Setiap momen punya cerita, dari cinta, perjuangan hingga air mata kebahagiaan. Abadikan setiap cerita berhargamu dengan layanan foto terbaik bersama Yogzan. </p>
         </div>
-        <Button variant="active-square">Book now!</Button>
+        <Button variant="active-square" handleClick={bookingViaWA}>Pesan Sekarang</Button>
       </div>
       <div className={styles.details}>
         <div>
@@ -29,16 +27,17 @@ export default function Footer() {
               <img className={styles.socmed} src={facebook} alt="FB" />
               <img className={styles.socmed} src={instagram} alt="IG" />
               <img className={styles.socmed} src={whatsapp} alt="WA" />
+              <img className={styles.socmed} src={youtube} alt="YT" />
             </div>
           </div>
           <div>
-            <Button icon={bookingLight} variant="active-rounded" handleClick={() => navigate(routes.GALLERY())}>Book now!</Button>
-            <Button icon={hiringLight} variant="active-rounded" handleClick={() => {}}>Hiring</Button>
+            <Button icon={bookingLight} variant="active-rounded" handleClick={bookingViaWA}>Pesan Sekarang</Button>
+            <Button icon={hiringLight} variant="active-rounded" handleClick={() => {}}>Karir</Button>
           </div>
           <div>
             <p>Hubungi Kami</p>
-            <p>info@yogzan.com</p>
-            <p>(+62)822-888-4737</p>
+            <p>asktoyogzan@gmail.com</p>
+            <p>(+62) 815-7474-3528</p>
             <p>Yogzan Tower, <br/> 
               Jalan Prof. Dr. Soepomo No 139, Tebet, Jakarta Selatan, Indonesia - 12810 
             </p>

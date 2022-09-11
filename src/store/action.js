@@ -5,7 +5,8 @@ export function getHomepageImages() {
     try {
       const { data } = await axios({
         method: 'get',
-        url: 'https://yogzan-server-dev.heroku.com/gallery/hompage'
+        url: 'https://yogzan-server-dev.herokuapp.com/gallery/homepage',
+        // url: 'http://localhost:5000/gallery/homepage',
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_HOMEPAGE' })
     } catch (error) {
@@ -19,7 +20,7 @@ export function getPortfolioImages(category) {
     try {
       const { data } = await axios({
         method: 'get',
-        url: `https://yogzan-server-dev.heroku.com/gallery/${category || ''}`
+        url: `https://yogzan-server-dev.herokuapp.com/gallery/category/${category || ''}`
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_PORTFOLIO' })
     } catch (error) {

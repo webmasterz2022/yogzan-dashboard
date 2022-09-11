@@ -16,7 +16,7 @@ code {
 
 @font-face {
   font-family: 'Avenir';
-  src: local('Avenir'), url(./assets/Avenir.otf) format('opentype');
+  src: local('Avenir'), url(./assets/AvenirBook.otf) format('opentype');
 }
 
 @font-face {

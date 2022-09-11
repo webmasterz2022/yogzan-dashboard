@@ -1,8 +1,5 @@
-import imgH from '../assets/sample-horizontal.png'
-import imgV from '../assets/sample-vertical.png'
-
 const initialState = {
-  homepageImages: [imgH, imgV, imgH, imgV, imgH, imgV, imgH, imgV, imgH, imgV, imgH, imgV, imgH, imgV, ],
+  homepageImages: [],
   portfolioImages: []
 }
 

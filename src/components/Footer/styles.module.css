@@ -30,12 +30,12 @@
 
 .booking > div > p {
   margin: 0;
-  margin-top: 0.5rem;
-  font-weight: 300;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2rem;
   color: var(--gray-800);
   font-family: 'Avenir', sans-serif;
+  max-width: 58.625rem;
 }
 
 .booking > button {
@@ -57,6 +57,10 @@
   height: 3.8125rem;
   margin-bottom: 2.5rem;
   margin-top: 1.125rem;
+}
+
+.details > div:first-child > div:first-child > div {
+  width: max-content;
 }
 
 .details > div:first-child > div:first-child > div > .socmed {
@@ -117,7 +121,9 @@
 @media only screen and (max-width: 768px) {  
   .root > .booking {
     padding: 40px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-size: cover;
   }
   
@@ -127,9 +133,10 @@
   }
   
   .booking > div > p {
-    margin-top: 8px;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 18px;
+    line-height: 24px;
+    max-width: unset;
+    text-align: center;
   }
   
   .booking > button {
@@ -138,6 +145,7 @@
     margin-top: 16px;
     font-size: 14px;
     line-height: 16px;
+    align-self: center;
   }
   
   .details > div:first-child {
