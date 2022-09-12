@@ -24,10 +24,10 @@ export default function Footer() {
           <div>
             <img className={styles.logo} src={logo} alt="Yogzan" />
             <div>
-              <img className={styles.socmed} src={facebook} alt="FB" />
-              <img className={styles.socmed} src={instagram} alt="IG" />
-              <img className={styles.socmed} src={whatsapp} alt="WA" />
-              <img className={styles.socmed} src={youtube} alt="YT" />
+              <img onClick={() => window.open('https://www.facebook.com/yogzanfotosinema', '_blank')} className={styles.socmed} src={facebook} alt="FB" />
+              <img onClick={() => window.open('https://www.instagram.com/yogzan.graduation/', '_blank')} className={styles.socmed} src={instagram} alt="IG" />
+              <img onClick={bookingViaWA} className={styles.socmed} src={whatsapp} alt="WA" />
+              <img onClick={() => window.open('https://www.youtube.com/channel/UCVcqZinwF4hVDXkMPSNybtg', '_blank')} className={styles.socmed} src={youtube} alt="YT" />
             </div>
           </div>
           <div>
@@ -36,10 +36,10 @@ export default function Footer() {
           </div>
           <div>
             <p>Hubungi Kami</p>
-            <p>asktoyogzan@gmail.com</p>
+            <p className={styles.email} onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=asktoyogzan@gmail.com', '_blank')}>asktoyogzan@gmail.com</p>
             <p>(+62) 815-7474-3528</p>
-            <p>Yogzan Tower, <br/> 
-              Jalan Prof. Dr. Soepomo No 139, Tebet, Jakarta Selatan, Indonesia - 12810 
+            <p>
+            Bekelan RT 01 Tirtonirmolo Kasihan Bantul Yogyakarta City, Special Region of Yogyakarta, Indonesia 55281
             </p>
           </div>
         </div>

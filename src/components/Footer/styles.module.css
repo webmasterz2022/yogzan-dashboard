@@ -67,6 +67,7 @@
   width: 2.5rem;
   height: 2.5rem;
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 .details > div:first-child > div:nth-child(2) {
@@ -109,6 +110,10 @@
   background-color: var(--gray-25);
   width: 100%;
   margin-bottom: 1.5rem;
+}
+
+.email {
+  cursor: pointer;
 }
 
 .details > div:nth-child(2) > p {

@@ -1,6 +1,10 @@
 const initialState = {
   homepageImages: [],
-  portfolioImages: []
+  portfolioImages: {
+    meta: {},
+    images: []
+  },
+  cities: []
 }
 
 export default function reducer(state = initialState, action) {
@@ -15,6 +19,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         portfolioImages: action.payload
+      }
+    case 'DATA_FETCHED_CITY':
+      return {
+        ...state,
+        cities: action.payload
       }
     default:
       return state

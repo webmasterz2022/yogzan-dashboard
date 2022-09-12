@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './styles.module.css'
 import logo from '../../assets/logo-dark.svg'
-import sampleVertical from '../../assets/sample-vertical.png'
-import sampleHorizontal from '../../assets/sample-horizontal.png'
+import blank from '../../assets/blank.png'
 import keluarga from '../../assets/keluarga.jpeg'
 import pernikahan from '../../assets/pernikahan.jpg'
 import wisuda from '../../assets/wisuda.jpg'
@@ -38,15 +37,15 @@ export default function Home() {
     {
       image: wisuda,
       title: 'Wisuda',
-      handleClick: () => navigate('/gallery?type=Graduation')
+      handleClick: () => navigate('/gallery?type=Wisuda')
     },{
       image: pernikahan,
       title: 'Pernikahan',
-      handleClick: () => navigate('/gallery?type=Marriage')
+      handleClick: () => navigate('/gallery?type=Pernikahan')
     },{
       image: keluarga,
       title: 'Keluarga',
-      handleClick: () => navigate('/gallery?type=Family+%26+Event')
+      handleClick: () => navigate('/gallery?type=Keluarga')
     }
   ]
 
@@ -62,20 +61,20 @@ export default function Home() {
       <div className={styles.galleries}>
         <div className={styles.overlay} />
         <div>
-          <img className={styles.satu} alt="im" src={images[0]?.url}/>
-          <img className={styles.dua} alt="im" src={images[1]?.url}/>
-          <img className={styles.tiga} alt="im" src={images[2]?.url}/>
-          <img className={styles.empat} alt="im" src={images[3]?.url}/>
-          <img className={styles.lima} alt="im" src={images[4]?.url}/>
+          <img className={styles.satu} alt="im" src={images[0]? images[0].url : blank}/>
+          <img className={styles.dua} alt="im" src={images[1]? images[1].url : blank}/>
+          <img className={styles.tiga} alt="im" src={images[2]? images[2].url : blank}/>
+          <img className={styles.empat} alt="im" src={images[3]? images[3].url : blank}/>
+          <img className={styles.lima} alt="im" src={images[4]? images[4].url : blank}/>
 
-          <img className={styles.enam} alt="im" src={images[5]?.url}/>
-          <img className={styles.tujuh} alt="im" src={images[6]?.url}/>
+          <img className={styles.enam} alt="im" src={images[5]? images[5].url : blank}/>
+          <img className={styles.tujuh} alt="im" src={images[6]? images[6].url : blank}/>
           <Button variant="active-square" handleClick={bookingViaWA}>Pesan Sekarang</Button>
-          <img className={styles.delapan} alt="im" src={images[7]?.url}/>
-          <img className={styles.sembilan} alt="im" src={images[8]?.url}/>
-          <img className={styles.sepuluh} alt="im" src={images[9]?.url}/>
+          <img className={styles.delapan} alt="im" src={images[7]? images[7].url : blank}/>
+          <img className={styles.sembilan} alt="im" src={images[8]? images[8].url : blank}/>
+          <img className={styles.sepuluh} alt="im" src={images[9]? images[9].url : blank}/>
 
-          <img className={styles.sebelas} alt="im" src={images[10]?.url}/>
+          <img className={styles.sebelas} alt="im" src={images[10]? images[10].url : blank}/>
         </div>
         <div>
           <p>Momen</p>
