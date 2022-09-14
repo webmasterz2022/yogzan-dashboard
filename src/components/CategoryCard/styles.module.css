@@ -1,0 +1,81 @@
+.root {
+  display: flex;
+  border-radius: 0.25rem;
+  box-shadow: 0px 11px 12px -4px rgba(138, 132, 130, 0.21);
+  margin-top: 1.5rem;
+  cursor: pointer;
+  background-color: var(--white);
+}
+
+.root > img {
+  width: 11.5625rem;
+  height: 5rem;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  object-fit: cover;
+  animation: fadeIn 3s;
+  -moz-animation: fadeIn 3s; /* Firefox */
+  -webkit-animation: fadeIn 3s; /* Safari and Chrome */
+  -o-animation: fadeIn 3s; /* Opera */
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.root > div {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.root > div > p {
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  margin: 0;
+}
+
+.root > div > img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .root {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    border-radius: 4px;
+    width: 170px;
+    min-width: 170px;
+  }
+  .root > img {
+    width: 100%;
+    height: 80px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    object-fit: cover;
+  }
+  .root > div {
+    display: flex;
+    padding: 16px;
+    align-items: center;
+    justify-content: center;
+    width: fill;
+    background-color: var(--white);
+  }
+  .root > div > p {
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0;
+    margin-right: 8px;
+  }
+  .root > div > img {
+    width: 24px;
+    height: 24px;
+  }
+}
