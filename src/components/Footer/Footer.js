@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
           <div>
             <Button icon={bookingLight} variant="active-rounded" handleClick={bookingViaWA}>Pesan Sekarang</Button>
-            <Button icon={hiringLight} variant="active-rounded" handleClick={() => {}}>Karir</Button>
+            <Button icon={hiringLight} variant="active-rounded" handleClick={bookingViaWA}>Karir</Button>
           </div>
           <div>
             <p>Hubungi Kami</p>

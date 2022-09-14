@@ -33,7 +33,7 @@ export default function Navbar() {
     },{
       title: 'Karir',
       icon: routes.HIRING() === pathname ? hiringLight : hiringPrimary,
-      handleClick: () => { },
+      handleClick: bookingViaWA,
       variant: routes.HIRING() === pathname ? 'active-rounded' : 'negative',
     },{
       title: 'Pesan Sekarang!',
