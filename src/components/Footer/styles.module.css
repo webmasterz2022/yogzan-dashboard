@@ -42,6 +42,19 @@
   padding: 1rem;
 }
 
+.booking > button > p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.booking > button > p > img {
+  margin-left: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .details > div:first-child {
   background-color: var(--gray-800);
   padding: 2.5rem 10.25rem;
@@ -151,6 +164,12 @@
     font-size: 14px;
     line-height: 16px;
     align-self: center;
+  }
+
+  .booking > button > p > img {
+    margin-left: 8px;
+    width: 24px;
+    height: 24px;
   }
   
   .details > div:first-child {

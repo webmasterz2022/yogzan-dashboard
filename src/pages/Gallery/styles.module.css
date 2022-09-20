@@ -72,6 +72,19 @@
   border-radius: 0.5rem;
 }
 
+.categoryDescription > button > p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.categoryDescription > button > p > img {
+  margin-left: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .galleries {
   display: flex;
   flex-wrap: wrap;
@@ -242,6 +255,12 @@
   .categoryDescription > button {
     padding: 16px;
     border-radius: 8px;
+  }
+
+  .categoryDescription > button > p > img {
+    margin-left: 8px;
+    width: 24px;
+    height: 24px;
   }
   
   .galleries {

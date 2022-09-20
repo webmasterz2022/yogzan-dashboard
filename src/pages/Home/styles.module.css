@@ -123,11 +123,33 @@
   grid-row-end: 7;
 }
 
-.galleries > div:nth-child(2) > img {
+.galleries > div:nth-child(2) > button > p { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.galleries > div:nth-child(2) > button > p > img { 
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.galleries > div:nth-child(2) > div {
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+
+.galleries > div:nth-child(2) > div > div {
   border-radius: 0.25rem;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  transition: transform ease 0.3s;
   animation: fadeIn 3s;
   -moz-animation: fadeIn 3s; /* Firefox */
   -webkit-animation: fadeIn 3s; /* Safari and Chrome */
@@ -137,6 +159,10 @@
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+.galleries > div:nth-child(2) > div > div:hover {
+  transform: scale(1.2);
 }
 
 .galleries > div:nth-child(2) {
@@ -152,11 +178,11 @@
 
 .overlay {
   width: 43.375rem;
-  height: 23rem;
+  height: 4.5rem;
   z-index: 1;
   position: relative;
-  top: 0.5rem;
-  background: linear-gradient(0deg, #FFF5F1 1.23%, rgba(255, 255, 255, 0) 67.57%);
+  top: 19rem;
+  background: linear-gradient(0deg, #FFF5F1 13%, rgba(255, 255, 255, 0.1) 67.57%);
 }
 
 .galleries > div:nth-child(3) {
@@ -233,8 +259,9 @@
   margin-top: 1.5rem;
 }
 
-.testimonials > div > div:not(:last-child) {
-  margin-right: 0.5rem;
+.testimonials > div > div > div {
+  width: fit-content;
+  margin-left: 4rem;
 }
 
 .overlayLeft {
@@ -242,7 +269,7 @@
   position: relative;
   height: 15.125rem;
   z-index: 2;
-  top: -16.5rem;
+  top: -15.5rem;
   left: -0.05rem;
   width: 15rem;
 }
@@ -252,7 +279,7 @@
   position: relative;
   height: 15.125rem;
   z-index: 2;
-  top: -31.5rem;
+  top: -30.5rem;
   right: -0.1rem;
   width: 15rem;
   float: right;
@@ -402,6 +429,12 @@
     grid-row-start: 6;
     grid-row-end: 7;
   }
+
+.galleries > div:nth-child(2) > button > p > img { 
+  margin-left: 8px;
+  width: 24px;
+  height: 24px;
+}
 
   .galleries > div:nth-child(3) {
     padding: 24px 0;

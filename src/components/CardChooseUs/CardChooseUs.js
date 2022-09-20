@@ -9,7 +9,7 @@ export default function CardChooseUs(props) {
         <p>{title}</p>
         <p>{desc}</p>
       </div>
-      {/* <img src={image} alt="img"/> */}
+      <img src={image} alt="img"/>
     </div>
   )
 }

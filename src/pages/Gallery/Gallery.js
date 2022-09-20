@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './styles.module.css'
 import pinLocation from '../../assets/pin-location.svg'
 import iconImage from '../../assets/icon-image.svg'
+import arrowLight from '../../assets/arrow-light.svg'
 import check from '../../assets/check.svg'
 import ButtonFilter from '../../components/ButtonFIlter'
 import { useSearchParams } from 'react-router-dom'
@@ -128,7 +129,10 @@ export default function Gallery() {
             <h3>{descriptions[type]?.title}</h3>
             <h5>{descriptions[type]?.text}</h5>
           </div>
-          <Button variant={'active-square'} handleClick={bookingViaWA}>Pesan Sekarang</Button>
+          <Button variant={'active-square'} handleClick={bookingViaWA}>
+            Pesan Sekarang
+            <img src={arrowLight} alt="" />
+          </Button>
         </div>
       )}
       <div className={styles.galleries}>

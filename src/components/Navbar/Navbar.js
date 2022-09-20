@@ -32,9 +32,9 @@ export default function Navbar() {
       variant: routes.GALLERY() === pathname ? 'active-rounded' : 'negative',
     },{
       title: 'Karir',
-      icon: routes.HIRING() === pathname ? hiringLight : hiringPrimary,
-      handleClick: bookingViaWA,
-      variant: routes.HIRING() === pathname ? 'active-rounded' : 'negative',
+      icon: routes.CAREER() === pathname ? hiringLight : hiringPrimary,
+      handleClick: () => navigate(routes.CAREER()),
+      variant: routes.CAREER() === pathname ? 'active-rounded' : 'negative',
     },{
       title: 'Pesan Sekarang!',
       icon: bookingPrimary,
@@ -45,12 +45,12 @@ export default function Navbar() {
 
   return (
     <div className={styles.root}>
-      {device === 'mobile' && (
+      {device !== 'desktop' && (
         <div className={styles.topBar}>
           <img src={appsIcon} />
         </div>
       )}
-      <img src={logoDark} alt="yogzan"/>
+      <img src={logoDark} alt="yogzan" onClick={() => navigate('/')}/>
       <div className={styles.menuBar}>
         {menus.map((menu, idx) => (
           <Button

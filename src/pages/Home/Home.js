@@ -5,6 +5,7 @@ import blank from '../../assets/blank.png'
 import keluarga from '../../assets/keluarga.jpeg'
 import pernikahan from '../../assets/pernikahan.jpg'
 import wisuda from '../../assets/wisuda.jpg'
+import arrowLight from '../../assets/arrow-light.svg'
 
 import Button from '../../components/Button'
 import CategoryCard from '../../components/CategoryCard'
@@ -12,18 +13,28 @@ import CardChooseUs from '../../components/CardChooseUs'
 import CardTestimony from '../../components/CardTestimony'
 import { getHomepageImages } from '../../store/action'
 import { useSelector, useDispatch } from 'react-redux'
-import { bookingViaWA, shuffle } from '../../utils'
+import { bookingViaWA, getDeviceType, shuffle } from '../../utils'
 import { useNavigate } from 'react-router-dom'
 import { chooseUs, testimonials } from './dataMock'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper'
 
 export default function Home() {
+  const device = getDeviceType()
+  const lengthTestimony = {
+    desktop: 2.8,
+    tablet: 2,
+    mobile: 1.1
+  }
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { homepageImages } = useSelector(s => s)
   const [images, setImages] = useState([])
 
   useEffect(() => {
-    dispatch(getHomepageImages())
+    if(homepageImages.length === 0) {
+      dispatch(getHomepageImages())
+    }
   }, [])
 
   useEffect(() => {
@@ -61,20 +72,45 @@ export default function Home() {
       <div className={styles.galleries}>
         <div className={styles.overlay} />
         <div>
-          <img className={styles.satu} alt="im" src={images[0]? images[0].url : blank}/>
-          <img className={styles.dua} alt="im" src={images[1]? images[1].url : blank}/>
-          <img className={styles.tiga} alt="im" src={images[2]? images[2].url : blank}/>
-          <img className={styles.empat} alt="im" src={images[3]? images[3].url : blank}/>
-          <img className={styles.lima} alt="im" src={images[4]? images[4].url : blank}/>
+          <div className={styles.satu}>
+            <div style={{backgroundImage: `url(${images[0]? images[0].url : blank})`}}/>
+          </div>
+          <div className={styles.dua}>
+            <div style={{backgroundImage: `url(${images[1]? images[1].url : blank})`}}/>
+          </div>
+          <div className={styles.tiga}>
+            <div style={{backgroundImage: `url(${images[2]? images[2].url : blank})`}}/>
+          </div>
+          <div className={styles.empat}>
+            <div style={{backgroundImage: `url(${images[3]? images[3].url : blank})`}}/>
+          </div>
+          <div className={styles.lima}>
+            <div style={{backgroundImage: `url(${images[4]? images[4].url : blank})`}}/>
+          </div>
 
-          <img className={styles.enam} alt="im" src={images[5]? images[5].url : blank}/>
-          <img className={styles.tujuh} alt="im" src={images[6]? images[6].url : blank}/>
-          <Button variant="active-square" handleClick={bookingViaWA}>Pesan Sekarang</Button>
-          <img className={styles.delapan} alt="im" src={images[7]? images[7].url : blank}/>
-          <img className={styles.sembilan} alt="im" src={images[8]? images[8].url : blank}/>
-          <img className={styles.sepuluh} alt="im" src={images[9]? images[9].url : blank}/>
+          <div className={styles.enam}>
+            <div style={{backgroundImage: `url(${images[5]? images[5].url : blank})`}}/>
+          </div>
+          <div className={styles.tujuh}>
+            <div style={{backgroundImage: `url(${images[6]? images[6].url : blank})`}}/>
+          </div>
+          <Button variant="active-square" handleClick={bookingViaWA}>
+            Pesan Sekarang
+            <img src={arrowLight} alt="" />
+          </Button>
+          <div className={styles.delapan}>
+            <div style={{backgroundImage: `url(${images[7]? images[7].url : blank})`}}/>
+          </div>
+          <div className={styles.sembilan}>
+            <div style={{backgroundImage: `url(${images[8]? images[8].url : blank})`}}/>
+          </div>
+          <div className={styles.sepuluh}>
+            <div style={{backgroundImage: `url(${images[9]? images[9].url : blank})`}}/>
+          </div>
 
-          <img className={styles.sebelas} alt="im" src={images[10]? images[10].url : blank}/>
+          <div className={styles.sebelas}>
+            <div alt="im" style={{backgroundImage: `url(${images[10]? images[10].url : blank})`}}/>
+          </div>
         </div>
         <div>
           <p>Momen</p>
@@ -98,15 +134,27 @@ export default function Home() {
         <h3>Ini Kata Mereka</h3>
         <p>Setiap dari mereka berharga, demikian juga dengan kamu!</p>
         <div>
-          {testimonials.map((data) => (
-            <CardTestimony
-              key={data.username}
-              image={data.image}
-              desc={data.testimony}
-              name={`@${data.username}`}
-              link={data.link}
-            />
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={2}
+            slidesPerView={lengthTestimony[device]}
+            centeredSlides={true}
+            autoplay={true}
+            loop={true}
+          >
+            {testimonials.map((data) => (
+              <SwiperSlide
+                key={data.username}
+              >
+                <CardTestimony
+                  image={data.image}
+                  desc={data.testimony}
+                  name={`@${data.username}`}
+                  link={data.link}
+                />
+              </SwiperSlide>
             ))}
+          </Swiper>
         </div>
         <div className={styles.overlayLeft}/>
         <div className={styles.overlayRight}/>
