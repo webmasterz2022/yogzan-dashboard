@@ -1,6 +1,6 @@
 .select {
   padding: 0.5rem;
-  border: solid 1px var(--tertiary-30);
+  border: solid 1px #D1D1D6;
   border-radius: 0.5rem;
   user-select: none;
   display: flex;
@@ -10,13 +10,14 @@
 }
 
 .select > span {
-  color: var(--tertiary-40);
+  color: #97A4B4;
   line-height: 1.5rem;
   font-size: 1rem;
   font-weight: 400;
   width: 16.75rem;
   margin: 0;
   margin-right: 0.5rem;
+  text-align: left;
 }
 
 .selected {
@@ -84,7 +85,7 @@
   
   .select > span {
     line-height: 24px;
-    font-size: 16px;
+    font-size: 14px;
     width: 299px;
     margin-right: 8px;
   }

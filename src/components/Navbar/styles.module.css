@@ -61,4 +61,15 @@
     height: 24px;
     width: 24px;
   }
+
+}
+
+@media only screen and (max-width: 435px) {
+  .menuBar > button:last-child > p {
+    white-space: nowrap;
+    width: 70px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: unset;
+  }
 }

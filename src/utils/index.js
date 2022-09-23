@@ -30,3 +30,21 @@ export const bookingViaWA = () => {
   console.log('clicked')
   window.open('https://wa.me/message/SLS4NGOQZWLFF1', '_blank')
 }
+
+const regexNumber = /[^0-9]+/g;
+export const thousandSeparator = (value) => (
+  value && value.replace(regexNumber, '') && thousand(value.replace(/[^0-9]+/g, ''))
+);
+
+export const thousand = val => (
+  Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+);
+
+export const removeDot = val => {
+  if (!val) {
+    return val;
+  } else if (typeof val === 'number') {
+    return val.toString().replace(/\./g, '');
+  }
+  return val.replace(/\./g, '');
+};

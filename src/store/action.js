@@ -44,3 +44,42 @@ export function getCities(category) {
     }
   }
 }
+
+export function submitHiring(dataForm, cb) {
+  return async dispatch => {
+    try {
+      console.log(dataForm)
+      const { data } = await axios({
+        method: 'post',
+        url: `https://yogzan-server-dev.herokuapp.com/hiring/submit`,
+        // url: `http://localhost:5000/hiring/submit`,
+        data: dataForm
+      })
+      console.log('api responses', data)
+      dispatch(cb())
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+}
+
+export function submitBooking(dataForm, cb) {
+  return async () => {
+    try {
+      console.log(dataForm)
+      const form = new FormData()
+      Object.keys(dataForm).forEach(key => {
+        form.append(key, dataForm[key])
+      })
+      const { data } = await axios({
+        method: 'post',
+        url: `https://yogzan-server-dev.herokuapp.com/book/submit`,
+        // url: `http://localhost:5000/order/booking`,
+        data: form
+      })
+      cb()
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+}

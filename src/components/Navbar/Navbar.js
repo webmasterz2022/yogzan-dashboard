@@ -8,11 +8,12 @@ import portfolioPrimary from '../../assets/portfolio-primary.svg'
 import hiringLight from '../../assets/hiring-light.svg'
 import hiringPrimary from '../../assets/hiring-primary.svg'
 import bookingPrimary from '../../assets/booking-primary.svg'
+import bookingLight from '../../assets/booking-light.svg'
 import appsIcon from '../../assets/apps.svg'
 import Button from '../Button'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { routes } from '../../configs/routes'
-import { bookingViaWA, getDeviceType } from '../../utils'
+import { getDeviceType } from '../../utils'
 
 export default function Navbar() {
   const device = getDeviceType()
@@ -37,9 +38,9 @@ export default function Navbar() {
       variant: routes.CAREER() === pathname ? 'active-rounded' : 'negative',
     },{
       title: 'Pesan Sekarang!',
-      icon: bookingPrimary,
-      handleClick: bookingViaWA,
-      variant: 'highlight-rounded',
+      icon: routes.BOOK() === pathname ? bookingLight : bookingPrimary,
+      handleClick: () => navigate(routes.BOOK()),
+      variant: routes.BOOK() === pathname ? 'active-rounded' : 'highlight-rounded',
     }
   ]
 

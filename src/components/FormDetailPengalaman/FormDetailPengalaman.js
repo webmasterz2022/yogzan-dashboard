@@ -1,0 +1,94 @@
+import { Form, Field } from 'react-final-form'
+import React from 'react'
+import Input from '../Input'
+import styles from './styles.module.css'
+import Button from '../Button';
+import SelectInput from '../SelectInput'
+import TextArea from '../TextArea';
+
+export default function FormDetailPengalaman(props) {
+  const { handleSubmitForm, handleStep, data } = props
+
+  const inputProps = [
+    { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Studio', 'Lainnya'] },
+    { placeholder: 'Tulis pengalamanmu disini' },
+    { placeholder: 'Tulis seri kamera yang dimiliki disini' },
+    { placeholder: 'Tulis seri lensa yang dimiliki disini' },
+    { placeholder: 'Tulis aksesoris kamera yang dimiliki disini' },
+    { placeholder: 'Pilih Waktu', options: ['Weekdays', 'Weekend', 'Weekdays & Weekend'] },
+    { placeholder: 'Tulis Expected Fee disini', type: 'number' },
+    { placeholder: 'Link CV' },
+    { placeholder: 'Link Portfolio' },
+  ]
+
+  return (
+    <Form 
+      initialValues={data}
+      onSubmit={handleSubmitForm}
+      render={({ handleSubmit, values }) => (
+        <form className={styles.root} onSubmit={handleSubmit}>
+          <p>Jenis Pemotretan yang Pernah diambil</p>
+          <Field 
+            component={SelectInput} 
+            name="photoshoot" 
+            onChange={(e) => handleStep({...values, photoshoot: e})}
+            {...inputProps[0]} 
+          />
+          <Field 
+            component={TextArea} 
+            label="Ceritakan Pengalaman Memotret Kamu" 
+            inputProps={inputProps[1]} 
+            name="experience" 
+          />
+          <Field 
+            component={Input} 
+            label="Seri Kamera yang Dimiliki" 
+            inputProps={inputProps[2]} 
+            name="camera"
+          />
+          <Field 
+            component={Input} 
+            label="Seri Lensa yang Dimiliki" 
+            inputProps={inputProps[3]} 
+            name="lens" 
+          />
+          <Field 
+            component={Input} 
+            label="Apakah memiliki aksesoris kamera lain?" 
+            inputProps={inputProps[4]} 
+            name="accessories" 
+          />
+          <p>Pilih alokasi waktu untuk project Yogzan</p>
+          <Field 
+            component={SelectInput} 
+            name="workingHour" 
+            onChange={(e) => handleStep({...values, workingHour: e})}
+            {...inputProps[5]} 
+          />
+          <Field 
+            component={Input} 
+            label="Expected Fee untuk memotret foto" 
+            inputProps={inputProps[6]} 
+            name="fee" 
+          />
+          <Field 
+            component={Input} 
+            label="Link CV" 
+            inputProps={inputProps[7]} 
+            name="cv" 
+          />
+          <Field 
+            component={Input} 
+            label="Link Portfolio" 
+            inputProps={inputProps[8]} 
+            name="portfolio" 
+          />
+          <div>
+            <Button variant="active-square" handleClick={() => handleStep(values, 'Data Diri')}>Kembali</Button>
+            <Button disabled={Object.keys(values).length !== 14 || Object.values(values).includes('')} variant="active-square" handleClick={() => handleSubmit(values)}>Kirim Lamaran</Button>
+          </div>
+        </form>
+      )}
+    />
+  )
+}

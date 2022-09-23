@@ -7,7 +7,7 @@
   width: auto;
   align-items: center;
   justify-content: center;
-  line-height: 1px;
+  line-height: 1rem;
   cursor: pointer;
 }
 
@@ -45,6 +45,12 @@
   background-color: var(--white);
 }
 
+.root:disabled {
+  background-color: #D1D1D6;
+  color: #515151;
+  cursor: no-drop;
+}
+
 @media only screen and (max-width: 768px) {
   .root {
     padding: 8px 16px;
@@ -55,7 +61,7 @@
     width: auto;
     align-items: center;
     justify-content: center;
-    line-height: 1px;
+    line-height: 16px;
     cursor: pointer;
   }
 

@@ -22,7 +22,7 @@ export default function Footer() {
         <div>
           <p>Setiap momen punya cerita, dari cinta, perjuangan hingga air mata kebahagiaan. Abadikan setiap cerita berhargamu dengan layanan foto terbaik bersama Yogzan. </p>
         </div>
-        <Button variant="active-square" handleClick={bookingViaWA}>
+        <Button variant="active-square" handleClick={() => navigate(routes.BOOK())}>
           Pesan Sekarang
           <img src={arrowLight} alt="" />
         </Button>
@@ -40,7 +40,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <Button icon={bookingLight} variant="active-rounded" handleClick={bookingViaWA}>Pesan Sekarang</Button>
+            <Button icon={bookingLight} variant="active-rounded" handleClick={() => navigate(routes.BOOK())}>Pesan Sekarang</Button>
             <Button icon={hiringLight} variant="active-rounded" handleClick={() => navigate(routes.CAREER())}>Karir</Button>
           </div>
           <div>

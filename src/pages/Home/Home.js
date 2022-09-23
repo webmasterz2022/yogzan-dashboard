@@ -13,11 +13,12 @@ import CardChooseUs from '../../components/CardChooseUs'
 import CardTestimony from '../../components/CardTestimony'
 import { getHomepageImages } from '../../store/action'
 import { useSelector, useDispatch } from 'react-redux'
-import { bookingViaWA, getDeviceType, shuffle } from '../../utils'
+import { getDeviceType, shuffle } from '../../utils'
 import { useNavigate } from 'react-router-dom'
 import { chooseUs, testimonials } from './dataMock'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
+import { routes } from '../../configs/routes'
 
 export default function Home() {
   const device = getDeviceType()
@@ -94,7 +95,7 @@ export default function Home() {
           <div className={styles.tujuh}>
             <div style={{backgroundImage: `url(${images[6]? images[6].url : blank})`}}/>
           </div>
-          <Button variant="active-square" handleClick={bookingViaWA}>
+          <Button variant="active-square" handleClick={() => navigate(routes.BOOK())}>
             Pesan Sekarang
             <img src={arrowLight} alt="" />
           </Button>
