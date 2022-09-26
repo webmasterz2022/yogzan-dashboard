@@ -212,6 +212,7 @@
 
 .preview > .modalNav > img {
   height: 2.5rem;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {
