@@ -73,45 +73,49 @@ export default function Home() {
       <div className={styles.galleries}>
         <div className={styles.overlay} />
         <div>
-          <div className={styles.satu}>
-            <div style={{backgroundImage: `url(${images[0]? images[0].url : blank})`}}/>
-          </div>
-          <div className={styles.dua}>
-            <div style={{backgroundImage: `url(${images[1]? images[1].url : blank})`}}/>
-          </div>
-          <div className={styles.tiga}>
-            <div style={{backgroundImage: `url(${images[2]? images[2].url : blank})`}}/>
-          </div>
-          <div className={styles.empat}>
-            <div style={{backgroundImage: `url(${images[3]? images[3].url : blank})`}}/>
-          </div>
-          <div className={styles.lima}>
-            <div style={{backgroundImage: `url(${images[4]? images[4].url : blank})`}}/>
-          </div>
+          {images.length > 0 && (
+            <>
+              <div className={styles.satu}>
+                <div style={{backgroundImage: `url(${images[0]? images[0].url : blank})`}}/>
+              </div>
+              <div className={styles.dua}>
+                <div style={{backgroundImage: `url(${images[1]? images[1].url : blank})`}}/>
+              </div>
+              <div className={styles.tiga}>
+                <div style={{backgroundImage: `url(${images[2]? images[2].url : blank})`}}/>
+              </div>
+              <div className={styles.empat}>
+                <div style={{backgroundImage: `url(${images[3]? images[3].url : blank})`}}/>
+              </div>
+              <div className={styles.lima}>
+                <div style={{backgroundImage: `url(${images[4]? images[4].url : blank})`}}/>
+              </div>
 
-          <div className={styles.enam}>
-            <div style={{backgroundImage: `url(${images[5]? images[5].url : blank})`}}/>
-          </div>
-          <div className={styles.tujuh}>
-            <div style={{backgroundImage: `url(${images[6]? images[6].url : blank})`}}/>
-          </div>
-          <Button variant="active-square" handleClick={() => navigate(routes.BOOK())}>
-            Pesan Sekarang
-            <img src={arrowLight} alt="" />
-          </Button>
-          <div className={styles.delapan}>
-            <div style={{backgroundImage: `url(${images[7]? images[7].url : blank})`}}/>
-          </div>
-          <div className={styles.sembilan}>
-            <div style={{backgroundImage: `url(${images[8]? images[8].url : blank})`}}/>
-          </div>
-          <div className={styles.sepuluh}>
-            <div style={{backgroundImage: `url(${images[9]? images[9].url : blank})`}}/>
-          </div>
+              <div className={styles.enam}>
+                <div style={{backgroundImage: `url(${images[5]? images[5].url : blank})`}}/>
+              </div>
+              <div className={styles.tujuh}>
+                <div style={{backgroundImage: `url(${images[6]? images[6].url : blank})`}}/>
+              </div>
+              <Button variant="active-square" handleClick={() => navigate(routes.BOOK())}>
+                Pesan Sekarang
+                <img src={arrowLight} alt="" />
+              </Button>
+              <div className={styles.delapan}>
+                <div style={{backgroundImage: `url(${images[7]? images[7].url : blank})`}}/>
+              </div>
+              <div className={styles.sembilan}>
+                <div style={{backgroundImage: `url(${images[8]? images[8].url : blank})`}}/>
+              </div>
+              <div className={styles.sepuluh}>
+                <div style={{backgroundImage: `url(${images[9]? images[9].url : blank})`}}/>
+              </div>
 
-          <div className={styles.sebelas}>
-            <div alt="im" style={{backgroundImage: `url(${images[10]? images[10].url : blank})`}}/>
-          </div>
+              <div className={styles.sebelas}>
+                <div alt="im" style={{backgroundImage: `url(${images[10]? images[10].url : blank})`}}/>
+              </div>
+            </>
+          )}
         </div>
         <div>
           <p>Momen</p>

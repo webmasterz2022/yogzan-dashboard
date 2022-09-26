@@ -37,12 +37,20 @@
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 3;
+  animation: leftFadeIn 3s;
+  -moz-animation: leftFadeIn 3s; /* Firefox */
+  -webkit-animation: leftFadeIn 3s; /* Safari and Chrome */
+  -o-animation: leftFadeIn 3s; /* Opera */
 }
 .dua { 
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 4;
+  animation: rightFadeIn 3.5s;
+  -moz-animation: rightFadeIn 3.5s; /* Firefox */
+  -webkit-animation: rightFadeIn 3.5s; /* Safari and Chrome */
+  -o-animation: rightFadeIn 3.5s; /* Opera */
 }
 .tiga { 
   grid-area: tiga; 
@@ -50,6 +58,10 @@
   grid-column-end: 6;
   grid-row-start: 1;
   grid-row-end: 4;
+  animation: bottomFadeIn 2s;
+  -moz-animation: bottomFadeIn 2s; /* Firefox */
+  -webkit-animation: bottomFadeIn 2s; /* Safari and Chrome */
+  -o-animation: bottomFadeIn 2s; /* Opera */
 }
 .empat { 
   grid-area: empat; 
@@ -57,6 +69,10 @@
   grid-column-end: 7;
   grid-row-start: 1;
   grid-row-end: 4;
+  animation: bottomFadeIn 2s;
+  -moz-animation: bottomFadeIn 2s; /* Firefox */
+  -webkit-animation: bottomFadeIn 2s; /* Safari and Chrome */
+  -o-animation: bottomFadeIn 2s; /* Opera */
 }
 .lima { 
   grid-area: lima; 
@@ -64,6 +80,10 @@
   grid-column-end: 9;
   grid-row-start: 1;
   grid-row-end: 3;
+  animation: leftFadeIn 3s;
+  -moz-animation: leftFadeIn 3s; /* Firefox */
+  -webkit-animation: leftFadeIn 3s; /* Safari and Chrome */
+  -o-animation: leftFadeIn 3s; /* Opera */
 }
 .enam { 
   grid-area: enam;
@@ -71,6 +91,10 @@
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 7;
+  animation: leftFadeIn 2.5s;
+  -moz-animation: leftFadeIn 2.5s; /* Firefox */
+  -webkit-animation: leftFadeIn 2.5s; /* Safari and Chrome */
+  -o-animation: leftFadeIn 2.5s; /* Opera */
 }
 .tujuh { 
   grid-area: tujuh; 
@@ -78,6 +102,10 @@
   grid-column-end: 5;
   grid-row-start: 4;
   grid-row-end: 6;
+  animation: rightFadeIn 4s;
+  -moz-animation: rightFadeIn 4s; /* Firefox */
+  -webkit-animation: rightFadeIn 4s; /* Safari and Chrome */
+  -o-animation: rightFadeIn 4s; /* Opera */
 }
 .delapan {
   grid-area: delapan;
@@ -86,6 +114,10 @@
   grid-row-start: 4;
   grid-row-end: 9;
   object-position: top;
+  animation: rightFadeIn 2s;
+  -moz-animation: rightFadeIn 2s; /* Firefox */
+  -webkit-animation: rightFadeIn 2s; /* Safari and Chrome */
+  -o-animation: rightFadeIn 2s; /* Opera */
 }
 .sembilan { 
   grid-area: sembilan; 
@@ -93,6 +125,10 @@
   grid-column-end: 9;
   grid-row-start: 3;
   grid-row-end: 7;
+  animation: bottomFadeIn 4s;
+  -moz-animation: bottomFadeIn 4s; /* Firefox */
+  -webkit-animation: bottomFadeIn 4s; /* Safari and Chrome */
+  -o-animation: bottomFadeIn 4s; /* Opera */
 }
 .sepuluh { 
   grid-area: sepuluh; 
@@ -100,6 +136,10 @@
   grid-column-end: 5;
   grid-row-start: 7;
   grid-row-end: 9;
+  animation: rightFadeIn 3s;
+  -moz-animation: rightFadeIn 3s; /* Firefox */
+  -webkit-animation: rightFadeIn 3s; /* Safari and Chrome */
+  -o-animation: rightFadeIn 3s; /* Opera */
 }
 .sebelas { 
   grid-area: sebelas; 
@@ -107,6 +147,10 @@
   grid-column-end: 9;
   grid-row-start: 7;
   grid-row-end: 9;
+  animation: leftFadeIn 2s;
+  -moz-animation: leftFadeIn 2s; /* Firefox */
+  -webkit-animation: leftFadeIn 2s; /* Safari and Chrome */
+  -o-animation: leftFadeIn 2s; /* Opera */
 }
 
 .galleries > div:nth-child(2) > button { 
@@ -150,15 +194,39 @@
   background-position: center;
   overflow: hidden;
   transition: transform ease 0.3s;
-  animation: fadeIn 3s;
-  -moz-animation: fadeIn 3s; /* Firefox */
-  -webkit-animation: fadeIn 3s; /* Safari and Chrome */
-  -o-animation: fadeIn 3s; /* Opera */
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+@keyframes leftFadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes rightFadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translate3d(0, -100%, 0);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bottomFadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translate3d(0, 0, 100%);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .galleries > div:nth-child(2) > div > div:hover {

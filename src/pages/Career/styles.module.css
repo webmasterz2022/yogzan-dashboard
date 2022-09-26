@@ -317,7 +317,8 @@
     border-radius: 24px;
     justify-content: center;
   }
-
+  
+  
   .stepper > .line {
     border: 1px solid var(--primary);
     margin: 0 14px;
@@ -331,6 +332,16 @@
   }
   .root > .workflow > .cards > div {
     height: 95px;
+  }
+  .stepper > p:last-child {
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    justify-content: flex-start;
+  }
+  .stepper > .line {
+    max-width: 20px;
   }
 }
 

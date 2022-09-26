@@ -35,23 +35,6 @@ export default function Career() {
 
   const handleSubmit = (values, step) => {
     dispatch(submitHiring({ ...data, ...values }, () => {
-      setData({
-        "fullname": '',
-        "nickname": '',
-        "email": '',
-        "phone": '',
-        "address": '',
-        "photoshoot": '',
-        "experience": '',
-        "camera": '',
-        "lens": '',
-        "accessories": '',
-        "workingHour": '',
-        "fee": '',
-        "cv": '',
-        "portfolio": '',
-      })
-      setStep(stepperContent[0])
       window.location.href = '/career'
     }))
   }
@@ -106,14 +89,12 @@ export default function Career() {
           <div className={styles.stepper}>
             <p 
               className={step === stepperContent[0] ? styles.active : ''}
-              onClick={() => setStep(stepperContent[0])}
             >
               {stepperContent[0]}
             </p>
             <div className={styles.line}/>
             <p
               className={step === stepperContent[1] ? styles.active : ''}
-              onClick={() => setStep(stepperContent[1])}
             >
               {stepperContent[1]}
             </p>

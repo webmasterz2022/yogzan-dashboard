@@ -37,16 +37,7 @@ export default function Book() {
     }))
   }
 
-  const handleCloseModal = () => {
-    // setOpenModal(false)
-    // setData({
-    //   "name": '',
-    //   "layanan": '',
-    //   "city": '',
-    //   "date": '',
-    //   "phone": '',
-    //   "knowFrom": '',
-    // })
+  const handleCloseModal = () => {    
     window.location.href = '/book'
   }
 

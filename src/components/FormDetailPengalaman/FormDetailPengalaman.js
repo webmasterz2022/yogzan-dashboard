@@ -21,6 +21,9 @@ export default function FormDetailPengalaman(props) {
     { placeholder: 'Link Portfolio' },
   ]
 
+  const disabled = (values) => !values.photoshoot || !values.experience || !values.camera || !values.lens ||
+    !values.workingHour || !values.fee || !values.cv || !values.portfolio
+
   return (
     <Form 
       initialValues={data}
@@ -54,7 +57,7 @@ export default function FormDetailPengalaman(props) {
           />
           <Field 
             component={Input} 
-            label="Apakah memiliki aksesoris kamera lain?" 
+            label="Apakah memiliki aksesoris kamera lain? (opsional)" 
             inputProps={inputProps[4]} 
             name="accessories" 
           />
@@ -85,7 +88,7 @@ export default function FormDetailPengalaman(props) {
           />
           <div>
             <Button variant="active-square" handleClick={() => handleStep(values, 'Data Diri')}>Kembali</Button>
-            <Button disabled={Object.keys(values).length !== 14 || Object.values(values).includes('')} variant="active-square" handleClick={() => handleSubmit(values)}>Kirim Lamaran</Button>
+            <Button disabled={disabled(values)} variant="active-square" handleClick={() => handleSubmit(values)}>Kirim Lamaran</Button>
           </div>
         </form>
       )}

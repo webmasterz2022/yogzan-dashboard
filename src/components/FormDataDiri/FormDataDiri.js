@@ -24,6 +24,9 @@ export default function FormDataDiri(props) {
   const handleNext = (values) => {
     handleStep(values, 'Detail Pengalaman')
   }
+
+  const disabled = values => !values.fullname || !values.nickname || !values.email || !values.phone || !values.address
+
   return (
     <Form 
       initialValues={data}
@@ -61,7 +64,7 @@ export default function FormDataDiri(props) {
             inputProps={inputProps[4]} 
             name="address" 
           />
-          <Button variant="active-square" handleClick={() => handleNext(values)}>Selanjutnya</Button>
+          <Button disabled={disabled(values)} variant="active-square" handleClick={() => handleNext(values)}>Selanjutnya</Button>
         </form>
       )}
     />

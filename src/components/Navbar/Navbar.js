@@ -46,11 +46,6 @@ export default function Navbar() {
 
   return (
     <div className={styles.root}>
-      {device !== 'desktop' && (
-        <div className={styles.topBar}>
-          <img src={appsIcon} />
-        </div>
-      )}
       <img src={logoDark} alt="yogzan" onClick={() => navigate('/')}/>
       <div className={styles.menuBar}>
         {menus.map((menu, idx) => (
