@@ -16,7 +16,15 @@ export default function FormDetailPengalaman(props) {
     { placeholder: 'Tulis seri lensa yang dimiliki disini' },
     { placeholder: 'Tulis aksesoris kamera yang dimiliki disini' },
     { placeholder: 'Pilih Waktu', options: ['Weekdays', 'Weekend', 'Weekdays & Weekend'] },
-    { placeholder: 'Tulis Expected Fee disini' },
+    { placeholder: 'Pilih Expected Fee disini', options: [
+      'Dibawah Rp 200.000',
+      'Rp 200.000 - Rp 250.000',
+      'Rp 250.000 - Rp 300.000',
+      'Rp 300.000 - Rp 350.000',
+      'Rp 350.000 - Rp 400.000',
+      'Rp 450.000 - Rp 500.000',
+      'Diatas Rp 500.000',
+    ] },
     { placeholder: 'Link CV' },
     { placeholder: 'Link Portfolio' },
   ]
@@ -48,18 +56,21 @@ export default function FormDetailPengalaman(props) {
             label="Seri Kamera yang Dimiliki" 
             inputProps={inputProps[2]} 
             name="camera"
+            helper="Boleh lebih dari satu"
           />
           <Field 
             component={Input} 
             label="Seri Lensa yang Dimiliki" 
             inputProps={inputProps[3]} 
             name="lens" 
+            helper="Boleh lebih dari satu"
           />
           <Field 
             component={Input} 
             label="Apakah memiliki aksesoris kamera lain? (opsional)" 
             inputProps={inputProps[4]} 
             name="accessories" 
+            helper="Boleh lebih dari satu"
           />
           <p>Pilih alokasi waktu untuk project Yogzan</p>
           <Field 
@@ -68,23 +79,27 @@ export default function FormDetailPengalaman(props) {
             onChange={(e) => handleStep({...values, workingHour: e})}
             {...inputProps[5]} 
           />
+          <p>Expected Fee untuk memotret foto</p>
           <Field 
-            component={Input} 
-            label="Expected Fee untuk memotret foto" 
-            inputProps={inputProps[6]} 
+            component={SelectInput} 
+            onChange={(e) => handleStep({...values, fee: e})}
             name="fee" 
-          />
+            helper={() => <text>Photo Only dalam <b>durasi 1 jam</b></text>}
+            {...inputProps[6]}
+            />
           <Field 
             component={Input} 
             label="Link CV" 
             inputProps={inputProps[7]} 
             name="cv" 
+            helper="misal: link dokumen google drive"
           />
           <Field 
             component={Input} 
             label="Link Portfolio" 
             inputProps={inputProps[8]} 
             name="portfolio" 
+            helper="misal: link dokumen google drive"
           />
           <div>
             <Button variant="active-square" handleClick={() => handleStep(values, 'Data Diri')}>Kembali</Button>

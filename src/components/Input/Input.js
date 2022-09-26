@@ -23,7 +23,7 @@ export default function Input(props) {
         <img src={warning} />
         {error}
       </small>}
-      <span>{helper}</span>
+      <p className={styles.helper}>{helper}</p>
     </div>
   );
 }
