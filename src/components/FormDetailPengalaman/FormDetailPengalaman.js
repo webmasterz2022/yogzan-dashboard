@@ -16,7 +16,7 @@ export default function FormDetailPengalaman(props) {
     { placeholder: 'Tulis seri lensa yang dimiliki disini' },
     { placeholder: 'Tulis aksesoris kamera yang dimiliki disini' },
     { placeholder: 'Pilih Waktu', options: ['Weekdays', 'Weekend', 'Weekdays & Weekend'] },
-    { placeholder: 'Tulis Expected Fee disini', type: 'number' },
+    { placeholder: 'Tulis Expected Fee disini' },
     { placeholder: 'Link CV' },
     { placeholder: 'Link Portfolio' },
   ]

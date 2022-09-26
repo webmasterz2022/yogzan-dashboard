@@ -17,7 +17,7 @@ export default function FormDataDiri(props) {
     { placeholder: 'Tulis nama lengkap disini' },
     { placeholder: 'Tulis nama panggilan disini' },
     { placeholder: 'Tulis email disini' },
-    { placeholder: 'Tulis nomor whatsapp disini', type: 'number' },
+    { placeholder: 'Tulis nomor whatsapp disini' },
     { placeholder: 'Tulis alamat domisili saat ini' },
   ]
 
