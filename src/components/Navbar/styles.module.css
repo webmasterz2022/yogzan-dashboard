@@ -14,6 +14,7 @@
 .root > img {
   height: 4.5rem;
   width: 7.5rem;
+  cursor: pointer;
 }
 
 .menuBar {
@@ -59,5 +60,16 @@
   .topBar > img {
     height: 24px;
     width: 24px;
+  }
+
+}
+
+@media only screen and (max-width: 435px) {
+  .menuBar > button:last-child > p {
+    white-space: nowrap;
+    width: 70px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: unset;
   }
 }

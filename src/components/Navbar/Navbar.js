@@ -8,11 +8,12 @@ import portfolioPrimary from '../../assets/portfolio-primary.svg'
 import hiringLight from '../../assets/hiring-light.svg'
 import hiringPrimary from '../../assets/hiring-primary.svg'
 import bookingPrimary from '../../assets/booking-primary.svg'
+import bookingLight from '../../assets/booking-light.svg'
 import appsIcon from '../../assets/apps.svg'
 import Button from '../Button'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { routes } from '../../configs/routes'
-import { bookingViaWA, getDeviceType } from '../../utils'
+import { getDeviceType } from '../../utils'
 
 export default function Navbar() {
   const device = getDeviceType()
@@ -32,25 +33,20 @@ export default function Navbar() {
       variant: routes.GALLERY() === pathname ? 'active-rounded' : 'negative',
     },{
       title: 'Karir',
-      icon: routes.HIRING() === pathname ? hiringLight : hiringPrimary,
-      handleClick: bookingViaWA,
-      variant: routes.HIRING() === pathname ? 'active-rounded' : 'negative',
+      icon: routes.CAREER() === pathname ? hiringLight : hiringPrimary,
+      handleClick: () => navigate(routes.CAREER()),
+      variant: routes.CAREER() === pathname ? 'active-rounded' : 'negative',
     },{
       title: 'Pesan Sekarang!',
-      icon: bookingPrimary,
-      handleClick: bookingViaWA,
-      variant: 'highlight-rounded',
+      icon: routes.BOOK() === pathname ? bookingLight : bookingPrimary,
+      handleClick: () => navigate(routes.BOOK()),
+      variant: routes.BOOK() === pathname ? 'active-rounded' : 'highlight-rounded',
     }
   ]
 
   return (
     <div className={styles.root}>
-      {device === 'mobile' && (
-        <div className={styles.topBar}>
-          <img src={appsIcon} />
-        </div>
-      )}
-      <img src={logoDark} alt="yogzan"/>
+      <img src={logoDark} alt="yogzan" onClick={() => navigate('/')}/>
       <div className={styles.menuBar}>
         {menus.map((menu, idx) => (
           <Button

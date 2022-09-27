@@ -1,10 +1,13 @@
-import write from '../../assets/writebook.svg'
+import survey from '../../assets/survey.svg'
 import world from '../../assets/worldconnect.svg'
-import schedule from '../../assets/scheduled.svg'
+import resume from '../../assets/resume.svg'
+import photo from '../../assets/photo.svg'
+import editor from '../../assets/editor.svg'
+import time from '../../assets/time.svg'
 
 export const chooseUs = [
   {
-    image: write,
+    image: survey,
     title: 'Terpercaya',
     desc: 'Lebih dari 1000 klien sejak 2017.'
   },{
@@ -12,19 +15,19 @@ export const chooseUs = [
     title: 'Cakupan Luas',
     desc: 'Tersedia di 6 kota besar di Indonesia, yaitu Jabodetabek, Bandung, Semarang, Yogyakarta, Surabaya & Malang.'
   },{
-    image: schedule,
+    image: resume,
     title: 'Tim Berpengalaman',
     desc: 'Melalui beberapa tahapan seleksi yang ketat, tim kami didukung oleh yang berpengalaman dan terbaik di bidangnya.'
   },{
-    image: write,
+    image: photo,
     title: 'Proaktif',
     desc: 'Tidak bisa bergaya di depan kamera? Tenang! Kami arahkan posenya untuk penampilan terbaikmu.'
   },{
-    image: world,
+    image: editor,
     title: 'Editing Khas',
     desc: 'Kualitas foto lebih cantik dengan tone color khas versi Yogzan yang tidak kamu temukan di layanan foto lainnya.'
   },{
-    image: schedule,
+    image: time,
     title: 'Pengiriman Cepat',
     desc: 'Terima hasil foto kamu kurang dari 48 jam dari sesi foto!'
   }
