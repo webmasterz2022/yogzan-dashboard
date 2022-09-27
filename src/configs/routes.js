@@ -1,6 +1,6 @@
 export const routes = {
   HOMEPAGE: () => `/`,
   GALLERY: () => `/gallery`,
-  HIRING: () => `/hiring`,
+  CAREER: () => `/career`,
   BOOK: () => `/book`,
 };

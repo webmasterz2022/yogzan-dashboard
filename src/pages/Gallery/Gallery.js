@@ -2,17 +2,22 @@ import React, { useEffect, useState } from 'react'
 import styles from './styles.module.css'
 import pinLocation from '../../assets/pin-location.svg'
 import iconImage from '../../assets/icon-image.svg'
+import arrowLight from '../../assets/arrow-light.svg'
+import arrowLeft from '../../assets/arrow-left.svg'
+import arrowRight from '../../assets/arrow-right.svg'
+import xCircle from '../../assets/x-circle.svg'
 import check from '../../assets/check.svg'
 import ButtonFilter from '../../components/ButtonFIlter'
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import SelectInput from '../../components/SelectInput'
 import Modal from '../../components/Modal'
 import {useDispatch, useSelector} from 'react-redux'
 import { getCities, getPortfolioImages } from '../../store/action'
 import Button from '../../components/Button'
-import { bookingViaWA } from '../../utils'
+import { routes } from '../../configs/routes'
 
 export default function Gallery() {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const {cities, portfolioImages} = useSelector(v => v)
   const categories = ['Semua', 'Wisuda', 'Pernikahan', 'Keluarga']
@@ -52,8 +57,9 @@ export default function Gallery() {
     }
   }, [])
 
-  const _previewImage = (image, index) => {
-    const {name, url, description, city, category, vertical} = image
+  const _previewImage = (image) => {
+    console.log(image)
+    const {name, url, description, city, category, vertical, index} = image
     setSelectedImage({
       open: true, 
       path: url, 
@@ -61,7 +67,7 @@ export default function Gallery() {
       city, 
       category, 
       name, 
-      index, 
+      index,
       orientation: vertical ? 'vertical' : 'horizontal'
     })
   }
@@ -75,12 +81,15 @@ export default function Gallery() {
       dataRow[column] = images.slice(column*dataPerColumn, (column*dataPerColumn)+dataPerColumn)
       column++
     }
+    const orientation = (isVertical) =>  isVertical ? 'vertical' : 'horizontal'
     return (
       <>
         {Object.keys(dataRow).map((_column, idx) => (
           <div key={idx}>
             {dataRow[_column].map((image, i) => (
-              <img key={i} onClick={() => _previewImage(image)} src={image.url} alt="img" />
+              <div className={styles[orientation(image.vertical)]} key={i}>
+                <div onClick={() => _previewImage(image)} style={{backgroundImage: `url(${image.url})`}} />
+              </div>
             ))}
           </div>
         ))}
@@ -128,7 +137,10 @@ export default function Gallery() {
             <h3>{descriptions[type]?.title}</h3>
             <h5>{descriptions[type]?.text}</h5>
           </div>
-          <Button variant={'active-square'} handleClick={bookingViaWA}>Pesan Sekarang</Button>
+          <Button variant={'active-square'} handleClick={() => navigate(routes.BOOK())}>
+            Pesan Sekarang
+            <img src={arrowLight} alt="" />
+          </Button>
         </div>
       )}
       <div className={styles.galleries}>
@@ -152,6 +164,11 @@ export default function Gallery() {
                 <p>{selectedImage.category}</p>
               </div>
             </div>
+          </div>
+          <div className={styles.modalNav}>
+            {selectedImage.index-1 >= 0 ? <img alt='back' src={arrowLeft} onClick={() => _previewImage(portfolioImages.images[selectedImage.index-1])}/> : <img/>}
+            <img alt='close' src={xCircle} onClick={() => setSelectedImage({ open: false })}/>
+            {selectedImage.index+1 < portfolioImages.images.length ? <img alt='next' src={arrowRight} onClick={() => _previewImage(portfolioImages.images[selectedImage.index+1])}/> : <img/>}
           </div>
         </Modal>
       )}

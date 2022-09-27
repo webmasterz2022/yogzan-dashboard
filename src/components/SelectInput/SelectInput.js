@@ -4,8 +4,8 @@ import chevron from '../../assets/chevron.svg'
 import check from '../../assets/check.svg'
 
 export default function SelectInput(props) {
-  const {placeholder, options, value, onChange} = props
-
+  const {placeholder, options, value, onChange, input, helper} = props
+  
   const [openDropdown, setOpenDropdown] = useState(false)
   const [selected, setSelected] = useState('')
 
@@ -16,7 +16,7 @@ export default function SelectInput(props) {
   }
 
   useEffect(() => {
-    setSelected(value)
+    setSelected(value || input?.value)
   }, [value])
 
   return (
@@ -34,6 +34,7 @@ export default function SelectInput(props) {
           </div>
         ))}
       </div>}
+      {helper && <p className={styles.helper}>{typeof helper === 'function' ? helper() : helper}</p>}
     </div>
   )
 }
