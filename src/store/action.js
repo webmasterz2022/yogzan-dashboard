@@ -48,17 +48,15 @@ export function getCities(category) {
 }
 
 export function submitHiring(dataForm, cb) {
-  return async dispatch => {
+  return async () => {
     try {
-      console.log(dataForm)
       const { data } = await axios({
         method: 'post',
         url: `https://yogzan-server-dev.herokuapp.com/hiring/submit`,
         // url: `http://localhost:5000/hiring/submit`,
         data: dataForm
       })
-      console.log('api responses', data)
-      dispatch(cb())
+      cb()
     } catch (error) {
       alert(error.message)
     }
@@ -74,7 +72,7 @@ export function submitBooking(dataForm, cb) {
         // url: `http://localhost:5000/order/booking`,
         data: dataForm
       })
-      const message = `Halo Admin! Saya ingin info Pricelist.%0A*Nama:* ${dataForm.name}%0A*Untuk Event:* ${dataForm.layanan}%0A*Tanggal/Bulan:* ${dataForm.date}%0A*Kota:* ${dataForm.city}%0A*Kontak:* ${dataForm.phone}%0ATerimakasih 🙏`
+      const message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${dataForm.name}%0AUntuk Event: ${dataForm.layanan}%0ATanggal/Bulan: ${dataForm.date}%0AKota: ${dataForm.city}%0AKontak: ${dataForm.phone}%0ATerimakasih!`
       window.open(`https://wa.me/+6281313269255?text=${message}`, 
       '_blank')
       cb()
