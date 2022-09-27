@@ -5,7 +5,7 @@ export function getHomepageImages() {
     try {
       const { data } = await axios({
         method: 'get',
-        url: 'https://yogzan-server-stage.herokuapp.com/gallery/homepage',
+        url: 'https://yogzan-server.herokuapp.com/gallery/homepage',
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_HOMEPAGE' })
     } catch (error) {
@@ -18,8 +18,8 @@ export function getPortfolioImages(category, city) {
   return async dispatch => {
     try {
       const url = (category && category !== 'Semua') ? 
-        `https://yogzan-server-stage.herokuapp.com/gallery/category/${category}${city ? `?city=${city}` : ''}` :
-        `https://yogzan-server-stage.herokuapp.com/gallery/${city ? `?city=${city}` : ''}`
+        `https://yogzan-server.herokuapp.com/gallery/category/${category}${city ? `?city=${city}` : ''}` :
+        `https://yogzan-server.herokuapp.com/gallery/${city ? `?city=${city}` : ''}`
       const { data } = await axios({
         method: 'get',
         url
@@ -38,7 +38,7 @@ export function getCities(category) {
     try {
       const { data } = await axios({
         method: 'get',
-        url: `https://yogzan-server-stage.herokuapp.com/gallery/list-city`
+        url: `https://yogzan-server.herokuapp.com/gallery/list-city`
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CITY' })
     } catch (error) {
@@ -52,7 +52,7 @@ export function submitHiring(dataForm, cb) {
     try {
       const { data } = await axios({
         method: 'post',
-        url: `https://yogzan-server-stage.herokuapp.com/hiring/submit`,
+        url: `https://yogzan-server.herokuapp.com/hiring/submit`,
         // url: `http://localhost:5000/hiring/submit`,
         data: dataForm
       })
@@ -68,12 +68,12 @@ export function submitBooking(dataForm, cb) {
     try {
       const { data } = await axios({
         method: 'post',
-        url: `https://yogzan-server-stage.herokuapp.com/book/submit`,
+        url: `https://yogzan-server.herokuapp.com/book/submit`,
         // url: `http://localhost:5000/order/booking`,
         data: dataForm
       })
       const message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${dataForm.name}%0AUntuk Event: ${dataForm.layanan}%0ATanggal/Bulan: ${dataForm.date}%0AKota: ${dataForm.city}%0AKontak: ${dataForm.phone}%0ATerimakasih!`
-      window.open(`https://wa.me/+6281313269255?text=${message}`, 
+      window.open(`https://wa.me/+6281574743528?text=${message}`, 
       '_blank')
       cb()
     } catch (error) {
