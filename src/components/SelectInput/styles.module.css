@@ -133,4 +133,9 @@
     width: 20px;
     height: 20px;
   }
+  .helper {
+    font-size: 14px;
+    line-height:22px;
+    margin-top: 8px;
+  }
 }

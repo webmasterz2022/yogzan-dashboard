@@ -91,4 +91,9 @@
     width: 12px;
     margin-right: 4px;
   }  
+  .root > .helper {
+    font-size: 14px;
+    line-height:22px;
+    margin-top: 8px;
+  }
 }
