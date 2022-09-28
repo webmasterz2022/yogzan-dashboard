@@ -47,9 +47,6 @@ export default function Footer() {
             <p>Hubungi Kami</p>
             <p className={styles.email} onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=asktoyogzan@gmail.com', '_blank')}>asktoyogzan@gmail.com</p>
             <p>(+62) 815-7474-3528</p>
-            <p>
-              Perumahan Alam Brajan A2, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55181
-            </p>
           </div>
         </div>
         <div>

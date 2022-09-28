@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Field } from 'react-final-form'
 import styles from './styles.module.css'
 import coverBooking from '../../assets/cover-booking.png'
@@ -21,13 +21,17 @@ export default function Book() {
     "knowFrom": '',
   })
 
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+
   const inputProps = [
     { placeholder: 'Tulis Nama Pemesan' },
     { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family'] },
-    { placeholder: 'Pilih salah satu', options: ['Surabaya', 'Jakarta', 'Yogyakarta'] },
+    { placeholder: 'Pilih salah satu', options: ['Surabaya', 'Jabodetabek', 'Yogyakarta', 'Semarang', 'Bandung', 'Malang'] },
     { placeholder: 'HH/BB/TTTT', type: 'date' },
     { placeholder: 'Tulis kontak disini', type: 'number' },
-    { placeholder: 'Pilih salah satu', options: ['Intagram', 'Facebook', 'Tiktok', 'Iklan', 'Rekomendasi Teman'] },
+    { placeholder: 'Pilih salah satu', options: ['Intagram', 'Facebook', 'Tiktok', 'Iklan', 'Rekomendasi Teman', 'Google'] },
   ]
 
   const handleFormSubmit = (values) => {
@@ -57,7 +61,7 @@ export default function Book() {
               <form onSubmit={handleSubmit}>
                 <Field 
                   component={Input} 
-                  label="Nama Lengkap" 
+                  label="Nama" 
                   inputProps={inputProps[0]} 
                   name="name" 
                 />

@@ -51,6 +51,7 @@ export default function Gallery() {
   }, [selectedCity])
   
   useEffect(() => {
+    window.scrollTo(0,0)
     dispatch(getCities())
     if(!type){
       setSearchParams({ type: 'Semua' })

@@ -6,6 +6,7 @@ import { routes } from './configs/routes';
 import Footer from './components/Footer/Footer';
 import AppContextProvider from './contexts';
 import 'swiper/css/bundle'
+import "swiper/css/pagination";
 import './App.css';
 import Career from './pages/Career';
 import Book from './pages/Book';
