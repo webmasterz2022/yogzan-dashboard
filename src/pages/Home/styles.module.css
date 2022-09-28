@@ -165,6 +165,11 @@
   grid-column-end: 5;
   grid-row-start: 6;
   grid-row-end: 7;
+  transition: 0.25s;
+}
+
+.galleries > div:nth-child(2) > button:hover {
+  transform: scale(1.075);
 }
 
 .galleries > div:nth-child(2) > button > p { 
@@ -325,9 +330,10 @@
   display: flex;
   overflow: auto;
   margin-top: 1.5rem;
+  height: 15rem;
 }
 
-.testimonials > div > div > div {
+.testimonials > div > div > div:first-child {
   width: fit-content;
   margin-left: 4rem;
 }
@@ -498,11 +504,11 @@
     grid-row-end: 7;
   }
 
-.galleries > div:nth-child(2) > button > p > img { 
-  margin-left: 8px;
-  width: 24px;
-  height: 24px;
-}
+  .galleries > div:nth-child(2) > button > p > img { 
+    margin-left: 8px;
+    width: 24px;
+    height: 24px;
+  }
 
   .galleries > div:nth-child(3) {
     padding: 24px 0;
@@ -593,6 +599,7 @@
     overflow: auto;
     margin-top: 24px;
     padding: 0 40px 20px;
+    height: 260px;
   }
   
   .testimonials > div > div:not(:last-child) {

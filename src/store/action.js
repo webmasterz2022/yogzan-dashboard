@@ -25,7 +25,6 @@ export function getPortfolioImages(category, city) {
         url
       })
       const indexingImage = data.images.map((img, i) => ({...img, index: i}))
-      console.log('add index', indexingImage)
       dispatch({ payload: {...data, images: indexingImage}, type: 'DATA_FETCHED_PORTFOLIO' })
     } catch (error) {
       
