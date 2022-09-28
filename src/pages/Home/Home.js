@@ -17,7 +17,7 @@ import { getDeviceType, shuffle } from '../../utils'
 import { useNavigate } from 'react-router-dom'
 import { chooseUs, testimonials } from './dataMock'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay } from 'swiper'
+import { Autoplay, Pagination } from 'swiper'
 import { routes } from '../../configs/routes'
 
 export default function Home() {
@@ -33,6 +33,7 @@ export default function Home() {
   const [images, setImages] = useState([])
 
   useEffect(() => {
+    window.scrollTo(0,0)
     if(homepageImages.length === 0) {
       dispatch(getHomepageImages())
     }
@@ -140,7 +141,10 @@ export default function Home() {
         <p>Setiap dari mereka berharga, demikian juga dengan kamu!</p>
         <div>
           <Swiper
-            modules={[Autoplay]}
+            pagination={{
+              dynamicBullets: true,
+            }}
+            modules={[Autoplay, Pagination]}
             spaceBetween={2}
             slidesPerView={lengthTestimony[device]}
             centeredSlides={true}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './styles.module.css'
 import CardChooseUs from '../../components/CardChooseUs'
 import { careerChooseUs } from './dataMock'
@@ -6,7 +6,7 @@ import satu from '../../assets/satu.svg'
 import dua from '../../assets/dua.svg'
 import tiga from '../../assets/tiga.svg'
 import coverCareer from '../../assets/coverCareer.png'
-import formImage from '../../assets/form-image.png'
+import formImage from '../../assets/hiring-cover.jpg'
 import FormDataDiri from '../../components/FormDataDiri'
 import FormDetailPengalaman from '../../components/FormDetailPengalaman'
 import { useDispatch } from 'react-redux'
@@ -32,6 +32,10 @@ export default function Career() {
     "cv": '',
     "portfolio": '',
   })
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
 
   const handleSubmit = (values, step) => {
     dispatch(submitHiring({ ...data, ...values }, () => {
