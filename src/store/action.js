@@ -68,10 +68,10 @@ export function submitBooking(dataForm, cb) {
       const { data } = await axios({
         method: 'post',
         url: `https://yogzan-server-dev.herokuapp.com/book/submit`,
-        // url: `http://localhost:5000/order/booking`,
+        // url: `http://localhost:5000/book/submit`,
         data: dataForm
       })
-      const message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${dataForm.name}%0AUntuk Event: ${dataForm.layanan}%0ATanggal/Bulan: ${dataForm.date}%0AKota: ${dataForm.city}%0AKontak: ${dataForm.phone}%0ATerimakasih!`
+      const message = `Halo Admin! Saya ingin Booking.%0ANama: ${dataForm.name}%0AUntuk Event: ${dataForm.layanan}%0ATanggal/Bulan: ${dataForm.date}%0AKota: ${dataForm.city}%0AKontak: ${dataForm.phone}%0ATerimakasih!`
       window.open(`https://wa.me/+6281313269255?text=${message}`, 
       '_blank')
       cb()

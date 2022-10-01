@@ -31,7 +31,7 @@ export default function Book() {
     { placeholder: 'Pilih salah satu', options: ['Surabaya', 'Jabodetabek', 'Yogyakarta', 'Semarang', 'Bandung', 'Malang'] },
     { placeholder: 'HH/BB/TTTT', type: 'date' },
     { placeholder: 'Tulis kontak disini', type: 'number' },
-    { placeholder: 'Pilih salah satu', options: ['Intagram', 'Facebook', 'Tiktok', 'Iklan', 'Rekomendasi Teman', 'Google'] },
+    { placeholder: 'Pilih salah satu', options: ['Instagram', 'Facebook', 'Tiktok', 'Iklan', 'Rekomendasi Teman', 'Google'] },
   ]
 
   const handleFormSubmit = (values) => {
