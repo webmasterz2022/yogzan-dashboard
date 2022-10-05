@@ -27,11 +27,11 @@ export default function Book() {
 
   const inputProps = [
     { placeholder: 'Tulis Nama Pemesan' },
-    { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family'] },
-    { placeholder: 'Pilih salah satu', options: ['Surabaya', 'Jabodetabek', 'Yogyakarta', 'Semarang', 'Bandung', 'Malang'] },
+    { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family', 'Lainnya'] },
+    { placeholder: 'Pilih salah satu', options: ['Bandung', 'Jabodetabek', 'Malang', 'Surabaya', 'Semarang', 'Yogyakarta', 'Kota Lainnya'] },
     { placeholder: 'HH/BB/TTTT', type: 'date' },
     { placeholder: 'Tulis kontak disini', type: 'number' },
-    { placeholder: 'Pilih salah satu', options: ['Instagram', 'Facebook', 'Tiktok', 'Iklan', 'Rekomendasi Teman', 'Google'] },
+    { placeholder: 'Pilih salah satu', options: ['Instagram', 'Facebook', 'Tiktok', 'Iklan', 'Rekomendasi Teman', 'Google', 'Lainnya'] },
   ]
 
   const handleFormSubmit = (values) => {
@@ -39,6 +39,9 @@ export default function Book() {
       console.log('callback triggered')
       setOpenModal(true)
     }))
+    const message = `Halo Admin! Saya ingin Booking.%0ANama: ${values.name}%0AUntuk Event: ${values.layanan}%0ATanggal/Bulan: ${values.date}%0AKota: ${values.city}%0AKontak: ${values.phone}%0ATerimakasih!`
+    window.open(`https://wa.me/+6281313269255?text=${message}`, 
+    '_blank')
   }
 
   const handleCloseModal = () => {    
@@ -87,7 +90,7 @@ export default function Book() {
                 />
                 <Field 
                   component={Input} 
-                  label="Kontak yang dapat dihubungi" 
+                  label="Nomor Whatsapp yang dapat dihubungi" 
                   inputProps={inputProps[4]} 
                   name="phone" 
                 />
