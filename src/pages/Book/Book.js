@@ -35,13 +35,13 @@ export default function Book() {
   ]
 
   const handleFormSubmit = (values) => {
+    const message = `Halo Admin! Saya ingin Booking.%0ANama: ${values.name}%0AUntuk Event: ${values.layanan}%0ATanggal/Bulan: ${values.date}%0AKota: ${values.city}%0AKontak: ${values.phone}%0ATerimakasih!`
+    window.open(`https://wa.me/+6281313269255?text=${message}`, 
+    '_blank')
     dispatch(submitBooking(values, () => {
       console.log('callback triggered')
       setOpenModal(true)
     }))
-    const message = `Halo Admin! Saya ingin Booking.%0ANama: ${values.name}%0AUntuk Event: ${values.layanan}%0ATanggal/Bulan: ${values.date}%0AKota: ${values.city}%0AKontak: ${values.phone}%0ATerimakasih!`
-    window.open(`https://wa.me/+6281313269255?text=${message}`, 
-    '_blank')
   }
 
   const handleCloseModal = () => {    
