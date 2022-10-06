@@ -47,7 +47,6 @@ export default function Book() {
     window.open(`https://wa.me/+6281313269255?text=${message}`, 
     '_blank')
     dispatch(submitBooking({...values, date: _date, city: _city, layanan: _layanan, knowFrom: _knowFrom}, () => {
-      console.log('callback triggered')
       setOpenModal(true)
     }))
   }
@@ -58,7 +57,6 @@ export default function Book() {
 
   const disabledButton = val => {
     val = {...val, checked}
-    console.log(val)
     if(val.name && val.layanan && 
       val.city && 
       (val.date || checked) &&

@@ -92,12 +92,11 @@ export default function FormDetailPengalaman(props) {
             onChange={(e) => handleStep({...values, workingHour: e})}
             {...inputProps[5]} 
           />
-          <p>Expected Fee untuk memotret foto</p>
+          <p>Expected Fee untuk memotret foto (Photo Only dalam durasi 1 jam)</p>
           <Field 
             component={SelectInput} 
             onChange={(e) => handleStep({...values, fee: e})}
             name="fee" 
-            helper={() => <span>Photo Only dalam <b>durasi 1 jam</b></span>}
             {...inputProps[6]}
             />
           <Field 

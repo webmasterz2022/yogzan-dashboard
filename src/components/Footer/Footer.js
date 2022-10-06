@@ -17,7 +17,7 @@ import { routes } from '../../configs/routes'
 export default function Footer() {
   const navigate = useNavigate()
   const { pathname } = useLocation()
-  console.log(pathname)
+  
   return (
     <section className={styles.root}>
       {![routes.BOOK(), routes.CAREER()].includes(pathname) && (
