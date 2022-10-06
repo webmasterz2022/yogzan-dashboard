@@ -59,6 +59,35 @@
   width: 19.5rem;
 }
 
+.cityExtended, .knowFromExtended {
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.root > div:nth-of-type(1) > form > .date {
+  margin-bottom: 0;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox > p {
+  padding-top: 0.25rem;
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  vertical-align: middle;
+}
+
+.checkbox > img {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
 @media only screen and (max-width: 768px) {
   .root {
     padding: 96px 40px 56px;
@@ -105,5 +134,22 @@
     border-radius: 4px;
     width: 312px;
     max-width: 70vw;
+  }
+
+  .cityExtended, .knowFromExtended {
+    margin-top: -8px;
+    margin-bottom: 8px;
+  }
+  
+  .checkbox > p {
+    padding-top: 4px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  .checkbox > img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
   }
 }

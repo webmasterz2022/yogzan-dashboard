@@ -62,18 +62,15 @@ export function submitHiring(dataForm, cb) {
   }
 }
 
-export function submitBooking(dataForm, cb) {
+export function submitBooking(dataBooking, cb) {
   return async () => {
     try {
       const { data } = await axios({
         method: 'post',
         url: `https://yogzan-server-dev.herokuapp.com/book/submit`,
         // url: `http://localhost:5000/book/submit`,
-        data: dataForm
+        data: dataBooking
       })
-      // const message = `Halo Admin! Saya ingin Booking.%0ANama: ${dataForm.name}%0AUntuk Event: ${dataForm.layanan}%0ATanggal/Bulan: ${dataForm.date}%0AKota: ${dataForm.city}%0AKontak: ${dataForm.phone}%0ATerimakasih!`
-      // window.open(`https://wa.me/+6281313269255?text=${message}`, 
-      // '_blank')
       cb()
     } catch (error) {
       alert(error.message)

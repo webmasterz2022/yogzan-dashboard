@@ -30,12 +30,17 @@ export default function FormDetailPengalaman(props) {
   ]
 
   const disabled = (values) => !values.photoshoot || !values.experience || !values.camera || !values.lens ||
-    !values.workingHour || !values.fee || !values.cv || !values.portfolio
+    !values.workingHour || !values.fee || !values.cv || !values.portfolio || (values.photoshoot === "Lainnya" && !values['photoshoot-extended'])
 
+
+  const _submit = (val) => {
+    const _photoshoot = val.photoshoot === 'Lainnya' ? `${val.photoshoot} - ${val['photoshoot-extended']}` : val.photoshoot
+    handleSubmitForm({...val, photoshoot: _photoshoot})
+  }
   return (
     <Form 
       initialValues={data}
-      onSubmit={handleSubmitForm}
+      onSubmit={_submit}
       render={({ handleSubmit, values }) => (
         <form className={styles.root} onSubmit={handleSubmit}>
           <p>Jenis Pemotretan yang Pernah diambil</p>
@@ -45,6 +50,14 @@ export default function FormDetailPengalaman(props) {
             onChange={(e) => handleStep({...values, photoshoot: e})}
             {...inputProps[0]} 
           />
+          {values.photoshoot === 'Lainnya' && (
+            <Field 
+              className={styles.photoshootExtended}
+              component={Input} 
+              inputProps={{placeholder: 'Tulis jenis pemotretan lainnya'}} 
+              name="photoshoot-extended" 
+            />
+          )}
           <Field 
             component={TextArea} 
             label="Ceritakan Pengalaman Memotret Kamu" 
