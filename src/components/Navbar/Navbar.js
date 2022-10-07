@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from './styles.module.css'
 import logoDark from '../../assets/logo-dark.svg'
 import homeLight from '../../assets/home-light.svg'
@@ -19,6 +19,8 @@ export default function Navbar() {
   const device = getDeviceType()
   const { pathname } = useLocation()
   const navigate = useNavigate()
+  const logoRef = useRef() 
+  const rootRef = useRef()
 
   const menus = [
     {
@@ -44,9 +46,29 @@ export default function Navbar() {
     }
   ]
 
+  useEffect(() => {
+    if(device === 'desktop' && pathname === routes.HOMEPAGE()) {
+      logoRef.current.style.opacity = 0
+      window.onscroll = () => {
+        if(device === 'desktop' && pathname === routes.HOMEPAGE()) {
+          if(document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+            logoRef.current.style.opacity = 'unset'
+            rootRef.current.style.boxShadow = '0px 11px 12px -4px rgba(138, 132, 130, 0.21)';
+          } else {
+            logoRef.current.style.opacity = 0
+            rootRef.current.style.boxShadow = 'unset';
+          }
+        }
+      }
+    } else {
+      logoRef.current.style.opacity = 'unset'
+      window.onscroll = () => {}
+    }
+  }, [pathname])
+
   return (
-    <div className={styles.root}>
-      <img src={logoDark} alt="yogzan" onClick={() => navigate('/')}/>
+    <div ref={rootRef} className={styles.root}>
+      <img ref={logoRef} src={logoDark} alt="yogzan" onClick={() => navigate('/')}/>
       <div className={styles.menuBar}>
         {menus.map((menu, idx) => (
           <Button
