@@ -25,7 +25,7 @@ export default function Home() {
   const lengthTestimony = {
     desktop: 2.8,
     tablet: 2,
-    mobile: 1.1
+    mobile: 1
   }
   const navigate = useNavigate()
   const dispatch = useDispatch()
