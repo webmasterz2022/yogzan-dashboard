@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
           <div>
             <p>Hubungi Kami</p>
-            <p className={styles.email} onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=yogzan@yogzan.com', '_blank')}>yogzan@yogzan.com</p>
+            <p className={styles.email} onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=asktoyogzan@gmail.com', '_blank')}>asktoyogzan@gmail.com</p>
             <p>(+62) 815-7474-3528</p>
           </div>
         </div>

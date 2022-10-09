@@ -18,7 +18,7 @@ export const careerChooseUs = [
     desc: 'Kamu cukup melakukan eksekusi di lapangan, kirim hasilnya dan terima komisi. Selanjutnya biar kami yang tangani.'
   },{
     image: photo,
-    title: 'Kumpulkan Portofolio',
-    desc: 'Semua foto di setiap momen yang kamu ambil, bisa menjadi portofolio kamu juga!'
+    title: 'Kembangkan Skill',
+    desc: 'Dari banyaknya proyek di Yogzan, kamu akan dapat banyak pengalaman untuk hasilkan gambar terbaik. Dapatkan juga training khusus dari Yogzan untuk menambah kemampuanmu!'
   }
 ]
