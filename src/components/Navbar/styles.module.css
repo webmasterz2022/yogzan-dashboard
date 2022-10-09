@@ -1,10 +1,15 @@
 .root {
-  margin-top: 1.5rem;
   padding: 1rem 7.75rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 100;
+  z-index: 10;
+  position: fixed;
+  width: fill;
+  background: linear-gradient(7.14deg, #FFF5F1 -1%, #FFFFFF -7.58%, #FCE6DD 100.1%);
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  transition: 0.5s;
 }
 
 .topBar {
@@ -15,6 +20,7 @@
   height: 4.5rem;
   width: 7.5rem;
   cursor: pointer;
+  transition: 0.25s;
 }
 
 .menuBar {
@@ -30,6 +36,7 @@
     bottom: 24px;
     width: fill;
     justify-content: center;
+    background: unset;
   }
   
   .root > img {

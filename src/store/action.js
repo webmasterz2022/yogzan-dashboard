@@ -62,14 +62,14 @@ export function submitHiring(dataForm, cb) {
   }
 }
 
-export function submitBooking(dataForm, cb) {
+export function submitBooking(dataBooking, cb) {
   return async () => {
     try {
       const { data } = await axios({
         method: 'post',
         url: `https://yogzan-server.herokuapp.com/book/submit`,
-        // url: `http://localhost:5000/order/booking`,
-        data: dataForm
+        // url: `http://localhost:5000/book/submit`,
+        data: dataBooking
       })
       cb()
     } catch (error) {
