@@ -50,8 +50,8 @@ export default function Career() {
 
   return (
     <section className={styles.root}>
-      <h3>Hasilkan ‘Cuan’ Tambahan dari Hobi Kamu!</h3>
-      <p>Kamu fotografer dan mau dapat penghasilan tambahan dari hobi motret kamu? Yuk gabung dengan Yogzan!</p>
+      <h3>Salurkan Hobi dan Kembangkan Skill Fotografi Kamu!</h3>
+      <p>Kamu hobi motret dan mau mengembangkan skill sambil dapat penghasilan tambahan? Yuk gabung dengan Yogzan!</p>
       <div className={styles.why}>
         <h3>Kenapa Harus Yogzan?</h3>
         <div>

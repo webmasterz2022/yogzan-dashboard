@@ -27,7 +27,6 @@ export function shuffle(array) {
 }
 
 export const bookingViaWA = () => {
-  console.log('clicked')
   window.open('https://wa.me/message/SLS4NGOQZWLFF1', '_blank')
 }
 

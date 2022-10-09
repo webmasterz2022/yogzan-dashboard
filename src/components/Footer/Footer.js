@@ -11,22 +11,26 @@ import hiringLight from '../../assets/hiring-light.svg'
 import bookingLight from '../../assets/booking-light.svg'
 import arrowLight from '../../assets/arrow-light.svg'
 import { bookingViaWA } from '../../utils'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { routes } from '../../configs/routes'
 
 export default function Footer() {
   const navigate = useNavigate()
+  const { pathname } = useLocation()
+  
   return (
     <section className={styles.root}>
-      <div className={styles.booking}>
-        <div>
-          <p>Setiap momen punya cerita, dari cinta, perjuangan hingga air mata kebahagiaan. Abadikan setiap cerita berhargamu dengan layanan foto terbaik bersama Yogzan. </p>
+      {![routes.BOOK(), routes.CAREER()].includes(pathname) && (
+        <div className={styles.booking}>
+          <div>
+            <p>Setiap momen punya cerita, dari cinta, perjuangan hingga air mata kebahagiaan. Abadikan setiap cerita berhargamu dengan layanan foto terbaik bersama Yogzan. </p>
+          </div>
+          <Button variant="active-square" handleClick={() => navigate(routes.BOOK())}>
+            Pesan Sekarang
+            <img src={arrowLight} alt="" />
+          </Button>
         </div>
-        <Button variant="active-square" handleClick={() => navigate(routes.BOOK())}>
-          Pesan Sekarang
-          <img src={arrowLight} alt="" />
-        </Button>
-      </div>
+      )}
       <div className={styles.details}>
         <div>
           <div>
