@@ -88,6 +88,28 @@
   margin-right: 0.5rem;
 }
 
+.root > div:nth-of-type(1) > form > a {
+  text-decoration: none;
+  width: 100%;
+  height: fit-content;
+}
+
+.root > div:nth-of-type(1) > form > .disabledSubmit {
+  pointer-events: none;
+}
+
+.root > div:nth-of-type(1) > form > a > button {
+  width: 100%;
+  padding: 1rem;
+  text-decoration: none;
+  padding: 0;
+}
+
+.root > div:nth-of-type(1) > form > a > button > p {
+  width: fill;
+  padding: 1rem;
+}
+
 @media only screen and (max-width: 768px) {
   .root {
     padding: 96px 40px 56px;
@@ -151,5 +173,10 @@
     width: 20px;
     height: 20px;
     margin-right: 8px;
+  }
+
+  .root > div:nth-of-type(1) > form > a > button > p {
+    width: fill;
+    padding: 16px;
   }
 }
