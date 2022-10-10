@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Form, Field } from 'react-final-form'
 import styles from './styles.module.css'
 import coverBooking from '../../assets/cover-booking.png'
@@ -9,7 +9,7 @@ import SelectInput from '../../components/SelectInput'
 import Modal from '../../components/Modal'
 import Button from '../../components/Button'
 import { submitBooking } from '../../store/action'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import TextArea from '../../components/TextArea'
 
 export default function Book() {
@@ -43,9 +43,6 @@ export default function Book() {
     const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
     const _knowFrom = values.knowFrom === 'Lainnya' ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
     const _date = checked ? 'Belum menentukan waktu' : values.date
-    const message = `Halo Admin! Saya ingin Booking.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0AKota: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`
-    window.open(`https://wa.me/+6281313269255?text=${message}`, 
-    '_blank')
     dispatch(submitBooking({...values, date: _date, city: _city, layanan: _layanan, knowFrom: _knowFrom}, () => {
       setOpenModal(true)
     }))
@@ -72,6 +69,14 @@ export default function Book() {
     } else {
       return true
     }
+  }
+
+  const generateLinkWA = (values) => {
+    const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
+    const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
+    const _date = checked ? 'Belum menentukan waktu' : values.date
+    const message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0AKota: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`
+    return `https://wa.me/+6281313269255?text=${message}`
   }
 
   return (
@@ -162,13 +167,20 @@ export default function Book() {
                     name="knowFrom-extended" 
                   />
                 )}
-                <Button 
-                  variant="active-square" 
-                  disabled={disabledButton(values)}
-                  type="submit"
+                <a 
+                  className={disabledButton(values) ? styles.disabledSubmit : ''} 
+                  onClick={() => handleSubmit(values)} 
+                  href={generateLinkWA(values)} 
+                  target='_blank'
+                  rel="noreferrer"
                 >
-                  Buat Pesanan
-                </Button>
+                  <Button 
+                    variant="active-square" 
+                    disabled={disabledButton(values)}
+                  >
+                    Buat Pesanan
+                  </Button>
+                </a>
               </form>
             )}
           />
