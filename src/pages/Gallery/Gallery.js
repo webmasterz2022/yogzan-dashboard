@@ -59,7 +59,6 @@ export default function Gallery() {
   }, [])
 
   const _previewImage = (image) => {
-    console.log(image)
     const {name, url, description, city, category, vertical, index} = image
     setSelectedImage({
       open: true, 

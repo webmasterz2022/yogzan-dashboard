@@ -43,9 +43,11 @@ export default function Book() {
     const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
     const _knowFrom = values.knowFrom === 'Lainnya' ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
     const _date = checked ? 'Belum menentukan waktu' : values.date
-    const message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0AKota: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`
-    window.open(`https://wa.me/+6281574743528?text=${message}`, 
-    '_blank')
+    setTimeout(() => {
+      const message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0AKota: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`
+      window.open(`https://wa.me/+6281574743528?text=${message}`, 
+      '_blank')
+    }, 1000)
     dispatch(submitBooking({...values, date: _date, city: _city, layanan: _layanan, knowFrom: _knowFrom}, () => {
       setOpenModal(true)
     }))
