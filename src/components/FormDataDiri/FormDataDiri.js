@@ -13,6 +13,12 @@ export default function FormDataDiri(props) {
   ].join('|'));
   const isEmail = value => reqEmail.test(value) ? undefined : 'Format Email salah';
 
+  const normalizePhone = value => {
+    if (!value) return value;
+    const onlyNums = value.replace(/[^\d]/g, "");
+    return onlyNums
+  };
+
   const inputProps = [
     { placeholder: 'Tulis nama lengkap disini' },
     { placeholder: 'Tulis nama panggilan disini' },
@@ -57,6 +63,7 @@ export default function FormDataDiri(props) {
             label="Nomor Whatsapp" 
             inputProps={inputProps[3]} 
             name="phone" 
+            parse={normalizePhone}
           />
           <Field 
             component={Input} 
