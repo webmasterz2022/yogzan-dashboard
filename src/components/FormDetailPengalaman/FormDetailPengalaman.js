@@ -9,6 +9,9 @@ import TextArea from '../TextArea';
 export default function FormDetailPengalaman(props) {
   const { handleSubmitForm, handleStep, data } = props
 
+  const reqLink = new RegExp(/^(ftp|http|https):\/\/[^ "]+$/);
+  const isLink = value => reqLink.test(value) ? undefined : 'Format Link salah'
+
   const inputProps = [
     { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Studio', 'Lainnya'] },
     { placeholder: 'Tulis pengalamanmu disini' },
@@ -29,7 +32,7 @@ export default function FormDetailPengalaman(props) {
     { placeholder: 'Link Portfolio' },
   ]
 
-  const disabled = (values) => !values.photoshoot || !values.experience || !values.camera || !values.lens ||
+  const disabled = (values) => !values.photoshoot || !values.camera || !values.lens ||
     !values.workingHour || !values.fee || !values.cv || !values.portfolio || (values.photoshoot === "Lainnya" && !values['photoshoot-extended'])
 
 
@@ -60,7 +63,7 @@ export default function FormDetailPengalaman(props) {
           )}
           <Field 
             component={TextArea} 
-            label="Ceritakan Pengalaman Memotret Kamu" 
+            label="Ceritakan Pengalaman Kamu dalam Berkarir di Dunia Fotografi (Jika Ada)" 
             inputProps={inputProps[1]} 
             name="experience" 
           />
@@ -105,6 +108,7 @@ export default function FormDetailPengalaman(props) {
             inputProps={inputProps[7]} 
             name="cv" 
             helper="misal: link dokumen google drive"
+            validate={isLink}
           />
           <Field 
             component={Input} 
@@ -112,6 +116,7 @@ export default function FormDetailPengalaman(props) {
             inputProps={inputProps[8]} 
             name="portfolio" 
             helper="misal: link dokumen google drive"
+            validate={isLink}
           />
           <div>
             <Button variant="active-square" handleClick={() => handleStep(values, 'Data Diri')}>Kembali</Button>

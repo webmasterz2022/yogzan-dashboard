@@ -29,6 +29,12 @@ export default function Book() {
     window.scrollTo(0,0)
   }, [])
 
+  const normalizePhone = value => {
+    if (!value) return value;
+    const onlyNums = value.replace(/[^\d]/g, "");
+    return onlyNums
+  };
+
   const inputProps = [
     { placeholder: 'Tulis Nama Pemesan' },
     { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family', 'Lainnya'] },
@@ -151,6 +157,7 @@ export default function Book() {
                   label="Nomor Whatsapp yang dapat dihubungi" 
                   inputProps={inputProps[4]} 
                   name="phone" 
+                  parse={normalizePhone}
                 />
                 <p>Dari mana Anda mengetahui Yogzan?</p>
                 <Field 
