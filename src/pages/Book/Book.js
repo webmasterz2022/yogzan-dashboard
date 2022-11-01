@@ -185,7 +185,7 @@ export default function Book() {
                     variant="active-square" 
                     disabled={disabledButton(values)}
                   >
-                    Buat Pesanan
+                    Dapatkan Daftar Harga
                   </Button>
                 </a>
               </form>
