@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import './App.css';
 import Career from './pages/Career';
 import Book from './pages/Book';
-import FixBook from './pages/FixBook';
+import FixBook from './pages/FixBook/FixBook';
 
 function App() {
   return (
