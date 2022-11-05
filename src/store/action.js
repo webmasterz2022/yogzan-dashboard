@@ -47,8 +47,9 @@ export function getCities(category) {
 }
 
 export function submitHiring(dataForm, cb) {
-  return async () => {
+  return async (dispatch) => {
     try {
+      dispatch({type: 'SET_LOADING', key: 'submitHiring', payload: true})
       const { data } = await axios({
         method: 'post',
         url: `https://yogzan-server-stage.herokuapp.com/hiring/submit`,
@@ -56,15 +57,18 @@ export function submitHiring(dataForm, cb) {
         data: dataForm
       })
       cb()
+      dispatch({type: 'SET_LOADING', key: 'submitHiring', payload: false})
     } catch (error) {
+      dispatch({type: 'SET_LOADING', key: 'submitHiring', payload: false})
       alert(error.message)
     }
   }
 }
 
 export function submitBooking(dataBooking, cb) {
-  return async () => {
+  return async (dispatch) => {
     try {
+      dispatch({type: 'SET_LOADING', key: 'submitBooking', payload: true})
       const { data } = await axios({
         method: 'post',
         url: `https://yogzan-server-stage.herokuapp.com/book/submit`,
@@ -72,15 +76,18 @@ export function submitBooking(dataBooking, cb) {
         data: dataBooking
       })
       cb()
+      dispatch({type: 'SET_LOADING', key: 'submitBooking', payload: false})
     } catch (error) {
+      dispatch({type: 'SET_LOADING', key: 'submitBooking', payload: false})
       alert(error.message)
     }
   }
 }
 
 export function submitFixBooking(dataBooking, cb) {
-  return async () => {
+  return async (dispatch) => {
     try {
+      dispatch({type: 'SET_LOADING', key: 'submitFixBooking', payload: true})
       const { data } = await axios({
         method: 'post',
         url: `https://yogzan-server-dev.herokuapp.com/fixbook/submit`,
@@ -88,7 +95,9 @@ export function submitFixBooking(dataBooking, cb) {
         data: dataBooking
       })
       cb()
+      dispatch({type: 'SET_LOADING', key: 'submitFixBooking', payload: false})
     } catch (error) {
+      dispatch({type: 'SET_LOADING', key: 'submitFixBooking', payload: false})
       alert(error.message)
     }
   }

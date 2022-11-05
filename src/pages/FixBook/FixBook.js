@@ -9,13 +9,14 @@ import SelectInput from '../../components/SelectInput'
 import Modal from '../../components/Modal'
 import Button from '../../components/Button'
 import { submitFixBooking } from '../../store/action'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import TextArea from '../../components/TextArea'
 import moment from 'moment'
 
 export default function Book() {
   moment.locale('id')
   const dispatch = useDispatch()
+  const { isLoading } = useSelector(s => s)
   const [openModal, setOpenModal] = useState(false)
   const [data, setData] = useState({
     "fullname": '',
@@ -231,7 +232,8 @@ export default function Book() {
                 >
                   <Button 
                     variant="active-square" 
-                    disabled={disabledButton(values)}
+                    disabled={disabledButton(values) || isLoading.submitFixBooking}
+                    isLoading={isLoading.submitFixBooking}
                   >
                     Pesan Sekarang
                   </Button>
