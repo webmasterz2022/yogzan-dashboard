@@ -4,11 +4,12 @@ const initialState = {
     meta: {},
     images: []
   },
-  cities: []
+  cities: [],
+  isLoading: {}
 }
 
 export default function reducer(state = initialState, action) {
-  const { type } = action
+  const { type, key } = action
   switch (type) {
     case 'DATA_FETCHED_HOMEPAGE':
       return {
@@ -24,6 +25,14 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         cities: action.payload
+      }
+    case 'SET_LOADING':
+      return {
+        ...state,
+        isLoading: {
+          ...state.isLoading,
+          [key]: action.payload
+        }
       }
     default:
       return state

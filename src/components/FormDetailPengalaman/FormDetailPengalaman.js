@@ -5,9 +5,11 @@ import styles from './styles.module.css'
 import Button from '../Button';
 import SelectInput from '../SelectInput'
 import TextArea from '../TextArea';
+import { useSelector } from 'react-redux';
 
 export default function FormDetailPengalaman(props) {
   const { handleSubmitForm, handleStep, data } = props
+  const { isLoading } = useSelector(s => s)
 
   const reqLink = new RegExp(/^(ftp|http|https):\/\/[^ "]+$/);
   const isLink = value => reqLink.test(value) ? undefined : 'Format Link salah'
@@ -108,7 +110,7 @@ export default function FormDetailPengalaman(props) {
           />
           <div>
             <Button variant="active-square" handleClick={() => handleStep(values, 'Data Diri')}>Kembali</Button>
-            <Button disabled={disabled(values)} variant="active-square" handleClick={() => handleSubmit(values)}>Kirim Lamaran</Button>
+            <Button disabled={disabled(values) || isLoading.submitHiring} isLoading={isLoading.submitHiring} variant="active-square" handleClick={() => handleSubmit(values)}>Kirim Lamaran</Button>
           </div>
         </form>
       )}

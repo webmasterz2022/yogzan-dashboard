@@ -14,6 +14,7 @@ import TextArea from '../../components/TextArea'
 
 export default function Book() {
   const dispatch = useDispatch()
+  const { isLoading } = useSelector(s => s)
   const [openModal, setOpenModal] = useState(false)
   const [checked, setChecked] = useState(false)
   const [data, setData] = useState({
@@ -183,7 +184,8 @@ export default function Book() {
                 >
                   <Button 
                     variant="active-square" 
-                    disabled={disabledButton(values)}
+                    disabled={disabledButton(values) || isLoading.submitBooking}
+                    isLoading={isLoading.submitBooking}
                   >
                     Dapatkan Daftar Harga
                   </Button>
