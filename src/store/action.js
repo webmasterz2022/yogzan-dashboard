@@ -77,3 +77,19 @@ export function submitBooking(dataBooking, cb) {
     }
   }
 }
+
+export function submitFixBooking(dataBooking, cb) {
+  return async () => {
+    try {
+      const { data } = await axios({
+        method: 'post',
+        url: `https://yogzan-server-dev.herokuapp.com/fixbook/submit`,
+        // url: `http://localhost:5000/book/submit`,
+        data: dataBooking
+      })
+      cb()
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+}
