@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import './App.css';
 import Career from './pages/Career';
 import Book from './pages/Book';
+import FixBook from './pages/FixBook/FixBook';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path={routes.GALLERY()} element={<Gallery />} />
             <Route path={routes.CAREER()} element={<Career />} />
             <Route path={routes.BOOK()} element={<Book />} />
+            <Route path={routes.FIXBOOK()} element={<FixBook />} />
           </Routes>
       </div>
       <Footer />
