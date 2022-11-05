@@ -28,8 +28,8 @@ export default function FormDetailPengalaman(props) {
       'Rp 450.000 - Rp 500.000',
       'Diatas Rp 500.000',
     ] },
-    { placeholder: 'Link CV' },
-    { placeholder: 'Link Portfolio' },
+    { placeholder: 'Contoh: https://drive.google.com/file/...' },
+    { placeholder: 'Contoh: https://drive.google.com/file/...' },
   ]
 
   const disabled = (values) => !values.photoshoot || !values.camera || !values.lens ||
@@ -97,7 +97,6 @@ export default function FormDetailPengalaman(props) {
             label="Link CV" 
             inputProps={inputProps[7]} 
             name="cv" 
-            helper="misal: link dokumen google drive"
             validate={isLink}
           />
           <Field 
@@ -105,7 +104,6 @@ export default function FormDetailPengalaman(props) {
             label="Link Portfolio" 
             inputProps={inputProps[8]} 
             name="portfolio" 
-            helper="misal: link dokumen google drive"
             validate={isLink}
           />
           <div>
