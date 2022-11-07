@@ -3,6 +3,7 @@ import styles from './styles.module.css'
 import pinLocation from '../../assets/pin-location.svg'
 import iconImage from '../../assets/icon-image.svg'
 import arrowLight from '../../assets/arrow-light.svg'
+import arrowDark from '../../assets/arrow-dark.svg'
 import arrowLeft from '../../assets/arrow-left.svg'
 import arrowRight from '../../assets/arrow-right.svg'
 import xCircle from '../../assets/x-circle.svg'
@@ -12,7 +13,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import SelectInput from '../../components/SelectInput'
 import Modal from '../../components/Modal'
 import {useDispatch, useSelector} from 'react-redux'
-import { getAllCategories, getCities, getPortfolioImages } from '../../store/action'
+import { getCities, getGalleryCategories, getPortfolioImages } from '../../store/action'
 import Button from '../../components/Button'
 import { routes } from '../../configs/routes'
 
@@ -25,6 +26,7 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState({ open: false })
   const [selectedCity, setSelectedCity] = useState('')
   const type = searchParams.get('type')
+  const currentCategory = categories.find(e => e.name === type)
 
   const descriptions = {
     Wisuda: {
@@ -53,7 +55,7 @@ export default function Gallery() {
   useEffect(() => {
     window.scrollTo(0,0)
     dispatch(getCities())
-    dispatch(getAllCategories())
+    dispatch(getGalleryCategories())
     if(!type){
       setSearchParams({ type: 'Semua' })
     }
@@ -118,8 +120,8 @@ export default function Gallery() {
               <>Semua</>
             )}
           </ButtonFilter>
-          {categories.map(({name, displayOnGallery}) => (
-            displayOnGallery ? <ButtonFilter
+          {categories.map(({name}) => (
+            <ButtonFilter
               handleClick={() => setSearchParams({ type: name })}
               key={name}
               variant={type === name ? 'active' : ''}
@@ -132,8 +134,7 @@ export default function Gallery() {
               ) : (
                 <>{name}</>
               )}
-            </ButtonFilter> :
-            null
+            </ButtonFilter>
           ))}
         </div>
         <div>
@@ -161,6 +162,16 @@ export default function Gallery() {
       )}
       <div className={styles.galleries}>
         {portfolioImages.images.length > 0 && _renderGallery()}
+      </div>
+      <div className={styles.redirect}>
+        {currentCategory?.redirectLink && (
+          <Button
+            handleClick={() => window.open(currentCategory.redirectLink, '_blank')}
+          >
+            Lihat Lebih Lengkap
+            <img src={arrowDark} alt="" />
+          </Button>
+        )}
       </div>
       {selectedImage.open && (
         <Modal className={[styles.preview, styles[selectedImage.orientation]].join(' ')} open={selectedImage.open} onClose={() => setSelectedImage({ open: false })}>

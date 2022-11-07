@@ -215,6 +215,17 @@
   cursor: pointer;
 }
 
+.redirect {
+  display: flex;
+  justify-content: center;
+}
+
+.redirect > button > p {
+  display: flex;
+  align-items: center;
+}
+
+
 @media only screen and (max-width: 768px) {
   .root {
     margin-top: 80px;

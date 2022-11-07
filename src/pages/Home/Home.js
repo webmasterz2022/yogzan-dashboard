@@ -11,7 +11,7 @@ import Button from '../../components/Button'
 import CategoryCard from '../../components/CategoryCard'
 import CardChooseUs from '../../components/CardChooseUs'
 import CardTestimony from '../../components/CardTestimony'
-import { getAllCategories, getAllTestimonies, getHomepageImages } from '../../store/action'
+import { getAllCategories, getAllTestimonies, getHomepageCategories, getHomepageImages } from '../../store/action'
 import { useSelector, useDispatch } from 'react-redux'
 import { getDeviceType, shuffle } from '../../utils'
 import { useNavigate } from 'react-router-dom'
@@ -37,7 +37,7 @@ export default function Home() {
     if(homepageImages.length === 0) {
       dispatch(getHomepageImages())
     }
-    dispatch(getAllCategories())
+    dispatch(getHomepageCategories())
     dispatch(getAllTestimonies())
   }, [])
 
@@ -108,12 +108,9 @@ export default function Home() {
           <p>Momen</p>
           <div>
             {categories.map(category => {
-              if(category.displayOnHomepage){
-                return (
-                  <CategoryCard key={category.name} {...category} title={category.name} handleClick={() => navigate(`/gallery?type=${category.name}`)}/>
-                )
-              }
-              return ''
+              return (
+                <CategoryCard key={category.name} {...category} title={category.name} handleClick={() => navigate(`/gallery?type=${category.name}`)}/>
+              )
             })}
           </div>
         </div>

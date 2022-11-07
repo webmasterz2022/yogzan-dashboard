@@ -119,6 +119,38 @@ export function getAllCategories() {
   }
 }
 
+export function getHomepageCategories() {
+  return async dispatch => {
+    try {
+      dispatch({type: 'SET_LOADING', key: 'category', payload: true})
+      const { data } = await axios({
+        method: 'get',
+        url: `https://yogzan-server-dev.herokuapp.com/category/homepage`,
+        // url: `http://localhost:5000/category/homepage`,
+      })
+      dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+}
+
+export function getGalleryCategories() {
+  return async dispatch => {
+    try {
+      dispatch({type: 'SET_LOADING', key: 'category', payload: true})
+      const { data } = await axios({
+        method: 'get',
+        url: `https://yogzan-server-dev.herokuapp.com/category/gallery`,
+        // url: `http://localhost:5000/category/gallery`,
+      })
+      dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+}
+
 export function getAllTestimonies() {
   return async dispatch => {
     try {
