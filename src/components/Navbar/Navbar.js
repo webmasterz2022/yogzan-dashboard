@@ -14,6 +14,7 @@ import Button from '../Button'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { routes } from '../../configs/routes'
 import { getDeviceType } from '../../utils'
+import ReactGA from 'react-ga4'
 
 export default function Navbar() {
   const device = getDeviceType()
@@ -41,7 +42,10 @@ export default function Navbar() {
     },{
       title: 'Pesan Sekarang!',
       icon: routes.BOOK() === pathname ? bookingLight : bookingPrimary,
-      handleClick: () => navigate(routes.BOOK()),
+      handleClick: () => {
+        ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Pesan Sekarang')
+        navigate(routes.BOOK())
+      },
       variant: routes.BOOK() === pathname ? 'active-rounded' : 'highlight-rounded',
     }
   ]

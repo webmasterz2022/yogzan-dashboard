@@ -11,8 +11,10 @@ import './App.css';
 import Career from './pages/Career';
 import Book from './pages/Book';
 import FixBook from './pages/FixBook/FixBook';
+import ReactGA from 'react-ga4'
 
 function App() {
+  ReactGA.initialize('G-4Y9RTECPZ0')
   return (
   <BrowserRouter>
     <AppContextProvider>

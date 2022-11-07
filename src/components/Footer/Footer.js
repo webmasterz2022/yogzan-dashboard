@@ -13,10 +13,16 @@ import arrowLight from '../../assets/arrow-light.svg'
 import { bookingViaWA } from '../../utils'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { routes } from '../../configs/routes'
+import ReactGA from 'react-ga4'
 
 export default function Footer() {
   const navigate = useNavigate()
   const { pathname } = useLocation()
+
+  const clickPesanSekarang = () => {
+    ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Pesan Sekarang')
+    navigate(routes.BOOK())
+  }
   
   return (
     <section className={styles.root}>
@@ -44,7 +50,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <Button icon={bookingLight} variant="active-rounded" handleClick={() => navigate(routes.BOOK())}>Pesan Sekarang</Button>
+            <Button icon={bookingLight} variant="active-rounded" handleClick={clickPesanSekarang}>Pesan Sekarang</Button>
             <Button icon={hiringLight} variant="active-rounded" handleClick={() => navigate(routes.CAREER())}>Karir</Button>
           </div>
           <div>
