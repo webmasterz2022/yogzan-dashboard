@@ -12,15 +12,15 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import SelectInput from '../../components/SelectInput'
 import Modal from '../../components/Modal'
 import {useDispatch, useSelector} from 'react-redux'
-import { getCities, getPortfolioImages } from '../../store/action'
+import { getAllCategories, getCities, getPortfolioImages } from '../../store/action'
 import Button from '../../components/Button'
 import { routes } from '../../configs/routes'
 
 export default function Gallery() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const {cities, portfolioImages} = useSelector(v => v)
-  const categories = ['Semua', 'Wisuda', 'Pernikahan', 'Keluarga']
+  const {cities, portfolioImages, categories} = useSelector(v => v)
+  // const categories = ['Semua', 'Wisuda', 'Pernikahan', 'Keluarga']
   const [searchParams, setSearchParams] = useSearchParams()
   const [selectedImage, setSelectedImage] = useState({ open: false })
   const [selectedCity, setSelectedCity] = useState('')
@@ -53,6 +53,7 @@ export default function Gallery() {
   useEffect(() => {
     window.scrollTo(0,0)
     dispatch(getCities())
+    dispatch(getAllCategories())
     if(!type){
       setSearchParams({ type: 'Semua' })
     }
@@ -104,21 +105,35 @@ export default function Gallery() {
       <h5>Dari wisuda, pernikahan hingga foto keluarga, abadikan momen berharga kamu bersama tim yang berpengalaman. </h5>
       <div className={styles.filters}>
         <div className={styles.groupButton}>
-          {categories.map(category => (
-            <ButtonFilter
-              handleClick={() => setSearchParams({ type: category })}
-              key={category}
-              variant={type === category ? 'active' : ''}
+          <ButtonFilter
+            handleClick={() => setSearchParams({type: 'Semua'})}
+            variant={type === 'Semua' ? 'active' : ''}
+          >
+            {type === 'Semua' ? (
+              <div className={styles.activeButton}>
+                <img className={styles.iconButton} src={check} alt="v" />
+                Semua
+              </div>
+            ) : (
+              <>Semua</>
+            )}
+          </ButtonFilter>
+          {categories.map(({name, displayOnGallery}) => (
+            displayOnGallery ? <ButtonFilter
+              handleClick={() => setSearchParams({ type: name })}
+              key={name}
+              variant={type === name ? 'active' : ''}
             >
-              {type === category ? (
+              {type === name ? (
                 <div className={styles.activeButton}>
                   <img className={styles.iconButton} src={check} alt="v" />
-                  {category}
+                  {name}
                 </div>
               ) : (
-                <>{category}</>
+                <>{name}</>
               )}
-            </ButtonFilter>
+            </ButtonFilter> :
+            null
           ))}
         </div>
         <div>
@@ -132,7 +147,7 @@ export default function Gallery() {
           )}
         </div>
       </div>
-      {type !== categories[0] && (
+      {descriptions[type] && (
         <div className={styles.categoryDescription}>
           <div>
             <h3>{descriptions[type]?.title}</h3>

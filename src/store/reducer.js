@@ -5,7 +5,9 @@ const initialState = {
     images: []
   },
   cities: [],
-  isLoading: {}
+  isLoading: {},
+  categories: [],
+  testimonies: []
 }
 
 export default function reducer(state = initialState, action) {
@@ -25,6 +27,16 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         cities: action.payload
+      }
+    case 'DATA_FETCHED_CATEGORY':
+      return {
+        ...state,
+        categories: action.payload
+      }
+    case 'DATA_FETCHED_TESTIMONY':
+      return {
+        ...state,
+        testimonies: action.payload
       }
     case 'SET_LOADING':
       return {
