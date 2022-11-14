@@ -123,11 +123,7 @@ export default function Book() {
     <>
       <section className={styles.root}>
         <div>
-          <h3>Kamu Berhak Dapat Layanan Terbaik</h3>
-          <p>
-            Ayo kenang setiap momen berharga kamu dengan cara paling indah yang bisa kamu 
-            bayangkan. Dapatkan daftar harga Yogzan dengan mengisi formulir di bawah ini! 
-          </p>
+          <h3>Yeay! Tinggal Selangkah Lagi Pesanan Kamu Selesai!</h3>
           <Form 
             initialValues={data}
             onSubmit={handleFormSubmit}
@@ -235,7 +231,7 @@ export default function Book() {
                     disabled={disabledButton(values) || isLoading.submitFixBooking}
                     isLoading={isLoading.submitFixBooking}
                   >
-                    Pesan Sekarang
+                    Selesaikan Pesanan
                   </Button>
                 </a>
               </form>
