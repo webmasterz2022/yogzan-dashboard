@@ -166,3 +166,19 @@ export function getAllTestimonies() {
     }
   }
 }
+
+export function getStoredPhotos(linkphoto, cb) {
+  return async dispatch => {
+    try {
+      const { data } = await axios({
+        method: 'post',
+        url: `https://yogzan-server-dev.herokuapp.com/fixbook/photo-result`,
+        // url: `http://localhost:5000/fixbook/photo-result`,
+        data: { linkphoto }
+      })
+      cb(data)
+    } catch (error) {
+      cb()
+    }
+  }
+}
