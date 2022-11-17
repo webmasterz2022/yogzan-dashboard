@@ -33,7 +33,6 @@ export default function PriceList() {
         <iframe
           ref={iframeRef}
           width="100%"
-          height="100%"
           title={`${categoryName} - ${city}`}
           src={`${currentPriceList.file.replace('/view?usp=sharing', '/preview')}`}
         />
