@@ -1,0 +1,12 @@
+.root {
+  padding: 2.5rem;
+}
+
+.root > h3 {
+  text-transform: capitalize;
+}
+
+.root > iframe {
+  border: none;
+  min-height: 100vh;
+}

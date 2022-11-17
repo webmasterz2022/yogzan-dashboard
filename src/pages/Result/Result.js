@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Button from '../../components/Button'
 import { getStoredPhotos } from '../../store/action'
 import styles from './styles.module.css'
@@ -9,7 +9,6 @@ export default function Result() {
   const [isEmpty, setIsEmpty] = useState(false)
   const [link, setLink] = useState('')
   const { path } = useParams()
-  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const getLink = (path) => {
