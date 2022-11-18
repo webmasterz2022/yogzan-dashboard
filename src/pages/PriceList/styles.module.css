@@ -10,3 +10,24 @@
   border: none;
   min-height: 100vh;
 }
+
+@media only screen and (max-width: 768px) {
+  .root {
+    padding: 0 16px 40px;
+  }
+  
+  .root > h2 {
+    text-transform: capitalize;
+    font-size: 24px;
+  }
+
+  .root > h3 {
+    text-transform: capitalize;
+    font-size: 18px;
+  }
+  
+  .root > iframe {
+    border: none;
+    min-height: 100vh;
+  }
+}

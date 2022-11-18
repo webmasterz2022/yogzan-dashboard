@@ -13,8 +13,10 @@ import Book from './pages/Book';
 import FixBook from './pages/FixBook/FixBook';
 import Result from './pages/Result';
 import PriceList from './pages/PriceList';
+import LogRocket from 'logrocket'
 
 function App() {
+  LogRocket.init('dcepbi/yogzan-dashboard');
   return (
   <BrowserRouter>
     <AppContextProvider>
