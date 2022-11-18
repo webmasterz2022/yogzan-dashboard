@@ -16,7 +16,7 @@ import PriceList from './pages/PriceList';
 import LogRocket from 'logrocket'
 
 function App() {
-  LogRocket.init('dcepbi/yogzan-dashboard');
+  // LogRocket.init('dcepbi/yogzan-dashboard');
   return (
   <BrowserRouter>
     <AppContextProvider>
