@@ -11,7 +11,7 @@ import Button from '../../components/Button'
 import CategoryCard from '../../components/CategoryCard'
 import CardChooseUs from '../../components/CardChooseUs'
 import CardTestimony from '../../components/CardTestimony'
-import { getHomepageImages } from '../../store/action'
+import { getAllCategories, getAllTestimonies, getHomepageCategories, getHomepageImages } from '../../store/action'
 import { useSelector, useDispatch } from 'react-redux'
 import { getDeviceType, shuffle } from '../../utils'
 import { useNavigate } from 'react-router-dom'
@@ -29,7 +29,7 @@ export default function Home() {
   }
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { homepageImages } = useSelector(s => s)
+  const { homepageImages, categories, testimonies } = useSelector(s => s)
   const [images, setImages] = useState([])
 
   useEffect(() => {
@@ -37,6 +37,8 @@ export default function Home() {
     if(homepageImages.length === 0) {
       dispatch(getHomepageImages())
     }
+    dispatch(getHomepageCategories())
+    dispatch(getAllTestimonies())
   }, [])
 
   useEffect(() => {
@@ -45,22 +47,6 @@ export default function Home() {
       setImages(shuffled.slice(0, 11))
     } 
   }, [homepageImages])
-
-  const categories = [
-    {
-      image: wisuda,
-      title: 'Wisuda',
-      handleClick: () => navigate('/gallery?type=Wisuda')
-    },{
-      image: pernikahan,
-      title: 'Pernikahan',
-      handleClick: () => navigate('/gallery?type=Pernikahan')
-    },{
-      image: keluarga,
-      title: 'Keluarga',
-      handleClick: () => navigate('/gallery?type=Keluarga')
-    }
-  ]
 
   return (
     <section className={styles.root}>
@@ -121,9 +107,11 @@ export default function Home() {
         <div>
           <p>Momen</p>
           <div>
-            {categories.map(category => (
-              <CategoryCard key={category.title} {...category} />
-            ))}
+            {categories.map(category => {
+              return (
+                <CategoryCard key={category.name} {...category} title={category.name} handleClick={() => navigate(`/gallery?type=${category.name}`)}/>
+              )
+            })}
           </div>
         </div>
       </div>
@@ -151,14 +139,14 @@ export default function Home() {
             autoplay={true}
             loop={true}
           >
-            {testimonials.map((data) => (
+            {testimonies.map((data) => (
               <SwiperSlide
                 key={data.username}
               >
                 <CardTestimony
                   image={data.image}
-                  desc={data.testimony}
-                  name={`@${data.username}`}
+                  desc={data.desc}
+                  name={`@${data.name}`}
                   link={data.link}
                 />
               </SwiperSlide>

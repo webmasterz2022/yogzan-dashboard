@@ -8,7 +8,7 @@ export default function CardTestimony(props) {
     <div className={styles.root}>
       <div>
         {image && <img src={image} alt=""/>}
-        <p>"{desc}"</p>
+        {desc && <p>"{desc}"</p>}
       </div>
       <div>
         <img src={miniIg} alt={'ig'}/>

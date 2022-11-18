@@ -102,3 +102,83 @@ export function submitFixBooking(dataBooking, cb) {
     }
   }
 }
+
+export function getAllCategories() {
+  return async dispatch => {
+    try {
+      dispatch({type: 'SET_LOADING', key: 'category', payload: true})
+      const { data } = await axios({
+        method: 'get',
+        url: `https://yogzan-server-dev.herokuapp.com/category`,
+        // url: `http://localhost:5000/category`,
+      })
+      dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+}
+
+export function getHomepageCategories() {
+  return async dispatch => {
+    try {
+      dispatch({type: 'SET_LOADING', key: 'category', payload: true})
+      const { data } = await axios({
+        method: 'get',
+        url: `https://yogzan-server-dev.herokuapp.com/category/homepage`,
+        // url: `http://localhost:5000/category/homepage`,
+      })
+      dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+}
+
+export function getGalleryCategories() {
+  return async dispatch => {
+    try {
+      dispatch({type: 'SET_LOADING', key: 'category', payload: true})
+      const { data } = await axios({
+        method: 'get',
+        url: `https://yogzan-server-dev.herokuapp.com/category/gallery`,
+        // url: `http://localhost:5000/category/gallery`,
+      })
+      dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+}
+
+export function getAllTestimonies() {
+  return async dispatch => {
+    try {
+      dispatch({type: 'SET_LOADING', key: 'testimony', payload: true})
+      const { data } = await axios({
+        method: 'get',
+        url: `https://yogzan-server-dev.herokuapp.com/testimony`,
+        // url: `http://localhost:5000/testimony`,
+      })
+      dispatch({ payload: data, type: 'DATA_FETCHED_TESTIMONY' })
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+}
+
+export function getStoredPhotos(linkphoto, cb) {
+  return async dispatch => {
+    try {
+      const { data } = await axios({
+        method: 'post',
+        url: `https://yogzan-server-dev.herokuapp.com/fixbook/photo-result`,
+        // url: `http://localhost:5000/fixbook/photo-result`,
+        data: { linkphoto }
+      })
+      cb(data)
+    } catch (error) {
+      cb()
+    }
+  }
+}

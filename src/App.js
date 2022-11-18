@@ -11,9 +11,13 @@ import './App.css';
 import Career from './pages/Career';
 import Book from './pages/Book';
 import FixBook from './pages/FixBook/FixBook';
+import Result from './pages/Result';
+import PriceList from './pages/PriceList';
+import LogRocket from 'logrocket'
 import ReactGA from 'react-ga4'
 
 function App() {
+  LogRocket.init('dcepbi/yogzan-dashboard');
   ReactGA.initialize('G-4Y9RTECPZ0')
   return (
   <BrowserRouter>
@@ -26,6 +30,8 @@ function App() {
             <Route path={routes.CAREER()} element={<Career />} />
             <Route path={routes.BOOK()} element={<Book />} />
             <Route path={routes.FIXBOOK()} element={<FixBook />} />
+            <Route path={routes.RESULT()} element={<Result />} />
+            <Route path={routes.PRICE_LIST()} element={<PriceList />} />
           </Routes>
       </div>
       <Footer />
