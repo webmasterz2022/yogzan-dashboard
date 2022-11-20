@@ -11,6 +11,7 @@ import Button from '../../components/Button'
 import { submitBooking } from '../../store/action'
 import { useDispatch, useSelector } from 'react-redux'
 import TextArea from '../../components/TextArea'
+import ReactGA from 'react-ga4'
 
 export default function Book() {
   const dispatch = useDispatch()
@@ -46,6 +47,7 @@ export default function Book() {
   ]
 
   const handleFormSubmit = (values) => {
+    ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Pesan Sekarang')
     const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
     const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
     const _knowFrom = values.knowFrom === 'Lainnya' ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
@@ -53,6 +55,7 @@ export default function Book() {
     dispatch(submitBooking({...values, date: _date, city: _city, layanan: _layanan, knowFrom: _knowFrom}, () => {
       setOpenModal(true)
     }))
+
   }
 
   const handleCloseModal = () => {    

@@ -23,15 +23,23 @@ export default function Footer() {
     ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Pesan Sekarang')
     navigate(routes.BOOK())
   }
+
+  const redirectFooter = () => {
+    if(pathname.includes('/price-list')) {
+      bookingViaWA()
+    } else {
+      navigate(routes.BOOK())
+    }
+  }
   
   return (
     <section className={styles.root}>
-      {![routes.BOOK(), routes.CAREER()].includes(pathname) && (
+      {![routes.BOOK(), routes.CAREER(), routes.FIXBOOK()].includes(pathname) && (
         <div className={styles.booking}>
           <div>
             <p>Setiap momen punya cerita, dari cinta, perjuangan hingga air mata kebahagiaan. Abadikan setiap cerita berhargamu dengan layanan foto terbaik bersama Yogzan. </p>
           </div>
-          <Button variant="active-square" handleClick={() => navigate(routes.BOOK())}>
+          <Button variant="active-square" handleClick={redirectFooter}>
             Pesan Sekarang
             <img src={arrowLight} alt="" />
           </Button>
@@ -55,7 +63,7 @@ export default function Footer() {
           </div>
           <div>
             <p>Hubungi Kami</p>
-            <p className={styles.email} onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=asktoyogzan@gmail.com', '_blank')}>asktoyogzan@gmail.com</p>
+            <p className={styles.email} onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=admin@yogzan.com', '_blank')}>admin@yogzan.com</p>
             <p>(+62) 815-7474-3528</p>
           </div>
         </div>
