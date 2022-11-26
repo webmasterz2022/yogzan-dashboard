@@ -5,7 +5,7 @@ export function getHomepageImages() {
     try {
       const { data } = await axios({
         method: 'get',
-        url: 'https://yogzan-server.herokuapp.com/gallery/homepage',
+        url: 'https://yogzan-api.cyclic.app/gallery/homepage',
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_HOMEPAGE' })
     } catch (error) {
@@ -18,8 +18,8 @@ export function getPortfolioImages(category, city) {
   return async dispatch => {
     try {
       const url = (category && category !== 'Semua') ? 
-        `https://yogzan-server.herokuapp.com/gallery/category/${category}${city ? `?city=${city}` : ''}` :
-        `https://yogzan-server.herokuapp.com/gallery/${city ? `?city=${city}` : ''}`
+        `https://yogzan-api.cyclic.app/gallery/category/${category}${city ? `?city=${city}` : ''}` :
+        `https://yogzan-api.cyclic.app/gallery/${city ? `?city=${city}` : ''}`
       const { data } = await axios({
         method: 'get',
         url
@@ -37,7 +37,7 @@ export function getCities(category) {
     try {
       const { data } = await axios({
         method: 'get',
-        url: `https://yogzan-server.herokuapp.com/gallery/list-city`
+        url: `https://yogzan-api.cyclic.app/gallery/list-city`
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CITY' })
     } catch (error) {
@@ -52,7 +52,7 @@ export function submitHiring(dataForm, cb) {
       dispatch({type: 'SET_LOADING', key: 'submitHiring', payload: true})
       const { data } = await axios({
         method: 'post',
-        url: `https://yogzan-server.herokuapp.com/hiring/submit`,
+        url: `https://yogzan-api.cyclic.app/hiring/submit`,
         // url: `http://localhost:5000/hiring/submit`,
         data: dataForm
       })
@@ -71,7 +71,7 @@ export function submitBooking(dataBooking, cb) {
       dispatch({type: 'SET_LOADING', key: 'submitBooking', payload: true})
       const { data } = await axios({
         method: 'post',
-        url: `https://yogzan-server.herokuapp.com/book/submit`,
+        url: `https://yogzan-api.cyclic.app/book/submit`,
         // url: `http://localhost:5000/book/submit`,
         data: dataBooking
       })
@@ -90,7 +90,7 @@ export function submitFixBooking(dataBooking, cb) {
       dispatch({type: 'SET_LOADING', key: 'submitFixBooking', payload: true})
       const { data } = await axios({
         method: 'post',
-        url: `https://yogzan-server.herokuapp.com/fixbook/submit`,
+        url: `https://yogzan-api.cyclic.app/fixbook/submit`,
         // url: `http://localhost:5000/book/submit`,
         data: dataBooking
       })
@@ -109,7 +109,7 @@ export function getAllCategories() {
       dispatch({type: 'SET_LOADING', key: 'category', payload: true})
       const { data } = await axios({
         method: 'get',
-        url: `https://yogzan-server.herokuapp.com/category`,
+        url: `https://yogzan-api.cyclic.app/category`,
         // url: `http://localhost:5000/category`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
@@ -125,7 +125,7 @@ export function getHomepageCategories() {
       dispatch({type: 'SET_LOADING', key: 'category', payload: true})
       const { data } = await axios({
         method: 'get',
-        url: `https://yogzan-server.herokuapp.com/category/homepage`,
+        url: `https://yogzan-api.cyclic.app/category/homepage`,
         // url: `http://localhost:5000/category/homepage`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
@@ -141,7 +141,7 @@ export function getGalleryCategories() {
       dispatch({type: 'SET_LOADING', key: 'category', payload: true})
       const { data } = await axios({
         method: 'get',
-        url: `https://yogzan-server.herokuapp.com/category/gallery`,
+        url: `https://yogzan-api.cyclic.app/category/gallery`,
         // url: `http://localhost:5000/category/gallery`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
@@ -157,7 +157,7 @@ export function getAllTestimonies() {
       dispatch({type: 'SET_LOADING', key: 'testimony', payload: true})
       const { data } = await axios({
         method: 'get',
-        url: `https://yogzan-server.herokuapp.com/testimony`,
+        url: `https://yogzan-api.cyclic.app/testimony`,
         // url: `http://localhost:5000/testimony`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_TESTIMONY' })
@@ -172,7 +172,7 @@ export function getStoredPhotos(linkphoto, cb) {
     try {
       const { data } = await axios({
         method: 'post',
-        url: `https://yogzan-server.herokuapp.com/fixbook/photo-result`,
+        url: `https://yogzan-api.cyclic.app/fixbook/photo-result`,
         // url: `http://localhost:5000/fixbook/photo-result`,
         data: { linkphoto }
       })
