@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import styles from './styles.module.css'
 import logo from '../../assets/logo-dark.svg'
 import blank from '../../assets/blank.png'
@@ -21,6 +21,9 @@ import { Autoplay, Pagination } from 'swiper'
 import { routes } from '../../configs/routes'
 
 export default function Home() {
+  const testimonyRef = useRef()
+  const overlayRightRef = useRef()
+  const overlayLeftRef = useRef()
   const device = getDeviceType()
   const lengthTestimony = {
     desktop: 2.8,
@@ -31,6 +34,18 @@ export default function Home() {
   const dispatch = useDispatch()
   const { homepageImages, categories, testimonies } = useSelector(s => s)
   const [images, setImages] = useState([])
+
+  useEffect(() => {
+    if(testimonies && testimonies.length > 0) {
+      if(testimonyRef.current) {
+        const parentHeight = testimonyRef.current.clientHeight
+        if(overlayLeftRef.current && overlayRightRef.current) {
+          overlayLeftRef.current.style.height = `${parentHeight}px`
+          overlayRightRef.current.style.height = `${parentHeight}px`
+        }
+      }
+    }
+  }, [testimonies])
 
   useEffect(() => {
     window.scrollTo(0,0)
@@ -124,7 +139,7 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <div className={styles.testimonials}>
+      <div className={styles.testimonials} ref={testimonyRef}>
         <h3>Ini Kata Mereka</h3>
         <p>Setiap dari mereka berharga, demikian juga dengan kamu!</p>
         <div>
@@ -153,8 +168,8 @@ export default function Home() {
             ))}
           </Swiper>
         </div>
-        <div className={styles.overlayLeft}/>
-        <div className={styles.overlayRight}/>
+        {(testimonies && testimonies.length > 0) && <div className={styles.overlayLeft} ref={overlayLeftRef}/>}
+        {(testimonies && testimonies.length > 0) && <div className={styles.overlayRight} ref={overlayRightRef}/>}
       </div>
     </section>
   )

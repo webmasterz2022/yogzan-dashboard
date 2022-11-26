@@ -21,12 +21,12 @@
 }
 
 .root > div:nth-child(1) > img {
-  width: fill;
-  height: fill;
-  max-height: 8rem;
+  width: 14.5rem;
+  height: 14.5rem;
   border-radius: 0.25rem;
   object-fit: cover;
   margin-bottom: 1rem;
+  align-self: center;
 }
 
 .root > div:nth-child(1) > p {
@@ -82,7 +82,10 @@
   
   .root > div:nth-child(1) > img {
     border-radius: 4px;
-    max-height: 128px;
+    max-height: 232px;
+    max-width: 232px;
+    height: 232px;
+    width: 232px;
     margin-bottom: 16px;
 
   }
