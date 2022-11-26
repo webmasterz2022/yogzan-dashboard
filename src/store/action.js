@@ -18,8 +18,8 @@ export function getPortfolioImages(category, city) {
   return async dispatch => {
     try {
       const url = (category && category !== 'Semua') ? 
-        `https://yogzan-api.cyclic.app/gallery/category/${category}${city ? `?city=${city}` : ''}` :
-        `https://yogzan-api.cyclic.app/gallery/${city ? `?city=${city}` : ''}`
+        `https://yogzan-api.cyclic.app/gallery/category/${category}?limit=1000${city ? `&city=${city}` : ''}` :
+        `https://yogzan-api.cyclic.app/gallery/?limit=1000${city ? `&city=${city}` : ''}`
       const { data } = await axios({
         method: 'get',
         url
