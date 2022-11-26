@@ -18,8 +18,8 @@ export function getPortfolioImages(category, city) {
   return async dispatch => {
     try {
       const url = (category && category !== 'Semua') ? 
-        `https://yogzan-server-dev.herokuapp.com/gallery/category/${category}${city ? `?city=${city}` : ''}` :
-        `https://yogzan-server-dev.herokuapp.com/gallery/${city ? `?city=${city}` : ''}`
+        `https://yogzan-server-dev.herokuapp.com/gallery/category/${category}?limit=1000${city ? `&city=${city}` : ''}` :
+        `https://yogzan-server-dev.herokuapp.com/gallery/?limit=1000${city ? `&city=${city}` : ''}`
       const { data } = await axios({
         method: 'get',
         url
