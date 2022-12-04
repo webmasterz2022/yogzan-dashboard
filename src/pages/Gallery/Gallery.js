@@ -45,6 +45,7 @@ export default function Gallery() {
 
   useEffect(() => {
     setSelectedCity('')
+    dispatch(getCities(type !== 'Semua' ? type : '' ))
     type && dispatch(getPortfolioImages(type))
   }, [type])
 
@@ -54,7 +55,6 @@ export default function Gallery() {
   
   useEffect(() => {
     window.scrollTo(0,0)
-    dispatch(getCities())
     dispatch(getGalleryCategories())
     if(!type){
       setSearchParams({ type: 'Semua' })
@@ -138,14 +138,12 @@ export default function Gallery() {
           ))}
         </div>
         <div>
-          {(type === 'Semua' || type === 'Wisuda') && (
-            <SelectInput 
-              placeholder="Pilih Kota"
-              options={['Semua Kota', ...cities]}
-              onChange={setSelectedCity}
-              value={selectedCity}
-            />
-          )}
+          <SelectInput 
+            placeholder="Pilih Kota"
+            options={['Semua Kota', ...cities]}
+            onChange={setSelectedCity}
+            value={selectedCity}
+          />
         </div>
       </div>
       {descriptions[type] && (
