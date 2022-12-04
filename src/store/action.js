@@ -37,7 +37,8 @@ export function getCities(category) {
     try {
       const { data } = await axios({
         method: 'get',
-        url: `https:/yogzan-api-dev.cyclic.app/gallery/list-city`
+        url: `https:/yogzan-api-dev.cyclic.app/gallery/list-city${category ? `?category=${category}` : ''}`,
+        // url: `http://localhost:5000/gallery/list-city${category ? `?category=${category}` : ''}`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CITY' })
     } catch (error) {
