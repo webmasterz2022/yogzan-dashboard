@@ -64,7 +64,7 @@ export default function Footer() {
           <div>
             <p>Hubungi Kami</p>
             <p className={styles.email} onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=admin@yogzan.com', '_blank')}>admin@yogzan.com</p>
-            <p>(+62) 815-7474-3528</p>
+            <p>(+62) 858-7602-0261</p>
           </div>
         </div>
         <div>

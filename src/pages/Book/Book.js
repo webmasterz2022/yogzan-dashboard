@@ -86,7 +86,7 @@ export default function Book() {
     const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
     const _date = checked ? 'Belum menentukan waktu' : values.date
     const message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0AKota: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`
-    return `https://wa.me/+6281574743528?text=${message}`
+    return `https://wa.me/+6285876020261?text=${message}`
   }
 
   return (

@@ -27,7 +27,7 @@ export function shuffle(array) {
 }
 
 export const bookingViaWA = () => {
-  window.open('https://wa.me/+6281574743528', '_blank')
+  window.open('https://wa.me/+6285876020261', '_blank')
 }
 
 const regexNumber = /[^0-9]+/g;
