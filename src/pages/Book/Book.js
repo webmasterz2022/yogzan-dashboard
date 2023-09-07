@@ -92,8 +92,8 @@ export default function Book() {
         <div>
           <h3>Kamu Berhak Dapat Layanan Terbaik</h3>
           <p>
-            Ayo kenang setiap momen berharga kamu dengan cara paling indah yang bisa kamu 
-            bayangkan. Dapatkan daftar harga Yogzan dengan mengisi formulir di bawah ini! 
+            Ayo abadikan setiap momen berharga kamu dengan hasil paling indah yang bisa kamu kenang.
+            Dapatkan daftar harga Yogzan dengan mengisi formulir di bawah ini! 
           </p>
           <Form 
             initialValues={data}
