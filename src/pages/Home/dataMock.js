@@ -9,11 +9,11 @@ export const chooseUs = [
   {
     image: survey,
     title: 'Terpercaya',
-    desc: 'Lebih dari 1000 klien sejak 2017.'
+    desc: 'Lebih dari 3000 klien sejak 2017.'
   },{
     image: world,
     title: 'Cakupan Luas',
-    desc: 'Tersedia di 6 kota besar di Indonesia, yaitu Jabodetabek, Bandung, Semarang, Yogyakarta, Surabaya & Malang.'
+    desc: 'Tersedia di 7 kota besar di Indonesia, yaitu Jabodetabek, Bandung, Semarang, Surakarta, Yogyakarta, Surabaya & Malang.'
   },{
     image: resume,
     title: 'Tim Berpengalaman',
