@@ -56,8 +56,6 @@ export default function Home() {
     dispatch(getAllTestimonies())
   }, [])
 
-  console.log(testimonies, 'testimonies')
-
   useEffect(() => {
     if (homepageImages.length) {
       // const shuffled = shuffle?.(homepageImages) || homepageImages
@@ -148,7 +146,7 @@ export default function Home() {
         <h3>Ini Kata Mereka</h3>
         <p>Setiap dari mereka berharga, demikian juga dengan kamu!</p>
         <div>
-          {/* <Swiper
+          <Swiper
             pagination={{
               dynamicBullets: true,
               clickable: true
@@ -175,7 +173,7 @@ export default function Home() {
                 />
               </SwiperSlide>
             ))}
-          </Swiper> */}
+          </Swiper>
         </div>
         {(testimonies && testimonies.length > 0) && <div className={styles.overlayLeft} ref={overlayLeftRef} />}
         {(testimonies && testimonies.length > 0) && <div className={styles.overlayRight} ref={overlayRightRef} />}
