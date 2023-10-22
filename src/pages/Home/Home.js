@@ -57,10 +57,12 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    // const shuffled = shuffle?.(homepageImages) || homepageImages
-    const shuffled = shuffle(homepageImages)
-    if (images.length === 0) {
-      setImages(shuffled.slice(0, 11))
+    if (homepageImages.length) {
+      // const shuffled = shuffle?.(homepageImages) || homepageImages
+      const shuffled = shuffle(homepageImages)
+      if (images.length === 0) {
+        setImages(shuffled.slice(0, 11))
+      }
     }
   }, [homepageImages])
 
