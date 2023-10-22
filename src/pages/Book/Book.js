@@ -50,7 +50,7 @@ export default function Book() {
   const handleFormSubmit = (values) => {
     const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
     const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
-    const _knowFrom = values.knowFrom === 'Lainnya' ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
+    const _knowFrom = (values.knowFrom === 'Lainnya' || values.knowFrom === 'Instagram' || values.knowFrom === 'Tiktok') ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
     const _date = checked ? 'Belum menentukan waktu' : values.date
     dispatch(submitBooking({ ...values, date: _date, city: _city, layanan: _layanan, knowFrom: _knowFrom }, () => {
       setOpenModal(true)

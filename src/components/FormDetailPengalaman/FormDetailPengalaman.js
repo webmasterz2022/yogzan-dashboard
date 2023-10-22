@@ -39,7 +39,7 @@ export default function FormDetailPengalaman(props) {
       placeholder: 'Pilih posisi disini', options: [
         'Fotografer',
         'Videografer',
-        'Keduanya'
+        'Fotografer & Videografer'
       ]
     },
   ]
