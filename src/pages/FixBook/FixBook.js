@@ -253,7 +253,7 @@ export default function Book() {
                   ) : (
                     <img src={icUnchecked} />
                   )}
-                  <p style={{ textAlign: "left" }}>Saya sudah membaca dan setuju dengan term of service yogzan</p>
+                  <p style={{ textAlign: "left" }}>Saya sudah membaca dan setuju dengan <a href='#' style={{ color: "#512B58", fontWeight: 700 }}>Term of Service</a> yogzan</p>
                 </div>
                 <a
                   className={disabledButton(values) || !checked ? styles.disabledSubmit : ''}
