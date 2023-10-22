@@ -125,7 +125,7 @@ export default function Home() {
         <div>
           <p>Momen</p>
           <div>
-            {categories.map(category => {
+            {categories?.map(category => {
               return (
                 <CategoryCard key={category.name} {...category} title={category.name} handleClick={() => navigate(`/gallery?type=${category.name}`)} />
               )
@@ -137,7 +137,7 @@ export default function Home() {
         <h3>Percayakan Setiap Momen Anda kepada Kami</h3>
         <p>Momen kamu adalah momen kami juga. Karena itu kami berikan yang terbaik untuk mengenangnya.</p>
         <div>
-          {chooseUs.map((why, idx) => (
+          {chooseUs?.map((why, idx) => (
             <CardChooseUs key={idx} {...why} />
           ))}
         </div>
@@ -157,7 +157,7 @@ export default function Home() {
             autoplay={true}
             loop={true}
           >
-            {testimonies.map((data) => (
+            {testimonies?.map((data) => (
               <SwiperSlide
                 key={data.username}
               >
