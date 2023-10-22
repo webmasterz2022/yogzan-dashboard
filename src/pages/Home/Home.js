@@ -36,10 +36,10 @@ export default function Home() {
   const [images, setImages] = useState([])
 
   useEffect(() => {
-    if(testimonies && testimonies.length > 0) {
-      if(testimonyRef.current) {
+    if (testimonies && testimonies.length > 0) {
+      if (testimonyRef.current) {
         const parentHeight = testimonyRef.current.clientHeight
-        if(overlayLeftRef.current && overlayRightRef.current) {
+        if (overlayLeftRef.current && overlayRightRef.current) {
           overlayLeftRef.current.style.height = `${parentHeight}px`
           overlayRightRef.current.style.height = `${parentHeight}px`
         }
@@ -48,8 +48,8 @@ export default function Home() {
   }, [testimonies])
 
   useEffect(() => {
-    window.scrollTo(0,0)
-    if(homepageImages.length === 0) {
+    window.scrollTo(0, 0)
+    if (homepageImages.length === 0) {
       dispatch(getHomepageImages())
     }
     dispatch(getHomepageCategories())
@@ -57,10 +57,11 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
+    // const shuffled = shuffle?.(homepageImages) || homepageImages
     const shuffled = shuffle(homepageImages)
-    if(images.length === 0) {
+    if (images.length === 0) {
       setImages(shuffled.slice(0, 11))
-    } 
+    }
   }, [homepageImages])
 
   return (
@@ -69,7 +70,7 @@ export default function Home() {
         <img src={logo} alt='yogzan' />
         <h3 className={styles.heading1}>Setiap Momen Punya Cerita Berharga</h3>
         <h4 className={styles.heading2}>
-        Abadikan semuanya dengan cara paling indah bersama layanan foto & video profesional dari Yogzan.
+          Abadikan semuanya dengan cara paling indah bersama layanan foto & video profesional dari Yogzan.
         </h4>
       </div>
       <div className={styles.galleries}>
@@ -78,43 +79,43 @@ export default function Home() {
           {images.length > 0 && (
             <>
               <div className={styles.satu}>
-                <div style={{backgroundImage: `url(${images[0]? images[0].url : blank})`}}/>
+                <div style={{ backgroundImage: `url(${images[0] ? images[0].url : blank})` }} />
               </div>
               <div className={styles.dua}>
-                <div style={{backgroundImage: `url(${images[1]? images[1].url : blank})`}}/>
+                <div style={{ backgroundImage: `url(${images[1] ? images[1].url : blank})` }} />
               </div>
               <div className={styles.tiga}>
-                <div style={{backgroundImage: `url(${images[2]? images[2].url : blank})`}}/>
+                <div style={{ backgroundImage: `url(${images[2] ? images[2].url : blank})` }} />
               </div>
               <div className={styles.empat}>
-                <div style={{backgroundImage: `url(${images[3]? images[3].url : blank})`}}/>
+                <div style={{ backgroundImage: `url(${images[3] ? images[3].url : blank})` }} />
               </div>
               <div className={styles.lima}>
-                <div style={{backgroundImage: `url(${images[4]? images[4].url : blank})`}}/>
+                <div style={{ backgroundImage: `url(${images[4] ? images[4].url : blank})` }} />
               </div>
 
               <div className={styles.enam}>
-                <div style={{backgroundImage: `url(${images[5]? images[5].url : blank})`}}/>
+                <div style={{ backgroundImage: `url(${images[5] ? images[5].url : blank})` }} />
               </div>
               <div className={styles.tujuh}>
-                <div style={{backgroundImage: `url(${images[6]? images[6].url : blank})`}}/>
+                <div style={{ backgroundImage: `url(${images[6] ? images[6].url : blank})` }} />
               </div>
               <Button variant="active-square" handleClick={() => navigate(routes.BOOK())}>
                 Pesan Sekarang
                 <img src={arrowLight} alt="" />
               </Button>
               <div className={styles.delapan}>
-                <div style={{backgroundImage: `url(${images[7]? images[7].url : blank})`}}/>
+                <div style={{ backgroundImage: `url(${images[7] ? images[7].url : blank})` }} />
               </div>
               <div className={styles.sembilan}>
-                <div style={{backgroundImage: `url(${images[8]? images[8].url : blank})`}}/>
+                <div style={{ backgroundImage: `url(${images[8] ? images[8].url : blank})` }} />
               </div>
               <div className={styles.sepuluh}>
-                <div style={{backgroundImage: `url(${images[9]? images[9].url : blank})`}}/>
+                <div style={{ backgroundImage: `url(${images[9] ? images[9].url : blank})` }} />
               </div>
 
               <div className={styles.sebelas}>
-                <div alt="im" style={{backgroundImage: `url(${images[10]? images[10].url : blank})`}}/>
+                <div alt="im" style={{ backgroundImage: `url(${images[10] ? images[10].url : blank})` }} />
               </div>
             </>
           )}
@@ -124,7 +125,7 @@ export default function Home() {
           <div>
             {categories.map(category => {
               return (
-                <CategoryCard key={category.name} {...category} title={category.name} handleClick={() => navigate(`/gallery?type=${category.name}`)}/>
+                <CategoryCard key={category.name} {...category} title={category.name} handleClick={() => navigate(`/gallery?type=${category.name}`)} />
               )
             })}
           </div>
@@ -168,8 +169,8 @@ export default function Home() {
             ))}
           </Swiper>
         </div>
-        {(testimonies && testimonies.length > 0) && <div className={styles.overlayLeft} ref={overlayLeftRef}/>}
-        {(testimonies && testimonies.length > 0) && <div className={styles.overlayRight} ref={overlayRightRef}/>}
+        {(testimonies && testimonies.length > 0) && <div className={styles.overlayLeft} ref={overlayLeftRef} />}
+        {(testimonies && testimonies.length > 0) && <div className={styles.overlayRight} ref={overlayRightRef} />}
       </div>
     </section>
   )
