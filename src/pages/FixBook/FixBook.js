@@ -21,6 +21,7 @@ export default function Book() {
   const [data, setData] = useState({
     "fullname": '',
     "nickname": '',
+    "address": '',
     "layanan": '',
     "campus": '',
     "faculty": '',
@@ -30,11 +31,15 @@ export default function Book() {
     "date": '',
     "time": '',
     "phone": '',
-    "location": ''
+    "location": '',
+    "bankName": '',
+    "accountHolderName": '',
   })
+  const [checked, setChecked] = useState(false)
+
 
   useEffect(() => {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
   }, [])
 
   const normalizePhone = value => {
@@ -51,36 +56,39 @@ export default function Book() {
     { placeholder: 'Tulis Fakultas / Jurusan' },
     { placeholder: 'Contoh: @yogzan.graduation' },
     { placeholder: 'HH/BB/TTTT', type: 'date' },
-    { placeholder: 'JJ/MM', type: 'time' },
+    { placeholder: 'JJ/MM', type: 'time', required: true },
     { placeholder: 'Tulis kontak disini' },
     { placeholder: 'Tulis Lokasi Pemotretan' },
+    { placeholder: 'Contoh: Bank BCA' },
+    { placeholder: 'Contoh: an. Rahmat' },
+
 
   ]
 
   const handleFormSubmit = (values) => {
     const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
-    dispatch(submitFixBooking({...values, layanan: _layanan}, () => {
+    dispatch(submitFixBooking({ ...values, layanan: _layanan }, () => {
       setOpenModal(true)
     }))
   }
 
-  const handleCloseModal = () => {    
+  const handleCloseModal = () => {
     window.location.href = '/fixbook'
   }
 
   const disabledButton = val => {
-    if(val.fullname && 
+    if (val.fullname &&
       val.nickname &&
-      val.layanan && 
-      val.ig && 
+      val.layanan &&
+      val.ig &&
       val.date &&
       val.time &&
-      val.phone && 
+      val.phone &&
       val.location
     ) {
-      if((val.layanan === 'Lainnya' && !val['layanan-extended']) || 
-      (val.layanan === 'Wisuda' && !val.campus) ||
-      (val.layanan === 'Wisuda' && !val.faculty)
+      if ((val.layanan === 'Lainnya' && !val['layanan-extended']) ||
+        (val.layanan === 'Wisuda' && !val.campus) ||
+        (val.layanan === 'Wisuda' && !val.faculty)
       ) {
         return true
       }
@@ -94,15 +102,15 @@ export default function Book() {
     const {
       fullname, nickname, layanan,
       campus, faculty, ig, date, time,
-      location
+      location, bankName, accountHolderName
     } = values
     console.log(values)
-    if(layanan === 'Wisuda') {
-      const message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${values.fullname}%0ANama Panggilan: ${values.nickname}%0AUntuk Event: ${layanan}%0AAsal Kampus: ${campus}%0AFakultas/Jurusan: ${faculty}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${moment(date).format('dddd, DD MMM YYYY')}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0ATerimakasih!`
+    if (layanan === 'Wisuda') {
+      const message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${values.fullname}%0ANama Panggilan: ${values.nickname}%0AUntuk Event: ${layanan}%0AAsal Kampus: ${campus}%0AFakultas/Jurusan: ${faculty}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${moment(date).format('dddd, DD MMM YYYY')}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0ATransfer via Bank: ${bankName}%0ANama pemilik rekening: ${accountHolderName}%0ATerimakasih!`
       return `https://wa.me/+6281313269255?text=${message}`
     } else {
       const _layanan = layanan === 'Lainnya' ? `${layanan} - ${values['layanan-extended']}` : layanan
-      const message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${fullname}%0ANama Panggilan: ${nickname}%0AUntuk Event: ${_layanan}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${moment(date).format('dddd, DD MMM YYYY')}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0ATerimakasih!`
+      const message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${fullname}%0ANama Panggilan: ${nickname}%0AUntuk Event: ${_layanan}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${moment(date).format('dddd, DD MMM YYYY')}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0ATransfer via Bank: ${bankName}%0ANama pemilik rekening: ${accountHolderName}%0ATerimakasih!`
       return `https://wa.me/+6281313269255?text=${message}`
     }
   }
@@ -124,111 +132,139 @@ export default function Book() {
       <section className={styles.root}>
         <div>
           <h3>Yeay! Tinggal Selangkah Lagi Pesanan Kamu Selesai!</h3>
-          <Form 
+          <Form
             initialValues={data}
             onSubmit={handleFormSubmit}
             render={({ handleSubmit, values }) => (
               <form onSubmit={handleSubmit}>
-                <Field 
-                  component={Input} 
-                  label="Nama Lengkap" 
-                  inputProps={inputProps[0]} 
-                  name="fullname" 
-                />
-                <Field 
-                  component={Input} 
-                  label="Nama Panggilan" 
-                  inputProps={inputProps[1]} 
-                  name="nickname" 
-                />
                 <p>Pilih Layanan</p>
-                <Field 
+                <Field
                   component={SelectInput}
-                  onChange={(e) => setData({...values, layanan: e})}
-                  name="layanan" 
-                  {...inputProps[2]} 
+                  onChange={(e) => setData({ ...values, layanan: e })}
+                  name="layanan"
+                  {...inputProps[2]}
                 />
                 {values.layanan === 'Lainnya' && (
                   <>
-                    <Field 
+                    <Field
                       component={TextArea}
-                      label="Tuliskan kebutuhan kamu secara detail" 
-                      inputProps={{placeholder: 'Tulis kebutuhanmu disini'}} 
-                      name="layanan-extended" 
+                      label="Tuliskan kebutuhan kamu secara detail"
+                      inputProps={{ placeholder: 'Tulis kebutuhanmu disini' }}
+                      name="layanan-extended"
                     />
                   </>
                 )}
+                <Field
+                  component={Input}
+                  label={values.layanan !== 'Wisuda' ? "Nama Lengkap" : 'Nama Lengkap dan Gelar'}
+                  inputProps={inputProps[0]}
+                  name="fullname"
+                />
+                <Field
+                  component={Input}
+                  label="Nama Panggilan"
+                  inputProps={inputProps[1]}
+                  name="nickname"
+                />
+                <Field
+                  component={Input}
+                  label="Alamat Pengiriman Hasil Cetak (Opsional)"
+                  inputProps={{ placeholder: "Tulis Alamat Lengkap" }}
+                  name="address"
+                  helper="digunakan jika memilih paket sekaligus cetak"
+                />
                 {values.layanan === 'Wisuda' && (
                   <>
-                    <Field 
-                      component={Input} 
-                      label="Asal Kampus" 
-                      inputProps={inputProps[3]} 
-                      name="campus" 
+                    <Field
+                      component={Input}
+                      label="Asal Kampus"
+                      inputProps={inputProps[3]}
+                      name="campus"
                     />
-                    <Field 
-                      component={Input} 
-                      label="Fakultas / Jurusan" 
-                      inputProps={inputProps[4]} 
-                      name="faculty" 
+                    <Field
+                      component={Input}
+                      label="Fakultas / Jurusan"
+                      inputProps={inputProps[4]}
+                      name="faculty"
                     />
                   </>
                 )}
-                <Field 
-                  component={Input} 
-                  label="Akun Instagram" 
-                  inputProps={inputProps[5]} 
-                  name="ig" 
+                <Field
+                  component={Input}
+                  label="Akun Instagram"
+                  inputProps={inputProps[5]}
+                  name="ig"
+                  helper="Boleh lebih dari satu (gunakan koma untuk memisahkan)"
                 />
-                <Field 
-                  component={Input} 
-                  label="Akun Instagram MUA (Opsional)" 
-                  inputProps={inputProps[5]} 
-                  name="ig-mua" 
+                <Field
+                  component={Input}
+                  label="Akun Instagram MUA (Opsional)"
+                  inputProps={inputProps[5]}
+                  name="ig-mua"
                 />
-                <Field 
-                  component={Input} 
-                  label="Akun Instagram Attire (Opsional)" 
-                  inputProps={inputProps[5]} 
-                  name="ig-attire" 
+                <Field
+                  component={Input}
+                  label="Akun Instagram Attire (Opsional)"
+                  inputProps={inputProps[5]}
+                  name="ig-attire"
                 />
-                <Field 
+                <Field
                   className={styles.date}
-                  component={Input} 
-                  label="Pilih Tanggal Pemotretan" 
-                  inputProps={{...inputProps[6], value: values.date}} 
-                  name="date" 
+                  component={Input}
+                  label="Pilih Tanggal Pemotretan"
+                  inputProps={{ ...inputProps[6], value: values.date }}
+                  name="date"
                 />
-                <Field 
+                <Field
                   className={styles.date}
-                  component={Input} 
-                  label="Pilih Waktu Pemotretan" 
-                  inputProps={{...inputProps[7], value: values.time}} 
-                  name="time" 
+                  component={Input}
+                  label="Pilih Waktu Pemotretan"
+                  inputProps={{ ...inputProps[7], value: values.time }}
+                  name="time"
                 />
-                <Field 
-                  component={Input} 
-                  label="Nomor Whatsapp yang dapat dihubungi" 
-                  inputProps={inputProps[8]} 
-                  name="phone" 
+                <Field
+                  component={Input}
+                  label="Nomor Whatsapp yang dapat dihubungi"
+                  inputProps={inputProps[8]}
+                  name="phone"
                   parse={normalizePhone}
                 />
-                <Field 
-                  component={Input} 
-                  label="Lokasi Pemotretan" 
-                  inputProps={inputProps[9]} 
-                  name="location" 
+                <Field
+                  component={Input}
+                  label="Lokasi Pemotretan"
+                  inputProps={inputProps[9]}
+                  name="location"
                 />
-                <a 
-                  className={disabledButton(values) ? styles.disabledSubmit : ''} 
-                  onClick={() => handleSubmit(values)} 
-                  href={generateLinkWA(values)} 
+                <Field
+                  component={Input}
+                  label="Tranfer via Bank"
+                  inputProps={inputProps[10]}
+                  name="bankName"
+                />
+                <Field
+                  component={Input}
+                  label="Nama Pemilik Rekening"
+                  inputProps={inputProps[11]}
+                  name="accountHolderName"
+                />
+                <div className={styles.checkbox} onClick={() => setChecked(v => !v)}>
+                  {checked ? (
+                    <img src={icChecked} />
+                  ) : (
+                    <img src={icUnchecked} />
+                  )}
+                  <p style={{ textAlign: "left" }}>Saya sudah membaca dan setuju dengan term of service yogzan</p>
+                </div>
+                <a
+                  className={disabledButton(values) || !checked ? styles.disabledSubmit : ''}
+                  onClick={() => handleSubmit(values)}
+                  href={generateLinkWA(values)}
                   target='_blank'
                   rel="noreferrer"
                 >
-                  <Button 
-                    variant="active-square" 
-                    disabled={disabledButton(values) || isLoading.submitFixBooking}
+                  <Button
+                    variant="active-square"
+                    disabled={disabledButton(values) || !checked || isLoading.submitFixBooking}
                     isLoading={isLoading.submitFixBooking}
                   >
                     Selesaikan Pesanan
@@ -238,14 +274,14 @@ export default function Book() {
             )}
           />
         </div>
-        <img src={coverBooking}/>
+        <img src={coverBooking} />
       </section>
       {openModal && (
         <Modal className={styles.confirmModal} open={openModal} onClose={handleCloseModal}>
           <h3>Pesanan kami terima!</h3>
           <p>
-            Terimakasih sudah mempercayakan kepada kami. 
-            Kami akan menghubungi Anda secepatnya, pastikan nomor Anda selalu aktif. 
+            Terimakasih sudah mempercayakan kepada kami.
+            Kami akan menghubungi Anda secepatnya, pastikan nomor Anda selalu aktif.
           </p>
           <Button handleClick={handleCloseModal} variant="active-square">Tutup</Button>
         </Modal>

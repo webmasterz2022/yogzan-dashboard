@@ -27,7 +27,7 @@ export default function Book() {
   })
 
   useEffect(() => {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
   }, [])
 
   const normalizePhone = value => {
@@ -39,10 +39,12 @@ export default function Book() {
   const inputProps = [
     { placeholder: 'Tulis Nama Pemesan' },
     { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family', 'Lainnya'] },
-    { placeholder: 'Pilih salah satu', options: ['Bandung', 'Jabodetabek', 'Malang', 'Surabaya', 'Semarang', 'Yogyakarta', 'Kota Lainnya'] },
+    { placeholder: 'Pilih salah satu', options: ['Bandung', 'Jabodetabek', 'Malang', 'Surabaya', 'Semarang', 'Yogyakarta', 'Surakarta', 'Kota Lainnya'] },
     { placeholder: 'HH/BB/TTTT', type: 'date', disabled: checked },
     { placeholder: 'Tulis kontak disini' },
-    { placeholder: 'Pilih salah satu', options: ['Instagram', 'Facebook', 'Tiktok', 'Iklan', 'Rekomendasi Teman', 'Google', 'Lainnya'] },
+    { placeholder: 'Pilih salah satu', options: ['Instagram', 'Tiktok', 'Iklan', 'Rekomendasi Teman', 'Google', 'Facebook', 'Lainnya'] },
+    { placeholder: 'Detail Sumber', options: ['Iklan Instagram', 'Muncul di explore instagram', 'Saya mencari hashtag tertentu dan menemukan yogzan', 'Dari influencer/orang lain yang saya ikuti', 'Lainnya'], styles: { textAlign: 'left' } },
+    { placeholder: 'Detail Sumber', options: ['Iklan Tiktok', 'Muncul di FYP saya', 'Saya mencari hashtag tertentu dan menemukan yogzan', 'Dari influencer/orang lain yang saya ikuti', 'Lainnya'], styles: { textAlign: 'left' } }
   ]
 
   const handleFormSubmit = (values) => {
@@ -50,25 +52,25 @@ export default function Book() {
     const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
     const _knowFrom = values.knowFrom === 'Lainnya' ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
     const _date = checked ? 'Belum menentukan waktu' : values.date
-    dispatch(submitBooking({...values, date: _date, city: _city, layanan: _layanan, knowFrom: _knowFrom}, () => {
+    dispatch(submitBooking({ ...values, date: _date, city: _city, layanan: _layanan, knowFrom: _knowFrom }, () => {
       setOpenModal(true)
     }))
   }
 
-  const handleCloseModal = () => {    
+  const handleCloseModal = () => {
     window.location.href = '/book'
   }
 
   const disabledButton = val => {
-    val = {...val, checked}
-    if(val.name && val.layanan && 
-      val.city && 
+    val = { ...val, checked }
+    if (val.name && val.layanan &&
+      val.city &&
       (val.date || checked) &&
       val.phone && val.knowFrom
     ) {
-      if((val.layanan === 'Lainnya' && !val['layanan-extended']) || 
+      if ((val.layanan === 'Lainnya' && !val['layanan-extended']) ||
         (val.city === 'Kota Lainnya' && !val['city-extended']) ||
-        (val.knowFrom === 'Lainnya' && !val['knowFrom-extended'])
+        ((val.knowFrom === 'Lainnya' || val.knowFrom === 'Instagram' || val.knowFrom === 'Tiktok') && !val['knowFrom-extended'])
       ) {
         return true
       }
@@ -93,57 +95,57 @@ export default function Book() {
           <h3>Kamu Berhak Dapat Layanan Terbaik</h3>
           <p>
             Ayo abadikan setiap momen berharga kamu dengan hasil paling indah yang bisa kamu kenang.
-            Dapatkan daftar harga Yogzan dengan mengisi formulir di bawah ini! 
+            Dapatkan daftar harga Yogzan dengan mengisi formulir di bawah ini!
           </p>
-          <Form 
+          <Form
             initialValues={data}
             onSubmit={handleFormSubmit}
             render={({ handleSubmit, values }) => (
               <form onSubmit={handleSubmit}>
-                <Field 
-                  component={Input} 
-                  label="Nama" 
-                  inputProps={inputProps[0]} 
-                  name="name" 
+                <Field
+                  component={Input}
+                  label="Nama"
+                  inputProps={inputProps[0]}
+                  name="name"
                 />
                 <p>Pilih Layanan</p>
-                <Field 
+                <Field
                   component={SelectInput}
-                  onChange={(e) => setData({...values, layanan: e})}
-                  name="layanan" 
-                  {...inputProps[1]} 
+                  onChange={(e) => setData({ ...values, layanan: e })}
+                  name="layanan"
+                  {...inputProps[1]}
                 />
                 {values.layanan === 'Lainnya' && (
                   <>
-                    <Field 
+                    <Field
                       component={TextArea}
-                      label="Tuliskan kebutuhan kamu secara detail" 
-                      inputProps={{placeholder: 'Tulis kebutuhanmu disini'}} 
-                      name="layanan-extended" 
+                      label="Tuliskan kebutuhan kamu secara detail"
+                      inputProps={{ placeholder: 'Tulis kebutuhanmu disini' }}
+                      name="layanan-extended"
                     />
                   </>
                 )}
                 <p>Pilih Kota</p>
-                <Field 
+                <Field
                   component={SelectInput}
-                  onChange={(e) => setData({...values, city: e})}
-                  name="city" 
-                  {...inputProps[2]} 
+                  onChange={(e) => setData({ ...values, city: e })}
+                  name="city"
+                  {...inputProps[2]}
                 />
                 {values.city === 'Kota Lainnya' && (
-                  <Field 
+                  <Field
                     className={styles.cityExtended}
-                    component={Input} 
-                    inputProps={{placeholder: 'Tulis Nama Kota'}} 
-                    name="city-extended" 
+                    component={Input}
+                    inputProps={{ placeholder: 'Tulis Nama Kota' }}
+                    name="city-extended"
                   />
                 )}
-                <Field 
+                <Field
                   className={styles.date}
-                  component={Input} 
-                  label="Pilih Tanggal Pemotretan" 
-                  inputProps={{...inputProps[3], value: checked ? '' : values.date}} 
-                  name="date" 
+                  component={Input}
+                  label="Pilih Tanggal Pemotretan"
+                  inputProps={{ ...inputProps[3], value: checked ? '' : values.date }}
+                  name="date"
                 />
                 <div className={styles.checkbox} onClick={() => setChecked(v => !v)}>
                   {checked ? (
@@ -153,37 +155,56 @@ export default function Book() {
                   )}
                   <p>Belum menentukan waktu</p>
                 </div>
-                <Field 
-                  component={Input} 
-                  label="Nomor Whatsapp yang dapat dihubungi" 
-                  inputProps={inputProps[4]} 
-                  name="phone" 
+                <Field
+                  component={Input}
+                  label="Nomor Whatsapp yang dapat dihubungi"
+                  inputProps={inputProps[4]}
+                  name="phone"
                   parse={normalizePhone}
                 />
                 <p>Dari mana Anda mengetahui Yogzan?</p>
-                <Field 
+                <Field
                   component={SelectInput}
-                  onChange={(e) => setData({...values, knowFrom: e})}
-                  name="knowFrom" 
-                  {...inputProps[5]} 
+                  onChange={(e) => setData({ ...values, knowFrom: e })}
+                  name="knowFrom"
+                  {...inputProps[5]}
                 />
                 {values.knowFrom === 'Lainnya' && (
-                  <Field 
+                  <Field
                     className={styles.knowFromExtended}
-                    component={Input} 
-                    inputProps={{placeholder: 'Sumber Lainnya'}} 
-                    name="knowFrom-extended" 
+                    component={Input}
+                    inputProps={{ placeholder: 'Sumber Lainnya' }}
+                    name="knowFrom-extended"
                   />
                 )}
-                <a 
-                  className={disabledButton(values) ? styles.disabledSubmit : ''} 
-                  onClick={() => handleSubmit(values)} 
-                  href={generateLinkWA(values)} 
+                {values.knowFrom === 'Instagram' && (
+                  <Field
+                    className={styles.knowFromExtended}
+                    onChange={(e) => setData({ ...values, "knowFrom-extended": e })}
+                    component={SelectInput}
+                    name="knowFrom-extended"
+                    {...inputProps[6]}
+                    style={{ textAlign: 'left' }}
+                  />
+                )}
+                {values.knowFrom === 'Tiktok' && (
+                  <Field
+                    className={styles.knowFromExtended}
+                    onChange={(e) => setData({ ...values, "knowFrom-extended": e })}
+                    component={SelectInput}
+                    name="knowFrom-extended"
+                    {...inputProps[7]}
+                  />
+                )}
+                <a
+                  className={disabledButton(values) ? styles.disabledSubmit : ''}
+                  onClick={() => handleSubmit(values)}
+                  href={generateLinkWA(values)}
                   target='_blank'
                   rel="noreferrer"
                 >
-                  <Button 
-                    variant="active-square" 
+                  <Button
+                    variant="active-square"
                     disabled={disabledButton(values) || isLoading.submitBooking}
                     isLoading={isLoading.submitBooking}
                   >
@@ -194,14 +215,14 @@ export default function Book() {
             )}
           />
         </div>
-        <img src={coverBooking}/>
+        <img src={coverBooking} />
       </section>
       {openModal && (
         <Modal className={styles.confirmModal} open={openModal} onClose={handleCloseModal}>
           <h3>Pesanan kami terima!</h3>
           <p>
-            Terimakasih sudah mempercayakan kepada kami. 
-            Kami akan menghubungi Anda secepatnya, pastikan nomor Anda selalu aktif. 
+            Terimakasih sudah mempercayakan kepada kami.
+            Kami akan menghubungi Anda secepatnya, pastikan nomor Anda selalu aktif.
           </p>
           <Button handleClick={handleCloseModal} variant="active-square">Tutup</Button>
         </Modal>

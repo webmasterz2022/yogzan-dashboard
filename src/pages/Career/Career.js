@@ -19,6 +19,7 @@ export default function Career() {
   const [data, setData] = useState({
     "fullname": '',
     "nickname": '',
+    "birthDate": '',
     "email": '',
     "phone": '',
     "address": '',
@@ -31,20 +32,30 @@ export default function Career() {
     "fee": '',
     "cv": '',
     "portfolio": '',
+    "jobRole": '',
+    "city": '',
+    "knowFrom": ''
   })
 
   useEffect(() => {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
   }, [])
 
   const handleSubmit = (values, step) => {
-    dispatch(submitHiring({ ...data, ...values }, () => {
+    const _knowFrom = values.knowFrom === 'Lainnya' ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
+    const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
+    dispatch(submitHiring({
+      ...data,
+      ...values,
+      knowFrom: _knowFrom,
+      city: _city
+    }, () => {
       window.location.href = '/career'
     }))
   }
 
   const changeStep = (dataOnStep, step) => {
-    setData(prev => ({...prev, ...dataOnStep}))
+    setData(prev => ({ ...prev, ...dataOnStep }))
     step && setStep(step)
   }
 
@@ -56,7 +67,7 @@ export default function Career() {
         <h3>Kenapa Harus Yogzan?</h3>
         <div>
           {careerChooseUs.map((why, i) => (
-            <CardChooseUs {...why} key={i}/>
+            <CardChooseUs {...why} key={i} />
           ))}
         </div>
       </div>
@@ -69,17 +80,17 @@ export default function Career() {
           <div>
             <h4>Terima Tugas</h4>
             <p>Tim kami akan menghubungi kamu terkait informasi detail mengenai proyek yang akan kamu laksanakan.</p>
-            <img src={satu} alt="1"/>
+            <img src={satu} alt="1" />
           </div>
           <div>
             <h4>Foto dan Kirim</h4>
             <p>Setelah melakukan sesi foto atau video, kirim semua hasilnya ke Yogzan melalui akses cloud storage milik Yogzan.</p>
-            <img src={dua} alt="2"/>
+            <img src={dua} alt="2" />
           </div>
           <div>
             <h4>Terima Komisi</h4>
             <p>Setelah foto kami terima, silakan tunggu untuk mendapatkan komisi kamu dalam waktu 1 hingga 2 hari.</p>
-            <img src={tiga} alt="3"/>
+            <img src={tiga} alt="3" />
           </div>
         </div>
       </div>
@@ -91,12 +102,12 @@ export default function Career() {
           <h3>Gabung di Yogzan Sekarang!</h3>
           <p>Tak sabar ingin berkenalan dengan kamu lebih dekat, yuk isi formulir di bawah!</p>
           <div className={styles.stepper}>
-            <p 
+            <p
               className={step === stepperContent[0] ? styles.active : ''}
             >
               {stepperContent[0]}
             </p>
-            <div className={styles.line}/>
+            <div className={styles.line} />
             <p
               className={step === stepperContent[1] ? styles.active : ''}
             >
@@ -104,7 +115,7 @@ export default function Career() {
             </p>
           </div>
           {step === stepperContent[0] ? (
-            <FormDataDiri data={data} handleStep={changeStep} handleSubmitForm={(e) => handleSubmit(e, stepperContent[0])} />
+            <FormDataDiri data={data} handleStep={changeStep} handleSubmitForm={(e) => handleSubmit(e, stepperContent[0])} setData={setData} />
           ) : (
             <FormDetailPengalaman data={data} handleStep={changeStep} handleSubmitForm={(e) => handleSubmit(e, stepperContent[1])} />
           )}
