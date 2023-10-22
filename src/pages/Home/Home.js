@@ -16,8 +16,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getDeviceType, shuffle } from '../../utils'
 import { useNavigate } from 'react-router-dom'
 import { chooseUs, testimonials } from './dataMock'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper'
+import { Autoplay, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { routes } from '../../configs/routes'
 
 export default function Home() {
@@ -149,12 +149,16 @@ export default function Home() {
           <Swiper
             pagination={{
               dynamicBullets: true,
+              clickable: true
             }}
             modules={[Autoplay, Pagination]}
             spaceBetween={2}
             slidesPerView={lengthTestimony[device]}
             centeredSlides={true}
-            autoplay={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false
+            }}
             loop={true}
           >
             {testimonies?.map((data) => (

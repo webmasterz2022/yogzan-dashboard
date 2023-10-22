@@ -5,8 +5,9 @@ import Navbar from './components/Navbar';
 import { routes } from './configs/routes';
 import Footer from './components/Footer/Footer';
 import AppContextProvider from './contexts';
-import 'swiper/css/bundle'
-import "swiper/css/pagination";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import './App.css';
 import Career from './pages/Career';
 import Book from './pages/Book';
@@ -18,10 +19,10 @@ import LogRocket from 'logrocket'
 function App() {
   // LogRocket.init('dcepbi/yogzan-dashboard');
   return (
-  <BrowserRouter>
-    <AppContextProvider>
-      <Navbar />
-      <div className='App'>
+    <BrowserRouter>
+      <AppContextProvider>
+        <Navbar />
+        <div className='App'>
           <Routes>
             <Route path={routes.HOMEPAGE()} exact element={<Home />} />
             <Route path={routes.GALLERY()} element={<Gallery />} />
@@ -31,10 +32,10 @@ function App() {
             <Route path={routes.RESULT()} element={<Result />} />
             <Route path={routes.PRICE_LIST()} element={<PriceList />} />
           </Routes>
-      </div>
-      <Footer />
-    </AppContextProvider>
-  </BrowserRouter>
+        </div>
+        <Footer />
+      </AppContextProvider>
+    </BrowserRouter>
   );
 }
 
