@@ -9,7 +9,7 @@ export function getHomepageImages() {
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_HOMEPAGE' })
     } catch (error) {
-      
+
     }
   }
 }
@@ -17,17 +17,17 @@ export function getHomepageImages() {
 export function getPortfolioImages(category, city) {
   return async dispatch => {
     try {
-      const url = (category && category !== 'Semua') ? 
+      const url = (category && category !== 'Semua') ?
         `https://yogzan-api.cyclic.app/gallery/category/${category}?limit=1000${city ? `&city=${city}` : ''}` :
         `https://yogzan-api.cyclic.app/gallery/?limit=1000${city ? `&city=${city}` : ''}`
       const { data } = await axios({
         method: 'get',
         url
       })
-      const indexingImage = data.images.map((img, i) => ({...img, index: i}))
-      dispatch({ payload: {...data, images: indexingImage}, type: 'DATA_FETCHED_PORTFOLIO' })
+      const indexingImage = data.images.map((img, i) => ({ ...img, index: i }))
+      dispatch({ payload: { ...data, images: indexingImage }, type: 'DATA_FETCHED_PORTFOLIO' })
     } catch (error) {
-      
+
     }
   }
 }
@@ -42,7 +42,7 @@ export function getCities(category) {
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CITY' })
     } catch (error) {
-      
+
     }
   }
 }
@@ -50,7 +50,7 @@ export function getCities(category) {
 export function submitHiring(dataForm, cb) {
   return async (dispatch) => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'submitHiring', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'submitHiring', payload: true })
       const { data } = await axios({
         method: 'post',
         url: `https://yogzan-api.cyclic.app/hiring/submit`,
@@ -58,9 +58,9 @@ export function submitHiring(dataForm, cb) {
         data: dataForm
       })
       cb()
-      dispatch({type: 'SET_LOADING', key: 'submitHiring', payload: false})
+      dispatch({ type: 'SET_LOADING', key: 'submitHiring', payload: false })
     } catch (error) {
-      dispatch({type: 'SET_LOADING', key: 'submitHiring', payload: false})
+      dispatch({ type: 'SET_LOADING', key: 'submitHiring', payload: false })
       alert(error.message)
     }
   }
@@ -69,7 +69,7 @@ export function submitHiring(dataForm, cb) {
 export function submitBooking(dataBooking, cb) {
   return async (dispatch) => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'submitBooking', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'submitBooking', payload: true })
       const { data } = await axios({
         method: 'post',
         url: `https://yogzan-api.cyclic.app/book/submit`,
@@ -77,9 +77,9 @@ export function submitBooking(dataBooking, cb) {
         data: dataBooking
       })
       cb()
-      dispatch({type: 'SET_LOADING', key: 'submitBooking', payload: false})
+      dispatch({ type: 'SET_LOADING', key: 'submitBooking', payload: false })
     } catch (error) {
-      dispatch({type: 'SET_LOADING', key: 'submitBooking', payload: false})
+      dispatch({ type: 'SET_LOADING', key: 'submitBooking', payload: false })
       alert(error.message)
     }
   }
@@ -88,7 +88,7 @@ export function submitBooking(dataBooking, cb) {
 export function submitFixBooking(dataBooking, cb) {
   return async (dispatch) => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'submitFixBooking', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'submitFixBooking', payload: true })
       const { data } = await axios({
         method: 'post',
         url: `https://yogzan-api.cyclic.app/fixbook/submit`,
@@ -96,9 +96,9 @@ export function submitFixBooking(dataBooking, cb) {
         data: dataBooking
       })
       cb()
-      dispatch({type: 'SET_LOADING', key: 'submitFixBooking', payload: false})
+      dispatch({ type: 'SET_LOADING', key: 'submitFixBooking', payload: false })
     } catch (error) {
-      dispatch({type: 'SET_LOADING', key: 'submitFixBooking', payload: false})
+      dispatch({ type: 'SET_LOADING', key: 'submitFixBooking', payload: false })
       alert(error.message)
     }
   }
@@ -107,7 +107,7 @@ export function submitFixBooking(dataBooking, cb) {
 export function getAllCategories() {
   return async dispatch => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'category', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'category', payload: true })
       const { data } = await axios({
         method: 'get',
         url: `https://yogzan-api.cyclic.app/category`,
@@ -123,7 +123,7 @@ export function getAllCategories() {
 export function getHomepageCategories() {
   return async dispatch => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'category', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'category', payload: true })
       const { data } = await axios({
         method: 'get',
         url: `https://yogzan-api.cyclic.app/category/homepage`,
@@ -139,7 +139,7 @@ export function getHomepageCategories() {
 export function getGalleryCategories() {
   return async dispatch => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'category', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'category', payload: true })
       const { data } = await axios({
         method: 'get',
         url: `https://yogzan-api.cyclic.app/category/gallery`,
@@ -155,7 +155,7 @@ export function getGalleryCategories() {
 export function getAllTestimonies() {
   return async dispatch => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'testimony', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'testimony', payload: true })
       const { data } = await axios({
         method: 'get',
         url: `https://yogzan-api.cyclic.app/testimony`,

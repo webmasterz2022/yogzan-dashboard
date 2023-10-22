@@ -10,7 +10,7 @@
   cursor: pointer;
 }
 
-.select > span {
+.select>span {
   color: #97A4B4;
   line-height: 1.5rem;
   font-size: 1rem;
@@ -25,7 +25,7 @@
   color: var(--gray-800) !important;
 }
 
-.select > img {
+.select>img {
   width: 1.25rem;
   height: 1.25rem;
 }
@@ -45,7 +45,7 @@
   z-index: 5;
 }
 
-.container > div {
+.container>div {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -54,25 +54,26 @@
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: 700;
+  text-align: left !important;
 }
 
-.container > div:first-child {
+.container>div:first-child {
   font-size: 1.125rem;
   line-height: 1.75rem;
   color: var(--gray-400);
 }
 
-.container > div:hover:not(:first-child, .active) {
+.container>div:hover:not(:first-child, .active) {
   cursor: pointer;
   background-color: var(--tertiary-30);
 }
 
-.container > div.active {
+.container>div.active {
   background-color: var(--gray-800);
   color: var(--gray-25);
 }
 
-.container > div.active > img {
+.container>div.active>img {
   width: 1.25rem;
   height: 1.25rem;
   filter: invert();
@@ -95,48 +96,49 @@
     border-radius: 8px;
     text-align: left;
   }
-  
-  .select > span {
+
+  .select>span {
     line-height: 24px;
     font-size: 14px;
     width: 299px;
     margin-right: 8px;
   }
-  
-  .select > img {
+
+  .select>img {
     width: 20px;
     height: 20px;
   }
-  
+
   .rotate {
     rotate: 180deg;
   }
-  
+
   .container {
     width: fill;
     margin-right: 40px;
     border-radius: 8px;
     padding: 20px 0;
   }
-  
-  .container > div {
+
+  .container>div {
     padding: 8px 16px;
     font-size: 16px;
     line-height: 24px;
   }
-  
-  .container > div:first-child {
+
+  .container>div:first-child {
     font-size: 18px;
     line-height: 28px;
   }
-  
-  .container > div.active > img {
+
+  .container>div.active>img {
     width: 20px;
     height: 20px;
   }
+
   .helper {
     font-size: 14px;
-    line-height:22px;
+    line-height: 22px;
     margin-top: 8px;
   }
 }
