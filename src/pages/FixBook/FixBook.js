@@ -54,7 +54,7 @@ export default function Book() {
     { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family', 'Lainnya'] },
     { placeholder: 'Tulis Asal Kampus' },
     { placeholder: 'Tulis Fakultas / Jurusan' },
-    { placeholder: 'Contoh: @yogzan.graduation, @yogzan.fotosinema' },
+    { placeholder: 'Contoh: @yogzan.graduation' },
     { placeholder: 'HH/BB/TTTT', type: 'date' },
     { placeholder: 'JJ/MM', type: 'time', required: true },
     { placeholder: 'Tulis kontak disini' },
@@ -167,11 +167,11 @@ export default function Book() {
                   name="nickname"
                 />
                 <Field
-                  component={Input}
+                  component={TextArea}
                   label="Alamat Pengiriman (Khusus untuk yang memilih paket dengan cetak Foto / Album)"
-                  inputProps={{ placeholder: 'Mohon isi dengan format "Nama Penerima - No Hp Penerima - Alamat Lengkap - Kecamatan - Kota/Kabupaten - Kode Pos"' }}
+                  inputProps={{ placeholder: "Tulis alamat lengkap" }}
                   name="address"
-                  helper="digunakan jika memilih paket sekaligus cetak"
+                  helper={'Mohon isi dengan format "Nama Penerima - No Hp Penerima - Alamat Lengkap - Kecamatan - Kota/Kabupaten - Kode Pos"'}
                 />
                 {values.layanan === 'Wisuda' && (
                   <>
@@ -192,9 +192,9 @@ export default function Book() {
                 <Field
                   component={Input}
                   label="Akun Instagram"
-                  inputProps={inputProps[5]}
+                  inputProps={{ ...inputProps[5], placeholder: 'Contoh: @yogzan.graduation, @yogzan.fotosinema' }}
                   name="ig"
-                  helper="Untuk foto group, mohon untuk ditulis akun seluruh anggota grup (gunakan koma untuk memisahkan)"
+                  helper="Untuk foto grup, mohon untuk ditulis akun seluruh anggota (gunakan koma untuk memisahkan)"
                 />
                 <Field
                   component={Input}
@@ -253,7 +253,18 @@ export default function Book() {
                   ) : (
                     <img src={icUnchecked} />
                   )}
-                  <p style={{ textAlign: "left" }}>Saya sudah membaca dan setuju dengan <a href='https://www.yogzan.com/price-list/wisuda/Terms_of_Service' style={{ color: "#512B58", fontWeight: 700 }}>Terms of Service</a> yogzan</p>
+                  <p style={{ textAlign: "left" }}>
+                    Saya sudah membaca dan setuju dengan{" "}
+                    <a
+                      href="https://www.yogzan.com/price-list/wisuda/Terms_of_Service"
+                      style={{ color: "#512B58", fontWeight: 700 }}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Terms of Service
+                    </a> {" "}
+                    yogzan
+                  </p>
                 </div>
                 <a
                   className={disabledButton(values) || !checked ? styles.disabledSubmit : ''}
