@@ -51,7 +51,7 @@ export default function Book() {
   const inputProps = [
     { placeholder: 'Tulis Nama Lengkap' },
     { placeholder: 'Tulis Nama Panggilan' },
-    { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family', 'Lainnya'] },
+    { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family', 'Cetak Album', 'Lainnya'] },
     { placeholder: 'Tulis Asal Kampus' },
     { placeholder: 'Tulis Fakultas / Jurusan' },
     { placeholder: 'Contoh: @yogzan.graduation' },
@@ -67,6 +67,13 @@ export default function Book() {
 
   const handleFormSubmit = (values) => {
     const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
+    if (_layanan === 'Cetak Album') {
+      values.date = ''
+      values.time = ''
+      values.location = ''
+      values['ig-mua'] = ''
+      values['ig-attire'] = ''
+    }
     dispatch(submitFixBooking({ ...values, layanan: _layanan }, () => {
       setOpenModal(true)
     }))
@@ -81,10 +88,11 @@ export default function Book() {
       val.nickname &&
       val.layanan &&
       val.ig &&
-      val.date &&
-      val.time &&
       val.phone &&
-      val.location
+      (val.layanan === 'Cetak Album' ||
+        (((val.layanan !== 'Cetak Album' && val.date)) &&
+          ((val.layanan !== 'Cetak Album' && val.time)) &&
+          ((val.layanan !== 'Cetak Album' && val.location))))
     ) {
       if ((val.layanan === 'Lainnya' && !val['layanan-extended']) ||
         (val.layanan === 'Wisuda' && !val.campus) ||
@@ -196,32 +204,36 @@ export default function Book() {
                   name="ig"
                   helper="Untuk foto grup, mohon untuk ditulis akun seluruh anggota (gunakan koma untuk memisahkan)"
                 />
-                <Field
-                  component={Input}
-                  label="Akun Instagram MUA (Opsional)"
-                  inputProps={inputProps[5]}
-                  name="ig-mua"
-                />
-                <Field
-                  component={Input}
-                  label="Akun Instagram Attire (Opsional)"
-                  inputProps={inputProps[5]}
-                  name="ig-attire"
-                />
-                <Field
-                  className={styles.date}
-                  component={Input}
-                  label="Pilih Tanggal Pemotretan"
-                  inputProps={{ ...inputProps[6], value: values.date }}
-                  name="date"
-                />
-                <Field
-                  className={styles.date}
-                  component={Input}
-                  label="Pilih Waktu Pemotretan"
-                  inputProps={{ ...inputProps[7], value: values.time }}
-                  name="time"
-                />
+                {values.layanan !== 'Cetak Album' && (
+                  <>
+                    <Field
+                      component={Input}
+                      label="Akun Instagram MUA (Opsional)"
+                      inputProps={inputProps[5]}
+                      name="ig-mua"
+                    />
+                    <Field
+                      component={Input}
+                      label="Akun Instagram Attire (Opsional)"
+                      inputProps={inputProps[5]}
+                      name="ig-attire"
+                    />
+                    <Field
+                      className={styles.date}
+                      component={Input}
+                      label="Pilih Tanggal Pemotretan"
+                      inputProps={{ ...inputProps[6], value: values.date }}
+                      name="date"
+                    />
+                    <Field
+                      className={styles.date}
+                      component={Input}
+                      label="Pilih Waktu Pemotretan"
+                      inputProps={{ ...inputProps[7], value: values.time }}
+                      name="time"
+                    />
+                  </>
+                )}
                 <Field
                   component={Input}
                   label="Nomor Whatsapp yang dapat dihubungi"
@@ -229,12 +241,14 @@ export default function Book() {
                   name="phone"
                   parse={normalizePhone}
                 />
-                <Field
-                  component={Input}
-                  label="Lokasi Pemotretan"
-                  inputProps={inputProps[9]}
-                  name="location"
-                />
+                {values.layanan !== 'Cetak Album' && (
+                  <Field
+                    component={Input}
+                    label="Lokasi Pemotretan"
+                    inputProps={inputProps[9]}
+                    name="location"
+                  />
+                )}
                 <Field
                   component={Input}
                   label="Transfer via Bank"

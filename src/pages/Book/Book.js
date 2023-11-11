@@ -38,7 +38,7 @@ export default function Book() {
 
   const inputProps = [
     { placeholder: 'Tulis Nama Pemesan' },
-    { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family', 'Lainnya'] },
+    { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family', 'Cetak Album', 'Lainnya'] },
     { placeholder: 'Pilih salah satu', options: [...['Bandung', 'Jabodetabek', 'Malang', 'Surabaya', 'Semarang', 'Yogyakarta', 'Surakarta'].sort(), 'Kota Lainnya'] },
     { placeholder: 'HH/BB/TTTT', type: 'date', disabled: checked },
     { placeholder: 'Tulis kontak disini' },
@@ -51,7 +51,10 @@ export default function Book() {
     const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
     const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
     const _knowFrom = (values.knowFrom === 'Lainnya' || values.knowFrom === 'Instagram' || values.knowFrom === 'Tiktok') ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
-    const _date = checked ? 'Belum menentukan waktu' : values.date
+    let _date = checked ? 'Belum menentukan waktu' : values.date
+    if (_layanan === 'Cetak Album') {
+      _date = ''
+    }
     dispatch(submitBooking({ ...values, date: _date, city: _city, layanan: _layanan, knowFrom: _knowFrom }, () => {
       setOpenModal(true)
     }))
@@ -63,10 +66,13 @@ export default function Book() {
 
   const disabledButton = val => {
     val = { ...val, checked }
-    if (val.name && val.layanan &&
+    if (val.name &&
+      val.layanan &&
       val.city &&
-      (val.date || checked) &&
-      val.phone && val.knowFrom
+      (val.layanan === 'Cetak Album' ||
+        (val.layanan !== 'Cetak Album' && (val.date || checked))) &&
+      val.phone &&
+      val.knowFrom
     ) {
       if ((val.layanan === 'Lainnya' && !val['layanan-extended']) ||
         (val.city === 'Kota Lainnya' && !val['city-extended']) ||
@@ -140,21 +146,25 @@ export default function Book() {
                     name="city-extended"
                   />
                 )}
-                <Field
-                  className={styles.date}
-                  component={Input}
-                  label="Pilih Tanggal Pemotretan"
-                  inputProps={{ ...inputProps[3], value: checked ? '' : values.date }}
-                  name="date"
-                />
-                <div className={styles.checkbox} onClick={() => setChecked(v => !v)}>
-                  {checked ? (
-                    <img src={icChecked} />
-                  ) : (
-                    <img src={icUnchecked} />
-                  )}
-                  <p>Belum menentukan waktu</p>
-                </div>
+                {values.layanan !== 'Cetak Album' && (
+                  <>
+                    <Field
+                      className={styles.date}
+                      component={Input}
+                      label="Pilih Tanggal Pemotretan"
+                      inputProps={{ ...inputProps[3], value: checked ? '' : values.date }}
+                      name="date"
+                    />
+                    <div className={styles.checkbox} onClick={() => setChecked(v => !v)}>
+                      {checked ? (
+                        <img src={icChecked} />
+                      ) : (
+                        <img src={icUnchecked} />
+                      )}
+                      <p>Belum menentukan waktu</p>
+                    </div>
+                  </>
+                )}
                 <Field
                   component={Input}
                   label="Nomor Whatsapp yang dapat dihubungi"
