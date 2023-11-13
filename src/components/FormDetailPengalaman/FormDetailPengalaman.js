@@ -22,91 +22,111 @@ export default function FormDetailPengalaman(props) {
     { placeholder: 'Tulis seri lensa yang dimiliki disini' },
     { placeholder: 'Tulis aksesoris kamera yang dimiliki disini' },
     { placeholder: 'Pilih Waktu', options: ['Weekdays', 'Weekend', 'Weekdays & Weekend'] },
-    { placeholder: 'Pilih Expected Fee disini', options: [
-      'Dibawah Rp 200.000',
-      'Rp 200.000 - Rp 250.000',
-      'Rp 250.000 - Rp 300.000',
-      'Rp 300.000 - Rp 350.000',
-      'Rp 350.000 - Rp 400.000',
-      'Rp 450.000 - Rp 500.000',
-      'Diatas Rp 500.000',
-    ] },
+    {
+      placeholder: 'Pilih Expected Fee disini', options: [
+        'Dibawah Rp 200.000',
+        'Rp 200.000 - Rp 250.000',
+        'Rp 250.000 - Rp 300.000',
+        'Rp 300.000 - Rp 350.000',
+        'Rp 350.000 - Rp 400.000',
+        'Rp 450.000 - Rp 500.000',
+        'Diatas Rp 500.000',
+      ]
+    },
     { placeholder: 'Contoh: https://drive.google.com/file/...' },
     { placeholder: 'Contoh: https://drive.google.com/file/...' },
+    {
+      placeholder: 'Pilih posisi disini', options: [
+        'Fotografer',
+        'Videografer',
+        'Fotografer & Videografer'
+      ]
+    },
   ]
 
   const disabled = (values) => !values.photoshoot || !values.camera || !values.lens ||
-    !values.workingHour || !values.fee || !values.cv || !values.portfolio;
+    !values.workingHour || !values.fee || !values.cv || !values.portfolio || !values.jobRole;
 
 
   const _submit = (val) => {
-    handleSubmitForm({...val})
+    handleSubmitForm({ ...val })
   }
   return (
-    <Form 
+    <Form
       initialValues={data}
       onSubmit={_submit}
       render={({ handleSubmit, values }) => (
         <form className={styles.root} onSubmit={handleSubmit}>
+          <p>Posisi yang dilamar</p>
+          <Field
+            component={SelectInput}
+            name="jobRole"
+            onChange={(e) => handleStep({ ...values, jobRole: e })}
+            {...inputProps[9]}
+          />
           <p>Jenis Pemotretan yang Pernah diambil</p>
-          <Field 
-            component={Input} 
-            inputProps={{placeholder: 'Contoh: Wedding, Wisuda, Studio, dll.'}} 
-            name="photoshoot" 
+          <Field
+            component={Input}
+            inputProps={{ placeholder: 'Contoh: Wedding, Wisuda, Studio, dll.' }}
+            name="photoshoot"
           />
-          <Field 
-            component={TextArea} 
-            label="Ceritakan Pengalaman Kamu dalam Berkarir di Dunia Fotografi (Jika Ada)" 
-            inputProps={inputProps[1]} 
-            name="experience" 
+          <Field
+            component={TextArea}
+            label="Ceritakan Pengalaman Kamu dalam Berkarir di Dunia Fotografi (Jika Ada)"
+            inputProps={inputProps[1]}
+            name="experience"
           />
-          <Field 
-            component={Input} 
-            label="Seri Kamera yang Dimiliki" 
-            inputProps={inputProps[2]} 
+          <Field
+            component={Input}
+            label="Seri Kamera yang Dimiliki"
+            inputProps={inputProps[2]}
             name="camera"
             helper="Boleh lebih dari satu"
           />
-          <Field 
-            component={Input} 
-            label="Seri Lensa yang Dimiliki" 
-            inputProps={inputProps[3]} 
-            name="lens" 
+          <Field
+            component={Input}
+            label="Seri Lensa yang Dimiliki"
+            inputProps={inputProps[3]}
+            name="lens"
             helper="Boleh lebih dari satu"
           />
-          <Field 
-            component={Input} 
-            label="Apakah memiliki aksesoris kamera lain? (opsional)" 
-            inputProps={inputProps[4]} 
-            name="accessories" 
+          <Field
+            component={Input}
+            label="Apakah memiliki aksesoris kamera lain? (opsional)"
+            inputProps={inputProps[4]}
+            name="accessories"
             helper="Boleh lebih dari satu"
           />
           <p>Pilih alokasi waktu untuk project Yogzan</p>
-          <Field 
-            component={SelectInput} 
-            name="workingHour" 
-            onChange={(e) => handleStep({...values, workingHour: e})}
-            {...inputProps[5]} 
+          <Field
+            component={SelectInput}
+            name="workingHour"
+            onChange={(e) => handleStep({ ...values, workingHour: e })}
+            {...inputProps[5]}
           />
-          <p>Expected Fee untuk memotret foto (Photo Only dalam durasi 1 jam)</p>
-          <Field 
-            component={SelectInput} 
-            onChange={(e) => handleStep({...values, fee: e})}
-            name="fee" 
-            {...inputProps[6]}
-            />
-          <Field 
-            component={Input} 
-            label="Link CV" 
-            inputProps={inputProps[7]} 
-            name="cv" 
+          {values.jobRole !== "Videografer" && (
+            <>
+              <p>Expected Fee untuk memotret foto (Photo Only dalam durasi 1 jam)</p>
+              <Field
+                component={SelectInput}
+                onChange={(e) => handleStep({ ...values, fee: e })}
+                name="fee"
+                {...inputProps[6]}
+              />
+            </>
+          )}
+          <Field
+            component={Input}
+            label="Link CV"
+            inputProps={inputProps[7]}
+            name="cv"
             validate={isLink}
           />
-          <Field 
-            component={Input} 
-            label="Link Portfolio" 
-            inputProps={inputProps[8]} 
-            name="portfolio" 
+          <Field
+            component={Input}
+            label="Link Portfolio"
+            inputProps={inputProps[8]}
+            name="portfolio"
             validate={isLink}
           />
           <div>

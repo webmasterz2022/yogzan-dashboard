@@ -5,11 +5,11 @@ export function getHomepageImages() {
     try {
       const { data } = await axios({
         method: 'get',
-        url: 'https:/yogzan-api-dev.cyclic.app/gallery/homepage',
+        url: 'https://yogzan-api-dev.cyclic.app/gallery/homepage',
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_HOMEPAGE' })
     } catch (error) {
-      
+
     }
   }
 }
@@ -17,17 +17,17 @@ export function getHomepageImages() {
 export function getPortfolioImages(category, city) {
   return async dispatch => {
     try {
-      const url = (category && category !== 'Semua') ? 
-        `https:/yogzan-api-dev.cyclic.app/gallery/category/${category}?limit=1000${city ? `&city=${city}` : ''}` :
-        `https:/yogzan-api-dev.cyclic.app/gallery/?limit=1000${city ? `&city=${city}` : ''}`
+      const url = (category && category !== 'Semua') ?
+        `https://yogzan-api-dev.cyclic.app/gallery/category/${category}?limit=1000${city ? `&city=${city}` : ''}` :
+        `https://yogzan-api-dev.cyclic.app/gallery/?limit=1000${city ? `&city=${city}` : ''}`
       const { data } = await axios({
         method: 'get',
         url
       })
-      const indexingImage = data.images.map((img, i) => ({...img, index: i}))
-      dispatch({ payload: {...data, images: indexingImage}, type: 'DATA_FETCHED_PORTFOLIO' })
+      const indexingImage = data.images.map((img, i) => ({ ...img, index: i }))
+      dispatch({ payload: { ...data, images: indexingImage }, type: 'DATA_FETCHED_PORTFOLIO' })
     } catch (error) {
-      
+
     }
   }
 }
@@ -37,12 +37,12 @@ export function getCities(category) {
     try {
       const { data } = await axios({
         method: 'get',
-        url: `https:/yogzan-api-dev.cyclic.app/gallery/list-city${category ? `?category=${category}` : ''}`,
+        url: `https://yogzan-api-dev.cyclic.app/gallery/list-city${category ? `?category=${category}` : ''}`,
         // url: `http://localhost:5000/gallery/list-city${category ? `?category=${category}` : ''}`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CITY' })
     } catch (error) {
-      
+
     }
   }
 }
@@ -50,17 +50,17 @@ export function getCities(category) {
 export function submitHiring(dataForm, cb) {
   return async (dispatch) => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'submitHiring', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'submitHiring', payload: true })
       const { data } = await axios({
         method: 'post',
-        url: `https:/yogzan-api-dev.cyclic.app/hiring/submit`,
+        url: `https://yogzan-api-dev.cyclic.app/hiring/submit`,
         // url: `http://localhost:5000/hiring/submit`,
         data: dataForm
       })
       cb()
-      dispatch({type: 'SET_LOADING', key: 'submitHiring', payload: false})
+      dispatch({ type: 'SET_LOADING', key: 'submitHiring', payload: false })
     } catch (error) {
-      dispatch({type: 'SET_LOADING', key: 'submitHiring', payload: false})
+      dispatch({ type: 'SET_LOADING', key: 'submitHiring', payload: false })
       alert(error.message)
     }
   }
@@ -69,17 +69,17 @@ export function submitHiring(dataForm, cb) {
 export function submitBooking(dataBooking, cb) {
   return async (dispatch) => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'submitBooking', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'submitBooking', payload: true })
       const { data } = await axios({
         method: 'post',
-        url: `https:/yogzan-api-dev.cyclic.app/book/submit`,
+        url: `https://yogzan-api-dev.cyclic.app/book/submit`,
         // url: `http://localhost:5000/book/submit`,
         data: dataBooking
       })
       cb()
-      dispatch({type: 'SET_LOADING', key: 'submitBooking', payload: false})
+      dispatch({ type: 'SET_LOADING', key: 'submitBooking', payload: false })
     } catch (error) {
-      dispatch({type: 'SET_LOADING', key: 'submitBooking', payload: false})
+      dispatch({ type: 'SET_LOADING', key: 'submitBooking', payload: false })
       alert(error.message)
     }
   }
@@ -88,17 +88,17 @@ export function submitBooking(dataBooking, cb) {
 export function submitFixBooking(dataBooking, cb) {
   return async (dispatch) => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'submitFixBooking', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'submitFixBooking', payload: true })
       const { data } = await axios({
         method: 'post',
-        url: `https:/yogzan-api-dev.cyclic.app/fixbook/submit`,
+        url: `https://yogzan-api-dev.cyclic.app/fixbook/submit`,
         // url: `http://localhost:5000/book/submit`,
         data: dataBooking
       })
       cb()
-      dispatch({type: 'SET_LOADING', key: 'submitFixBooking', payload: false})
+      dispatch({ type: 'SET_LOADING', key: 'submitFixBooking', payload: false })
     } catch (error) {
-      dispatch({type: 'SET_LOADING', key: 'submitFixBooking', payload: false})
+      dispatch({ type: 'SET_LOADING', key: 'submitFixBooking', payload: false })
       alert(error.message)
     }
   }
@@ -107,10 +107,10 @@ export function submitFixBooking(dataBooking, cb) {
 export function getAllCategories() {
   return async dispatch => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'category', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'category', payload: true })
       const { data } = await axios({
         method: 'get',
-        url: `https:/yogzan-api-dev.cyclic.app/category`,
+        url: `https://yogzan-api-dev.cyclic.app/category`,
         // url: `http://localhost:5000/category`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
@@ -123,10 +123,10 @@ export function getAllCategories() {
 export function getHomepageCategories() {
   return async dispatch => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'category', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'category', payload: true })
       const { data } = await axios({
         method: 'get',
-        url: `https:/yogzan-api-dev.cyclic.app/category/homepage`,
+        url: `https://yogzan-api-dev.cyclic.app/category/homepage`,
         // url: `http://localhost:5000/category/homepage`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
@@ -139,10 +139,10 @@ export function getHomepageCategories() {
 export function getGalleryCategories() {
   return async dispatch => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'category', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'category', payload: true })
       const { data } = await axios({
         method: 'get',
-        url: `https:/yogzan-api-dev.cyclic.app/category/gallery`,
+        url: `https://yogzan-api-dev.cyclic.app/category/gallery`,
         // url: `http://localhost:5000/category/gallery`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
@@ -155,10 +155,10 @@ export function getGalleryCategories() {
 export function getAllTestimonies() {
   return async dispatch => {
     try {
-      dispatch({type: 'SET_LOADING', key: 'testimony', payload: true})
+      dispatch({ type: 'SET_LOADING', key: 'testimony', payload: true })
       const { data } = await axios({
         method: 'get',
-        url: `https:/yogzan-api-dev.cyclic.app/testimony`,
+        url: `https://yogzan-api-dev.cyclic.app/testimony`,
         // url: `http://localhost:5000/testimony`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_TESTIMONY' })
@@ -173,7 +173,7 @@ export function getStoredPhotos(linkphoto, cb) {
     try {
       const { data } = await axios({
         method: 'post',
-        url: `https:/yogzan-api-dev.cyclic.app/fixbook/photo-result`,
+        url: `https://yogzan-api-dev.cyclic.app/fixbook/photo-result`,
         // url: `http://localhost:5000/fixbook/photo-result`,
         data: { linkphoto }
       })
