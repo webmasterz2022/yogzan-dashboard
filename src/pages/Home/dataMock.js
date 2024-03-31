@@ -13,7 +13,7 @@ export const chooseUs = [
   },{
     image: world,
     title: 'Cakupan Luas',
-    desc: 'Tersedia di 7 kota besar di Indonesia, yaitu Jabodetabek, Bandung, Semarang, Surakarta, Yogyakarta, Surabaya & Malang.'
+    desc: 'Tersedia di 8 kota besar di Indonesia, yaitu Jabodetabek, Bandung, Semarang, Surakarta, Yogyakarta, Surabaya, Malang & Bali.'
   },{
     image: resume,
     title: 'Tim Berpengalaman',

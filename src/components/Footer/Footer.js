@@ -69,7 +69,7 @@ export default function Footer() {
         </div>
         <div>
           <div className={styles.line} />
-          <p>Copyright Yogzan 2022. All Rights Reserved</p>
+          <p>Copyright Yogzan 2024. All Rights Reserved</p>
         </div>
       </div>
     </section>

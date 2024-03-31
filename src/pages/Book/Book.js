@@ -40,7 +40,7 @@ export default function Book() {
   const inputProps = [
     { placeholder: 'Tulis Nama Pemesan' },
     { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family', 'Cetak Album', 'Lainnya'] },
-    { placeholder: 'Pilih salah satu', options: [...['Bandung', 'Jabodetabek', 'Malang', 'Surabaya', 'Semarang', 'Yogyakarta', 'Surakarta'].sort(), 'Kota Lainnya'] },
+    { placeholder: 'Pilih salah satu', options: [...['Bandung', 'Jabodetabek', 'Malang', 'Surabaya', 'Semarang', 'Yogyakarta', 'Surakarta', 'Bali'].sort(), 'Kota Lainnya'] },
     { placeholder: 'HH/BB/TTTT', type: 'date', disabled: checked },
     { placeholder: 'Tulis kontak disini' },
     { placeholder: 'Pilih salah satu', options: ['Instagram', 'Tiktok', 'Iklan', 'Rekomendasi Teman', 'Google', 'Facebook', 'Lainnya'] },
