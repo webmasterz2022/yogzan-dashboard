@@ -5,7 +5,7 @@ export function getHomepageImages() {
     try {
       const { data } = await axios({
         method: 'get',
-        url: 'https://yogzan-api.cyclic.app/gallery/homepage',
+        url: 'https://implicit-elsinore-efhadigital-67a581a6.koyeb.app/gallery/homepage',
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_HOMEPAGE' })
     } catch (error) {
@@ -18,8 +18,8 @@ export function getPortfolioImages(category, city) {
   return async dispatch => {
     try {
       const url = (category && category !== 'Semua') ?
-        `https://yogzan-api.cyclic.app/gallery/category/${category}?limit=1000${city ? `&city=${city}` : ''}` :
-        `https://yogzan-api.cyclic.app/gallery/?limit=1000${city ? `&city=${city}` : ''}`
+        `https://implicit-elsinore-efhadigital-67a581a6.koyeb.app/gallery/category/${category}?limit=1000${city ? `&city=${city}` : ''}` :
+        `https://implicit-elsinore-efhadigital-67a581a6.koyeb.app/gallery/?limit=1000${city ? `&city=${city}` : ''}`
       const { data } = await axios({
         method: 'get',
         url
@@ -37,7 +37,7 @@ export function getCities(category) {
     try {
       const { data } = await axios({
         method: 'get',
-        url: `https://yogzan-api.cyclic.app/gallery/list-city${category ? `?category=${category}` : ''}`,
+        url: `https://implicit-elsinore-efhadigital-67a581a6.koyeb.app/gallery/list-city${category ? `?category=${category}` : ''}`,
         // url: `http://localhost:5000/gallery/list-city${category ? `?category=${category}` : ''}`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CITY' })
@@ -53,7 +53,7 @@ export function submitHiring(dataForm, cb) {
       dispatch({ type: 'SET_LOADING', key: 'submitHiring', payload: true })
       const { data } = await axios({
         method: 'post',
-        url: `https://yogzan-api.cyclic.app/hiring/submit`,
+        url: `https://implicit-elsinore-efhadigital-67a581a6.koyeb.app/hiring/submit`,
         // url: `http://localhost:5000/hiring/submit`,
         data: dataForm
       })
@@ -72,7 +72,7 @@ export function submitBooking(dataBooking, cb) {
       dispatch({ type: 'SET_LOADING', key: 'submitBooking', payload: true })
       const { data } = await axios({
         method: 'post',
-        url: `https://yogzan-api.cyclic.app/book/submit`,
+        url: `https://implicit-elsinore-efhadigital-67a581a6.koyeb.app/book/submit`,
         // url: `http://localhost:5000/book/submit`,
         data: dataBooking
       })
@@ -91,7 +91,7 @@ export function submitFixBooking(dataBooking, cb) {
       dispatch({ type: 'SET_LOADING', key: 'submitFixBooking', payload: true })
       const { data } = await axios({
         method: 'post',
-        url: `https://yogzan-api.cyclic.app/fixbook/submit`,
+        url: `https://implicit-elsinore-efhadigital-67a581a6.koyeb.app/fixbook/submit`,
         // url: `http://localhost:5000/book/submit`,
         data: dataBooking
       })
@@ -110,7 +110,7 @@ export function getAllCategories() {
       dispatch({ type: 'SET_LOADING', key: 'category', payload: true })
       const { data } = await axios({
         method: 'get',
-        url: `https://yogzan-api.cyclic.app/category`,
+        url: `https://implicit-elsinore-efhadigital-67a581a6.koyeb.app/category`,
         // url: `http://localhost:5000/category`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
@@ -126,7 +126,7 @@ export function getHomepageCategories() {
       dispatch({ type: 'SET_LOADING', key: 'category', payload: true })
       const { data } = await axios({
         method: 'get',
-        url: `https://yogzan-api.cyclic.app/category/homepage`,
+        url: `https://implicit-elsinore-efhadigital-67a581a6.koyeb.app/category/homepage`,
         // url: `http://localhost:5000/category/homepage`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
@@ -142,7 +142,7 @@ export function getGalleryCategories() {
       dispatch({ type: 'SET_LOADING', key: 'category', payload: true })
       const { data } = await axios({
         method: 'get',
-        url: `https://yogzan-api.cyclic.app/category/gallery`,
+        url: `https://implicit-elsinore-efhadigital-67a581a6.koyeb.app/category/gallery`,
         // url: `http://localhost:5000/category/gallery`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_CATEGORY' })
@@ -158,7 +158,7 @@ export function getAllTestimonies() {
       dispatch({ type: 'SET_LOADING', key: 'testimony', payload: true })
       const { data } = await axios({
         method: 'get',
-        url: `https://yogzan-api.cyclic.app/testimony`,
+        url: `https://implicit-elsinore-efhadigital-67a581a6.koyeb.app/testimony`,
         // url: `http://localhost:5000/testimony`,
       })
       dispatch({ payload: data, type: 'DATA_FETCHED_TESTIMONY' })
@@ -173,7 +173,7 @@ export function getStoredPhotos(linkphoto, cb) {
     try {
       const { data } = await axios({
         method: 'post',
-        url: `https://yogzan-api.cyclic.app/fixbook/photo-result`,
+        url: `https://implicit-elsinore-efhadigital-67a581a6.koyeb.app/fixbook/photo-result`,
         // url: `http://localhost:5000/fixbook/photo-result`,
         data: { linkphoto }
       })
