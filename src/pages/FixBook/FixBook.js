@@ -89,6 +89,8 @@ export default function Book() {
       val.layanan &&
       val.ig &&
       val.phone &&
+      val.bankName &&
+      val.accountHolderName &&
       (val.layanan === 'Cetak Album' ||
         (((val.layanan !== 'Cetak Album' && val.date)) &&
           ((val.layanan !== 'Cetak Album' && val.time)) &&

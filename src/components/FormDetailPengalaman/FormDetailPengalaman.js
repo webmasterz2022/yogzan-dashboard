@@ -45,7 +45,7 @@ export default function FormDetailPengalaman(props) {
   ]
 
   const disabled = (values) => !values.photoshoot || !values.camera || !values.lens ||
-    !values.workingHour || !values.fee || !values.cv || !values.portfolio || !values.jobRole;
+    !values.workingHour || !values.cv || !values.portfolio || !values.jobRole;
 
 
   const _submit = (val) => {
@@ -106,13 +106,13 @@ export default function FormDetailPengalaman(props) {
           />
           {values.jobRole !== "Videografer" && (
             <>
-              <p>Expected Fee untuk memotret foto (Photo Only dalam durasi 1 jam)</p>
+              {/* <p>Expected Fee untuk memotret foto (Photo Only dalam durasi 1 jam)</p>
               <Field
                 component={SelectInput}
                 onChange={(e) => handleStep({ ...values, fee: e })}
                 name="fee"
                 {...inputProps[6]}
-              />
+              /> */}
             </>
           )}
           <Field
