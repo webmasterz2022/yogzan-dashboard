@@ -20,7 +20,7 @@ import ReactGA from 'react-ga4'
 
 function App() {
   LogRocket.init('dcepbi/yogzan-dashboard');
-  // ReactGA.initialize('G-4Y9RTECPZ0')
+  ReactGA.initialize('G-4Y9RTECPZ0')
   return (
     <BrowserRouter>
       <AppContextProvider>
