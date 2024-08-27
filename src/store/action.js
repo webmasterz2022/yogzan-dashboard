@@ -1,13 +1,13 @@
 import axios from 'axios'
 
 // LOCAL
-const BASE_URL = "http://localhost:5000"
+// const BASE_URL = "http://localhost:5000"
 
 // KOYEB
 // const BASE_URL = "https://active-hedwiga-efhadigital-2-f3fb112a.koyeb.app"
 
 // AWS Lightsail
-// const BASE_URL = "https://api.yogzan.com"
+const BASE_URL = "https://api.yogzan.com"
 
 export function getHomepageImages() {
   return async dispatch => {
