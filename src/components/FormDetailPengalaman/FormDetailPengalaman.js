@@ -11,9 +11,10 @@ export default function FormDetailPengalaman(props) {
   const { handleSubmitForm, handleStep, data } = props
   const { isLoading } = useSelector(s => s)
 
+  const reqLink3 = new RegExp(/^((ftp|http|https):\/\/)?(www\.)?[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#.-]+)*(\/?\w*\??[a-zA-Z0-9_]*=\w*(&[a-zA-Z0-9_]*=\w*)*)?\/?$/);
   const reqLink2 = new RegExp(/^((ftp|http|https):\/\/)?(www.)?(?!.*(ftp|http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#-]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?\/?$/)
   const reqLink = new RegExp(/^(ftp|http|https):\/\/[^ "]+$/);
-  const isLink = value => reqLink2.test(value) ? undefined : 'Format Link salah'
+  const isLink = value => reqLink3.test(value) ? undefined : 'Format Link salah'
 
   const inputProps = [
     { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Studio', 'Lainnya'] },
