@@ -3,8 +3,8 @@
   text-align: left;
 }
 
-.root > h3,
-.categoryDescription > div > h3 {
+.root>h3,
+.categoryDescription>div>h3 {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 700;
@@ -13,8 +13,8 @@
   margin-top: 1rem;
 }
 
-.root > h5,
-.categoryDescription > div > h5 {
+.root>h5,
+.categoryDescription>div>h5 {
   margin: 0;
   font-family: 'Avenir', sans-serif;
   font-size: 1rem;
@@ -30,12 +30,12 @@
   margin-bottom: 2rem;
 }
 
-.filters > .groupButton {
+.filters>.groupButton {
   display: flex;
   align-items: center;
 }
 
-.groupButton > button:not(:last-child) {
+.groupButton>button:not(:last-child) {
   margin-right: 1rem;
 }
 
@@ -44,7 +44,7 @@
   align-items: center;
 }
 
-.activeButton > img {
+.activeButton>img {
   width: 1rem;
   height: 1rem;
   margin-right: 0.5rem;
@@ -52,34 +52,35 @@
 
 .categoryDescription {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 1.5rem;
+  gap: 1rem;
 }
 
-.categoryDescription > div > h3 {
+.categoryDescription>div>h3 {
   font-weight: 400;
   margin-bottom: 0.5rem;
 }
 
-.categoryDescription > div > h5 {
+.categoryDescription>div>h5 {
   margin-bottom: 0;
   max-width: 60rem;
 }
 
-.categoryDescription > button {
+.categoryDescription>button {
   padding: 1rem;
   border-radius: 0.5rem;
 }
 
-.categoryDescription > button > p {
+.categoryDescription>button>p {
   display: flex;
   justify-content: space-between;
   align-items: center;
   white-space: nowrap;
 }
 
-.categoryDescription > button > p > img {
+.categoryDescription>button>p>img {
   margin-left: 0.5rem;
   width: 1.5rem;
   height: 1.5rem;
@@ -92,14 +93,14 @@
   row-gap: 0;
 }
 
-.galleries > div {
+.galleries>div {
   flex: 23.95%;
   max-width: 23.95%;
   overflow: hidden;
   row-gap: 1rem;
 }
 
-.galleries > div > div {
+.galleries>div>div {
   width: 100%;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -107,7 +108,7 @@
 }
 
 
-.galleries > div > div > div {
+.galleries>div>div>div {
   width: 100%;
   height: 100%;
   cursor: pointer;
@@ -118,28 +119,28 @@
   overflow: hidden;
 }
 
-.galleries > div > div.vertical {
+.galleries>div>div.vertical {
   height: 42vh;
 }
 
-.galleries > div > div.horizontal {
+.galleries>div>div.horizontal {
   height: 17vh;
 }
 
 
-.galleries > div > div > div:hover {
+.galleries>div>div>div:hover {
   transform: scale(1.2);
 }
 
-.vertical > img {
+.vertical>img {
   width: 25vw;
 }
 
-.horizontal > img {
+.horizontal>img {
   width: 50vw;
 }
 
-.preview > img {
+.preview>img {
   max-height: 70vh;
   object-fit: cover;
   border-radius: 0.25rem 0.25rem 0 0;
@@ -147,14 +148,14 @@
   object-position: center;
 }
 
-.preview > div {
+.preview>div {
   padding: 1rem;
   background-color: var(--gray-25);
   width: fill;
   border-radius: 0 0 0.25rem 0.25rem;
 }
 
-.preview > div > h4 {
+.preview>div>h4 {
   font-size: 1.125rem;
   line-height: 1.25rem;
   font-weight: 700;
@@ -162,7 +163,7 @@
   margin-bottom: 0.5rem;
 }
 
-.preview > div > p {
+.preview>div>p {
   font-family: 'Avenir', sans-serif;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -173,12 +174,12 @@
   max-width: fit-content;
 }
 
-.preview > div > div {
+.preview>div>div {
   display: flex;
   align-items: center;
 }
 
-.preview > div > div > div {
+.preview>div>div>div {
   display: flex;
   padding: 0.25rem 0.5rem;
   border: 1px solid var(--gray-600);
@@ -188,20 +189,20 @@
   align-items: center;
 }
 
-.preview > div > div > div > img {
+.preview>div>div>div>img {
   width: 1rem;
   height: 1rem;
   margin-right: 0.5rem;
 }
 
-.preview > div > div > div > p {
+.preview>div>div>div>p {
   font-size: 0.625rem;
   line-height: 0.75rem;
   font-weight: 400;
   margin: 0;
 }
 
-.preview > .modalNav {
+.preview>.modalNav {
   background: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -212,7 +213,7 @@
   top: 1rem;
 }
 
-.preview > .modalNav > img {
+.preview>.modalNav>img {
   height: 2.5rem;
   cursor: pointer;
 }
@@ -222,7 +223,7 @@
   justify-content: center;
 }
 
-.redirect > button > p {
+.redirect>button>p {
   display: flex;
   align-items: center;
 }
@@ -237,8 +238,8 @@
     text-align: center;
   }
 
-  .root > h3,
-  .categoryDescription > div > h3 {
+  .root>h3,
+  .categoryDescription>div>h3 {
     font-size: 24px;
     line-height: 26px;
     margin-bottom: 16px;
@@ -246,27 +247,27 @@
     padding: 0 40px;
   }
 
-  .root > h5,
-  .categoryDescription > div > h5 {
+  .root>h5,
+  .categoryDescription>div>h5 {
     font-size: 16px;
     line-height: 22px;
     margin-bottom: 40px;
     padding: 0 40px;
   }
-  
+
   .filters {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     margin-bottom: 32px;
   }
-  
-  .filters > div {
+
+  .filters>div {
     padding: 0 40px;
     width: fill;
   }
-  
-  .filters > .groupButton {
+
+  .filters>.groupButton {
     display: flex;
     align-items: center;
     margin-top: 32px;
@@ -274,8 +275,8 @@
     padding: 0 40px;
     padding-bottom: 20px;
   }
-  
-  .groupButton > button:not(:last-child) {
+
+  .groupButton>button:not(:last-child) {
     margin-right: 16px;
   }
 
@@ -283,8 +284,8 @@
     display: flex;
     align-items: center;
   }
-  
-  .activeButton > img {
+
+  .activeButton>img {
     width: 16px;
     height: 16px;
     margin-right: 8px;
@@ -296,29 +297,29 @@
     align-items: center;
   }
 
-  .categoryDescription > div {
+  .categoryDescription>div {
     text-align: center;
   }
-  
-  .categoryDescription > div > h3 {
+
+  .categoryDescription>div>h3 {
     margin-bottom: 8px;
   }
 
-  .categoryDescription > div > h5 {
+  .categoryDescription>div>h5 {
     max-width: unset;
   }
-  
-  .categoryDescription > button {
+
+  .categoryDescription>button {
     padding: 16px;
     border-radius: 8px;
   }
 
-  .categoryDescription > button > p > img {
+  .categoryDescription>button>p>img {
     margin-left: 8px;
     width: 24px;
     height: 24px;
   }
-  
+
   .galleries {
     padding: 0 40px;
     display: flex;
@@ -327,97 +328,97 @@
     row-gap: 0;
   }
 
-  .galleries > div {
+  .galleries>div {
     flex: 47.14%;
     max-width: 47.14%;
   }
-  
-  .galleries > div > div {
+
+  .galleries>div>div {
     width: 100%;
     border-radius: 4px;
     margin-bottom: 16px;
   }
 
-  .galleries > div > div.vertical {
+  .galleries>div>div.vertical {
     height: 55vh;
   }
-  
-  .galleries > div > div.horizontal {
+
+  .galleries>div>div.horizontal {
     height: 25vh;
   }
 
   .preview {
     width: 85vw;
-  } 
+  }
 
-  .preview > img {
+  .preview>img {
     width: 68vw;
     border-radius: 4px 4px 0 0;
   }
 
-  .vertical > img {
+  .vertical>img {
     height: 52vh;
   }
 
-  .horizontal > img {
+  .horizontal>img {
     height: 30vh;
   }
 
-  .preview > div {
+  .preview>div {
     width: fill;
   }
 
-  .preview > div {
+  .preview>div {
     padding: 16px;
     background-color: var(--gray-25);
     width: fill;
     border-radius: 0 0 4px 4px;
   }
-  
-  .preview > div > h4 {
+
+  .preview>div>h4 {
     font-size: 18px;
     line-height: 20px;
     margin-bottom: 18px;
   }
-  
-  .preview > div > p {
+
+  .preview>div>p {
     font-size: 14px;
     line-height: 20px;
     margin-bottom: 8px;
   }
-  
-  .preview > div > div > div {
+
+  .preview>div>div>div {
     padding: 4px 8px;
     margin-right: 8px;
     border-radius: 4px;
   }
-  
-  .preview > div > div > div > img {
+
+  .preview>div>div>div>img {
     width: 16px;
     height: 16px;
     margin-right: 8px;
   }
-  
-  .preview > div > div > div > p {
+
+  .preview>div>div>div>p {
     font-size: 10px;
     line-height: 12px;
   }
 
-  .preview > .modalNav {
+  .preview>.modalNav {
     top: 16px;
   }
-  
-  .preview > .modalNav > img {
+
+  .preview>.modalNav>img {
     height: 40px;
   }
 }
 
 @media only screen and (max-width: 425px) {
-  .galleries > div > div.vertical {
+  .galleries>div>div.vertical {
     height: 35vh;
   }
-  
-  .galleries > div > div.horizontal {
+
+  .galleries>div>div.horizontal {
     height: 13vh;
   }
 }

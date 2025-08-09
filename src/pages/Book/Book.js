@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Form, Field } from 'react-final-form'
 import styles from './styles.module.css'
-import coverBooking from '../../assets/cover-booking.png'
+import coverBooking from '../../assets/YGZ-16.jpg'
 import icChecked from '../../assets/checked.svg'
 import icUnchecked from '../../assets/unchecked.svg'
 import Input from '../../components/Input'
@@ -12,6 +12,7 @@ import { submitBooking } from '../../store/action'
 import { useDispatch, useSelector } from 'react-redux'
 import TextArea from '../../components/TextArea'
 import ReactGA from 'react-ga4'
+import { intlNum, domNum, intlNation } from '../../utils'
 
 export default function Book() {
   const dispatch = useDispatch()
@@ -40,7 +41,7 @@ export default function Book() {
   const inputProps = [
     { placeholder: 'Tulis Nama Pemesan' },
     { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family', 'Cetak Album', 'Lainnya'] },
-    { placeholder: 'Pilih salah satu', options: [...['Bandung', 'Jabodetabek', 'Malang', 'Surabaya', 'Semarang', 'Yogyakarta', 'Surakarta', 'Bali'].sort(), 'Kota Lainnya'] },
+    { placeholder: 'Pilih salah satu', options: [...['Bandung', 'Jabodetabek', 'Malang', 'Surabaya', 'Semarang', 'Yogyakarta', 'Surakarta', 'Bali'].sort(), ...intlNation, 'Kota Lainnya'] },
     { placeholder: 'HH/BB/TTTT', type: 'date', disabled: checked },
     { placeholder: 'Tulis kontak disini' },
     { placeholder: 'Pilih salah satu', options: ['Instagram', 'Tiktok', 'Iklan', 'Rekomendasi Teman', 'Google', 'Facebook', 'Lainnya'] },
@@ -49,7 +50,7 @@ export default function Book() {
   ]
 
   const handleFormSubmit = (values) => {
-    ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Pesan Sekarang')
+    ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Dapatkan Daftar Harga')
     const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
     const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
     const _knowFrom = (values.knowFrom === 'Lainnya' || values.knowFrom === 'Instagram' || values.knowFrom === 'Tiktok') ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
@@ -93,18 +94,18 @@ export default function Book() {
     const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
     const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
     const _date = checked ? 'Belum menentukan waktu' : values.date
+    const waNum = intlNation.includes(values.city) ? intlNum : domNum
     const message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0AKota: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`
-    return `https://wa.me/+6285876020261?text=${message}`
+    return `https://wa.me/${waNum}?text=${message}`
   }
 
   return (
     <>
       <section className={styles.root}>
         <div>
-          <h3>Kamu Berhak Dapat Layanan Terbaik</h3>
+          <h3>Selangkah lebih dekat dengan standar baru dalam mengabadikan hari spesial.</h3>
           <p>
-            Ayo abadikan setiap momen berharga kamu dengan hasil paling indah yang bisa kamu kenang.
-            Dapatkan daftar harga Yogzan dengan mengisi formulir di bawah ini!
+            Cukup isi form di bawah ini, lalu kamu akan langsung dibawa ke WhatsApp untuk mendapatkan daftar harga secara otomatis!
           </p>
           <Form
             initialValues={data}

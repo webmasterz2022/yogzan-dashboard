@@ -3,7 +3,7 @@
   text-align: left;
 }
 
-.root > .header > img {
+.root>.header>img {
   height: 5.4375rem;
   width: 14.6875rem;
 }
@@ -31,82 +31,110 @@
   padding-top: 2.5rem;
 }
 
-.satu { 
-  grid-area: satu; 
+.satu {
+  grid-area: satu;
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 3;
   animation: leftFadeIn 3s;
-  -moz-animation: leftFadeIn 3s; /* Firefox */
-  -webkit-animation: leftFadeIn 3s; /* Safari and Chrome */
-  -o-animation: leftFadeIn 3s; /* Opera */
+  -moz-animation: leftFadeIn 3s;
+  /* Firefox */
+  -webkit-animation: leftFadeIn 3s;
+  /* Safari and Chrome */
+  -o-animation: leftFadeIn 3s;
+  /* Opera */
 }
-.dua { 
+
+.dua {
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 4;
   animation: rightFadeIn 3.5s;
-  -moz-animation: rightFadeIn 3.5s; /* Firefox */
-  -webkit-animation: rightFadeIn 3.5s; /* Safari and Chrome */
-  -o-animation: rightFadeIn 3.5s; /* Opera */
+  -moz-animation: rightFadeIn 3.5s;
+  /* Firefox */
+  -webkit-animation: rightFadeIn 3.5s;
+  /* Safari and Chrome */
+  -o-animation: rightFadeIn 3.5s;
+  /* Opera */
 }
-.tiga { 
-  grid-area: tiga; 
+
+.tiga {
+  grid-area: tiga;
   grid-column-start: 4;
   grid-column-end: 6;
   grid-row-start: 1;
   grid-row-end: 4;
   animation: bottomFadeIn 2s;
-  -moz-animation: bottomFadeIn 2s; /* Firefox */
-  -webkit-animation: bottomFadeIn 2s; /* Safari and Chrome */
-  -o-animation: bottomFadeIn 2s; /* Opera */
+  -moz-animation: bottomFadeIn 2s;
+  /* Firefox */
+  -webkit-animation: bottomFadeIn 2s;
+  /* Safari and Chrome */
+  -o-animation: bottomFadeIn 2s;
+  /* Opera */
 }
-.empat { 
-  grid-area: empat; 
+
+.empat {
+  grid-area: empat;
   grid-column-start: 6;
   grid-column-end: 7;
   grid-row-start: 1;
   grid-row-end: 4;
   animation: bottomFadeIn 2s;
-  -moz-animation: bottomFadeIn 2s; /* Firefox */
-  -webkit-animation: bottomFadeIn 2s; /* Safari and Chrome */
-  -o-animation: bottomFadeIn 2s; /* Opera */
+  -moz-animation: bottomFadeIn 2s;
+  /* Firefox */
+  -webkit-animation: bottomFadeIn 2s;
+  /* Safari and Chrome */
+  -o-animation: bottomFadeIn 2s;
+  /* Opera */
 }
-.lima { 
-  grid-area: lima; 
+
+.lima {
+  grid-area: lima;
   grid-column-start: 7;
   grid-column-end: 9;
   grid-row-start: 1;
   grid-row-end: 3;
   animation: leftFadeIn 3s;
-  -moz-animation: leftFadeIn 3s; /* Firefox */
-  -webkit-animation: leftFadeIn 3s; /* Safari and Chrome */
-  -o-animation: leftFadeIn 3s; /* Opera */
+  -moz-animation: leftFadeIn 3s;
+  /* Firefox */
+  -webkit-animation: leftFadeIn 3s;
+  /* Safari and Chrome */
+  -o-animation: leftFadeIn 3s;
+  /* Opera */
 }
-.enam { 
+
+.enam {
   grid-area: enam;
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 7;
   animation: leftFadeIn 2.5s;
-  -moz-animation: leftFadeIn 2.5s; /* Firefox */
-  -webkit-animation: leftFadeIn 2.5s; /* Safari and Chrome */
-  -o-animation: leftFadeIn 2.5s; /* Opera */
+  -moz-animation: leftFadeIn 2.5s;
+  /* Firefox */
+  -webkit-animation: leftFadeIn 2.5s;
+  /* Safari and Chrome */
+  -o-animation: leftFadeIn 2.5s;
+  /* Opera */
 }
-.tujuh { 
-  grid-area: tujuh; 
+
+.tujuh {
+  grid-area: tujuh;
   grid-column-start: 3;
   grid-column-end: 5;
   grid-row-start: 4;
   grid-row-end: 6;
   animation: rightFadeIn 4s;
-  -moz-animation: rightFadeIn 4s; /* Firefox */
-  -webkit-animation: rightFadeIn 4s; /* Safari and Chrome */
-  -o-animation: rightFadeIn 4s; /* Opera */
+  -moz-animation: rightFadeIn 4s;
+  /* Firefox */
+  -webkit-animation: rightFadeIn 4s;
+  /* Safari and Chrome */
+  -o-animation: rightFadeIn 4s;
+  /* Opera */
 }
+
 .delapan {
   grid-area: delapan;
   grid-column-start: 5;
@@ -115,46 +143,61 @@
   grid-row-end: 9;
   object-position: top;
   animation: rightFadeIn 2s;
-  -moz-animation: rightFadeIn 2s; /* Firefox */
-  -webkit-animation: rightFadeIn 2s; /* Safari and Chrome */
-  -o-animation: rightFadeIn 2s; /* Opera */
+  -moz-animation: rightFadeIn 2s;
+  /* Firefox */
+  -webkit-animation: rightFadeIn 2s;
+  /* Safari and Chrome */
+  -o-animation: rightFadeIn 2s;
+  /* Opera */
 }
-.sembilan { 
-  grid-area: sembilan; 
+
+.sembilan {
+  grid-area: sembilan;
   grid-column-start: 7;
   grid-column-end: 9;
   grid-row-start: 3;
   grid-row-end: 7;
   animation: bottomFadeIn 4s;
-  -moz-animation: bottomFadeIn 4s; /* Firefox */
-  -webkit-animation: bottomFadeIn 4s; /* Safari and Chrome */
-  -o-animation: bottomFadeIn 4s; /* Opera */
+  -moz-animation: bottomFadeIn 4s;
+  /* Firefox */
+  -webkit-animation: bottomFadeIn 4s;
+  /* Safari and Chrome */
+  -o-animation: bottomFadeIn 4s;
+  /* Opera */
 }
-.sepuluh { 
-  grid-area: sepuluh; 
+
+.sepuluh {
+  grid-area: sepuluh;
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row-start: 7;
   grid-row-end: 9;
   animation: rightFadeIn 3s;
-  -moz-animation: rightFadeIn 3s; /* Firefox */
-  -webkit-animation: rightFadeIn 3s; /* Safari and Chrome */
-  -o-animation: rightFadeIn 3s; /* Opera */
+  -moz-animation: rightFadeIn 3s;
+  /* Firefox */
+  -webkit-animation: rightFadeIn 3s;
+  /* Safari and Chrome */
+  -o-animation: rightFadeIn 3s;
+  /* Opera */
 }
-.sebelas { 
-  grid-area: sebelas; 
+
+.sebelas {
+  grid-area: sebelas;
   grid-column-start: 7;
   grid-column-end: 9;
   grid-row-start: 7;
   grid-row-end: 9;
   animation: leftFadeIn 2s;
-  -moz-animation: leftFadeIn 2s; /* Firefox */
-  -webkit-animation: leftFadeIn 2s; /* Safari and Chrome */
-  -o-animation: leftFadeIn 2s; /* Opera */
+  -moz-animation: leftFadeIn 2s;
+  /* Firefox */
+  -webkit-animation: leftFadeIn 2s;
+  /* Safari and Chrome */
+  -o-animation: leftFadeIn 2s;
+  /* Opera */
 }
 
-.galleries > div:nth-child(2) > button { 
-  grid-area: button; 
+.galleries>div:nth-child(2)>button {
+  grid-area: button;
   padding: 1rem;
   text-align: center;
   justify-content: center;
@@ -166,31 +209,32 @@
   grid-row-start: 6;
   grid-row-end: 7;
   transition: 0.25s;
+  font-size: 0.65rem;
 }
 
-.galleries > div:nth-child(2) > button:hover {
+.galleries>div:nth-child(2)>button:hover {
   transform: scale(1.075);
 }
 
-.galleries > div:nth-child(2) > button > p { 
+.galleries>div:nth-child(2)>button>p {
   display: flex;
   justify-content: space-between;
   align-items: center;
   white-space: nowrap;
 }
 
-.galleries > div:nth-child(2) > button > p > img { 
+.galleries>div:nth-child(2)>button>p>img {
   width: 1.5rem;
   height: 1.5rem;
   margin-left: 0.5rem;
 }
 
-.galleries > div:nth-child(2) > div {
+.galleries>div:nth-child(2)>div {
   overflow: hidden;
   border-radius: 0.25rem;
 }
 
-.galleries > div:nth-child(2) > div > div {
+.galleries>div:nth-child(2)>div>div {
   border-radius: 0.25rem;
   width: 100%;
   height: 100%;
@@ -202,43 +246,46 @@
 }
 
 @keyframes leftFadeIn {
-  0% { 
-    opacity: 0; 
+  0% {
+    opacity: 0;
     transform: translate3d(-100%, 0, 0);
   }
-  100% { 
-    opacity: 1; 
+
+  100% {
+    opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes rightFadeIn {
-  0% { 
-    opacity: 0; 
+  0% {
+    opacity: 0;
     transform: translate3d(0, -100%, 0);
   }
-  100% { 
-    opacity: 1; 
+
+  100% {
+    opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes bottomFadeIn {
-  0% { 
-    opacity: 0; 
+  0% {
+    opacity: 0;
     transform: translate3d(0, 0, 100%);
   }
-  100% { 
-    opacity: 1; 
+
+  100% {
+    opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
 
-.galleries > div:nth-child(2) > div > div:hover {
+.galleries>div:nth-child(2)>div>div:hover {
   transform: scale(1.2);
 }
 
-.galleries > div:nth-child(2) {
+.galleries>div:nth-child(2) {
   height: 23rem;
   max-height: 23rem;
   margin-right: 1.5rem;
@@ -258,12 +305,12 @@
   background: linear-gradient(0deg, #FFF5F1 13%, rgba(255, 255, 255, 0.1) 67.57%);
 }
 
-.galleries > div:nth-child(3) {
+.galleries>div:nth-child(3) {
   padding: 1.5rem;
   background: linear-gradient(24.22deg, #D9F0F7 -46.53%, rgba(217, 240, 247, 0) 88.83%);
 }
 
-.galleries > div:nth-child(3) > p {
+.galleries>div:nth-child(3)>p {
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1rem;
@@ -276,7 +323,7 @@
   padding: 3rem 2.5rem;
 }
 
-.contentWhyUs > h3 {
+.contentWhyUs>h3 {
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 1.75rem;
@@ -284,7 +331,7 @@
   margin: 0;
 }
 
-.contentWhyUs > p {
+.contentWhyUs>p {
   margin: 0;
   margin-top: 0.5rem;
   font-weight: 300;
@@ -294,7 +341,7 @@
   font-family: 'Avenir', sans-serif;
 }
 
-.contentWhyUs > div {
+.contentWhyUs>div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
@@ -308,7 +355,7 @@
   overflow: hidden;
 }
 
-.testimonials > h3 {
+.testimonials>h3 {
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 1.75rem;
@@ -316,7 +363,7 @@
   margin: 0;
 }
 
-.testimonials > p {
+.testimonials>p {
   margin: 0;
   margin-top: 0.5rem;
   font-weight: 300;
@@ -326,7 +373,7 @@
   font-family: 'Avenir', sans-serif;
 }
 
-.testimonials > div:not(.overlayLeft, .overlayRight) {
+.testimonials>div:not(.overlayLeft, .overlayRight) {
   padding-bottom: 1.5rem;
   display: flex;
   overflow: auto;
@@ -336,7 +383,7 @@
   max-height: 35rem;
 }
 
-.testimonials > div > div > div:first-child {
+.testimonials>div>div>div:first-child {
   width: fit-content;
   margin-left: 4rem;
 }
@@ -374,7 +421,7 @@
     align-items: center;
   }
 
-  .root > .header > img {
+  .root>.header>img {
     width: 280px;
     height: 87px;
   }
@@ -385,8 +432,8 @@
     line-height: 20px;
     text-align: center;
     padding: 0 40px;
-}
-  
+  }
+
   .heading2 {
     margin-top: 8px;
     font-size: 16px;
@@ -404,54 +451,61 @@
     width: 100vw;
   }
 
-  .satu { 
-    grid-area: satu; 
+  .satu {
+    grid-area: satu;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 3;
   }
-  .dua { 
+
+  .dua {
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 4;
   }
-  .tiga { 
-    grid-area: tiga; 
+
+  .tiga {
+    grid-area: tiga;
     grid-column-start: 4;
     grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 4;
   }
-  .empat { 
-    grid-area: empat; 
+
+  .empat {
+    grid-area: empat;
     grid-column-start: 6;
     grid-column-end: 7;
     grid-row-start: 1;
     grid-row-end: 4;
   }
-  .lima { 
-    grid-area: lima; 
+
+  .lima {
+    grid-area: lima;
     grid-column-start: 7;
     grid-column-end: 9;
     grid-row-start: 1;
     grid-row-end: 3;
   }
-  .enam { 
+
+  .enam {
     grid-area: enam;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 7;
   }
-  .tujuh { 
-    grid-area: tujuh; 
+
+  .tujuh {
+    grid-area: tujuh;
     grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 4;
     grid-row-end: 6;
   }
+
   .delapan {
     grid-area: delapan;
     grid-column-start: 5;
@@ -460,29 +514,32 @@
     grid-row-end: 9;
     object-position: top;
   }
-  .sembilan { 
-    grid-area: sembilan; 
+
+  .sembilan {
+    grid-area: sembilan;
     grid-column-start: 7;
     grid-column-end: 9;
     grid-row-start: 3;
     grid-row-end: 7;
   }
-  .sepuluh { 
-    grid-area: sepuluh; 
+
+  .sepuluh {
+    grid-area: sepuluh;
     grid-column-start: 1;
     grid-column-end: 5;
     grid-row-start: 7;
     grid-row-end: 9;
   }
-  .sebelas { 
-    grid-area: sebelas; 
+
+  .sebelas {
+    grid-area: sebelas;
     grid-column-start: 7;
     grid-column-end: 9;
     grid-row-start: 7;
     grid-row-end: 9;
   }
 
-  .galleries > div:nth-child(2) {
+  .galleries>div:nth-child(2) {
     margin: 0;
     height: 543px;
     max-height: 543px;
@@ -494,11 +551,11 @@
     overflow-x: hidden;
   }
 
-  .galleries > div:nth-child(2) > img {
+  .galleries>div:nth-child(2)>img {
     border-radius: 4px;
   }
 
-  .galleries > div:nth-child(2) > button {
+  .galleries>div:nth-child(2)>button {
     width: fill;
     height: 48px;
     border-radius: 8px;
@@ -507,18 +564,20 @@
     grid-column-end: 5;
     grid-row-start: 6;
     grid-row-end: 7;
+    font-size: 1.5rem;
   }
 
-  .galleries > div:nth-child(2) > button > p > img { 
+  .galleries>div:nth-child(2)>button>p>img {
     margin-left: 8px;
     width: 24px;
     height: 24px;
   }
 
-  .galleries > div:nth-child(3) {
+  .galleries>div:nth-child(3) {
     padding: 24px 0;
   }
-  .galleries > div:nth-child(3) > p  {
+
+  .galleries>div:nth-child(3)>p {
     padding-left: 40px;
     font-size: 24px;
     line-height: 27px;
@@ -526,14 +585,14 @@
     margin-bottom: 16px;
   }
 
-  .galleries > div:nth-child(3) > div {
+  .galleries>div:nth-child(3)>div {
     display: flex;
     overflow: scroll;
     position: relative;
     padding: 0 40px 20px;
   }
 
-  .galleries > div:nth-child(3) > div > div {
+  .galleries>div:nth-child(3)>div>div {
     margin-right: 10px;
   }
 
@@ -550,31 +609,31 @@
     padding: 40px 0;
     width: 100vw;
   }
-  
-  .contentWhyUs > h3 {
+
+  .contentWhyUs>h3 {
     font-size: 24px;
     line-height: 26px;
     margin: 0;
     padding: 0 40px;
   }
-  
-  .contentWhyUs > p {
+
+  .contentWhyUs>p {
     padding: 0 40px;
     margin: 0;
     margin-top: 8px;
     font-size: 14px;
     line-height: 20px;
   }
-  
-  .contentWhyUs > div {
+
+  .contentWhyUs>div {
     padding: 0 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 16px;
   }
-  
-  .contentWhyUs > div > div:not(:last-child) {
+
+  .contentWhyUs>div>div:not(:last-child) {
     margin-bottom: 8px;
   }
 
@@ -585,21 +644,21 @@
     max-height: fit-content;
     height: fit-content;
   }
-  
-  .testimonials > h3 {
+
+  .testimonials>h3 {
     font-size: 24px;
     line-height: 26px;
     padding: 0 40px;
   }
-  
-  .testimonials > p {
+
+  .testimonials>p {
     margin-top: 8px;
     font-size: 14px;
     line-height: 20px;
     padding: 0 40px;
   }
-  
-  .testimonials > div:not(.overlayLeft, .overlayRight) {
+
+  .testimonials>div:not(.overlayLeft, .overlayRight) {
     display: flex;
     overflow: auto;
     margin-top: 24px;
@@ -607,10 +666,10 @@
     height: fit-content;
     max-height: unset;
   }
-  
-  .testimonials > div > div:not(:last-child) {
+
+  .testimonials>div>div:not(:last-child) {
     margin-right: 8px;
-  }  
+  }
 
   .overlayLeft,
   .overlayRight {
@@ -628,42 +687,47 @@
     width: 100vw;
   }
 
-  .satu { 
-    grid-area: satu; 
+  .satu {
+    grid-area: satu;
     grid-column-start: 1;
     grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 4;
   }
-  .dua { 
+
+  .dua {
     grid-area: dua;
     grid-column-start: 6;
     grid-column-end: 8;
     grid-row-start: 1;
     grid-row-end: 5;
   }
-  .tiga { 
-    grid-area: tiga; 
+
+  .tiga {
+    grid-area: tiga;
     grid-column-start: 8;
     grid-column-end: 10;
     grid-row-start: 1;
     grid-row-end: 5;
   }
-  .empat { 
-    grid-area: empat; 
+
+  .empat {
+    grid-area: empat;
     grid-column-start: 1;
     grid-column-end: 6;
     grid-row-start: 4;
     grid-row-end: 10;
   }
-  .lima { 
-    grid-area: lima; 
+
+  .lima {
+    grid-area: lima;
     grid-column-start: 6;
     grid-column-end: 10;
     grid-row-start: 5;
     grid-row-end: 8;
   }
-  .enam { 
+
+  .enam {
     grid-area: enam;
     grid-column-start: 1;
     grid-column-end: 10;
@@ -671,11 +735,15 @@
     grid-row-end: 15;
   }
 
-  .tujuh, .delapan, .sembilan, .sepuluh, .sebelas {
+  .tujuh,
+  .delapan,
+  .sembilan,
+  .sepuluh,
+  .sebelas {
     display: none;
   }
 
-  .galleries > div:nth-child(2) {
+  .galleries>div:nth-child(2) {
     margin: 0;
     height: 543px;
     max-height: 543px;
@@ -687,11 +755,11 @@
     overflow-x: scroll;
   }
 
-  .galleries > div:nth-child(2) > img {
+  .galleries>div:nth-child(2)>img {
     border-radius: 4px;
   }
 
-  .galleries > div:nth-child(2) > button {
+  .galleries>div:nth-child(2)>button {
     width: fill;
     height: 48px;
     border-radius: 8px;
@@ -700,12 +768,14 @@
     grid-column-end: 10;
     grid-row-start: 8;
     grid-row-end: 10;
+    font-size: 3rem;
   }
 
-  .galleries > div:nth-child(3) {
+  .galleries>div:nth-child(3) {
     padding: 24px 0;
   }
-  .galleries > div:nth-child(3) > p  {
+
+  .galleries>div:nth-child(3)>p {
     padding-left: 40px;
     font-size: 24px;
     line-height: 27px;
@@ -713,14 +783,14 @@
     margin-bottom: 16px;
   }
 
-  .galleries > div:nth-child(3) > div {
+  .galleries>div:nth-child(3)>div {
     display: flex;
     overflow: scroll;
     position: relative;
     padding: 0 40px 20px;
   }
 
-  .galleries > div:nth-child(3) > div > div {
+  .galleries>div:nth-child(3)>div>div {
     margin-right: 10px;
   }
 

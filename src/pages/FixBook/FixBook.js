@@ -12,6 +12,7 @@ import { submitFixBooking } from '../../store/action'
 import { useDispatch, useSelector } from 'react-redux'
 import TextArea from '../../components/TextArea'
 import moment from 'moment'
+import { domNum } from '../../utils'
 
 export default function Book() {
   moment.locale('id')
@@ -32,8 +33,7 @@ export default function Book() {
     "time": '',
     "phone": '',
     "location": '',
-    "bankName": '',
-    "accountHolderName": '',
+    "knowFrom": '',
   })
   const [checked, setChecked] = useState(false)
 
@@ -59,10 +59,9 @@ export default function Book() {
     { placeholder: 'JJ/MM', type: 'time', required: true },
     { placeholder: 'Tulis kontak disini' },
     { placeholder: 'Tulis Lokasi Pemotretan' },
-    { placeholder: 'Contoh: Bank BCA' },
-    { placeholder: 'Contoh: an. Rahmat' },
-
-
+    { placeholder: 'Pilih salah satu', options: ['Instagram', 'Tiktok', 'Iklan', 'Rekomendasi Teman', 'Google', 'Facebook', 'Lainnya'] },
+    { placeholder: 'Detail Sumber', options: ['Iklan Instagram', 'Muncul di explore instagram', 'Saya mencari hashtag tertentu dan menemukan yogzan', 'Dari influencer/orang lain yang saya ikuti', 'Lainnya'], styles: { textAlign: 'left' } },
+    { placeholder: 'Detail Sumber', options: ['Iklan Tiktok', 'Muncul di FYP saya', 'Saya mencari hashtag tertentu dan menemukan yogzan', 'Dari influencer/orang lain yang saya ikuti', 'Lainnya'], styles: { textAlign: 'left' } }
   ]
 
   const handleFormSubmit = (values) => {
@@ -74,7 +73,8 @@ export default function Book() {
       values['ig-mua'] = ''
       values['ig-attire'] = ''
     }
-    dispatch(submitFixBooking({ ...values, layanan: _layanan }, () => {
+    const _knowFrom = (values.knowFrom === 'Lainnya' || values.knowFrom === 'Instagram' || values.knowFrom === 'Tiktok') ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
+    dispatch(submitFixBooking({ ...values, layanan: _layanan, knowFrom: _knowFrom }, () => {
       setOpenModal(true)
     }))
   }
@@ -89,8 +89,7 @@ export default function Book() {
       val.layanan &&
       val.ig &&
       val.phone &&
-      val.bankName &&
-      val.accountHolderName &&
+      val.knowFrom &&
       (val.layanan === 'Cetak Album' ||
         (((val.layanan !== 'Cetak Album' && val.date)) &&
           ((val.layanan !== 'Cetak Album' && val.time)) &&
@@ -98,7 +97,10 @@ export default function Book() {
     ) {
       if ((val.layanan === 'Lainnya' && !val['layanan-extended']) ||
         (val.layanan === 'Wisuda' && !val.campus) ||
-        (val.layanan === 'Wisuda' && !val.faculty)
+        (val.layanan === 'Wisuda' && !val.faculty) ||
+        (val.knowFrom === 'Lainnya' && !val['knowFrom-extended']) ||
+        (val.knowFrom === 'Instagram' && !val['knowFrom-extended']) ||
+        (val.knowFrom === 'Tiktok' && !val['knowFrom-extended'])
       ) {
         return true
       }
@@ -117,11 +119,11 @@ export default function Book() {
     console.log(values)
     if (layanan === 'Wisuda') {
       const message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${values.fullname}%0ANama Panggilan: ${values.nickname}%0AUntuk Event: ${layanan}%0AAsal Kampus: ${campus}%0AFakultas/Jurusan: ${faculty}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${moment(date).format('dddd, DD MMM YYYY')}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0ATransfer via Bank: ${bankName}%0ANama pemilik rekening: ${accountHolderName}%0ATerimakasih!`
-      return `https://wa.me/+6285876020261?text=${message}`
+      return `https://wa.me/${domNum}?text=${message}`
     } else {
       const _layanan = layanan === 'Lainnya' ? `${layanan} - ${values['layanan-extended']}` : layanan
       const message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${fullname}%0ANama Panggilan: ${nickname}%0AUntuk Event: ${_layanan}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${moment(date).format('dddd, DD MMM YYYY')}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0ATransfer via Bank: ${bankName}%0ANama pemilik rekening: ${accountHolderName}%0ATerimakasih!`
-      return `https://wa.me/+6285876020261?text=${message}`
+      return `https://wa.me/${domNum}?text=${message}`
     }
   }
 
@@ -251,7 +253,41 @@ export default function Book() {
                     name="location"
                   />
                 )}
+                <p>Dari mana Anda mengetahui Yogzan?</p>
                 <Field
+                  component={SelectInput}
+                  onChange={(e) => setData({ ...values, knowFrom: e })}
+                  name="knowFrom"
+                  {...inputProps[10]}
+                />
+                {values.knowFrom === 'Lainnya' && (
+                  <Field
+                    className={styles.knowFromExtended}
+                    component={Input}
+                    inputProps={{ placeholder: 'Sumber Lainnya' }}
+                    name="knowFrom-extended"
+                  />
+                )}
+                {values.knowFrom === 'Instagram' && (
+                  <Field
+                    className={styles.knowFromExtended}
+                    onChange={(e) => setData({ ...values, "knowFrom-extended": e })}
+                    component={SelectInput}
+                    name="knowFrom-extended"
+                    {...inputProps[11]}
+                    style={{ textAlign: 'left' }}
+                  />
+                )}
+                {values.knowFrom === 'Tiktok' && (
+                  <Field
+                    className={styles.knowFromExtended}
+                    onChange={(e) => setData({ ...values, "knowFrom-extended": e })}
+                    component={SelectInput}
+                    name="knowFrom-extended"
+                    {...inputProps[12]}
+                  />
+                )}
+                {/* <Field
                   component={Input}
                   label="Transfer via Bank"
                   inputProps={inputProps[10]}
@@ -262,7 +298,7 @@ export default function Book() {
                   label="Nama Pemilik Rekening"
                   inputProps={inputProps[11]}
                   name="accountHolderName"
-                />
+                /> */}
                 <div className={styles.checkbox} onClick={() => setChecked(v => !v)}>
                   {checked ? (
                     <img src={icChecked} />

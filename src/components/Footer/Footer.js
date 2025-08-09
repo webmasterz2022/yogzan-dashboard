@@ -20,27 +20,28 @@ export default function Footer() {
   const { pathname } = useLocation()
 
   const clickPesanSekarang = () => {
-    ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Pesan Sekarang')
+    ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Dapatkan Daftar Harga')
     navigate(routes.BOOK())
   }
 
   const redirectFooter = () => {
-    if(pathname.includes('/price-list')) {
+    if (pathname.includes('/price-list')) {
       bookingViaWA()
     } else {
       navigate(routes.BOOK())
     }
   }
-  
+
   return (
     <section className={styles.root}>
       {![routes.BOOK(), routes.CAREER(), routes.FIXBOOK()].includes(pathname) && (
         <div className={styles.booking}>
           <div>
-            <p>Setiap momen punya cerita, dari cinta, perjuangan hingga air mata kebahagiaan. Abadikan setiap cerita berhargamu dengan layanan foto terbaik bersama Yogzan. </p>
+            <h3>Sudah siap kenang momen berhargamu selamanya?</h3>
+            <p>Klik “Dapatkan Daftar Harga” dan biarkan Yogzan bantu abadikan setiap detiknya jadi cerita tak terlupakan. </p>
           </div>
           <Button variant="active-square" handleClick={redirectFooter}>
-            Pesan Sekarang
+            Dapatkan Daftar Harga
             <img src={arrowLight} alt="" />
           </Button>
         </div>
@@ -58,18 +59,18 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <Button icon={bookingLight} variant="active-rounded" handleClick={clickPesanSekarang}>Pesan Sekarang</Button>
+            <Button icon={bookingLight} variant="active-rounded" handleClick={clickPesanSekarang}>Dapatkan Daftar Harga</Button>
             <Button icon={hiringLight} variant="active-rounded" handleClick={() => navigate(routes.CAREER())}>Karir</Button>
           </div>
           <div>
             <p>Hubungi Kami</p>
-            <p className={styles.email} onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=admin@yogzan.com', '_blank')}>admin@yogzan.com</p>
+            <p className={styles.email} onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=asktoyogzan@gmail.com', '_blank')}>asktoyogzan@gmail.com</p>
             <p>(+62) 858-7602-0261</p>
           </div>
         </div>
         <div>
           <div className={styles.line} />
-          <p>Copyright Yogzan 2024. All Rights Reserved</p>
+          <p>Copyright Yogzan 2025. All Rights Reserved</p>
         </div>
       </div>
     </section>

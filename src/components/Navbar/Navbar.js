@@ -20,7 +20,7 @@ export default function Navbar() {
   const device = getDeviceType()
   const { pathname } = useLocation()
   const navigate = useNavigate()
-  const logoRef = useRef() 
+  const logoRef = useRef()
   const rootRef = useRef()
 
   const menus = [
@@ -29,21 +29,21 @@ export default function Navbar() {
       icon: routes.HOMEPAGE() === pathname ? homeLight : homePrimary,
       handleClick: () => navigate(routes.HOMEPAGE()),
       variant: routes.HOMEPAGE() === pathname ? 'active-rounded' : 'negative',
-    },{
+    }, {
       title: 'Galeri',
       icon: routes.GALLERY() === pathname ? portfolioLight : portfolioPrimary,
       handleClick: () => navigate(routes.GALLERY()),
       variant: routes.GALLERY() === pathname ? 'active-rounded' : 'negative',
-    },{
+    }, {
       title: 'Karir',
       icon: routes.CAREER() === pathname ? hiringLight : hiringPrimary,
       handleClick: () => navigate(routes.CAREER()),
       variant: routes.CAREER() === pathname ? 'active-rounded' : 'negative',
-    },{
-      title: 'Pesan Sekarang!',
+    }, {
+      title: 'Dapatkan Daftar Harga',
       icon: routes.BOOK() === pathname ? bookingLight : bookingPrimary,
       handleClick: () => {
-        ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Pesan Sekarang')
+        ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Dapatkan Daftar Harga')
         navigate(routes.BOOK())
       },
       variant: routes.BOOK() === pathname ? 'active-rounded' : 'highlight-rounded',
@@ -51,11 +51,11 @@ export default function Navbar() {
   ]
 
   useEffect(() => {
-    if(device === 'desktop' && pathname === routes.HOMEPAGE()) {
+    if (device === 'desktop' && pathname === routes.HOMEPAGE()) {
       logoRef.current.style.opacity = 0
       window.onscroll = () => {
-        if(device === 'desktop' && pathname === routes.HOMEPAGE()) {
-          if(document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+        if (device === 'desktop' && pathname === routes.HOMEPAGE()) {
+          if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
             logoRef.current.style.opacity = 'unset'
             rootRef.current.style.boxShadow = '0px 11px 12px -4px rgba(138, 132, 130, 0.21)';
           } else {
@@ -66,13 +66,13 @@ export default function Navbar() {
       }
     } else {
       logoRef.current.style.opacity = 'unset'
-      window.onscroll = () => {}
+      window.onscroll = () => { }
     }
   }, [pathname])
 
   return (
     <div ref={rootRef} className={styles.root}>
-      <img ref={logoRef} src={logoDark} alt="yogzan" onClick={() => navigate('/')}/>
+      <img ref={logoRef} src={logoDark} alt="yogzan" onClick={() => navigate('/')} />
       <div className={styles.menuBar}>
         {menus.map((menu, idx) => (
           <Button

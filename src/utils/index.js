@@ -1,3 +1,9 @@
+export const intlNum = '+6282335168686'
+export const domNum = '+6285876020261'
+
+export const intlNation = ['Malaysia', 'Singapore']
+
+
 export const getDeviceType = () => {
   const ua = navigator.userAgent;
   if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {

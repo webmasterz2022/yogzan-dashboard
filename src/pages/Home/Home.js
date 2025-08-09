@@ -70,9 +70,9 @@ export default function Home() {
     <section className={styles.root}>
       <div className={styles.header}>
         <img src={logo} alt='yogzan' />
-        <h3 className={styles.heading1}>Setiap Momen Punya Cerita Berharga</h3>
+        <h3 className={styles.heading1}>Momen Boleh Berlalu, Tapi Ceritanya Tetap Abadi</h3>
         <h4 className={styles.heading2}>
-          Abadikan semuanya dengan cara paling indah bersama layanan foto & video profesional dari Yogzan.
+          Jadikan setiap momen pentingmu terasa istimewa dengan dokumentasi visual yang penuh rasa dan berkualitas dari Yogzan.
         </h4>
       </div>
       <div className={styles.galleries}>
@@ -103,7 +103,7 @@ export default function Home() {
                 <div style={{ backgroundImage: `url(${images[6] ? images[6].url : blank})` }} />
               </div>
               <Button variant="active-square" handleClick={() => navigate(routes.BOOK())}>
-                Pesan Sekarang
+                Dapatkan Daftar Harga
                 <img src={arrowLight} alt="" />
               </Button>
               <div className={styles.delapan}>
@@ -135,7 +135,7 @@ export default function Home() {
       </div>
       <div className={styles.contentWhyUs}>
         <h3>Percayakan Setiap Momen Anda kepada Kami</h3>
-        <p>Momen kamu adalah momen kami juga. Karena itu kami berikan yang terbaik untuk mengenangnya.</p>
+        <p>Momen kamu adalah momen kami juga. Karena itu kami berikan yang terbaik untuk mengenangnya. Inilah 6 alasan mengapa kami berbeda.</p>
         <div>
           {chooseUs?.map((why, idx) => (
             <CardChooseUs key={idx} {...why} />
