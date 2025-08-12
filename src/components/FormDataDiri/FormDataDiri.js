@@ -27,7 +27,7 @@ export default function FormDataDiri(props) {
     { placeholder: 'Tulis nomor whatsapp disini' },
     { placeholder: 'Tulis alamat domisili saat ini' },
     { placeholder: 'HH/BB/TTTT', type: 'date' },
-    { placeholder: 'Pilih salah satu', options: [...['Bandung', 'Jabodetabek', 'Malang', 'Surabaya', 'Semarang', 'Yogyakarta', 'Surakarta', 'Bali'].sort(), 'Kota Lainnya'] },
+    { placeholder: 'Pilih salah satu', options: [...['Bandung', 'Jabodetabek', 'Malang', 'Surabaya', 'Semarang', 'Yogyakarta', 'Surakarta', 'Bali'].sort(), 'Lokasi Lainnya'] },
     { placeholder: 'Pilih salah satu', options: ['Instagram', 'Tiktok', 'Iklan', 'Rekomendasi Teman', 'Google', 'Facebook', 'LinkedIn', 'Lainnya'] },
     { placeholder: 'Detail Sumber', options: ['Iklan Instagram', 'Muncul di explore instagram', 'Saya mencari hashtag tertentu dan menemukan yogzan', 'Dari influencer/orang lain yang saya ikuti', 'Lainnya'], styles: { textAlign: 'left' } },
     { placeholder: 'Detail Sumber', options: ['Iklan Tiktok', 'Muncul di FYP saya', 'Saya mencari hashtag tertentu dan menemukan yogzan', 'Dari influencer/orang lain yang saya ikuti', 'Lainnya'], styles: { textAlign: 'left' } }
@@ -38,7 +38,7 @@ export default function FormDataDiri(props) {
   }
 
   const disabled = values => !values.fullname || !values.nickname || !values.email || !values.phone ||
-    !values.address || !values.birthDate || !values.city || (values.city === 'Kota Lainnya' && !values['city-extended']) ||
+    !values.address || !values.birthDate || !values.city || (values.city === 'Lokasi Lainnya' && !values['city-extended']) ||
     !values.knowFrom || ((values.knowFrom === 'Lainnya' || values.knowFrom === 'Instagram' || values.knowFrom === 'Tiktok') && !values['knowFrom-extended']);
 
   return (
@@ -80,18 +80,18 @@ export default function FormDataDiri(props) {
             name="phone"
             parse={normalizePhone}
           />
-          <p style={{ textAlign: 'left', fontSize: '16px', fontFamily: 'Avenir' }}>Pilih Kota Domisili</p>
+          <p style={{ textAlign: 'left', fontSize: '16px', fontFamily: 'Avenir' }}>Pilih Lokasi Domisili</p>
           <Field
             component={SelectInput}
             onChange={(e) => setData({ ...values, city: e })}
             name="city"
             {...inputProps[6]}
           />
-          {values.city === 'Kota Lainnya' && (
+          {values.city === 'Lokasi Lainnya' && (
             <Field
               className={styles.cityExtended}
               component={Input}
-              inputProps={{ placeholder: 'Tulis Nama Kota' }}
+              inputProps={{ placeholder: 'Tulis Nama Lokasi' }}
               name="city-extended"
             />
           )}

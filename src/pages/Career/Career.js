@@ -43,7 +43,7 @@ export default function Career() {
 
   const handleSubmit = (values, step) => {
     const _knowFrom = (values.knowFrom === 'Lainnya' || values.knowFrom === 'Instagram' || values.knowFrom === 'Tiktok') ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
-    const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
+    const _city = values.city === 'Lokasi Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
     dispatch(submitHiring({
       ...data,
       ...values,

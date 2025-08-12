@@ -41,7 +41,7 @@ export default function Book() {
   const inputProps = [
     { placeholder: 'Tulis Nama Pemesan' },
     { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family', 'Cetak Album', 'Lainnya'] },
-    { placeholder: 'Pilih salah satu', options: [...['Bandung', 'Jabodetabek', 'Malang', 'Surabaya', 'Semarang', 'Yogyakarta', 'Surakarta', 'Bali'].sort(), ...intlNation, 'Kota Lainnya'] },
+    { placeholder: 'Pilih salah satu', options: [...['Bandung', 'Jabodetabek', 'Malang', 'Surabaya', 'Semarang', 'Yogyakarta', 'Surakarta', 'Bali'].sort(), ...intlNation, 'Lokasi Lainnya'] },
     { placeholder: 'HH/BB/TTTT', type: 'date', disabled: checked },
     { placeholder: 'Tulis kontak disini' },
     { placeholder: 'Pilih salah satu', options: ['Instagram', 'Tiktok', 'Iklan', 'Rekomendasi Teman', 'Google', 'Facebook', 'Lainnya'] },
@@ -52,7 +52,7 @@ export default function Book() {
   const handleFormSubmit = (values) => {
     ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Dapatkan Daftar Harga')
     const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
-    const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
+    const _city = values.city === 'Lokasi Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
     const _knowFrom = (values.knowFrom === 'Lainnya' || values.knowFrom === 'Instagram' || values.knowFrom === 'Tiktok') ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
     let _date = checked ? 'Belum menentukan waktu' : values.date
     if (_layanan === 'Cetak Album') {
@@ -79,7 +79,7 @@ export default function Book() {
       val.knowFrom
     ) {
       if ((val.layanan === 'Lainnya' && !val['layanan-extended']) ||
-        (val.city === 'Kota Lainnya' && !val['city-extended']) ||
+        (val.city === 'Lokasi Lainnya' && !val['city-extended']) ||
         ((val.knowFrom === 'Lainnya' || val.knowFrom === 'Instagram' || val.knowFrom === 'Tiktok') && !val['knowFrom-extended'])
       ) {
         return true
@@ -92,10 +92,10 @@ export default function Book() {
 
   const generateLinkWA = (values) => {
     const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
-    const _city = values.city === 'Kota Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
+    const _city = values.city === 'Lokasi Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
     const _date = checked ? 'Belum menentukan waktu' : values.date
     const waNum = intlNation.includes(values.city) ? intlNum : domNum
-    const message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0AKota: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`
+    const message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0ALokasi: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`
     return `https://wa.me/${waNum}?text=${message}`
   }
 
@@ -135,18 +135,18 @@ export default function Book() {
                     />
                   </>
                 )}
-                <p>Pilih Kota</p>
+                <p>Pilih Lokasi</p>
                 <Field
                   component={SelectInput}
                   onChange={(e) => setData({ ...values, city: e })}
                   name="city"
                   {...inputProps[2]}
                 />
-                {values.city === 'Kota Lainnya' && (
+                {values.city === 'Lokasi Lainnya' && (
                   <Field
                     className={styles.cityExtended}
                     component={Input}
-                    inputProps={{ placeholder: 'Tulis Nama Kota' }}
+                    inputProps={{ placeholder: 'Tulis Nama Lokasi' }}
                     name="city-extended"
                   />
                 )}

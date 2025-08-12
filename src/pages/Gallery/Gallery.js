@@ -50,8 +50,8 @@ export default function Gallery() {
   }, [type])
 
   useEffect(() => {
-    setSearchParams({ type, city: selectedCity.replace('Semua Kota', '') })
-    dispatch(getPortfolioImages(type, selectedCity.replace('Semua Kota', '')))
+    setSearchParams({ type, city: selectedCity.replace('Semua Lokasi', '') })
+    dispatch(getPortfolioImages(type, selectedCity.replace('Semua Lokasi', '')))
   }, [selectedCity])
 
   useEffect(() => {
@@ -141,8 +141,8 @@ export default function Gallery() {
         </div>
         <div>
           <SelectInput
-            placeholder="Pilih Kota"
-            options={['Semua Kota', ...cities]}
+            placeholder="Pilih Lokasi"
+            options={['Semua Lokasi', ...cities]}
             onChange={setSelectedCity}
             value={selectedCity}
           />
