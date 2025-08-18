@@ -14,6 +14,7 @@ import TextArea from '../../components/TextArea'
 import ReactGA from 'react-ga4'
 import { intlNum, domNum, intlNation } from '../../utils'
 import { useTranslation } from 'react-i18next'
+import moment from 'moment'
 
 export default function Book() {
   const dispatch = useDispatch();
@@ -56,6 +57,10 @@ export default function Book() {
     if (_layanan === 'Cetak Album') {
       _date = ''
     }
+    // Format date to YYYY-MM-DD if not empty and not 'Belum menentukan waktu'
+    if (_date && _date !== 'Belum menentukan waktu') {
+      _date = moment(_date).format('YYYY-MM-DD');
+    }
     dispatch(submitBooking({ ...values, date: _date, city: _city, layanan: _layanan, knowFrom: _knowFrom }, () => {
       setOpenModal(true)
     }))
@@ -91,7 +96,14 @@ export default function Book() {
   const generateLinkWA = (values) => {
     const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
     const _city = values.city === 'Lokasi Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
-    const _date = checked ? 'Belum menentukan waktu' : values.date
+    let _date = checked ? 'Belum menentukan waktu' : values.date
+    if (_layanan === 'Cetak Album') {
+      _date = ''
+    }
+    // Format date to YYYY-MM-DD if not empty and not 'Belum menentukan waktu'
+    if (_date && _date !== 'Belum menentukan waktu') {
+      _date = moment(_date).format('YYYY-MM-DD');
+    }
     const waNum = intlNation.includes(values.city) ? intlNum : domNum
     const message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0ALokasi: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`
     return `https://wa.me/${waNum}?text=${message}`
@@ -152,7 +164,7 @@ export default function Book() {
                       className={styles.date}
                       component={Input}
                       label={t('fields.date.label')}
-                      inputProps={{ placeholder: t('fields.date.placeholder'), value: checked ? '' : values.date }}
+                      inputProps={{ type: 'date', disabled: checked, placeholder: t('fields.date.placeholder'), value: checked ? '' : values.date }}
                       name="date"
                     />
                     <div className={styles.checkbox} onClick={() => setChecked(v => !v)}>

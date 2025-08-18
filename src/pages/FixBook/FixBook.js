@@ -79,6 +79,11 @@ export default function Book() {
       values.location = ''
       values['ig-mua'] = ''
       values['ig-attire'] = ''
+    } else {
+      // Format date to YYYY-MM-DD if not empty
+      if (values.date) {
+        values.date = moment(values.date).isValid() ? moment(values.date).format('YYYY-MM-DD') : values.date;
+      }
     }
     const _knowFrom = (values.knowFrom === 'Lainnya' || values.knowFrom === 'Instagram' || values.knowFrom === 'Tiktok') ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
     const { knowFromExtended: _, ..._values } = values
@@ -127,12 +132,17 @@ export default function Book() {
     console.log(values)
     const _knowFrom = (values.knowFrom === 'Lainnya' || values.knowFrom === 'Instagram' || values.knowFrom === 'Tiktok') ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
 
+    // Format date to YYYY-MM-DD if not empty
+    let formattedDate = date;
+    if (date) {
+      formattedDate = moment(date).isValid() ? moment(date).format('YYYY-MM-DD') : date;
+    }
     if (layanan === 'Wisuda') {
-      const message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${values.fullname}%0ANama Panggilan: ${values.nickname}%0AUntuk Event: ${layanan}%0AAsal Kampus: ${campus}%0AFakultas/Jurusan: ${faculty}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${moment(date).format('dddd, DD MMM YYYY')}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0AMengetahui Yogzan dari: ${_knowFrom}%0ATerimakasih!`
+      const message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${values.fullname}%0ANama Panggilan: ${values.nickname}%0AUntuk Event: ${layanan}%0AAsal Kampus: ${campus}%0AFakultas/Jurusan: ${faculty}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${formattedDate}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0AMengetahui Yogzan dari: ${_knowFrom}%0ATerimakasih!`
       return `https://wa.me/${domNum}?text=${message}`
     } else {
       const _layanan = layanan === 'Lainnya' ? `${layanan} - ${values['layanan-extended']}` : layanan
-      const message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${fullname}%0ANama Panggilan: ${nickname}%0AUntuk Event: ${_layanan}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${moment(date).format('dddd, DD MMM YYYY')}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0AMengetahui Yogzan dari: ${_knowFrom}%0ATerimakasih!`
+      const message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${fullname}%0ANama Panggilan: ${nickname}%0AUntuk Event: ${_layanan}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${formattedDate}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0AMengetahui Yogzan dari: ${_knowFrom}%0ATerimakasih!`
       return `https://wa.me/${domNum}?text=${message}`
     }
   }
@@ -235,14 +245,14 @@ export default function Book() {
                       className={styles.date}
                       component={Input}
                       label={t('fields.date.label')}
-                      inputProps={{ placeholder: t('fields.date.placeholder'), value: values.date }}
+                      inputProps={{ type: 'date', placeholder: t('fields.date.placeholder'), value: values.date }}
                       name="date"
                     />
                     <Field
                       className={styles.date}
                       component={Input}
                       label={t('fields.time.label')}
-                      inputProps={{ placeholder: t('fields.time.placeholder'), value: values.time }}
+                      inputProps={{ type: 'time', placeholder: t('fields.time.placeholder'), value: values.time }}
                       name="time"
                     />
                   </>
