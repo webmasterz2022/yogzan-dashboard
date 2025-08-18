@@ -389,7 +389,7 @@
   margin-top: 1.5rem;
   height: fit-content;
   min-height: 15rem;
-  max-height: 35rem;
+  /* max-height: 35rem; */
 }
 
 .testimonials>div>div>div:first-child {
@@ -398,24 +398,26 @@
 }
 
 .overlayLeft {
+  /* background-color: red; */
   background: linear-gradient(90deg, #FFF5F1 1.23%, rgba(255, 255, 255, 0) 67.57%);
-  position: relative;
-  /* height: 15.125rem; */
-  height: 100%;
+  position: absolute;
+  height: 31.5rem !important;
+  /* height: 100%; */
   z-index: 2;
-  top: -30rem;
-  left: -0.05rem;
+  /* top: -50rem; */
+  left: 6.75rem;
   width: 15rem;
 }
 
 .overlayRight {
+  /* background-color: orange; */
   background: linear-gradient(270deg, #FFF5F1 1.23%, rgba(255, 255, 255, 0) 67.57%);
-  position: relative;
-  /* height: 15.125rem; */
-  height: 100%;
+  position: absolute;
+  height: 31.5rem !important;
+  /* height: 100%; */
   z-index: 2;
-  top: -70rem;
-  right: -0.1rem;
+  /* top: -70rem; */
+  right: 6.75rem;
   width: 15rem;
   float: right;
 }
