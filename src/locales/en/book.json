@@ -1,0 +1,91 @@
+{
+    "title": "One step closer to a new standard in capturing your special day.",
+    "desc": "Just fill out the form below, and you'll be taken directly to WhatsApp to get the price list automatically!",
+    "fields": {
+        "name": {
+            "label": "Name",
+            "placeholder": "Enter your name"
+        },
+        "layanan": {
+            "label": "Select Service",
+            "placeholder": "Select one",
+            "options": [
+                "Graduation",
+                "Wedding",
+                "Pre wedding",
+                "Family",
+                "Album Printing",
+                "Other"
+            ]
+        },
+        "layananExtended": {
+            "label": "Describe your needs in detail",
+            "placeholder": "Enter your needs here"
+        },
+        "city": {
+            "label": "Select Location",
+            "placeholder": "Select one",
+            "options": [
+                "Bandung",
+                "Jabodetabek",
+                "Malang",
+                "Surabaya",
+                "Semarang",
+                "Yogyakarta",
+                "Surakarta",
+                "Bali",
+                "Other Location"
+            ]
+        },
+        "cityExtended": {
+            "label": "Other Location Name",
+            "placeholder": "Enter location name"
+        },
+        "date": {
+            "label": "Select Photoshoot Date",
+            "placeholder": "DD/MM/YYYY"
+        },
+        "noDate": "Date not determined yet",
+        "phone": {
+            "label": "WhatsApp number to contact",
+            "placeholder": "Enter your contact number"
+        },
+        "knowFrom": {
+            "label": "How did you know about Yogzan?",
+            "placeholder": "Select one",
+            "options": [
+                "Instagram",
+                "Tiktok",
+                "Ads",
+                "Friend Recommendation",
+                "Google",
+                "Facebook",
+                "Other"
+            ]
+        },
+        "knowFromExtended": {
+            "label": "Other Source",
+            "placeholder": "Other Source"
+        },
+        "instagramOptions": [
+            "Instagram Ads",
+            "Appeared on Instagram explore",
+            "I searched for a specific hashtag and found yogzan",
+            "From influencer/other people I follow",
+            "Other"
+        ],
+        "tiktokOptions": [
+            "Tiktok Ads",
+            "Appeared on my FYP",
+            "I searched for a specific hashtag and found yogzan",
+            "From influencer/other people I follow",
+            "Other"
+        ]
+    },
+    "submit": "Get Price List",
+    "modal": {
+        "title": "Order received!",
+        "desc": "Thank you for trusting us.\nWe will contact you as soon as possible, please make sure your number is always active.",
+        "close": "Close"
+    }
+}

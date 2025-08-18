@@ -13,10 +13,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import TextArea from '../../components/TextArea'
 import ReactGA from 'react-ga4'
 import { intlNum, domNum, intlNation } from '../../utils'
+import { useTranslation } from 'react-i18next'
 
 export default function Book() {
-  const dispatch = useDispatch()
-  const { isLoading } = useSelector(s => s)
+  const dispatch = useDispatch();
+  const { isLoading } = useSelector(s => s);
+  const { t, i18n } = useTranslation('book');
   const [openModal, setOpenModal] = useState(false)
   const [checked, setChecked] = useState(false)
   const [data, setData] = useState({
@@ -38,16 +40,12 @@ export default function Book() {
     return onlyNums
   };
 
-  const inputProps = [
-    { placeholder: 'Tulis Nama Pemesan' },
-    { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Family', 'Cetak Album', 'Lainnya'] },
-    { placeholder: 'Pilih salah satu', options: [...['Bandung', 'Jabodetabek', 'Malang', 'Surabaya', 'Semarang', 'Yogyakarta', 'Surakarta', 'Bali'].sort(), ...intlNation, 'Lokasi Lainnya'] },
-    { placeholder: 'HH/BB/TTTT', type: 'date', disabled: checked },
-    { placeholder: 'Tulis kontak disini' },
-    { placeholder: 'Pilih salah satu', options: ['Instagram', 'Tiktok', 'Iklan', 'Rekomendasi Teman', 'Google', 'Facebook', 'Lainnya'] },
-    { placeholder: 'Detail Sumber', options: ['Iklan Instagram', 'Muncul di explore instagram', 'Saya mencari hashtag tertentu dan menemukan yogzan', 'Dari influencer/orang lain yang saya ikuti', 'Lainnya'], styles: { textAlign: 'left' } },
-    { placeholder: 'Detail Sumber', options: ['Iklan Tiktok', 'Muncul di FYP saya', 'Saya mencari hashtag tertentu dan menemukan yogzan', 'Dari influencer/orang lain yang saya ikuti', 'Lainnya'], styles: { textAlign: 'left' } }
-  ]
+  // Translation-based options
+  const layananOptions = t('fields.layanan.options', { returnObjects: true });
+  const cityOptions = t('fields.city.options', { returnObjects: true });
+  const knowFromOptions = t('fields.knowFrom.options', { returnObjects: true });
+  const instagramOptions = t('fields.instagramOptions', { returnObjects: true });
+  const tiktokOptions = t('fields.tiktokOptions', { returnObjects: true });
 
   const handleFormSubmit = (values) => {
     ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Dapatkan Daftar Harga')
@@ -103,10 +101,8 @@ export default function Book() {
     <>
       <section className={styles.root}>
         <div>
-          <h3>Selangkah lebih dekat dengan standar baru dalam mengabadikan hari spesial.</h3>
-          <p>
-            Cukup isi form di bawah ini, lalu kamu akan langsung dibawa ke WhatsApp untuk mendapatkan daftar harga secara otomatis!
-          </p>
+          <h3>{t('title')}</h3>
+          <p>{t('desc')}</p>
           <Form
             initialValues={data}
             onSubmit={handleFormSubmit}
@@ -114,49 +110,49 @@ export default function Book() {
               <form onSubmit={handleSubmit}>
                 <Field
                   component={Input}
-                  label="Nama"
-                  inputProps={inputProps[0]}
+                  label={t('fields.name.label')}
+                  inputProps={{ placeholder: t('fields.name.placeholder') }}
                   name="name"
                 />
-                <p>Pilih Layanan</p>
+                <p>{t('fields.layanan.label')}</p>
                 <Field
                   component={SelectInput}
                   onChange={(e) => setData({ ...values, layanan: e })}
                   name="layanan"
-                  {...inputProps[1]}
+                  options={layananOptions}
+                  placeholder={t('fields.layanan.placeholder')}
                 />
-                {values.layanan === 'Lainnya' && (
-                  <>
-                    <Field
-                      component={TextArea}
-                      label="Tuliskan kebutuhan kamu secara detail"
-                      inputProps={{ placeholder: 'Tulis kebutuhanmu disini' }}
-                      name="layanan-extended"
-                    />
-                  </>
+                {values.layanan === t('fields.layanan.options.5', 'Lainnya') && (
+                  <Field
+                    component={TextArea}
+                    label={t('fields.layananExtended.label')}
+                    inputProps={{ placeholder: t('fields.layananExtended.placeholder') }}
+                    name="layanan-extended"
+                  />
                 )}
-                <p>Pilih Lokasi</p>
+                <p>{t('fields.city.label')}</p>
                 <Field
                   component={SelectInput}
                   onChange={(e) => setData({ ...values, city: e })}
                   name="city"
-                  {...inputProps[2]}
+                  options={cityOptions}
+                  placeholder={t('fields.city.placeholder')}
                 />
-                {values.city === 'Lokasi Lainnya' && (
+                {values.city === t('fields.city.options.8', 'Lokasi Lainnya') && (
                   <Field
                     className={styles.cityExtended}
                     component={Input}
-                    inputProps={{ placeholder: 'Tulis Nama Lokasi' }}
+                    inputProps={{ placeholder: t('fields.cityExtended.placeholder') }}
                     name="city-extended"
                   />
                 )}
-                {values.layanan !== 'Cetak Album' && (
+                {values.layanan !== t('fields.layanan.options.4', 'Cetak Album') && (
                   <>
                     <Field
                       className={styles.date}
                       component={Input}
-                      label="Pilih Tanggal Pemotretan"
-                      inputProps={{ ...inputProps[3], value: checked ? '' : values.date }}
+                      label={t('fields.date.label')}
+                      inputProps={{ placeholder: t('fields.date.placeholder'), value: checked ? '' : values.date }}
                       name="date"
                     />
                     <div className={styles.checkbox} onClick={() => setChecked(v => !v)}>
@@ -165,49 +161,52 @@ export default function Book() {
                       ) : (
                         <img src={icUnchecked} />
                       )}
-                      <p>Belum menentukan waktu</p>
+                      <p>{t('fields.noDate')}</p>
                     </div>
                   </>
                 )}
                 <Field
                   component={Input}
-                  label="Nomor Whatsapp yang dapat dihubungi"
-                  inputProps={inputProps[4]}
+                  label={t('fields.phone.label')}
+                  inputProps={{ placeholder: t('fields.phone.placeholder') }}
                   name="phone"
                   parse={normalizePhone}
                 />
-                <p>Dari mana Anda mengetahui Yogzan?</p>
+                <p>{t('fields.knowFrom.label')}</p>
                 <Field
                   component={SelectInput}
                   onChange={(e) => setData({ ...values, knowFrom: e })}
                   name="knowFrom"
-                  {...inputProps[5]}
+                  options={knowFromOptions}
+                  placeholder={t('fields.knowFrom.placeholder')}
                 />
-                {values.knowFrom === 'Lainnya' && (
+                {values.knowFrom === t('fields.knowFrom.options.6', 'Lainnya') && (
                   <Field
                     className={styles.knowFromExtended}
                     component={Input}
-                    inputProps={{ placeholder: 'Sumber Lainnya' }}
+                    inputProps={{ placeholder: t('fields.knowFromExtended.placeholder') }}
                     name="knowFrom-extended"
                   />
                 )}
-                {values.knowFrom === 'Instagram' && (
+                {values.knowFrom === t('fields.knowFrom.options.0', 'Instagram') && (
                   <Field
                     className={styles.knowFromExtended}
                     onChange={(e) => setData({ ...values, "knowFrom-extended": e })}
                     component={SelectInput}
                     name="knowFrom-extended"
-                    {...inputProps[6]}
+                    options={instagramOptions}
+                    placeholder={t('fields.knowFromExtended.placeholder')}
                     style={{ textAlign: 'left' }}
                   />
                 )}
-                {values.knowFrom === 'Tiktok' && (
+                {values.knowFrom === t('fields.knowFrom.options.1', 'Tiktok') && (
                   <Field
                     className={styles.knowFromExtended}
                     onChange={(e) => setData({ ...values, "knowFrom-extended": e })}
                     component={SelectInput}
                     name="knowFrom-extended"
-                    {...inputProps[7]}
+                    options={tiktokOptions}
+                    placeholder={t('fields.knowFromExtended.placeholder')}
                   />
                 )}
                 <a
@@ -222,7 +221,7 @@ export default function Book() {
                     disabled={disabledButton(values) || isLoading.submitBooking}
                     isLoading={isLoading.submitBooking}
                   >
-                    Dapatkan Daftar Harga
+                    {t('submit')}
                   </Button>
                 </a>
               </form>
@@ -233,12 +232,9 @@ export default function Book() {
       </section>
       {openModal && (
         <Modal className={styles.confirmModal} open={openModal} onClose={handleCloseModal}>
-          <h3>Pesanan kami terima!</h3>
-          <p>
-            Terimakasih sudah mempercayakan kepada kami.
-            Kami akan menghubungi Anda secepatnya, pastikan nomor Anda selalu aktif.
-          </p>
-          <Button handleClick={handleCloseModal} variant="active-square">Tutup</Button>
+          <h3>{t('modal.title')}</h3>
+          <p>{t('modal.desc')}</p>
+          <Button handleClick={handleCloseModal} variant="active-square">{t('modal.close')}</Button>
         </Modal>
       )}
     </>

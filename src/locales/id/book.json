@@ -1,0 +1,91 @@
+{
+    "title": "Selangkah lebih dekat dengan standar baru dalam mengabadikan hari spesial.",
+    "desc": "Cukup isi form di bawah ini, lalu kamu akan langsung dibawa ke WhatsApp untuk mendapatkan daftar harga secara otomatis!",
+    "fields": {
+        "name": {
+            "label": "Nama",
+            "placeholder": "Tulis Nama Pemesan"
+        },
+        "layanan": {
+            "label": "Pilih Layanan",
+            "placeholder": "Pilih salah satu",
+            "options": [
+                "Wisuda",
+                "Wedding",
+                "Pre wedding",
+                "Family",
+                "Cetak Album",
+                "Lainnya"
+            ]
+        },
+        "layananExtended": {
+            "label": "Tuliskan kebutuhan kamu secara detail",
+            "placeholder": "Tulis kebutuhanmu disini"
+        },
+        "city": {
+            "label": "Pilih Lokasi",
+            "placeholder": "Pilih salah satu",
+            "options": [
+                "Bandung",
+                "Jabodetabek",
+                "Malang",
+                "Surabaya",
+                "Semarang",
+                "Yogyakarta",
+                "Surakarta",
+                "Bali",
+                "Lokasi Lainnya"
+            ]
+        },
+        "cityExtended": {
+            "label": "Nama Lokasi Lainnya",
+            "placeholder": "Tulis Nama Lokasi"
+        },
+        "date": {
+            "label": "Pilih Tanggal Pemotretan",
+            "placeholder": "HH/BB/TTTT"
+        },
+        "noDate": "Belum menentukan waktu",
+        "phone": {
+            "label": "Nomor Whatsapp yang dapat dihubungi",
+            "placeholder": "Tulis kontak disini"
+        },
+        "knowFrom": {
+            "label": "Dari mana Anda mengetahui Yogzan?",
+            "placeholder": "Pilih salah satu",
+            "options": [
+                "Instagram",
+                "Tiktok",
+                "Iklan",
+                "Rekomendasi Teman",
+                "Google",
+                "Facebook",
+                "Lainnya"
+            ]
+        },
+        "knowFromExtended": {
+            "label": "Sumber Lainnya",
+            "placeholder": "Sumber Lainnya"
+        },
+        "instagramOptions": [
+            "Iklan Instagram",
+            "Muncul di explore instagram",
+            "Saya mencari hashtag tertentu dan menemukan yogzan",
+            "Dari influencer/orang lain yang saya ikuti",
+            "Lainnya"
+        ],
+        "tiktokOptions": [
+            "Iklan Tiktok",
+            "Muncul di FYP saya",
+            "Saya mencari hashtag tertentu dan menemukan yogzan",
+            "Dari influencer/orang lain yang saya ikuti",
+            "Lainnya"
+        ]
+    },
+    "submit": "Dapatkan Daftar Harga",
+    "modal": {
+        "title": "Pesanan kami terima!",
+        "desc": "Terimakasih sudah mempercayakan kepada kami.\nKami akan menghubungi Anda secepatnya, pastikan nomor Anda selalu aktif.",
+        "close": "Tutup"
+    }
+}

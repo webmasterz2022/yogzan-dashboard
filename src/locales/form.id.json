@@ -1,0 +1,64 @@
+{
+    "title": "Form Data Diri",
+    "subtitle": "Lengkapi data dirimu untuk melamar",
+    "fields": {
+        "name": {
+            "label": "Nama Lengkap",
+            "placeholder": "Masukkan nama lengkap"
+        },
+        "nickname": {
+            "label": "Nama Panggilan",
+            "placeholder": "Masukkan nama panggilan"
+        },
+        "email": {
+            "label": "Email",
+            "placeholder": "Masukkan email"
+        },
+        "phone": {
+            "label": "Nomor Telepon",
+            "placeholder": "Masukkan nomor telepon"
+        },
+        "city": {
+            "label": "Lokasi Domisili",
+            "placeholder": "Pilih lokasi domisili"
+        },
+        "knowFrom": {
+            "label": "Dari mana Anda mengetahui Yogzan?",
+            "placeholder": "Pilih salah satu"
+        },
+        "gender": {
+            "label": "Jenis Kelamin",
+            "options": {
+                "male": "Laki-laki",
+                "female": "Perempuan"
+            }
+        },
+        "birthPlace": {
+            "label": "Tempat Lahir",
+            "placeholder": "Masukkan tempat lahir"
+        },
+        "birthDate": {
+            "label": "Tanggal Lahir",
+            "placeholder": "Pilih tanggal lahir"
+        },
+        "address": {
+            "label": "Alamat",
+            "placeholder": "Masukkan alamat lengkap"
+        },
+        "education": {
+            "label": "Pendidikan Terakhir",
+            "placeholder": "Pilih pendidikan terakhir",
+            "options": {
+                "sma": "SMA/SMK",
+                "diploma": "Diploma",
+                "sarjana": "Sarjana",
+                "lainnya": "Lainnya"
+            }
+        },
+        "cv": {
+            "label": "Unggah CV",
+            "placeholder": "Pilih file CV"
+        }
+    },
+    "submit": "Kirim Lamaran"
+}

@@ -16,7 +16,7 @@
   display: none;
 }
 
-.root > img {
+.root>img {
   height: 4.5rem;
   width: 7.5rem;
   cursor: pointer;
@@ -25,11 +25,20 @@
 
 .menuBar {
   display: flex;
+  align-items: center;
 }
 
-.menuBar > button:not(:last-child) {
+.menuBar>button:not(:last-child) {
   margin-right: 0.5rem;
 }
+
+.languageSwitch>div {
+  background-color: transparent !important;
+  border: none !important;
+  font-weight: 700 !important;
+  padding-right: 16px !important;
+}
+
 
 @media only screen and (max-width: 768px) {
   .root {
@@ -38,11 +47,11 @@
     justify-content: center;
     background: unset;
   }
-  
-  .root > img {
+
+  .root>img {
     display: none;
   }
-  
+
   .menuBar {
     position: fixed;
     border-radius: 40px;
@@ -50,7 +59,7 @@
     background-color: var(--gray-25);
     padding: 16px;
     width: 85%;
-    max-width: 425px; 
+    max-width: 425px;
     display: flex;
     justify-content: space-between;
     bottom: 16px;
@@ -64,15 +73,19 @@
     right: 40px;
   }
 
-  .topBar > img {
+  .topBar>img {
     height: 24px;
     width: 24px;
+  }
+
+  .languageSwitch {
+    display: none !important;
   }
 
 }
 
 @media only screen and (max-width: 435px) {
-  .menuBar > button:last-child > p {
+  .menuBar>button:last-child>p {
     white-space: nowrap;
     width: 70px;
     text-overflow: ellipsis;

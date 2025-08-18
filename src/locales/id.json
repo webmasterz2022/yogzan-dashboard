@@ -1,0 +1,33 @@
+{
+    "gallery": {
+        "mainTitle": "Kenang Setiap Cerita dalam Hidup Kamu",
+        "mainSubtitle": "Dari wisuda, pernikahan hingga foto keluarga, abadikan momen berharga kamu bersama tim yang berpengalaman.",
+        "selectLocation": "Pilih Lokasi",
+        "all": "Semua",
+        "allLocations": "Semua Lokasi",
+        "getPriceList": "Dapatkan Daftar Harga",
+        "seeMore": "Lihat Lebih Lengkap",
+        "category": {
+            "Wisuda": {
+                "label": "Wisuda",
+                "title": "Selamat ya, kamu akhirnya lulus!",
+                "text": "Kelulusan telah menjadi bukti perjuangan kamu selama beberapa tahun terakhir. Rayakan bersama keluarga, sahabat dan rekan-rekan lainnya. Yogzan akan membantu untuk merekam setiap momen hari kelulusan kamu untuk selalu kamu kenang."
+            },
+            "Pernikahan": {
+                "label": "Pernikahan",
+                "title": "Selamat dan bahagia untuk kamu dan pasangan! ",
+                "text": "Jadikan pengucapan janji suci kamu lebih spesial dengan dokumentasi terbaik yang bisa kamu dapatkan. Kenang cinta, tawa dan air mata bahagia dalam hari bahagia kamu. "
+            },
+            "Wedding | Pre-Wedding": {
+                "label": "Wedding | Pre-Wedding",
+                "title": "Selamat dan bahagia untuk kamu dan pasangan! ",
+                "text": "Jadikan pengucapan janji suci kamu lebih spesial dengan dokumentasi terbaik yang bisa kamu dapatkan. Kenang cinta, tawa dan air mata bahagia dalam hari bahagia kamu. "
+            },
+            "Keluarga": {
+                "label": "Keluarga",
+                "title": "Setiap cinta dimulai dari keluarga! ",
+                "text": "Abadikan setiap peristiwa bahagia di keluarga kamu, seperti menanti kehadiran si kecil, momen ulang tahun, liburan bersama, hingga foto anggota keluarga kamu. "
+            }
+        }
+    }
+}

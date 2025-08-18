@@ -1,4 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import './i18n';
 import Home from './pages/Home';
 import Gallery from './pages/Gallery';
 import Navbar from './components/Navbar';
@@ -17,27 +20,80 @@ import Result from './pages/Result';
 import PriceList from './pages/PriceList';
 import LogRocket from 'logrocket'
 import ReactGA from 'react-ga4'
+import { Select } from 'antd';
+import { useState, useLayoutEffect } from 'react';
+import chevron from './assets/chevron.svg';
+
+function LanguageRouterWrapper() {
+  const location = useLocation();
+  const { i18n } = useTranslation();
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useLayoutEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const isEnglish = location.pathname.startsWith('/en');
+    i18n.changeLanguage(isEnglish ? 'en' : 'id');
+  }, [location.pathname, i18n]);
+
+  return (
+    <AppContextProvider>
+      {isMobile && (
+        <div style={{ position: 'absolute', top: 15, right: 15, zIndex: 9999 }}>
+          <Select
+            suffixIcon={<img src={chevron} alt="chevron" />}
+            className={'languageSwitch'}
+            value={i18n.language}
+            size="large"
+            onChange={(newLang) => {
+              i18n.changeLanguage(newLang);
+              if (window.location.pathname.startsWith('/en') && newLang === 'id') {
+                window.location.pathname = window.location.pathname.replace('/en', '') || '/';
+              } else if (!window.location.pathname.startsWith('/en') && newLang === 'en') {
+                window.location.pathname = '/en' + window.location.pathname;
+              }
+            }}
+            options={[
+              { value: 'id', label: <span>🇮🇩 ID</span> },
+              { value: 'en', label: <span>🇺🇸 EN</span> }
+            ]}
+          />
+        </div>
+      )}
+      <Navbar />
+      <div className='App'>
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/en" exact element={<Home />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/en/gallery" element={<Gallery />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/en/career" element={<Career />} />
+          <Route path="/book" element={<Book />} />
+          <Route path="/en/book" element={<Book />} />
+          <Route path="/fixbook" element={<FixBook />} />
+          <Route path="/en/fixbook" element={<FixBook />} />
+          <Route path="/result/:path" element={<Result />} />
+          <Route path="/en/result/:path" element={<Result />} />
+          <Route path="/price-list/:categoryName/:city" element={<PriceList />} />
+          <Route path="/en/price-list/:categoryName/:city" element={<PriceList />} />
+        </Routes>
+      </div>
+      <Footer />
+    </AppContextProvider>
+  );
+}
 
 function App() {
   LogRocket.init('dcepbi/yogzan-dashboard');
   ReactGA.initialize('G-4Y9RTECPZ0')
   return (
     <BrowserRouter>
-      <AppContextProvider>
-        <Navbar />
-        <div className='App'>
-          <Routes>
-            <Route path={routes.HOMEPAGE()} exact element={<Home />} />
-            <Route path={routes.GALLERY()} element={<Gallery />} />
-            <Route path={routes.CAREER()} element={<Career />} />
-            <Route path={routes.BOOK()} element={<Book />} />
-            <Route path={routes.FIXBOOK()} element={<FixBook />} />
-            <Route path={routes.RESULT()} element={<Result />} />
-            <Route path={routes.PRICE_LIST()} element={<PriceList />} />
-          </Routes>
-        </div>
-        <Footer />
-      </AppContextProvider>
+      <LanguageRouterWrapper />
     </BrowserRouter>
   );
 }

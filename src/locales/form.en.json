@@ -1,0 +1,64 @@
+{
+    "title": "Personal Data Form",
+    "subtitle": "Complete your data to apply",
+    "fields": {
+        "name": {
+            "label": "Full Name",
+            "placeholder": "Enter your full name"
+        },
+        "nickname": {
+            "label": "Nickname",
+            "placeholder": "Enter your nickname"
+        },
+        "email": {
+            "label": "Email",
+            "placeholder": "Enter your email"
+        },
+        "phone": {
+            "label": "Phone Number",
+            "placeholder": "Enter your phone number"
+        },
+        "city": {
+            "label": "Domicile Location",
+            "placeholder": "Select your location"
+        },
+        "knowFrom": {
+            "label": "How did you find out about Yogzan?",
+            "placeholder": "Select an option"
+        },
+        "gender": {
+            "label": "Gender",
+            "options": {
+                "male": "Male",
+                "female": "Female"
+            }
+        },
+        "birthPlace": {
+            "label": "Place of Birth",
+            "placeholder": "Enter place of birth"
+        },
+        "birthDate": {
+            "label": "Date of Birth",
+            "placeholder": "Select date of birth"
+        },
+        "address": {
+            "label": "Address",
+            "placeholder": "Enter full address"
+        },
+        "education": {
+            "label": "Last Education",
+            "placeholder": "Select last education",
+            "options": {
+                "sma": "High School",
+                "diploma": "Diploma",
+                "sarjana": "Bachelor",
+                "lainnya": "Other"
+            }
+        },
+        "cv": {
+            "label": "Upload CV",
+            "placeholder": "Choose CV file"
+        }
+    },
+    "submit": "Submit Application"
+}

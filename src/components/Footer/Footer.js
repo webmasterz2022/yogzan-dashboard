@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import Button from '../Button'
 import styles from './styles.module.css'
 import logo from '../../assets/logo-light.svg'
@@ -16,11 +17,12 @@ import { routes } from '../../configs/routes'
 import ReactGA from 'react-ga4'
 
 export default function Footer() {
+  const { t } = useTranslation(['footer'])
   const navigate = useNavigate()
   const { pathname } = useLocation()
 
   const clickPesanSekarang = () => {
-    ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Dapatkan Daftar Harga')
+    ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', t('getPriceList', { ns: 'footer' }))
     navigate(routes.BOOK())
   }
 
@@ -37,11 +39,11 @@ export default function Footer() {
       {![routes.BOOK(), routes.CAREER(), routes.FIXBOOK()].includes(pathname) && (
         <div className={styles.booking}>
           <div>
-            <h3>Sudah siap kenang momen berhargamu selamanya?</h3>
-            <p>Klik “Dapatkan Daftar Harga” dan biarkan Yogzan bantu abadikan setiap detiknya jadi cerita tak terlupakan. </p>
+            <h3>{t('ctaTitle', { ns: 'footer' })}</h3>
+            <p>{t('ctaDesc', { ns: 'footer' })}</p>
           </div>
           <Button variant="active-square" handleClick={redirectFooter}>
-            Dapatkan Daftar Harga
+            {t('getPriceList', { ns: 'footer' })}
             <img src={arrowLight} alt="" />
           </Button>
         </div>
@@ -59,18 +61,18 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <Button icon={bookingLight} variant="active-rounded" handleClick={clickPesanSekarang}>Dapatkan Daftar Harga</Button>
-            <Button icon={hiringLight} variant="active-rounded" handleClick={() => navigate(routes.CAREER())}>Karir</Button>
+            <Button icon={bookingLight} variant="active-rounded" handleClick={clickPesanSekarang}>{t('getPriceList', { ns: 'footer' })}</Button>
+            <Button icon={hiringLight} variant="active-rounded" handleClick={() => navigate(routes.CAREER())}>{t('career', { ns: 'footer' })}</Button>
           </div>
           <div>
-            <p>Hubungi Kami</p>
-            <p className={styles.email} onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=asktoyogzan@gmail.com', '_blank')}>asktoyogzan@gmail.com</p>
-            <p>(+62) 858-7602-0261</p>
+            <p>{t('contactUs', { ns: 'footer' })}</p>
+            <p className={styles.email} onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=asktoyogzan@gmail.com', '_blank')}>{t('email', { ns: 'footer' })}</p>
+            <p>{t('phone', { ns: 'footer' })}</p>
           </div>
         </div>
         <div>
           <div className={styles.line} />
-          <p>Copyright Yogzan 2025. All Rights Reserved</p>
+          <p>{t('copyright', { ns: 'footer' })}</p>
         </div>
       </div>
     </section>

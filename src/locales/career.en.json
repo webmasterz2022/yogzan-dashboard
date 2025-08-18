@@ -1,0 +1,45 @@
+{
+    "mainTitle": "Channel Your Hobby and Develop Your Photography Skills!",
+    "mainDesc": "Do you love photography and want to improve your skills while earning extra income? Join Yogzan!",
+    "whyTitle": "Why Yogzan?",
+    "workflowTitle": "How does it work?",
+    "workflowDesc": "Register yourself to become a Yogzan collaborator through the provided form.",
+    "workflow": [
+        {
+            "title": "Receive Task",
+            "desc": "Our team will contact you with detailed information about the project you will be working on."
+        },
+        {
+            "title": "Shoot and Submit",
+            "desc": "After the photo or video session, send all results to Yogzan via Yogzan's cloud storage access."
+        },
+        {
+            "title": "Receive Commission",
+            "desc": "After we receive the photos, please wait to receive your commission within 1 to 2 days."
+        }
+    ],
+    "joinTitle": "Join Yogzan Now!",
+    "joinDesc": "We can't wait to get to know you better, please fill out the form below!",
+    "stepper": [
+        "Personal Data",
+        "Experience Details"
+    ],
+    "chooseUs": [
+        {
+            "title": "Flexible Time",
+            "desc": "Have another job? No worries! You can work on each project whenever you're ready. "
+        },
+        {
+            "title": "Widespread Clients",
+            "desc": "Yogzan has many clients spread across major cities in Indonesia. Take projects wherever you are!"
+        },
+        {
+            "title": "Shoot. Submit. Get Paid",
+            "desc": "You just need to execute in the field, submit the results, and get your commission. We'll handle the rest."
+        },
+        {
+            "title": "Develop Your Skills",
+            "desc": "With many projects at Yogzan, you'll gain lots of experience to produce the best images. Get special training from Yogzan to improve your skills!"
+        }
+    ]
+}

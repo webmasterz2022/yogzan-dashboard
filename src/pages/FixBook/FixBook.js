@@ -13,11 +13,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import TextArea from '../../components/TextArea'
 import moment from 'moment'
 import { domNum } from '../../utils'
+import { useTranslation } from 'react-i18next'
 
 export default function Book() {
   moment.locale('id')
   const dispatch = useDispatch()
   const { isLoading } = useSelector(s => s)
+  const { t, i18n } = useTranslation('fixbook');
   const [openModal, setOpenModal] = useState(false)
   const [data, setData] = useState({
     "fullname": '',
@@ -37,6 +39,11 @@ export default function Book() {
   })
   const [checked, setChecked] = useState(false)
 
+  // Translation-based options
+  const layananOptions = t('fields.layanan.options', { returnObjects: true });
+  const knowFromOptions = t('fields.knowFrom.options', { returnObjects: true });
+  const instagramOptions = t('fields.instagramOptions', { returnObjects: true });
+  const tiktokOptions = t('fields.tiktokOptions', { returnObjects: true });
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -146,162 +153,152 @@ export default function Book() {
     <>
       <section className={styles.root}>
         <div>
-          <h3>Yeay! Tinggal Selangkah Lagi Pesanan Kamu Selesai!</h3>
+          <h3>{t('title')}</h3>
           <Form
             initialValues={data}
             onSubmit={handleFormSubmit}
             render={({ handleSubmit, values }) => (
               <form onSubmit={handleSubmit}>
-                <p>Pilih Layanan</p>
+                <p>{t('fields.layanan.label')}</p>
                 <Field
                   component={SelectInput}
                   onChange={(e) => setData({ ...values, layanan: e })}
                   name="layanan"
-                  {...inputProps[2]}
+                  options={layananOptions}
+                  placeholder={t('fields.layanan.placeholder')}
                 />
-                {values.layanan === 'Lainnya' && (
-                  <>
-                    <Field
-                      component={TextArea}
-                      label="Tuliskan kebutuhan kamu secara detail"
-                      inputProps={{ placeholder: 'Tulis kebutuhanmu disini' }}
-                      name="layanan-extended"
-                    />
-                  </>
+                {values.layanan === t('fields.layanan.options.5', 'Lainnya') && (
+                  <Field
+                    component={TextArea}
+                    label={t('fields.layananExtended.label')}
+                    inputProps={{ placeholder: t('fields.layananExtended.placeholder') }}
+                    name="layanan-extended"
+                  />
                 )}
                 <Field
                   component={Input}
-                  label={values.layanan !== 'Wisuda' ? "Nama Lengkap" : 'Nama Lengkap dan Gelar'}
-                  inputProps={inputProps[0]}
+                  label={values.layanan !== t('fields.layanan.options.0', 'Wisuda') ? t('fields.fullname.label') : t('fields.fullname.label', 'Nama Lengkap dan Gelar')}
+                  inputProps={{ placeholder: t('fields.fullname.placeholder') }}
                   name="fullname"
                 />
                 <Field
                   component={Input}
-                  label="Nama Panggilan"
-                  inputProps={inputProps[1]}
+                  label={t('fields.nickname.label')}
+                  inputProps={{ placeholder: t('fields.nickname.placeholder') }}
                   name="nickname"
                 />
                 <Field
                   component={TextArea}
-                  label="Alamat Pengiriman (Khusus untuk yang memilih paket dengan cetak Foto / Album)"
-                  inputProps={{ placeholder: "Tulis alamat lengkap" }}
+                  label={t('fields.address.label')}
+                  inputProps={{ placeholder: t('fields.address.placeholder') }}
                   name="address"
-                  helper={'Mohon isi dengan format "Nama Penerima - No Hp Penerima - Alamat Lengkap - Kecamatan - Kota/Kabupaten - Kode Pos"'}
+                  helper={t('fields.address.helper')}
                 />
-                {values.layanan === 'Wisuda' && (
+                {values.layanan === t('fields.layanan.options.0', 'Wisuda') && (
                   <>
                     <Field
                       component={Input}
-                      label="Asal Kampus"
-                      inputProps={inputProps[3]}
+                      label={t('fields.campus.label')}
+                      inputProps={{ placeholder: t('fields.campus.placeholder') }}
                       name="campus"
                     />
                     <Field
                       component={Input}
-                      label="Fakultas / Jurusan"
-                      inputProps={inputProps[4]}
+                      label={t('fields.faculty.label')}
+                      inputProps={{ placeholder: t('fields.faculty.placeholder') }}
                       name="faculty"
                     />
                   </>
                 )}
                 <Field
                   component={Input}
-                  label="Akun Instagram"
-                  inputProps={{ ...inputProps[5], placeholder: 'Contoh: @yogzan.graduation, @yogzan.fotosinema' }}
+                  label={t('fields.ig.label')}
+                  inputProps={{ placeholder: t('fields.ig.placeholder') }}
                   name="ig"
-                  helper="Untuk foto grup, mohon untuk ditulis akun seluruh anggota (gunakan koma untuk memisahkan)"
+                  helper={t('fields.ig.helper')}
                 />
-                {values.layanan !== 'Cetak Album' && (
+                {values.layanan !== t('fields.layanan.options.4', 'Cetak Album') && (
                   <>
                     <Field
                       component={Input}
-                      label="Akun Instagram MUA (Opsional)"
-                      inputProps={inputProps[5]}
+                      label={t('fields.igMua.label')}
+                      inputProps={{ placeholder: t('fields.igMua.placeholder') }}
                       name="ig-mua"
                     />
                     <Field
                       component={Input}
-                      label="Akun Instagram Attire (Opsional)"
-                      inputProps={inputProps[5]}
+                      label={t('fields.igAttire.label')}
+                      inputProps={{ placeholder: t('fields.igAttire.placeholder') }}
                       name="ig-attire"
                     />
                     <Field
                       className={styles.date}
                       component={Input}
-                      label="Pilih Tanggal Pemotretan"
-                      inputProps={{ ...inputProps[6], value: values.date }}
+                      label={t('fields.date.label')}
+                      inputProps={{ placeholder: t('fields.date.placeholder'), value: values.date }}
                       name="date"
                     />
                     <Field
                       className={styles.date}
                       component={Input}
-                      label="Pilih Waktu Pemotretan"
-                      inputProps={{ ...inputProps[7], value: values.time }}
+                      label={t('fields.time.label')}
+                      inputProps={{ placeholder: t('fields.time.placeholder'), value: values.time }}
                       name="time"
                     />
                   </>
                 )}
                 <Field
                   component={Input}
-                  label="Nomor Whatsapp yang dapat dihubungi"
-                  inputProps={inputProps[8]}
+                  label={t('fields.phone.label')}
+                  inputProps={{ placeholder: t('fields.phone.placeholder') }}
                   name="phone"
                   parse={normalizePhone}
                 />
-                {values.layanan !== 'Cetak Album' && (
+                {values.layanan !== t('fields.layanan.options.4', 'Cetak Album') && (
                   <Field
                     component={Input}
-                    label="Lokasi Pemotretan"
-                    inputProps={inputProps[9]}
+                    label={t('fields.location.label')}
+                    inputProps={{ placeholder: t('fields.location.placeholder') }}
                     name="location"
                   />
                 )}
-                <p>Dari mana Anda mengetahui Yogzan?</p>
+                <p>{t('fields.knowFrom.label')}</p>
                 <Field
                   component={SelectInput}
                   onChange={(e) => setData({ ...values, knowFrom: e })}
                   name="knowFrom"
-                  {...inputProps[10]}
+                  options={knowFromOptions}
+                  placeholder={t('fields.knowFrom.placeholder')}
                 />
-                {values.knowFrom === 'Lainnya' && (
+                {values.knowFrom === t('fields.knowFrom.options.6', 'Lainnya') && (
                   <Field
                     className={styles.knowFromExtended}
                     component={Input}
-                    inputProps={{ placeholder: 'Sumber Lainnya' }}
+                    inputProps={{ placeholder: t('fields.knowFromExtended.placeholder') }}
                     name="knowFrom-extended"
                   />
                 )}
-                {values.knowFrom === 'Instagram' && (
+                {values.knowFrom === t('fields.knowFrom.options.0', 'Instagram') && (
                   <Field
                     className={styles.knowFromExtended}
                     onChange={(e) => setData({ ...values, "knowFrom-extended": e })}
                     component={SelectInput}
                     name="knowFrom-extended"
-                    {...inputProps[11]}
+                    options={instagramOptions}
+                    placeholder={t('fields.knowFromExtended.placeholder')}
                     style={{ textAlign: 'left' }}
                   />
                 )}
-                {values.knowFrom === 'Tiktok' && (
+                {values.knowFrom === t('fields.knowFrom.options.1', 'Tiktok') && (
                   <Field
                     className={styles.knowFromExtended}
                     onChange={(e) => setData({ ...values, "knowFrom-extended": e })}
                     component={SelectInput}
                     name="knowFrom-extended"
-                    {...inputProps[12]}
+                    options={tiktokOptions}
+                    placeholder={t('fields.knowFromExtended.placeholder')}
                   />
                 )}
-                {/* <Field
-                  component={Input}
-                  label="Transfer via Bank"
-                  inputProps={inputProps[10]}
-                  name="bankName"
-                />
-                <Field
-                  component={Input}
-                  label="Nama Pemilik Rekening"
-                  inputProps={inputProps[11]}
-                  name="accountHolderName"
-                /> */}
                 <div className={styles.checkbox} onClick={() => setChecked(v => !v)}>
                   {checked ? (
                     <img src={icChecked} />
@@ -309,7 +306,7 @@ export default function Book() {
                     <img src={icUnchecked} />
                   )}
                   <p style={{ textAlign: "left" }}>
-                    Saya sudah membaca dan setuju dengan{" "}
+                    {t('terms')}
                     <a
                       href="https://www.yogzan.com/price-list/wisuda/Terms_of_Service"
                       style={{ color: "#512B58", fontWeight: 700 }}
@@ -317,8 +314,7 @@ export default function Book() {
                       rel="noreferrer"
                     >
                       Terms of Service
-                    </a> {" "}
-                    yogzan
+                    </a> yogzan
                   </p>
                 </div>
                 <a
@@ -333,7 +329,7 @@ export default function Book() {
                     disabled={disabledButton(values) || !checked || isLoading.submitFixBooking}
                     isLoading={isLoading.submitFixBooking}
                   >
-                    Selesaikan Pesanan
+                    {t('submit')}
                   </Button>
                 </a>
               </form>
@@ -344,12 +340,9 @@ export default function Book() {
       </section>
       {openModal && (
         <Modal className={styles.confirmModal} open={openModal} onClose={handleCloseModal}>
-          <h3>Pesanan kami terima!</h3>
-          <p>
-            Terimakasih sudah mempercayakan kepada kami.
-            Kami akan menghubungi Anda secepatnya, pastikan nomor Anda selalu aktif.
-          </p>
-          <Button handleClick={handleCloseModal} variant="active-square">Tutup</Button>
+          <h3>{t('modal.title')}</h3>
+          <p>{t('modal.desc')}</p>
+          <Button handleClick={handleCloseModal} variant="active-square">{t('modal.close')}</Button>
         </Modal>
       )}
     </>

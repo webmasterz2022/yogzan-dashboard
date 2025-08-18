@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import '../../i18n'
 import styles from './styles.module.css'
 import pinLocation from '../../assets/pin-location.svg'
 import iconImage from '../../assets/icon-image.svg'
@@ -18,6 +20,7 @@ import Button from '../../components/Button'
 import { routes } from '../../configs/routes'
 
 export default function Gallery() {
+  const { t, i18n } = useTranslation()
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { cities, portfolioImages, categories } = useSelector(v => v)
@@ -27,21 +30,6 @@ export default function Gallery() {
   const [selectedCity, setSelectedCity] = useState(searchParams.get('city') || '')
   const type = searchParams.get('type')
   const currentCategory = categories.find(e => e.name === type)
-
-  const descriptions = {
-    Wisuda: {
-      title: 'Selamat ya, kamu akhirnya lulus!',
-      text: `Kelulusan telah menjadi bukti perjuangan kamu selama beberapa tahun terakhir. Rayakan bersama keluarga, sahabat dan rekan-rekan lainnya. Yogzan akan membantu untuk merekam setiap momen hari kelulusan kamu untuk selalu kamu kenang.`
-    },
-    Pernikahan: {
-      title: 'Selamat dan bahagia untuk kamu dan pasangan! ',
-      text: `Jadikan pengucapan janji suci kamu lebih spesial dengan dokumentasi terbaik yang bisa kamu dapatkan. Kenang cinta, tawa dan air mata bahagia dalam hari bahagia kamu. `
-    },
-    Keluarga: {
-      title: 'Setiap cinta dimulai dari keluarga! ',
-      text: `Abadikan setiap peristiwa bahagia di keluarga kamu, seperti menanti kehadiran si kecil, momen ulang tahun, liburan bersama, hingga foto anggota keluarga kamu. `
-    }
-  }
 
   useEffect(() => {
     setSelectedCity(searchParams.get('city') || '')
@@ -103,8 +91,8 @@ export default function Gallery() {
 
   return (
     <div className={styles.root}>
-      <h3>Kenang Setiap Cerita dalam Hidup Kamu</h3>
-      <h5>Dari wisuda, pernikahan hingga foto keluarga, abadikan momen berharga kamu bersama tim yang berpengalaman. </h5>
+      <h3>{t('gallery.mainTitle')}</h3>
+      <h5>{t('gallery.mainSubtitle')}</h5>
       <div className={styles.filters}>
         <div className={styles.groupButton}>
           <ButtonFilter
@@ -116,10 +104,10 @@ export default function Gallery() {
             {type === 'Semua' ? (
               <div className={styles.activeButton}>
                 <img className={styles.iconButton} src={check} alt="v" />
-                Semua
+                {t('gallery.all')}
               </div>
             ) : (
-              <>Semua</>
+              <>{t('gallery.all')}</>
             )}
           </ButtonFilter>
           {categories.map(({ name }) => (
@@ -131,31 +119,31 @@ export default function Gallery() {
               {type === name ? (
                 <div className={styles.activeButton}>
                   <img className={styles.iconButton} src={check} alt="v" />
-                  {name}
+                  {t(`gallery.category.${name}.label`) || name}
                 </div>
               ) : (
-                <>{name}</>
+                <>{t(`gallery.category.${name}.label`) || name}</>
               )}
             </ButtonFilter>
           ))}
         </div>
         <div>
           <SelectInput
-            placeholder="Pilih Lokasi"
-            options={['Semua Lokasi', ...cities]}
+            placeholder={t('gallery.selectLocation')}
+            options={[t('gallery.allLocations'), ...cities]}
             onChange={setSelectedCity}
             value={selectedCity}
           />
         </div>
       </div>
-      {descriptions[type] && (
+      {type && type !== 'Semua' && t(`gallery.category.${type}.title`) && (
         <div className={styles.categoryDescription}>
           <div>
-            <h3>{descriptions[type]?.title}</h3>
-            <h5>{descriptions[type]?.text}</h5>
+            <h3>{t(`gallery.category.${type}.title`)}</h3>
+            <h5>{t(`gallery.category.${type}.text`)}</h5>
           </div>
           <Button variant={'active-square'} handleClick={() => navigate(routes.BOOK())}>
-            Dapatkan Daftar Harga
+            {t('gallery.getPriceList')}
             <img src={arrowLight} alt="" />
           </Button>
         </div>
@@ -168,7 +156,7 @@ export default function Gallery() {
           <Button
             handleClick={() => window.open(currentCategory.redirectLink, '_blank')}
           >
-            Lihat Lebih Lengkap
+            {t('gallery.seeMore')}
             <img src={arrowDark} alt="" />
           </Button>
         )}

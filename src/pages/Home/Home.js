@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
+import '../../i18n'
 import styles from './styles.module.css'
 import logo from '../../assets/logo-dark.svg'
 import blank from '../../assets/blank.png'
@@ -35,6 +37,9 @@ export default function Home() {
   const { homepageImages, categories, testimonies } = useSelector(s => s)
   const [images, setImages] = useState([])
 
+  const { t, i18n } = useTranslation(['home'])
+
+
   useEffect(() => {
     if (testimonies && testimonies.length > 0) {
       if (testimonyRef.current) {
@@ -70,9 +75,9 @@ export default function Home() {
     <section className={styles.root}>
       <div className={styles.header}>
         <img src={logo} alt='yogzan' />
-        <h3 className={styles.heading1}>Momen Boleh Berlalu, Tapi Ceritanya Tetap Abadi</h3>
+        <h3 className={styles.heading1}>{t('header.mainTitle', { ns: 'home' })}</h3>
         <h4 className={styles.heading2}>
-          Jadikan setiap momen pentingmu terasa istimewa dengan dokumentasi visual yang penuh rasa dan berkualitas dari Yogzan.
+          {t('header.subtitle', { ns: 'home' })}
         </h4>
       </div>
       <div className={styles.galleries}>
@@ -103,7 +108,7 @@ export default function Home() {
                 <div style={{ backgroundImage: `url(${images[6] ? images[6].url : blank})` }} />
               </div>
               <Button variant="active-square" handleClick={() => navigate(routes.BOOK())}>
-                Dapatkan Daftar Harga
+                {t('getPriceList', { ns: 'home' })}
                 <img src={arrowLight} alt="" />
               </Button>
               <div className={styles.delapan}>
@@ -123,28 +128,33 @@ export default function Home() {
           )}
         </div>
         <div>
-          <p>Momen</p>
+          <p>{t('gallery.label', { ns: 'home' })}</p>
           <div>
             {categories?.map(category => {
               return (
-                <CategoryCard key={category.name} {...category} title={category.name} handleClick={() => navigate(`/gallery?type=${category.name}`)} />
+                <CategoryCard key={category.name} {...category} title={t(`category.${category.name}.label`, { ns: 'home', defaultValue: category.name })} handleClick={() => navigate(`/gallery?type=${category.name}`)} />
               )
             })}
           </div>
         </div>
       </div>
       <div className={styles.contentWhyUs}>
-        <h3>Percayakan Setiap Momen Anda kepada Kami</h3>
-        <p>Momen kamu adalah momen kami juga. Karena itu kami berikan yang terbaik untuk mengenangnya. Inilah 6 alasan mengapa kami berbeda.</p>
+        <h3>{t('whyUs.title', { ns: 'home' })}</h3>
+        <p>{t('whyUs.desc', { ns: 'home' })}</p>
         <div>
           {chooseUs?.map((why, idx) => (
-            <CardChooseUs key={idx} {...why} />
+            <CardChooseUs
+              key={idx}
+              {...why}
+              title={t(`chooseUs.${idx}.title`, { ns: 'home' })}
+              desc={t(`chooseUs.${idx}.desc`, { ns: 'home' })}
+            />
           ))}
         </div>
       </div>
       <div className={styles.testimonials} ref={testimonyRef}>
-        <h3>Ini Kata Mereka</h3>
-        <p>Setiap dari mereka berharga, demikian juga dengan kamu!</p>
+        <h3>{t('testimonials.title', { ns: 'home' })}</h3>
+        <p>{t('testimonials.desc', { ns: 'home' })}</p>
         <div>
           <Swiper
             pagination={{
@@ -174,9 +184,9 @@ export default function Home() {
               </SwiperSlide>
             ))}
           </Swiper>
+          {(testimonies && testimonies.length > 0) && <div className={styles.overlayLeft} ref={overlayLeftRef} />}
+          {(testimonies && testimonies.length > 0) && <div className={styles.overlayRight} ref={overlayRightRef} />}
         </div>
-        {(testimonies && testimonies.length > 0) && <div className={styles.overlayLeft} ref={overlayLeftRef} />}
-        {(testimonies && testimonies.length > 0) && <div className={styles.overlayRight} ref={overlayRightRef} />}
       </div>
     </section>
   )

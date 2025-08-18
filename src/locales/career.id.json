@@ -1,0 +1,45 @@
+{
+    "mainTitle": "Salurkan Hobi dan Kembangkan Skill Fotografi Kamu!",
+    "mainDesc": "Kamu hobi motret dan mau mengembangkan skill sambil dapat penghasilan tambahan? Yuk gabung dengan Yogzan!",
+    "whyTitle": "Kenapa Harus Yogzan?",
+    "workflowTitle": "Bagaimana cara kerjanya?",
+    "workflowDesc": "Daftarkan diri kamu untuk menjadi kolaborator Yogzan melalui form yang disediakan.",
+    "workflow": [
+        {
+            "title": "Terima Tugas",
+            "desc": "Tim kami akan menghubungi kamu terkait informasi detail mengenai proyek yang akan kamu laksanakan."
+        },
+        {
+            "title": "Foto dan Kirim",
+            "desc": "Setelah melakukan sesi foto atau video, kirim semua hasilnya ke Yogzan melalui akses cloud storage milik Yogzan."
+        },
+        {
+            "title": "Terima Komisi",
+            "desc": "Setelah foto kami terima, silakan tunggu untuk mendapatkan komisi kamu dalam waktu 1 hingga 2 hari."
+        }
+    ],
+    "joinTitle": "Gabung di Yogzan Sekarang!",
+    "joinDesc": "Tak sabar ingin berkenalan dengan kamu lebih dekat, yuk isi formulir di bawah!",
+    "stepper": [
+        "Data Diri",
+        "Detail Pengalaman"
+    ],
+    "chooseUs": [
+        {
+            "title": "Waktu Fleksibel",
+            "desc": "Punya kerjaan lain? Tenang! Kamu bisa kerjakan setiap proyek kapanpun kamu siap. "
+        },
+        {
+            "title": "Klien Tersebar",
+            "desc": "Yogzan punya banyak klien yang tersebar di berbagai kota besar di Indonesia. Ambil proyek dimanapun kamu berada!"
+        },
+        {
+            "title": "Motret. Kirim. Terima Komisi",
+            "desc": "Kamu cukup melakukan eksekusi di lapangan, kirim hasilnya dan terima komisi. Selanjutnya biar kami yang tangani."
+        },
+        {
+            "title": "Kembangkan Skill",
+            "desc": "Dari banyaknya proyek di Yogzan, kamu akan dapat banyak pengalaman untuk hasilkan gambar terbaik. Dapatkan juga training khusus dari Yogzan untuk menambah kemampuanmu!"
+        }
+    ]
+}

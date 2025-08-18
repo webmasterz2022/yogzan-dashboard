@@ -1,0 +1,71 @@
+{
+    "header": {
+        "mainTitle": "Moments May Pass, But The Story Remains Forever",
+        "subtitle": "Make every important moment feel special with heartfelt and high-quality visual documentation from Yogzan."
+    },
+    "gallery": {
+        "label": "Moments"
+    },
+    "category": {
+        "Wisuda": {
+            "label": "Graduation",
+            "title": "Congratulations, you finally graduated!",
+            "text": "Graduation is proof of your hard work over the past years. Celebrate with family, friends, and colleagues. Yogzan will help capture every moment of your graduation day for you to remember."
+        },
+        "Pernikahan": {
+            "label": "Wedding",
+            "title": "Congratulations and happiness to you and your partner! ",
+            "text": "Make your sacred vow even more special with the best documentation you can get. Cherish love, laughter, and happy tears on your special day."
+        },
+        "Wedding | Pre-Wedding": {
+            "label": "Wedding | Pre-Wedding",
+            "title": "Congratulations and happiness to you and your partner! ",
+            "text": "Make your sacred vow even more special with the best documentation you can get. Cherish love, laughter, and happy tears on your special day."
+        },
+        "Keluarga": {
+            "label": "Family",
+            "title": "Every love starts from family! ",
+            "text": "Capture every happy event in your family, such as expecting a baby, birthdays, holidays together, and family member portraits."
+        },
+        "Cetak Album": {
+            "label": "Album Printing",
+            "title": "Preserve Your Memories in a Beautiful Album",
+            "text": "Transform your photos into a stunning album that you can cherish forever. Our album printing service offers high-quality materials and designs to make your memories last."
+        }
+    },
+    "whyUs": {
+        "title": "Entrust Every Moment to Us",
+        "desc": "Your moments are our moments too. That's why we give our best to remember them. Here are 6 reasons why we are different."
+    },
+    "testimonials": {
+        "title": "What They Say",
+        "desc": "Each of them is precious, and so are you!"
+    },
+    "getPriceList": "Get Price List",
+    "chooseUs": [
+        {
+            "title": "Signature Editing",
+            "desc": "Not just applying filters. We adjust every color in detail for a more aesthetic and unique Yogzan result."
+        },
+        {
+            "title": "Wide Coverage",
+            "desc": "You can find Yogzan services in major cities in Java and Bali, even abroad such as Malaysia and Singapore."
+        },
+        {
+            "title": "Experienced Team",
+            "desc": "Through several strict selection stages, our team is supported by experienced and best people in their fields."
+        },
+        {
+            "title": "Complete Packages",
+            "desc": "From just photos to complete packages with albums and videos. All integrated in one practical service."
+        },
+        {
+            "title": "Trusted",
+            "desc": "Tens of thousands of clients from hundreds of campuses have entrusted their graduation moments to Yogzan since 2017."
+        },
+        {
+            "title": "Pose Guidance",
+            "desc": "Not good at posing in front of the camera? Don’t worry! We’ll guide your pose for your best appearance."
+        }
+    ]
+}

@@ -6,15 +6,34 @@ import Button from '../Button';
 import SelectInput from '../SelectInput'
 import TextArea from '../TextArea';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 export default function FormDetailPengalaman(props) {
-  const { handleSubmitForm, handleStep, data } = props
-  const { isLoading } = useSelector(s => s)
+  const { handleSubmitForm, handleStep, data } = props;
+  const { isLoading } = useSelector(s => s);
+  const { t } = useTranslation('formDetailExperience');
 
-  const reqLink3 = new RegExp(/^((ftp|http|https):\/\/)?(www\.)?[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#.-]+)*(\/?\w*\??[a-zA-Z0-9_]*=\w*(&[a-zA-Z0-9_]*=\w*)*)?\/?$/);
-  const reqLink2 = new RegExp(/^((ftp|http|https):\/\/)?(www.)?(?!.*(ftp|http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#-]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?\/?$/)
-  const reqLink = new RegExp(/^(ftp|http|https):\/\/[^ "]+$/);
-  const isLink = value => reqLink3.test(value) ? undefined : 'Format Link salah'
+  const reqLink3 = new RegExp(/^((ftp|http|https):\/\/)?(www\.)?[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)\w*[#.-]*)*(\/?\w*\??[a-zA-Z0-9_]*=\w*(&[a-zA-Z0-9_]*=\w*)*)?\/?$/);
+  const isLink = value => reqLink3.test(value) ? undefined : t('fields.cv.error', 'Format Link salah');
+
+  // Option arrays for selects
+  const jobRoleOptions = [
+    t('fields.jobRole.options.fotografer', 'Fotografer'),
+    t('fields.jobRole.options.videografer', 'Videografer'),
+    t('fields.jobRole.options.fotovideo', 'Fotografer & Videografer')
+  ];
+  const photoshootTypeOptions = [
+    t('fields.photoshootType.options.wisuda', 'Wisuda'),
+    t('fields.photoshootType.options.wedding', 'Wedding'),
+    t('fields.photoshootType.options.prewedding', 'Pre wedding'),
+    t('fields.photoshootType.options.studio', 'Studio'),
+    t('fields.photoshootType.options.lainnya', 'Lainnya')
+  ];
+  const workingHourOptions = [
+    t('fields.workingHour.options.weekdays', 'Weekdays'),
+    t('fields.workingHour.options.weekend', 'Weekend'),
+    t('fields.workingHour.options.both', 'Weekdays & Weekend')
+  ];
 
   const inputProps = [
     { placeholder: 'Pilih salah satu', options: ['Wisuda', 'Wedding', 'Pre wedding', 'Studio', 'Lainnya'] },
@@ -48,7 +67,6 @@ export default function FormDetailPengalaman(props) {
   const disabled = (values) => !values.photoshoot || !values.camera || !values.lens ||
     !values.workingHour || !values.cv || !values.portfolio || !values.jobRole;
 
-
   const _submit = (val) => {
     handleSubmitForm({ ...val })
   }
@@ -58,81 +76,72 @@ export default function FormDetailPengalaman(props) {
       onSubmit={_submit}
       render={({ handleSubmit, values }) => (
         <form className={styles.root} onSubmit={handleSubmit}>
-          <p>Posisi yang dilamar</p>
+          <p>{t('fields.jobRole.label')}</p>
           <Field
             component={SelectInput}
             name="jobRole"
             onChange={(e) => handleStep({ ...values, jobRole: e })}
-            {...inputProps[9]}
+            options={jobRoleOptions}
+            placeholder={t('fields.jobRole.placeholder')}
           />
-          <p>Jenis Pemotretan yang Pernah diambil</p>
+          <p>{t('fields.photoshoot.label')}</p>
           <Field
             component={Input}
-            inputProps={{ placeholder: 'Contoh: Wedding, Wisuda, Studio, dll.' }}
+            inputProps={{ placeholder: t('fields.photoshoot.placeholder') }}
             name="photoshoot"
           />
           <Field
             component={TextArea}
-            label="Ceritakan Pengalaman Kamu dalam Berkarir di Dunia Fotografi (Jika Ada)"
-            inputProps={inputProps[1]}
+            label={t('fields.experience.label')}
+            inputProps={{ placeholder: t('fields.experience.placeholder') }}
             name="experience"
           />
           <Field
             component={Input}
-            label="Seri Kamera yang Dimiliki"
-            inputProps={inputProps[2]}
+            label={t('fields.camera.label')}
+            inputProps={{ placeholder: t('fields.camera.placeholder') }}
             name="camera"
-            helper="Boleh lebih dari satu"
+            helper={t('fields.camera.description', 'Boleh lebih dari satu')}
           />
           <Field
             component={Input}
-            label="Seri Lensa yang Dimiliki"
-            inputProps={inputProps[3]}
+            label={t('fields.lens.label')}
+            inputProps={{ placeholder: t('fields.lens.placeholder') }}
             name="lens"
-            helper="Boleh lebih dari satu"
+            helper={t('fields.lens.description', 'Boleh lebih dari satu')}
           />
           <Field
             component={Input}
-            label="Apakah memiliki aksesoris kamera lain? (opsional)"
-            inputProps={inputProps[4]}
+            label={t('fields.accessories.label')}
+            inputProps={{ placeholder: t('fields.accessories.placeholder') }}
             name="accessories"
-            helper="Boleh lebih dari satu"
+            helper={t('fields.accessories.description', 'Boleh lebih dari satu')}
           />
-          <p>Pilih alokasi waktu untuk project Yogzan</p>
+          <p>{t('fields.workingHour.label')}</p>
           <Field
             component={SelectInput}
             name="workingHour"
             onChange={(e) => handleStep({ ...values, workingHour: e })}
-            {...inputProps[5]}
+            options={workingHourOptions}
+            placeholder={t('fields.workingHour.placeholder')}
           />
-          {values.jobRole !== "Videografer" && (
-            <>
-              {/* <p>Expected Fee untuk memotret foto (Photo Only dalam durasi 1 jam)</p>
-              <Field
-                component={SelectInput}
-                onChange={(e) => handleStep({ ...values, fee: e })}
-                name="fee"
-                {...inputProps[6]}
-              /> */}
-            </>
-          )}
           <Field
             component={Input}
-            label="Link CV"
-            inputProps={inputProps[7]}
+            label={t('fields.cv.label', 'Link CV')}
+            inputProps={{ placeholder: t('fields.cv.placeholder') }}
             name="cv"
             validate={isLink}
           />
           <Field
             component={Input}
-            label="Link Portfolio"
-            inputProps={inputProps[8]}
+            label={t('fields.portfolio.label', 'Link Portfolio')}
+            inputProps={{ placeholder: t('fields.portfolio.placeholder') }}
             name="portfolio"
             validate={isLink}
           />
           <div>
-            <Button variant="active-square" handleClick={() => handleStep(values, 'Data Diri')}>Kembali</Button>
-            <Button disabled={disabled(values) || isLoading.submitHiring} isLoading={isLoading.submitHiring} variant="active-square" handleClick={() => handleSubmit(values)}>Kirim Lamaran</Button>
+            <Button variant="active-square" handleClick={() => handleStep(values, 'Data Diri')}>{t('back', 'Kembali')}</Button>
+            <Button disabled={disabled(values) || isLoading.submitHiring} isLoading={isLoading.submitHiring} variant="active-square" handleClick={() => handleSubmit(values)}>{t('submit', 'Kirim Lamaran')}</Button>
           </div>
         </form>
       )}

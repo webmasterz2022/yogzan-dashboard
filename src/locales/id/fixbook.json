@@ -1,0 +1,109 @@
+{
+    "title": "Yeay! Tinggal Selangkah Lagi Pesanan Kamu Selesai!",
+    "fields": {
+        "fullname": {
+            "label": "Nama Lengkap",
+            "placeholder": "Tulis Nama Lengkap"
+        },
+        "nickname": {
+            "label": "Nama Panggilan",
+            "placeholder": "Tulis Nama Panggilan"
+        },
+        "address": {
+            "label": "Alamat Pengiriman (Khusus untuk yang memilih paket dengan cetak Foto / Album)",
+            "placeholder": "Tulis alamat lengkap",
+            "helper": "Mohon isi dengan format 'Nama Penerima - No Hp Penerima - Alamat Lengkap - Kecamatan - Kota/Kabupaten - Kode Pos'"
+        },
+        "layanan": {
+            "label": "Pilih Layanan",
+            "placeholder": "Pilih salah satu",
+            "options": [
+                "Wisuda",
+                "Wedding",
+                "Pre wedding",
+                "Family",
+                "Cetak Album",
+                "Lainnya"
+            ]
+        },
+        "layananExtended": {
+            "label": "Tuliskan kebutuhan kamu secara detail",
+            "placeholder": "Tulis kebutuhanmu disini"
+        },
+        "campus": {
+            "label": "Asal Kampus",
+            "placeholder": "Tulis Asal Kampus"
+        },
+        "faculty": {
+            "label": "Fakultas / Jurusan",
+            "placeholder": "Tulis Fakultas / Jurusan"
+        },
+        "ig": {
+            "label": "Akun Instagram",
+            "placeholder": "Contoh: @yogzan.graduation, @yogzan.fotosinema",
+            "helper": "Untuk foto grup, mohon untuk ditulis akun seluruh anggota (gunakan koma untuk memisahkan)"
+        },
+        "igMua": {
+            "label": "Akun Instagram MUA (Opsional)",
+            "placeholder": "Contoh: @ig.mua"
+        },
+        "igAttire": {
+            "label": "Akun Instagram Attire (Opsional)",
+            "placeholder": "Contoh: @ig.attire"
+        },
+        "date": {
+            "label": "Pilih Tanggal Pemotretan",
+            "placeholder": "HH/BB/TTTT"
+        },
+        "time": {
+            "label": "Pilih Waktu Pemotretan",
+            "placeholder": "JJ/MM"
+        },
+        "phone": {
+            "label": "Nomor Whatsapp yang dapat dihubungi",
+            "placeholder": "Tulis kontak disini"
+        },
+        "location": {
+            "label": "Lokasi Pemotretan",
+            "placeholder": "Tulis Lokasi Pemotretan"
+        },
+        "knowFrom": {
+            "label": "Dari mana Anda mengetahui Yogzan?",
+            "placeholder": "Pilih salah satu",
+            "options": [
+                "Instagram",
+                "Tiktok",
+                "Iklan",
+                "Rekomendasi Teman",
+                "Google",
+                "Facebook",
+                "Lainnya"
+            ]
+        },
+        "knowFromExtended": {
+            "label": "Sumber Lainnya",
+            "placeholder": "Sumber Lainnya"
+        },
+        "instagramOptions": [
+            "Iklan Instagram",
+            "Muncul di explore instagram",
+            "Saya mencari hashtag tertentu dan menemukan yogzan",
+            "Dari influencer/orang lain yang saya ikuti",
+            "Lainnya"
+        ],
+        "tiktokOptions": [
+            "Iklan Tiktok",
+            "Muncul di FYP saya",
+            "Saya mencari hashtag tertentu dan menemukan yogzan",
+            "Dari influencer/orang lain yang saya ikuti",
+            "Lainnya"
+        ]
+    },
+    "submit": "Selesaikan Pesanan",
+    "modal": {
+        "title": "Pesanan kami terima!",
+        "desc": "Terimakasih sudah mempercayakan kepada kami.\nKami akan menghubungi Anda secepatnya, pastikan nomor Anda selalu aktif.",
+        "close": "Tutup"
+    },
+    "terms": "Saya sudah membaca dan setuju dengan Terms of Service yogzan"
+}

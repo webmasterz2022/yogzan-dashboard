@@ -1,0 +1,71 @@
+{
+    "header": {
+        "mainTitle": "Momen Boleh Berlalu, Tapi Ceritanya Tetap Abadi",
+        "subtitle": "Jadikan setiap momen pentingmu terasa istimewa dengan dokumentasi visual yang penuh rasa dan berkualitas dari Yogzan."
+    },
+    "gallery": {
+        "label": "Momen"
+    },
+    "category": {
+        "Wisuda": {
+            "label": "Wisuda",
+            "title": "Selamat, kamu akhirnya wisuda!",
+            "text": "Wisuda adalah bukti kerja kerasmu selama bertahun-tahun. Rayakan bersama keluarga, teman, dan kolega. Yogzan akan membantu mengabadikan setiap momen di hari wisudamu untuk kamu kenang."
+        },
+        "Pernikahan": {
+            "label": "Pernikahan",
+            "title": "Selamat dan bahagia untukmu dan pasanganmu!",
+            "text": "Jadikan janji sucimu semakin istimewa dengan dokumentasi terbaik yang bisa kamu dapatkan. Abadikan cinta, tawa, dan air mata bahagia di hari istimewamu."
+        },
+        "Wedding | Pre-Wedding": {
+            "label": "Wedding | Pre-Wedding",
+            "title": "Selamat dan bahagia untukmu dan pasanganmu!",
+            "text": "Jadikan janji sucimu semakin istimewa dengan dokumentasi terbaik yang bisa kamu dapatkan. Abadikan cinta, tawa, dan air mata bahagia di hari istimewamu."
+        },
+        "Keluarga": {
+            "label": "Keluarga",
+            "title": "Setiap cinta dimulai dari keluarga!",
+            "text": "Abadikan setiap momen bahagia dalam keluargamu, seperti menanti kelahiran bayi, ulang tahun, liburan bersama, dan potret anggota keluarga."
+        },
+        "Cetak Album": {
+            "label": "Cetak Album",
+            "title": "Abadikan Kenangan Anda dalam Album yang Indah",
+            "text": "Ubah foto-foto Anda menjadi album yang menakjubkan yang dapat Anda hargai selamanya. Layanan cetak album kami menawarkan bahan dan desain berkualitas tinggi untuk membuat kenangan Anda bertahan."
+        }
+    },
+    "whyUs": {
+        "title": "Percayakan Setiap Momen Anda kepada Kami",
+        "desc": "Momen kamu adalah momen kami juga. Karena itu kami berikan yang terbaik untuk mengenangnya. Inilah 6 alasan mengapa kami berbeda."
+    },
+    "testimonials": {
+        "title": "Ini Kata Mereka",
+        "desc": "Setiap dari mereka berharga, demikian juga dengan kamu!"
+    },
+    "getPriceList": "Dapatkan Daftar Harga",
+    "chooseUs": [
+        {
+            "title": "Editing Khas",
+            "desc": "Bukan sekadar pasang filter. Kami sesuaikan tiap warna secara detail untuk hasil akhir yang lebih estetik dan khas Yogzan."
+        },
+        {
+            "title": "Cakupan Luas",
+            "desc": "Kamu bisa temukan layanan Yogzan di berbagai kota besar di Jawa dan Bali, bahkan luar negeri seperti Malaysia dan Singapura."
+        },
+        {
+            "title": "Tim Berpengalaman",
+            "desc": "Melalui beberapa tahapan seleksi yang ketat, tim kami didukung oleh yang berpengalaman dan terbaik di bidangnya."
+        },
+        {
+            "title": "Paket Lengkap",
+            "desc": "Mulai dari foto saja, hingga paket lengkap dengan album dan video. Semua terintegrasi dalam satu layanan praktis."
+        },
+        {
+            "title": "Terpercaya",
+            "desc": "Belasan ribu klien dari ratusan kampus telah mempercayakan momen wisudanya kepada Yogzan sejak 2017."
+        },
+        {
+            "title": "Arahan Pose",
+            "desc": "Tidak bisa bergaya di depan kamera? Tenang! Kami arahkan posenya untuk penampilan terbaikmu."
+        }
+    ]
+}
