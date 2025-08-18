@@ -176,7 +176,7 @@ export default function Gallery() {
               )}
               <div>
                 <img src={iconImage} alt='category ' />
-                <p>{selectedImage.category}</p>
+                <p>{t(`gallery.category.${selectedImage.category}.label`, { defaultValue: selectedImage.category })}</p>
               </div>
             </div>
           </div>

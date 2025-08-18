@@ -128,7 +128,8 @@ export default function Home() {
           )}
         </div>
         <div>
-          <p>{t('gallery.label', { ns: 'home' })}</p>
+          <h3>{t('gallery.label', { ns: 'home' })}</h3>
+          <p>{t('gallery.description', { ns: 'home', defaultValue: '' }) ? `"${t('gallery.description', { ns: 'home', defaultValue: '' })}"` : ''}</p>
           <div>
             {categories?.map(category => {
               return (

@@ -1,5 +1,5 @@
 import { Form, Field } from 'react-final-form'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from '../Input'
 import styles from './styles.module.css'
 import Button from '../Button';
@@ -9,6 +9,18 @@ import { useTranslation } from 'react-i18next';
 export default function FormDataDiri(props) {
   const { handleSubmitForm, handleStep, data, setData } = props;
   const { t } = useTranslation(['form']);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const reqEmail = new RegExp([
     '^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)',
     '(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])',
@@ -83,7 +95,7 @@ export default function FormDataDiri(props) {
             name="phone"
             parse={normalizePhone}
           />
-          <p style={{ textAlign: 'left', fontSize: '16px', fontFamily: 'Avenir' }}>{t('fields.city.label', 'Pilih Lokasi Domisili')}</p>
+          <p style={{ textAlign: 'left', fontSize: isMobile ? '16px' : '1rem', margin: 0, fontFamily: 'Avenir' }}>{t('fields.city.label', 'Pilih Lokasi Domisili')}</p>
           <Field
             component={SelectInput}
             onChange={(e) => setData({ ...values, city: e })}
@@ -105,7 +117,7 @@ export default function FormDataDiri(props) {
             inputProps={{ placeholder: t('fields.address.placeholder', 'Tulis alamat domisili saat ini') }}
             name="address"
           />
-          <p style={{ textAlign: 'left', fontSize: '16px', fontFamily: 'Avenir' }}>{t('fields.knowFrom.label', 'Dari mana Anda mengetahui Yogzan?')}</p>
+          <p style={{ textAlign: 'left', fontSize: isMobile ? '16px' : '1rem', margin: 0, fontFamily: 'Avenir' }}>{t('fields.knowFrom.label', 'Dari mana Anda mengetahui Yogzan?')}</p>
           <Field
             component={SelectInput}
             onChange={(e) => setData({ ...values, knowFrom: e })}

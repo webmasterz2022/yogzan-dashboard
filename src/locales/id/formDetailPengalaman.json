@@ -11,19 +11,19 @@
       "placeholder": "Ceritakan pengalaman kerja kamu"
     },
     "camera": {
-      "label": "Kamera yang Dikuasai",
-      "placeholder": "Sebutkan kamera yang kamu kuasai",
-      "description": "Sebutkan jenis seperti DSLR, mirrorless, dll."
+      "label": "Kamera yang dimiliki",
+      "placeholder": "Sebutkan kamera yang kamu miliki",
+      "description": "Boleh lebih dari satu"
     },
     "lens": {
-      "label": "Lensa yang Dikuasai",
-      "placeholder": "Sebutkan lensa yang kamu kuasai",
-      "description": "Sebutkan jenis seperti prime, zoom, makro, dll."
+      "label": "Lensa yang dimiliki",
+      "placeholder": "Sebutkan lensa yang kamu miliki",
+      "description": "Boleh lebih dari satu"
     },
     "accessories": {
-      "label": "Aksesoris yang Dikuasai",
-      "placeholder": "Sebutkan aksesoris yang kamu kuasai",
-      "description": "Sebutkan jenis seperti tripod, gimbal, dll."
+      "label": "Aksesoris yang dimiliki",
+      "placeholder": "Sebutkan aksesoris yang kamu miliki",
+      "description": "Boleh lebih dari satu"
     },
     "workingHour": {
       "label": "Ketersediaan Waktu Kerja",

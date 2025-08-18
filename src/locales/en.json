@@ -1,7 +1,7 @@
 {
     "gallery": {
-        "mainTitle": "Capture Every Story in Your Life",
-        "mainSubtitle": "From graduation, weddings to family photos, capture your precious moments with an experienced team.",
+        "mainTitle": "Relive Every Story in Your Life",
+        "mainSubtitle": "From graduations and weddings to family portraits, capture your precious moments with an experienced team.",
         "selectLocation": "Select Location",
         "all": "All",
         "allLocations": "All Locations",
@@ -11,22 +11,22 @@
             "Wisuda": {
                 "label": "Graduation",
                 "title": "Congratulations, you finally graduated!",
-                "text": "Graduation is proof of your hard work over the past years. Celebrate with family, friends, and colleagues. Yogzan will help capture every moment of your graduation day for you to remember."
+                "text": "Your graduation is proof of all the hard work you have put in over the past few years. Celebrate with your family, friends, and loved ones. Yogzan will help capture every moment of your graduation day so you can remember it forever."
             },
             "Pernikahan": {
                 "label": "Wedding",
-                "title": "Congratulations and happiness to you and your partner! ",
-                "text": "Make your sacred vow even more special with the best documentation you can get. Cherish love, laughter, and happy tears on your special day. "
+                "title": "From Promises to a Lasting Story",
+                "text": "A wedding day is a sacred moment that unites two hearts and two families. From the emotional glances to the joyful laughter, Yogzan is ready to capture every detail with warmth and meaning. Let your love story be beautifully preserved for a lifetime."
             },
             "Wedding | Pre-Wedding": {
                 "label": "Wedding | Pre-Wedding",
-                "title": "Congratulations and happiness to you and your partner! ",
-                "text": "Make your sacred vow even more special with the best documentation you can get. Cherish love, laughter, and happy tears on your special day. "
+                "title": "From Promises to a Lasting Story",
+                "text": "A wedding day is a sacred moment that unites two hearts and two families. From the emotional glances to the joyful laughter, Yogzan is ready to capture every detail with warmth and meaning. Let your love story be beautifully preserved for a lifetime."
             },
             "Keluarga": {
                 "label": "Family",
-                "title": "Every love starts from family! ",
-                "text": "Capture every happy event in your family, such as expecting a baby, birthdays, holidays together, and family member portraits. "
+                "title": "Every love begins with family",
+                "text": "Capture every joyful family occasion, from expecting a little one and celebrating birthdays to holiday getaways and family portraits."
             }
         }
     }

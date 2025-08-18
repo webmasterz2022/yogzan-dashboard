@@ -1,10 +1,11 @@
 {
     "header": {
-        "mainTitle": "Moments May Pass, But The Story Remains Forever",
-        "subtitle": "Make every important moment feel special with heartfelt and high-quality visual documentation from Yogzan."
+        "mainTitle": "Moments May Pass, But Their Stories Last Forever",
+        "subtitle": "Make every special occasion truly memorable with timeless and high quality visual documentation from Yogzan, proudly from Indonesia and available worldwide."
     },
     "gallery": {
-        "label": "Moments"
+        "label": "Moments",
+        "description": "Whatever the moment, every story you tell always carries meaning!"
     },
     "category": {
         "Wisuda": {
@@ -35,37 +36,37 @@
     },
     "whyUs": {
         "title": "Entrust Every Moment to Us",
-        "desc": "Your moments are our moments too. That's why we give our best to remember them. Here are 6 reasons why we are different."
+        "desc": "Your milestones deserve more than just photos. They deserve to be remembered beautifully. At Yogzan, we treat your moments as our own, capturing them with passion and precision. Discover six reasons why we are your perfect choice."
     },
     "testimonials": {
         "title": "What They Say",
-        "desc": "Each of them is precious, and so are you!"
+        "desc": "Each of them is special, and so are you!"
     },
     "getPriceList": "Get Price List",
     "chooseUs": [
         {
             "title": "Signature Editing",
-            "desc": "Not just applying filters. We adjust every color in detail for a more aesthetic and unique Yogzan result."
+            "desc": "More than just applying a filter. We fine-tune every color in detail to create a final result that is both aesthetic and uniquely Yogzan."
         },
         {
             "title": "Wide Coverage",
-            "desc": "You can find Yogzan services in major cities in Java and Bali, even abroad such as Malaysia and Singapore."
+            "desc": "You can find Yogzan’s services in Indonesia, Malaysia and Singapore."
         },
         {
             "title": "Experienced Team",
-            "desc": "Through several strict selection stages, our team is supported by experienced and best people in their fields."
+            "desc": "Through a careful selection process, our team is composed of highly experienced professionals who are the best in their field."
         },
         {
             "title": "Complete Packages",
-            "desc": "From just photos to complete packages with albums and videos. All integrated in one practical service."
+            "desc": "From photos only to a full package with an album and video. Everything is integrated into one convenient service."
         },
         {
             "title": "Trusted",
-            "desc": "Tens of thousands of clients from hundreds of campuses have entrusted their graduation moments to Yogzan since 2017."
+            "desc": "Since 2017, tens of thousands of clients from hundreds have trusted Yogzan to capture their most important moments."
         },
         {
             "title": "Pose Guidance",
-            "desc": "Not good at posing in front of the camera? Don’t worry! We’ll guide your pose for your best appearance."
+            "desc": "Feeling awkward in front of the camera? We will guide you to bring out your best look."
         }
     ]
 }

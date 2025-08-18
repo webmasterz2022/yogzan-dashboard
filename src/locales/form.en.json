@@ -3,7 +3,7 @@
     "subtitle": "Complete your data to apply",
     "fields": {
         "name": {
-            "label": "Full Name",
+            "label": "Name",
             "placeholder": "Enter your full name"
         },
         "nickname": {
@@ -12,14 +12,15 @@
         },
         "email": {
             "label": "Email",
-            "placeholder": "Enter your email"
+            "placeholder": "Enter your email",
+            "error": "Invalid email format"
         },
         "phone": {
-            "label": "Phone Number",
-            "placeholder": "Enter your phone number"
+            "label": "WhatsApp Number",
+            "placeholder": "Enter your WhatsApp number"
         },
         "city": {
-            "label": "Domicile Location",
+            "label": "Current Address",
             "placeholder": "Select your location"
         },
         "knowFrom": {

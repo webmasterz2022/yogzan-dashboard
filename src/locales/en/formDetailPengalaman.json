@@ -7,39 +7,43 @@
       "placeholder": "Describe your photoshoot experience"
     },
     "experience": {
-      "label": "Work Experience",
-      "placeholder": "Describe your work experience"
+      "label": "Describe Your Photography Experience",
+      "placeholder": "Write your experience here"
     },
     "camera": {
-      "label": "Cameras Mastered",
-      "placeholder": "List cameras you are proficient with",
-      "description": "Include types like DSLR, mirrorless, etc."
+      "label": "Camera Series You Own",
+      "placeholder": "Enter your camera series here",
+      "description": "You may add more than one"
     },
     "lens": {
-      "label": "Lenses Mastered",
-      "placeholder": "List lenses you are proficient with",
-      "description": "Include types like prime, zoom, macro, etc."
+      "label": "Lens Series You Own",
+      "placeholder": "Enter your lens series here",
+      "description": "You may add more than one"
     },
     "accessories": {
-      "label": "Accessories Mastered",
-      "placeholder": "List accessories you are proficient with",
-      "description": "Include items like tripods, gimbals, etc."
+      "label": "Do you own any other camera accessories?",
+      "placeholder": "Enter your accessories here",
+      "description": "You may add more than one"
     },
     "workingHour": {
-      "label": "Work Availability",
-      "placeholder": "Describe your work availability"
+      "label": "Select Your Availability for Yogzan Project",
+      "placeholder": "Choose Time"
     },
     "fee": {
-      "label": "Expected Fee",
-      "placeholder": "State your expected fee"
+      "label": "Expected Fee for Photography (Photo Only within 1 hour)",
+      "placeholder": "Enter expected fee here"
     },
     "portfolio": {
-      "label": "Upload Portfolio",
-      "placeholder": "Choose portfolio file"
+      "label": "Portfolio link",
+      "placeholder": "Enter portfolio link"
     },
     "jobRole": {
       "label": "Position Applied For",
       "placeholder": "Select the position you are applying for"
+    },
+    "cv": {
+      "label": "CV link",
+      "placeholder": "Enter CV link"
     }
   },
   "submit": "Submit Work Experience",

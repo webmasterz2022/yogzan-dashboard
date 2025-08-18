@@ -1,21 +1,21 @@
 {
-    "title": "Yay! Just One Step Left to Complete Your Order!",
+    "title": "Yeay! Just One Step Away From Completing Your Order!",
     "fields": {
         "fullname": {
             "label": "Full Name",
-            "placeholder": "Enter your full name"
+            "placeholder": "Enter full name"
         },
         "nickname": {
             "label": "Nickname",
-            "placeholder": "Enter your nickname"
+            "placeholder": "Enter nickname"
         },
         "address": {
-            "label": "Shipping Address (For packages with printed photos/albums)",
+            "label": "Shipping Address (Only for those who order printed photo/album packages)",
             "placeholder": "Enter full address",
-            "helper": "Please fill in the format 'Recipient Name - Recipient Phone Number - Full Address - District - City/Regency - Postal Code'"
+            "helper": "Format: “Recipient Name – Recipient Phone Number – Full Address – District – City/Regency – Postal Code”"
         },
         "layanan": {
-            "label": "Select Service",
+            "label": "Choose Service",
             "placeholder": "Select one",
             "options": [
                 "Graduation",
@@ -40,16 +40,16 @@
         },
         "ig": {
             "label": "Instagram Account",
-            "placeholder": "e.g. @yogzan.graduation, @yogzan.fotosinema",
-            "helper": "For group photos, please list all members' accounts (use commas to separate)"
+            "placeholder": "Example: @yogzan.graduation, @yogzan.wedding",
+            "helper": "For group photos, please list all Instagram accounts separated by commas"
         },
         "igMua": {
             "label": "MUA Instagram Account (Optional)",
-            "placeholder": "e.g. @ig.mua"
+            "placeholder": "Example: @yogzan.graduation"
         },
         "igAttire": {
             "label": "Attire Instagram Account (Optional)",
-            "placeholder": "e.g. @ig.attire"
+            "placeholder": "Example: @yogzan.graduation"
         },
         "date": {
             "label": "Select Photoshoot Date",
@@ -60,15 +60,15 @@
             "placeholder": "HH/MM"
         },
         "phone": {
-            "label": "WhatsApp number to contact",
-            "placeholder": "Enter your contact number"
+            "label": "WhatsApp Number (reachable)",
+            "placeholder": "Enter contact here"
         },
         "location": {
             "label": "Photoshoot Location",
             "placeholder": "Enter photoshoot location"
         },
         "knowFrom": {
-            "label": "How did you know about Yogzan?",
+            "label": "How did you hear about Yogzan?",
             "placeholder": "Select one",
             "options": [
                 "Instagram",
@@ -101,9 +101,9 @@
     },
     "submit": "Complete Order",
     "modal": {
-        "title": "Order received!",
-        "desc": "Thank you for trusting us.\nWe will contact you as soon as possible, please make sure your number is always active.",
+        "title": "Request Received!",
+        "desc": "Thank you for placing your trust in us.\nWe will contact you as soon as possible, so please make sure your number is always active.",
         "close": "Close"
     },
-    "terms": "I have read and agree to Yogzan's Terms of Service"
+    "terms": "I have read and agree to the "
 }

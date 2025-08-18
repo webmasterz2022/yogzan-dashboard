@@ -4,10 +4,10 @@
     "fields": {
         "name": {
             "label": "Name",
-            "placeholder": "Enter your name"
+            "placeholder": "Enter full name"
         },
         "layanan": {
-            "label": "Select Service",
+            "label": "Choose Service",
             "placeholder": "Select one",
             "options": [
                 "Graduation",
@@ -23,7 +23,7 @@
             "placeholder": "Enter your needs here"
         },
         "city": {
-            "label": "Select Location",
+            "label": "Choose Location",
             "placeholder": "Select one",
             "options": [
                 "Bandung",
@@ -38,20 +38,20 @@
             ]
         },
         "cityExtended": {
-            "label": "Other Location Name",
-            "placeholder": "Enter location name"
+            "label": "Other Location",
+            "placeholder": "Enter location"
         },
         "date": {
             "label": "Select Photoshoot Date",
             "placeholder": "DD/MM/YYYY"
         },
-        "noDate": "Date not determined yet",
+        "noDate": "Not decided yet",
         "phone": {
-            "label": "WhatsApp number to contact",
+            "label": "WhatsApp Number (reachable)",
             "placeholder": "Enter your contact number"
         },
         "knowFrom": {
-            "label": "How did you know about Yogzan?",
+            "label": "How did you hear about Yogzan",
             "placeholder": "Select one",
             "options": [
                 "Instagram",
@@ -84,8 +84,8 @@
     },
     "submit": "Get Price List",
     "modal": {
-        "title": "Order received!",
-        "desc": "Thank you for trusting us.\nWe will contact you as soon as possible, please make sure your number is always active.",
+        "title": "Request Received!",
+        "desc": "Thank you for placing your trust in us.\nWe will contact you as soon as possible, so please make sure your number is always active.",
         "close": "Close"
     }
 }
