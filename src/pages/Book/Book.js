@@ -105,10 +105,15 @@ export default function Book() {
       _date = moment(_date).format('YYYY-MM-DD');
     }
     const waNum = intlNation.includes(values.city) ? intlNum : domNum
-    const message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0ALokasi: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`
+    let message;
+    if (i18n.language === 'id') {
+      message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0ALokasi: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`;
+    } else {
+      message = `Hello Admin! I want to get the Pricelist info.%0AName: ${values.name}%0AFor Event: ${_layanan}%0ADate/Month: ${_date}%0ALocation: ${_city}%0AContact: ${values.phone}%0AThank you!`;
+    }
     return `https://wa.me/${waNum}?text=${message}`
   }
-
+  console.log(i18n.language)
   return (
     <>
       <section className={styles.root}>
