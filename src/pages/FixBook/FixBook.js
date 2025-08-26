@@ -12,7 +12,7 @@ import { submitFixBooking } from '../../store/action'
 import { useDispatch, useSelector } from 'react-redux'
 import TextArea from '../../components/TextArea'
 import moment from 'moment'
-import { domNum } from '../../utils'
+import { domNum, getPrefixedPath, intlNation, intlNum } from '../../utils'
 import { useTranslation } from 'react-i18next'
 
 export default function Book() {
@@ -72,8 +72,8 @@ export default function Book() {
   ]
 
   const handleFormSubmit = (values) => {
-    const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
-    if (_layanan === 'Cetak Album') {
+    const _layanan = values.layanan === t('fields.layanan.options.5', 'Lainnya') ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
+    if (_layanan === t('fields.layanan.options.4', 'Cetak Album')) {
       values.date = ''
       values.time = ''
       values.location = ''
@@ -85,7 +85,7 @@ export default function Book() {
         values.date = moment(values.date).isValid() ? moment(values.date).format('YYYY-MM-DD') : values.date;
       }
     }
-    const _knowFrom = (values.knowFrom === 'Lainnya' || values.knowFrom === 'Instagram' || values.knowFrom === 'Tiktok') ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
+    const _knowFrom = (values.knowFrom === t('fields.knowFrom.options.5', 'Lainnya') || values.knowFrom === t('fields.knowFrom.options.0', 'Instagram') || values.knowFrom === t('fields.knowFrom.options.1', 'Tiktok')) ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
     const { knowFromExtended: _, ..._values } = values
     dispatch(submitFixBooking({ ..._values, layanan: _layanan, knowFrom: _knowFrom }, () => {
       setOpenModal(true)
@@ -93,7 +93,7 @@ export default function Book() {
   }
 
   const handleCloseModal = () => {
-    window.location.href = '/fixbook'
+    window.location.href = getPrefixedPath('/fixbook')
   }
 
   const disabledButton = val => {
@@ -103,17 +103,17 @@ export default function Book() {
       val.ig &&
       val.phone &&
       val.knowFrom &&
-      (val.layanan === 'Cetak Album' ||
-        (((val.layanan !== 'Cetak Album' && val.date)) &&
-          ((val.layanan !== 'Cetak Album' && val.time)) &&
-          ((val.layanan !== 'Cetak Album' && val.location))))
+      (val.layanan === t('fields.layanan.options.4', 'Cetak Album') ||
+        (((val.layanan !== t('fields.layanan.options.4', 'Cetak Album') && val.date)) &&
+          ((val.layanan !== t('fields.layanan.options.4', 'Cetak Album') && val.time)) &&
+          ((val.layanan !== t('fields.layanan.options.4', 'Cetak Album') && val.location))))
     ) {
-      if ((val.layanan === 'Lainnya' && !val['layanan-extended']) ||
-        (val.layanan === 'Wisuda' && !val.campus) ||
-        (val.layanan === 'Wisuda' && !val.faculty) ||
-        (val.knowFrom === 'Lainnya' && !val['knowFrom-extended']) ||
-        (val.knowFrom === 'Instagram' && !val['knowFrom-extended']) ||
-        (val.knowFrom === 'Tiktok' && !val['knowFrom-extended'])
+      if ((val.layanan === t('fields.layanan.options.5', 'Lainnya') && !val['layanan-extended']) ||
+        (val.layanan === t('fields.layanan.options.1', 'Wisuda') && !val.campus) ||
+        (val.layanan === t('fields.layanan.options.1', 'Wisuda') && !val.faculty) ||
+        (val.knowFrom === t('fields.knowFrom.options.5', 'Lainnya') && !val['knowFrom-extended']) ||
+        (val.knowFrom === t('fields.knowFrom.options.0', 'Instagram') && !val['knowFrom-extended']) ||
+        (val.knowFrom === t('fields.knowFrom.options.1', 'Tiktok') && !val['knowFrom-extended'])
       ) {
         return true
       }
@@ -130,20 +130,32 @@ export default function Book() {
       location
     } = values
     console.log(values)
-    const _knowFrom = (values.knowFrom === 'Lainnya' || values.knowFrom === 'Instagram' || values.knowFrom === 'Tiktok') ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
+    const _knowFrom = (values.knowFrom === t('fields.knowFrom.options.5', 'Lainnya') || values.knowFrom === t('fields.knowFrom.options.5', 'Other') || values.knowFrom === t('fields.knowFrom.options.0', 'Instagram') || values.knowFrom === t('fields.knowFrom.options.1', 'Tiktok')) ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
 
     // Format date to YYYY-MM-DD if not empty
     let formattedDate = date;
     if (date) {
       formattedDate = moment(date).isValid() ? moment(date).format('YYYY-MM-DD') : date;
     }
-    if (layanan === 'Wisuda') {
-      const message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${values.fullname}%0ANama Panggilan: ${values.nickname}%0AUntuk Event: ${layanan}%0AAsal Kampus: ${campus}%0AFakultas/Jurusan: ${faculty}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${formattedDate}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0AMengetahui Yogzan dari: ${_knowFrom}%0ATerimakasih!`
-      return `https://wa.me/${domNum}?text=${message}`
+    const waNum = intlNation.includes(location) ? intlNum : domNum
+    let message = '';
+    if (i18n.language === 'id') {
+      if (layanan === 'Wisuda') {
+        message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${values.fullname}%0ANama Panggilan: ${values.nickname}%0AUntuk Event: ${layanan}%0AAsal Kampus: ${campus}%0AFakultas/Jurusan: ${faculty}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${formattedDate}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0AMengetahui Yogzan dari: ${_knowFrom}%0ATerimakasih!`
+        return `https://wa.me/${waNum}?text=${message}`
+      } else {
+        const _layanan = layanan === 'Lainnya' ? `${layanan} - ${values['layanan-extended']}` : layanan
+        message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${fullname}%0ANama Panggilan: ${nickname}%0AUntuk Event: ${_layanan}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${formattedDate}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0AMengetahui Yogzan dari: ${_knowFrom}%0ATerimakasih!`
+        return `https://wa.me/${waNum}?text=${message}`
+      }
     } else {
-      const _layanan = layanan === 'Lainnya' ? `${layanan} - ${values['layanan-extended']}` : layanan
-      const message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${fullname}%0ANama Panggilan: ${nickname}%0AUntuk Event: ${_layanan}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${formattedDate}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0AMengetahui Yogzan dari: ${_knowFrom}%0ATerimakasih!`
-      return `https://wa.me/${domNum}?text=${message}`
+      if (layanan === 'Graduation') {
+        message = `Hello Admin! Here is the booking form that I have filled out:%0AFull Name: ${values.fullname}%0ANickname: ${values.nickname}%0AFor Event: ${layanan}%0ACampus: ${campus}%0AFaculty: ${faculty}%0AInstagram Account: ${ig}%0AMUA Instagram Account: ${values['ig-mua']}%0AAttire Instagram Account: ${values['ig-attire']}%0APhoto Shoot Date: ${formattedDate}%0APhoto Shoot Time: ${time}%0AContact: ${values.phone}%0APhoto Shoot Location: ${location}%0AHow did you know Yogzan: ${_knowFrom}%0AThank you!`
+      } else {
+        const _layanan = layanan === 'Other' ? `${layanan} - ${values['layanan-extended']}` : layanan
+        message = `Hello Admin! Here is the booking form that I have filled out:%0AFull Name: ${fullname}%0ANickname: ${nickname}%0AFor Event: ${_layanan}%0AInstagram Account: ${ig}%0AMUA Instagram Account: ${values['ig-mua']}%0AAttire Instagram Account: ${values['ig-attire']}%0APhoto Shoot Date: ${formattedDate}%0APhoto Shoot Time: ${time}%0AContact: ${values.phone}%0APhoto Shoot Location: ${location}%0AHow did you know Yogzan: ${_knowFrom}%0AThank you!`
+      }
+      return `https://wa.me/${waNum}?text=${message}`
     }
   }
 

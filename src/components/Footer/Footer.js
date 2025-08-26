@@ -11,7 +11,7 @@ import tiktok from '../../assets/tiktok.svg'
 import hiringLight from '../../assets/hiring-light.svg'
 import bookingLight from '../../assets/booking-light.svg'
 import arrowLight from '../../assets/arrow-light.svg'
-import { bookingViaWA } from '../../utils'
+import { bookingViaWA, getPrefixedPath, getSanitizedPath } from '../../utils'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { routes } from '../../configs/routes'
 import ReactGA from 'react-ga4'
@@ -23,20 +23,20 @@ export default function Footer() {
 
   const clickPesanSekarang = () => {
     ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', t('getPriceList', { ns: 'footer' }))
-    navigate(routes.BOOK())
+    navigate(getPrefixedPath(routes.BOOK()))
   }
 
   const redirectFooter = () => {
     if (pathname.includes('/price-list')) {
       bookingViaWA()
     } else {
-      navigate(routes.BOOK())
+      navigate(getPrefixedPath(routes.BOOK()))
     }
   }
 
   return (
     <section className={styles.root}>
-      {![routes.BOOK(), routes.CAREER(), routes.FIXBOOK()].includes(pathname) && (
+      {![routes.BOOK(), routes.CAREER(), routes.FIXBOOK()].includes(getSanitizedPath(pathname)) && (
         <div className={styles.booking}>
           <div>
             <h3>{t('ctaTitle', { ns: 'footer' })}</h3>
@@ -62,7 +62,7 @@ export default function Footer() {
           </div>
           <div>
             <Button icon={bookingLight} variant="active-rounded" handleClick={clickPesanSekarang}>{t('getPriceList', { ns: 'footer' })}</Button>
-            <Button icon={hiringLight} variant="active-rounded" handleClick={() => navigate(routes.CAREER())}>{t('career', { ns: 'footer' })}</Button>
+            <Button icon={hiringLight} variant="active-rounded" handleClick={() => navigate(getPrefixedPath(routes.CAREER()))}>{t('career', { ns: 'footer' })}</Button>
           </div>
           <div>
             <p>{t('contactUs', { ns: 'footer' })}</p>

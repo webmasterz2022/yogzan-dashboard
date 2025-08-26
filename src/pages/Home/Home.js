@@ -15,7 +15,7 @@ import CardChooseUs from '../../components/CardChooseUs'
 import CardTestimony from '../../components/CardTestimony'
 import { getAllCategories, getAllTestimonies, getHomepageCategories, getHomepageImages } from '../../store/action'
 import { useSelector, useDispatch } from 'react-redux'
-import { getDeviceType, shuffle } from '../../utils'
+import { getDeviceType, getPrefixedPath, shuffle } from '../../utils'
 import { useNavigate } from 'react-router-dom'
 import { chooseUs, testimonials } from './dataMock'
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -107,7 +107,7 @@ export default function Home() {
               <div className={styles.tujuh}>
                 <div style={{ backgroundImage: `url(${images[6] ? images[6].url : blank})` }} />
               </div>
-              <Button variant="active-square" handleClick={() => navigate(routes.BOOK())}>
+              <Button variant="active-square" handleClick={() => navigate(getPrefixedPath(routes.BOOK()))}>
                 {t('getPriceList', { ns: 'home' })}
                 <img src={arrowLight} alt="" />
               </Button>
@@ -133,7 +133,7 @@ export default function Home() {
           <div>
             {categories?.map(category => {
               return (
-                <CategoryCard key={category.name} {...category} title={t(`category.${category.name}.label`, { ns: 'home', defaultValue: category.name })} handleClick={() => navigate(`/gallery?type=${category.name}`)} />
+                <CategoryCard key={category.name} {...category} title={t(`category.${category.name}.label`, { ns: 'home', defaultValue: category.name })} handleClick={() => navigate(getPrefixedPath(`/gallery?type=${category.name}`))} />
               )
             })}
           </div>

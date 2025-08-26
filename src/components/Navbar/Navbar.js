@@ -87,7 +87,7 @@ export default function Navbar() {
 
   return (
     <div ref={rootRef} className={styles.root}>
-      <img ref={logoRef} src={logoDark} alt="yogzan" onClick={() => navigate('/')} />
+      <img ref={logoRef} src={logoDark} alt="yogzan" onClick={() => navigate(getPrefixedPath('/'))} />
       <div className={styles.menuBar}>
         {menus.map((menu, idx) => (
           <Button

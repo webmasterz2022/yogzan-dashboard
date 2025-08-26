@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getCities, getGalleryCategories, getPortfolioImages } from '../../store/action'
 import Button from '../../components/Button'
 import { routes } from '../../configs/routes'
+import { getPrefixedPath } from '../../utils'
 
 export default function Gallery() {
   const { t, i18n } = useTranslation()
@@ -142,7 +143,7 @@ export default function Gallery() {
             <h3>{t(`gallery.category.${type}.title`)}</h3>
             <h5>{t(`gallery.category.${type}.text`)}</h5>
           </div>
-          <Button variant={'active-square'} handleClick={() => navigate(routes.BOOK())}>
+          <Button variant={'active-square'} handleClick={() => navigate(getPrefixedPath(routes.BOOK()))}>
             {t('gallery.getPriceList')}
             <img src={arrowLight} alt="" />
           </Button>

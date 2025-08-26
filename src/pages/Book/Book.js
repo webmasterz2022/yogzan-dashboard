@@ -50,11 +50,11 @@ export default function Book() {
 
   const handleFormSubmit = (values) => {
     ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Dapatkan Daftar Harga')
-    const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
-    const _city = values.city === 'Lokasi Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
-    const _knowFrom = (values.knowFrom === 'Lainnya' || values.knowFrom === 'Instagram' || values.knowFrom === 'Tiktok') ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
+    const _layanan = values.layanan === t('fields.layanan.options.5', 'Lainnya') ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
+    const _city = values.city === t('fields.city.options.5', 'Lokasi Lainnya') ? `${values.city} - ${values['city-extended']}` : values.city
+    const _knowFrom = (values.knowFrom === t('fields.knowFrom.options.5', 'Lainnya') || values.knowFrom === t('fields.knowFrom.options.0', 'Instagram') || values.knowFrom === t('fields.knowFrom.options.1', 'Tiktok')) ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
     let _date = checked ? 'Belum menentukan waktu' : values.date
-    if (_layanan === 'Cetak Album') {
+    if (_layanan === t('fields.layanan.options.4', 'Cetak Album')) {
       _date = ''
     }
     // Format date to YYYY-MM-DD if not empty and not 'Belum menentukan waktu'
@@ -76,14 +76,14 @@ export default function Book() {
     if (val.name &&
       val.layanan &&
       val.city &&
-      (val.layanan === 'Cetak Album' ||
-        (val.layanan !== 'Cetak Album' && (val.date || checked))) &&
+      (val.layanan === t('fields.layanan.options.4', 'Cetak Album') ||
+        (val.layanan !== t('fields.layanan.options.4', 'Cetak Album') && (val.date || checked))) &&
       val.phone &&
       val.knowFrom
     ) {
-      if ((val.layanan === 'Lainnya' && !val['layanan-extended']) ||
-        (val.city === 'Lokasi Lainnya' && !val['city-extended']) ||
-        ((val.knowFrom === 'Lainnya' || val.knowFrom === 'Instagram' || val.knowFrom === 'Tiktok') && !val['knowFrom-extended'])
+      if (((val.layanan === t('fields.layanan.options.5', 'Lainnya') || val.layanan === t('fields.layanan.options.5', 'Other')) && !val['layanan-extended']) ||
+        ((val.city === t('fields.city.options.5', 'Lokasi Lainnya') || val.city === t('fields.city.options.5', 'Other Location')) && !val['city-extended']) ||
+        ((val.knowFrom === t('fields.knowFrom.options.5', 'Lainnya') || val.knowFrom === t('fields.knowFrom.options.0', 'Instagram') || val.knowFrom === t('fields.knowFrom.options.1', 'Tiktok')) && !val['knowFrom-extended'])
       ) {
         return true
       }
@@ -94,10 +94,10 @@ export default function Book() {
   }
 
   const generateLinkWA = (values) => {
-    const _layanan = values.layanan === 'Lainnya' ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
-    const _city = values.city === 'Lokasi Lainnya' ? `${values.city} - ${values['city-extended']}` : values.city
+    const _layanan = (values.layanan === t('fields.layanan.options.5', 'Lainnya') || values.layanan === t('fields.layanan.options.5', 'Other')) ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
+    const _city = (values.city === t('fields.city.options.5', 'Lokasi Lainnya') || values.city === t('fields.city.options.5', 'Other Location')) ? `${values.city} - ${values['city-extended']}` : values.city
     let _date = checked ? 'Belum menentukan waktu' : values.date
-    if (_layanan === 'Cetak Album') {
+    if (_layanan === t('fields.layanan.options.4', 'Cetak Album')) {
       _date = ''
     }
     // Format date to YYYY-MM-DD if not empty and not 'Belum menentukan waktu'
@@ -155,7 +155,7 @@ export default function Book() {
                   options={cityOptions}
                   placeholder={t('fields.city.placeholder')}
                 />
-                {values.city === t('fields.city.options.8', 'Lokasi Lainnya') && (
+                {values.city === t('fields.city.options.10', 'Lokasi Lainnya') && (
                   <Field
                     className={styles.cityExtended}
                     component={Input}

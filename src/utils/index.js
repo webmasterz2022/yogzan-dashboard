@@ -62,3 +62,14 @@ export const removeDot = val => {
   }
   return val.replace(/\./g, '');
 };
+
+export const getPrefixedPath = (path) => {
+  if (window?.location?.pathname.startsWith('/en')) {
+    return '/en' + (path.startsWith('/') ? path : '/' + path);
+  }
+  return path;
+};
+
+export const getSanitizedPath = (pathname) => {
+  return pathname.startsWith('/en') ? pathname.replace('/en', '') : pathname;
+}
