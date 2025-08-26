@@ -46,7 +46,7 @@ function LanguageRouterWrapper() {
       if (deviceLang && !deviceLang.startsWith('id')) {
         i18n.changeLanguage('en');
         if (!location?.pathname.startsWith('/en')) {
-          window.location?.pathname = '/en';
+          window.location.pathname = '/en';
         }
       } else {
         i18n.changeLanguage('id');
