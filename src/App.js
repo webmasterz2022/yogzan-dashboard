@@ -35,10 +35,26 @@ function LanguageRouterWrapper() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Set initial language based on device/browser language
   useEffect(() => {
-    const isEnglish = location.pathname.startsWith('/en');
-    i18n.changeLanguage(isEnglish ? 'en' : 'id');
-  }, [location.pathname, i18n]);
+    const isEnglish = location?.pathname.startsWith('/en');
+    if (isEnglish) {
+      i18n.changeLanguage('en');
+    } else if (location?.pathname === '/' || location?.pathname === '') {
+      // Only set on root path to avoid interfering with navigation
+      const deviceLang = navigator.language || navigator.userLanguage;
+      if (deviceLang && !deviceLang.startsWith('id')) {
+        i18n.changeLanguage('en');
+        if (!location?.pathname.startsWith('/en')) {
+          window.location?.pathname = '/en';
+        }
+      } else {
+        i18n.changeLanguage('id');
+      }
+    } else {
+      i18n.changeLanguage('id');
+    }
+  }, [location?.pathname, i18n]);
 
   return (
     <AppContextProvider>
