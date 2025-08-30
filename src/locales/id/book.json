@@ -26,17 +26,28 @@
             "label": "Pilih Lokasi",
             "placeholder": "Pilih salah satu",
             "options": [
-                "Bandung",
-                "Jabodetabek",
-                "Malang",
-                "Surabaya",
-                "Semarang",
-                "Yogyakarta",
-                "Surakarta",
-                "Bali",
-                "Malaysia",
-                "Singapore",
-                "Lokasi Lainnya"
+                {
+                    "title": "Indonesia",
+                    "options": [
+                        "Bandung",
+                        "Jabodetabek",
+                        "Malang",
+                        "Surabaya",
+                        "Semarang",
+                        "Yogyakarta",
+                        "Surakarta",
+                        "Bali",
+                        "Lokasi Lainnya"
+                    ]
+                },
+                {
+                    "title": "International",
+                    "options": [
+                        "Malaysia",
+                        "Singapore",
+                        "Negara Lainnya"
+                    ]
+                }
             ]
         },
         "cityExtended": {

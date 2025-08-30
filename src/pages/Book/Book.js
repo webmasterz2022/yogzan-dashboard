@@ -15,6 +15,8 @@ import ReactGA from 'react-ga4'
 import { intlNum, domNum, intlNation } from '../../utils'
 import { useTranslation } from 'react-i18next'
 import moment from 'moment'
+import chevron from '../../assets/chevron.svg'
+import SelectInputGroup from '../../components/SelectInputGroup'
 
 export default function Book() {
   const dispatch = useDispatch();
@@ -51,7 +53,7 @@ export default function Book() {
   const handleFormSubmit = (values) => {
     ReactGA._gaCommandSendEvent('btnPesanSekarang', 'click', 'Dapatkan Daftar Harga')
     const _layanan = values.layanan === t('fields.layanan.options.5', 'Lainnya') ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
-    const _city = values.city === t('fields.city.options.5', 'Lokasi Lainnya') ? `${values.city} - ${values['city-extended']}` : values.city
+    const _city = values.city === t('fields.city.options.0.options.8', 'Lokasi Lainnya') || values.city === t('fields.city.options.1.options.2', 'Negara Lainnya') ? `${values.city} - ${values['city-extended']}` : values.city
     const _knowFrom = (values.knowFrom === t('fields.knowFrom.options.5', 'Lainnya') || values.knowFrom === t('fields.knowFrom.options.0', 'Instagram') || values.knowFrom === t('fields.knowFrom.options.1', 'Tiktok')) ? `${values.knowFrom} - ${values['knowFrom-extended']}` : values.knowFrom
     let _date = checked ? 'Belum menentukan waktu' : values.date
     if (_layanan === t('fields.layanan.options.4', 'Cetak Album')) {
@@ -82,7 +84,7 @@ export default function Book() {
       val.knowFrom
     ) {
       if (((val.layanan === t('fields.layanan.options.5', 'Lainnya') || val.layanan === t('fields.layanan.options.5', 'Other')) && !val['layanan-extended']) ||
-        ((val.city === t('fields.city.options.5', 'Lokasi Lainnya') || val.city === t('fields.city.options.5', 'Other Location')) && !val['city-extended']) ||
+        ((val.city === t('fields.city.options.0.options.8', 'Lokasi Lainnya') || val.city === t('fields.city.options.1.options.2', 'Negara Lainnya')) && !val['city-extended']) ||
         ((val.knowFrom === t('fields.knowFrom.options.5', 'Lainnya') || val.knowFrom === t('fields.knowFrom.options.0', 'Instagram') || val.knowFrom === t('fields.knowFrom.options.1', 'Tiktok')) && !val['knowFrom-extended'])
       ) {
         return true
@@ -95,7 +97,7 @@ export default function Book() {
 
   const generateLinkWA = (values) => {
     const _layanan = (values.layanan === t('fields.layanan.options.5', 'Lainnya') || values.layanan === t('fields.layanan.options.5', 'Other')) ? `${values.layanan} - ${values['layanan-extended']}` : values.layanan
-    const _city = (values.city === t('fields.city.options.5', 'Lokasi Lainnya') || values.city === t('fields.city.options.5', 'Other Location')) ? `${values.city} - ${values['city-extended']}` : values.city
+    const _city = (values.city === t('fields.city.options.0.options.8', 'Lokasi Lainnya') || values.city === t('fields.city.options.1.options.2', 'Negara Lainnya')) ? `${values.city} - ${values['city-extended']}` : values.city
     let _date = checked ? 'Belum menentukan waktu' : values.date
     if (_layanan === t('fields.layanan.options.4', 'Cetak Album')) {
       _date = ''
@@ -104,7 +106,7 @@ export default function Book() {
     if (_date && _date !== 'Belum menentukan waktu') {
       _date = moment(_date).format('YYYY-MM-DD');
     }
-    const waNum = intlNation.includes(values.city) ? intlNum : domNum
+    const waNum = [intlNation, 'Negara Lainnya', 'Other Country'].includes(values.city) ? intlNum : domNum
     let message;
     if (i18n.language === 'id') {
       message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0ALokasi: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`;
@@ -113,7 +115,7 @@ export default function Book() {
     }
     return `https://wa.me/${waNum}?text=${message}`
   }
-  console.log(i18n.language)
+
   return (
     <>
       <section className={styles.root}>
@@ -149,13 +151,15 @@ export default function Book() {
                 )}
                 <p>{t('fields.city.label')}</p>
                 <Field
-                  component={SelectInput}
+                  // className={styles.selectCity}
+                  component={SelectInputGroup}
                   onChange={(e) => setData({ ...values, city: e })}
                   name="city"
                   options={cityOptions}
                   placeholder={t('fields.city.placeholder')}
+                  suffixIcon={<img className={styles.imgSuffix} img src={chevron} alt="chevron" />}
                 />
-                {values.city === t('fields.city.options.10', 'Lokasi Lainnya') && (
+                {(values.city === t('fields.city.options.0.options.8', 'Lokasi Lainnya') || values.city === t('fields.city.options.1.options.2', 'Negara Lainnya')) && (
                   <Field
                     className={styles.cityExtended}
                     component={Input}
