@@ -36,25 +36,25 @@ function LanguageRouterWrapper() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Persist language selection in localStorage
+  // Prioritize route prefix for language, then localStorage, then device language
   const hasSetInitialLang = useRef(false);
   useEffect(() => {
     if (!hasSetInitialLang.current) {
-      const storedLang = localStorage.getItem('yogzan-lang');
-      if (storedLang) {
-        i18n.changeLanguage(storedLang);
-        if (storedLang === 'en' && !location?.pathname.startsWith('/en')) {
-          window.location.pathname = '/en' + location?.pathname;
-        } else if (storedLang === 'id' && location?.pathname.startsWith('/en')) {
-          window.location.pathname = location?.pathname.replace('/en', '') || '/';
-        }
+      const isEnglishRoute = location?.pathname.startsWith('/en');
+      if (isEnglishRoute) {
+        i18n.changeLanguage('en');
+        localStorage.setItem('yogzan-lang', 'en');
       } else {
-        const isEnglish = location?.pathname.startsWith('/en');
-        if (isEnglish) {
-          i18n.changeLanguage('en');
-          localStorage.setItem('yogzan-lang', 'en');
-        } else if (location?.pathname === '/' || location?.pathname === '') {
-          // Only set on root path to avoid interfering with navigation
+        const storedLang = localStorage.getItem('yogzan-lang');
+        if (storedLang) {
+          i18n.changeLanguage(storedLang);
+          if (storedLang === 'en' && !location?.pathname.startsWith('/en')) {
+            window.location.pathname = '/en' + location?.pathname;
+          } else if (storedLang === 'id' && location?.pathname.startsWith('/en')) {
+            window.location.pathname = location?.pathname.replace('/en', '') || '/';
+          }
+        } else {
+          // No stored lang, detect device lang
           const deviceLang = navigator.language || navigator.userLanguage;
           if (deviceLang && !deviceLang.startsWith('id')) {
             i18n.changeLanguage('en');
@@ -66,9 +66,6 @@ function LanguageRouterWrapper() {
             i18n.changeLanguage('id');
             localStorage.setItem('yogzan-lang', 'id');
           }
-        } else {
-          i18n.changeLanguage('id');
-          localStorage.setItem('yogzan-lang', 'id');
         }
       }
       hasSetInitialLang.current = true;
