@@ -28,6 +28,7 @@ function LanguageRouterWrapper() {
   const location = useLocation();
   const { i18n } = useTranslation();
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [selectedLang, setSelectedLang] = useState(i18n.language);
 
   useLayoutEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -75,6 +76,12 @@ function LanguageRouterWrapper() {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    if (i18n.language !== selectedLang) {
+      setSelectedLang(i18n.language);
+    }
+  }, [i18n.language]);
+
   return (
     <AppContextProvider>
       {isMobile && (
@@ -82,7 +89,7 @@ function LanguageRouterWrapper() {
           <Select
             suffixIcon={<img src={chevron} alt="chevron" />}
             className={'languageSwitch'}
-            value={i18n.language}
+            value={selectedLang}
             size="large"
             onChange={(newLang) => {
               i18n.changeLanguage(newLang);
