@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import './i18n';
 import Home from './pages/Home';
@@ -35,26 +35,45 @@ function LanguageRouterWrapper() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Set initial language based on device/browser language
+  // Persist language selection in localStorage
+  const hasSetInitialLang = useRef(false);
   useEffect(() => {
-    const isEnglish = location?.pathname.startsWith('/en');
-    if (isEnglish) {
-      i18n.changeLanguage('en');
-    } else if (location?.pathname === '/' || location?.pathname === '') {
-      // Only set on root path to avoid interfering with navigation
-      const deviceLang = navigator.language || navigator.userLanguage;
-      if (deviceLang && !deviceLang.startsWith('id')) {
-        i18n.changeLanguage('en');
-        if (!location?.pathname.startsWith('/en')) {
-          window.location.pathname = '/en';
+    if (!hasSetInitialLang.current) {
+      const storedLang = localStorage.getItem('yogzan-lang');
+      if (storedLang) {
+        i18n.changeLanguage(storedLang);
+        if (storedLang === 'en' && !location?.pathname.startsWith('/en')) {
+          window.location.pathname = '/en' + location?.pathname;
+        } else if (storedLang === 'id' && location?.pathname.startsWith('/en')) {
+          window.location.pathname = location?.pathname.replace('/en', '') || '/';
         }
       } else {
-        i18n.changeLanguage('id');
+        const isEnglish = location?.pathname.startsWith('/en');
+        if (isEnglish) {
+          i18n.changeLanguage('en');
+          localStorage.setItem('yogzan-lang', 'en');
+        } else if (location?.pathname === '/' || location?.pathname === '') {
+          // Only set on root path to avoid interfering with navigation
+          const deviceLang = navigator.language || navigator.userLanguage;
+          if (deviceLang && !deviceLang.startsWith('id')) {
+            i18n.changeLanguage('en');
+            localStorage.setItem('yogzan-lang', 'en');
+            if (!location?.pathname.startsWith('/en')) {
+              window.location.pathname = '/en';
+            }
+          } else {
+            i18n.changeLanguage('id');
+            localStorage.setItem('yogzan-lang', 'id');
+          }
+        } else {
+          i18n.changeLanguage('id');
+          localStorage.setItem('yogzan-lang', 'id');
+        }
       }
-    } else {
-      i18n.changeLanguage('id');
+      hasSetInitialLang.current = true;
     }
-  }, [location?.pathname, i18n]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <AppContextProvider>
@@ -67,6 +86,7 @@ function LanguageRouterWrapper() {
             size="large"
             onChange={(newLang) => {
               i18n.changeLanguage(newLang);
+              localStorage.setItem('yogzan-lang', newLang);
               if (window.location.pathname.startsWith('/en') && newLang === 'id') {
                 window.location.pathname = window.location.pathname.replace('/en', '') || '/';
               } else if (!window.location.pathname.startsWith('/en') && newLang === 'en') {

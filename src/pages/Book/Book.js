@@ -106,7 +106,8 @@ export default function Book() {
     if (_date && _date !== 'Belum menentukan waktu') {
       _date = moment(_date).format('YYYY-MM-DD');
     }
-    const waNum = [intlNation, 'Negara Lainnya', 'Other Country'].includes(values.city) ? intlNum : domNum
+    const isIntl = [...intlNation, t('fields.city.options.1.options.2', 'Negara Lainnya')].includes(values.city)
+    const waNum = isIntl ? intlNum : domNum
     let message;
     if (i18n.language === 'id') {
       message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0ALokasi: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`;
