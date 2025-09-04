@@ -14,7 +14,7 @@ export default function FormDetailPengalaman(props) {
   const { t } = useTranslation('formDetailExperience');
 
   const reqLink3 = new RegExp(/^((ftp|http|https):\/\/)?(www\.)?[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)\w*[#.-]*)*(\/?\w*\??[a-zA-Z0-9_]*=\w*(&[a-zA-Z0-9_]*=\w*)*)?\/?$/);
-  const isLink = value => reqLink3.test(value) ? undefined : t('fields.cv.error', 'Format Link salah');
+  const isLink = value => reqLink3.test(value) ? undefined : t('fields.cv.error', 'Format Link tidak valid');
 
   // Option arrays for selects
   const jobRoleOptions = [
@@ -138,6 +138,7 @@ export default function FormDetailPengalaman(props) {
             inputProps={{ placeholder: t('fields.portfolio.placeholder') }}
             name="portfolio"
             validate={isLink}
+            helper={t('fields.portfolio.description', '')}
           />
           <div>
             <Button variant="active-square" handleClick={() => handleStep(values, 'Data Diri')}>{t('back', 'Kembali')}</Button>

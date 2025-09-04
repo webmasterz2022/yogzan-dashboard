@@ -34,12 +34,18 @@
       "placeholder": "Sebutkan fee yang kamu harapkan"
     },
     "portfolio": {
-      "label": "Unggah Portfolio",
-      "placeholder": "Pilih file portfolio"
+      "label": "Link Portfolio",
+      "placeholder": "Masukkan link portfolio",
+      "description": "Url Portfolio atau Url Akun Instagram"
     },
     "jobRole": {
       "label": "Posisi yang Dilamar",
       "placeholder": "Pilih posisi yang dilamar"
+    },
+    "cv": {
+      "label": "Link CV",
+      "placeholder": "Masukkan link CV",
+      "error": "Format link tidak valid"
     }
   },
   "submit": "Kirim Detail Pengalaman",

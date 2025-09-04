@@ -6,6 +6,11 @@ import Button from '../Button';
 import SelectInput from '../SelectInput';
 import { useTranslation } from 'react-i18next';
 
+// Simple email format validation: character(s) before @, @, and domain after @
+export function isValidEmail(email) {
+  return /^.+@.+\..+$/.test(email);
+}
+
 export default function FormDataDiri(props) {
   const { handleSubmitForm, handleStep, data, setData } = props;
   const { t } = useTranslation(['form']);
@@ -21,12 +26,9 @@ export default function FormDataDiri(props) {
     };
   }, []);
 
-  const reqEmail = new RegExp([
-    '^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)',
-    '(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])',
-    '(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
-  ].join('|'));
-  const isEmail = value => reqEmail.test(value) ? undefined : t('fields.email.error', 'Format Email salah');
+  const isEmail = value => {
+    return isValidEmail(value) ? undefined : t('fields.email.error', 'Format Email salah')
+  };
 
   const normalizePhone = value => {
     if (!value) return value;

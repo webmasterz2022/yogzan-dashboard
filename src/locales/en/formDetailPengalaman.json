@@ -35,7 +35,8 @@
     },
     "portfolio": {
       "label": "Portfolio link",
-      "placeholder": "Enter portfolio link"
+      "placeholder": "Enter portfolio link",
+      "description": "Url Portfolio or Url Instagram Account"
     },
     "jobRole": {
       "label": "Position Applied For",
@@ -43,7 +44,8 @@
     },
     "cv": {
       "label": "CV link",
-      "placeholder": "Enter CV link"
+      "placeholder": "Enter CV link",
+      "error": "Invalid link format"
     }
   },
   "submit": "Submit Work Experience",

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './i18n';
 import Home from './pages/Home';
@@ -28,7 +28,6 @@ function LanguageRouterWrapper() {
   const location = useLocation();
   const { i18n } = useTranslation();
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [selectedLang, setSelectedLang] = useState(i18n.language);
 
   useLayoutEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -36,48 +35,10 @@ function LanguageRouterWrapper() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Prioritize route prefix for language, then localStorage, then device language
-  const hasSetInitialLang = useRef(false);
   useEffect(() => {
-    if (!hasSetInitialLang.current) {
-      const isEnglishRoute = location?.pathname.startsWith('/en');
-      if (isEnglishRoute) {
-        i18n.changeLanguage('en');
-        localStorage.setItem('yogzan-lang', 'en');
-      } else {
-        const storedLang = localStorage.getItem('yogzan-lang');
-        if (storedLang) {
-          i18n.changeLanguage(storedLang);
-          if (storedLang === 'en' && !location?.pathname.startsWith('/en')) {
-            window.location.pathname = '/en' + location?.pathname;
-          } else if (storedLang === 'id' && location?.pathname.startsWith('/en')) {
-            window.location.pathname = location?.pathname.replace('/en', '') || '/';
-          }
-        } else {
-          // No stored lang, detect device lang
-          const deviceLang = navigator.language || navigator.userLanguage;
-          if (deviceLang && !deviceLang.startsWith('id')) {
-            i18n.changeLanguage('en');
-            localStorage.setItem('yogzan-lang', 'en');
-            if (!location?.pathname.startsWith('/en')) {
-              window.location.pathname = '/en';
-            }
-          } else {
-            i18n.changeLanguage('id');
-            localStorage.setItem('yogzan-lang', 'id');
-          }
-        }
-      }
-      hasSetInitialLang.current = true;
-    }
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    if (i18n.language !== selectedLang) {
-      setSelectedLang(i18n.language);
-    }
-  }, [i18n.language]);
+    const isEnglish = location.pathname.startsWith('/en');
+    i18n.changeLanguage(isEnglish ? 'en' : 'id');
+  }, [location.pathname, i18n]);
 
   return (
     <AppContextProvider>
@@ -86,11 +47,10 @@ function LanguageRouterWrapper() {
           <Select
             suffixIcon={<img src={chevron} alt="chevron" />}
             className={'languageSwitch'}
-            value={selectedLang}
+            value={i18n.language}
             size="large"
             onChange={(newLang) => {
               i18n.changeLanguage(newLang);
-              localStorage.setItem('yogzan-lang', newLang);
               if (window.location.pathname.startsWith('/en') && newLang === 'id') {
                 window.location.pathname = window.location.pathname.replace('/en', '') || '/';
               } else if (!window.location.pathname.startsWith('/en') && newLang === 'en') {

@@ -28,7 +28,6 @@ export default function Navbar() {
   const navigate = useNavigate()
   const logoRef = useRef()
   const rootRef = useRef()
-  const [selectedLang, setSelectedLang] = useState(i18n.language);
 
   const getPrefixedPath = (path) => {
     if (window.location.pathname.startsWith('/en')) {
@@ -86,12 +85,6 @@ export default function Navbar() {
     }
   }, [sanitizedPath])
 
-  useEffect(() => {
-    if (i18n.language !== selectedLang) {
-      setSelectedLang(i18n.language);
-    }
-  }, [i18n.language]);
-
   return (
     <div ref={rootRef} className={styles.root}>
       <img ref={logoRef} src={logoDark} alt="yogzan" onClick={() => navigate(getPrefixedPath('/'))} />
@@ -109,10 +102,9 @@ export default function Navbar() {
         <Select
           className={styles.languageSwitch}
           suffixIcon={<img src={chevron} alt="chevron" />}
-          value={selectedLang}
+          value={i18n.language}
           onChange={(newLang) => {
             i18n.changeLanguage(newLang);
-            localStorage.setItem('yogzan-lang', newLang);
             if (window.location.pathname.startsWith('/en') && newLang === 'id') {
               window.location.pathname = window.location.pathname.replace('/en', '') || '/';
             } else if (!window.location.pathname.startsWith('/en') && newLang === 'en') {
