@@ -111,10 +111,10 @@ export default function Book() {
     let waNum;
     let message;
     if (i18n.language === 'id') {
-      waNum = domNum
+      waNum = domNum.replace('+', '');
       message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0ALokasi: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`;
     } else {
-      waNum = intlNum
+      waNum = intlNum.replace('+', '');
       message = `Hello Admin! I want to get the Pricelist info.%0AName: ${values.name}%0AFor Event: ${_layanan}%0ADate/Month: ${_date}%0ALocation: ${_city}%0AContact: ${values.phone}%0AThank you!`;
     }
     return `https://wa.me/${waNum}?text=${message}`
