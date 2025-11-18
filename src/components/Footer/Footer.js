@@ -38,6 +38,15 @@ export default function Footer() {
     }
   }
 
+  const handleClickWA = () => {
+    if(i18n.language === 'id') {
+      bookingViaWA(domNum)
+    } else {
+      bookingViaWA(intlNum)
+    }
+  }
+
+
   return (
     <section className={styles.root}>
       {![routes.BOOK(), routes.CAREER(), routes.FIXBOOK()].includes(getSanitizedPath(pathname)) && (
@@ -59,7 +68,7 @@ export default function Footer() {
             <div>
               <img onClick={() => window.open('https://www.facebook.com/yogzanfotosinema', '_blank')} className={styles.socmed} src={facebook} alt="FB" />
               <img onClick={() => window.open('https://www.instagram.com/yogzan.graduation/', '_blank')} className={styles.socmed} src={instagram} alt="IG" />
-              <img onClick={bookingViaWA} className={styles.socmed} src={whatsapp} alt="WA" />
+              <img onClick={handleClickWA} className={styles.socmed} src={whatsapp} alt="WA" />
               <img onClick={() => window.open('https://www.youtube.com/channel/UCVcqZinwF4hVDXkMPSNybtg', '_blank')} className={styles.socmed} src={youtube} alt="YT" />
               <img onClick={() => window.open('https://www.tiktok.com/@yogzan.graduation', '_blank')} className={styles.socmed} src={tiktok} alt="TT" />
             </div>
