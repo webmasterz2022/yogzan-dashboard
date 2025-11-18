@@ -137,9 +137,11 @@ export default function Book() {
     if (date) {
       formattedDate = moment(date).isValid() ? moment(date).format('YYYY-MM-DD') : date;
     }
-    const waNum = intlNation.includes(location) ? intlNum : domNum
+    // let waNum = intlNation.includes(location) ? intlNum : domNum
+    let waNum;
     let message = '';
     if (i18n.language === 'id') {
+      waNum = domNum
       if (layanan === 'Wisuda') {
         message = `Halo Admin! Berikut form pemesanan yang sudah saya isi:%0ANama Lengkap: ${values.fullname}%0ANama Panggilan: ${values.nickname}%0AUntuk Event: ${layanan}%0AAsal Kampus: ${campus}%0AFakultas/Jurusan: ${faculty}%0AAkun Instagram: ${ig}%0AAkun Instagram MUA: ${values['ig-mua']}%0AAkun Instagram Attire: ${values['ig-attire']}%0ATanggal Pemotretan: ${formattedDate}%0AWaktu Pemotretan: ${time}%0AKontak: ${values.phone}%0ALokasi Pemotretan: ${location}%0AMengetahui Yogzan dari: ${_knowFrom}%0ATerimakasih!`
         return `https://wa.me/${waNum}?text=${message}`
@@ -149,6 +151,7 @@ export default function Book() {
         return `https://wa.me/${waNum}?text=${message}`
       }
     } else {
+      waNum = intlNum
       if (layanan === 'Graduation') {
         message = `Hello Admin! Here is the booking form that I have filled out:%0AFull Name: ${values.fullname}%0ANickname: ${values.nickname}%0AFor Event: ${layanan}%0ACampus: ${campus}%0AFaculty: ${faculty}%0AInstagram Account: ${ig}%0AMUA Instagram Account: ${values['ig-mua']}%0AAttire Instagram Account: ${values['ig-attire']}%0APhoto Shoot Date: ${formattedDate}%0APhoto Shoot Time: ${time}%0AContact: ${values.phone}%0APhoto Shoot Location: ${location}%0AHow did you know Yogzan: ${_knowFrom}%0AThank you!`
       } else {

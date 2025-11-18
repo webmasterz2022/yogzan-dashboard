@@ -11,13 +11,13 @@ import tiktok from '../../assets/tiktok.svg'
 import hiringLight from '../../assets/hiring-light.svg'
 import bookingLight from '../../assets/booking-light.svg'
 import arrowLight from '../../assets/arrow-light.svg'
-import { bookingViaWA, getPrefixedPath, getSanitizedPath } from '../../utils'
+import { bookingViaWA, domNum, getPrefixedPath, getSanitizedPath, intlNum } from '../../utils'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { routes } from '../../configs/routes'
 import ReactGA from 'react-ga4'
 
 export default function Footer() {
-  const { t } = useTranslation(['footer'])
+  const { t, i18n } = useTranslation(['footer'])
   const navigate = useNavigate()
   const { pathname } = useLocation()
 
@@ -28,7 +28,11 @@ export default function Footer() {
 
   const redirectFooter = () => {
     if (pathname.includes('/price-list')) {
-      bookingViaWA()
+      if(i18n.language === 'id') {
+        bookingViaWA(domNum)
+      } else {
+        bookingViaWA(intlNum)
+      }
     } else {
       navigate(getPrefixedPath(routes.BOOK()))
     }

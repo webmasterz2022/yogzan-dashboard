@@ -107,11 +107,14 @@ export default function Book() {
       _date = moment(_date).format('YYYY-MM-DD');
     }
     const isIntl = [...intlNation, t('fields.city.options.1.options.2', 'Negara Lainnya')].includes(values.city)
-    const waNum = isIntl ? intlNum : domNum
+    // const waNum = isIntl ? intlNum : domNum
+    let waNum;
     let message;
     if (i18n.language === 'id') {
+      waNum = domNum
       message = `Halo Admin! Saya ingin info Pricelist.%0ANama: ${values.name}%0AUntuk Event: ${_layanan}%0ATanggal/Bulan: ${_date}%0ALokasi: ${_city}%0AKontak: ${values.phone}%0ATerimakasih!`;
     } else {
+      waNum = intlNum
       message = `Hello Admin! I want to get the Pricelist info.%0AName: ${values.name}%0AFor Event: ${_layanan}%0ADate/Month: ${_date}%0ALocation: ${_city}%0AContact: ${values.phone}%0AThank you!`;
     }
     return `https://wa.me/${waNum}?text=${message}`
