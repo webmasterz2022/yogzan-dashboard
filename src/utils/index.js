@@ -1,5 +1,7 @@
 export const intlNum = '+6282335168686'
-export const domNum = '+6285876020261'
+// export const domNum = '+6285876020261'
+export const domNum = '+6282264580830'
+
 
 export const intlNation = ['Malaysia', 'Singapore']
 
