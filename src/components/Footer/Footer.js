@@ -80,7 +80,7 @@ export default function Footer() {
           <div>
             <p>{t('contactUs', { ns: 'footer' })}</p>
             <p className={styles.email} onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=asktoyogzan@gmail.com', '_blank')}>{t('email', { ns: 'footer' })}</p>
-            <p>{t('phone', { ns: 'footer' })}</p>
+            <p>{t('phone_1', { ns: 'footer' })}</p>
           </div>
         </div>
         <div>
