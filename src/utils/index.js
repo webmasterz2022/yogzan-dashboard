@@ -1,5 +1,6 @@
 export const intlNum = '+6282335168686'
-export const domNum = '+6285713866305'
+export const domNum = '+6285713866294'
+// export const domNum = '+6285713866305'
 // export const domNum = '+6285876020261'
 // export const domNum = '+6282264580830'
 
