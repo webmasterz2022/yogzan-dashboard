@@ -16,6 +16,15 @@ export default function FormDetailPengalaman(props) {
   const reqLink3 = new RegExp(/^((ftp|http|https):\/\/)?(www\.)?[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)\w*[#.-]*)*(\/?\w*\??[a-zA-Z0-9_]*=\w*(&[a-zA-Z0-9_]*=\w*)*)?\/?$/);
   const isLink = value => reqLink3.test(value) ? undefined : t('fields.cv.error', 'Format Link tidak valid');
 
+  const isLink2 = value => {
+    try {
+      new URL(value);
+      return undefined;
+    } catch (error) {
+      return t('fields.portfolio.error', 'Format Link tidak valid');
+    }
+  }
+  
   // Option arrays for selects
   const jobRoleOptions = [
     t('fields.jobRole.options.fotografer', 'Fotografer'),
@@ -130,14 +139,14 @@ export default function FormDetailPengalaman(props) {
             label={t('fields.cv.label', 'Link CV')}
             inputProps={{ placeholder: t('fields.cv.placeholder') }}
             name="cv"
-            validate={isLink}
+            validate={isLink2}
           />
           <Field
             component={Input}
             label={t('fields.portfolio.label', 'Link Portfolio')}
             inputProps={{ placeholder: t('fields.portfolio.placeholder') }}
             name="portfolio"
-            validate={isLink}
+            validate={isLink2}
             helper={t('fields.portfolio.description', '')}
           />
           <div>
