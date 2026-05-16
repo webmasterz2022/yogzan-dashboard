@@ -31,7 +31,8 @@ export function getPortfolioImages(category, city) {
         `${BASE_URL}/gallery/?limit=1000${city ? `&city=${city}` : ''}`
       const { data } = await axios({
         method: 'get',
-        url
+        url,
+        cache: 'no-cache'
       })
       const indexingImage = data.images.map((img, i) => ({ ...img, index: i }))
       dispatch({ payload: { ...data, images: indexingImage }, type: 'DATA_FETCHED_PORTFOLIO' })

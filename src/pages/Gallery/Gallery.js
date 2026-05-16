@@ -28,20 +28,21 @@ export default function Gallery() {
   // const categories = ['Semua', 'Wisuda', 'Pernikahan', 'Keluarga']
   const [searchParams, setSearchParams] = useSearchParams()
   const [selectedImage, setSelectedImage] = useState({ open: false })
-  const [selectedCity, setSelectedCity] = useState(searchParams.get('city') || '')
+  const _selectedCity = searchParams.get('city')
+  const [selectedCity, setSelectedCity] = useState(_selectedCity)
   const type = searchParams.get('type')
   const currentCategory = categories.find(e => e.name === type)
 
   useEffect(() => {
     setSelectedCity(searchParams.get('city') || '')
     dispatch(getCities(type !== 'Semua' ? type : ''))
-    type && dispatch(getPortfolioImages(type))
   }, [type])
 
   useEffect(() => {
-    setSearchParams({ type, city: selectedCity.replace('Semua Lokasi', '') })
-    dispatch(getPortfolioImages(type, selectedCity.replace('Semua Lokasi', '')))
-  }, [selectedCity])
+    const cityParam = (selectedCity || '').replace('Semua Lokasi', '')
+    setSearchParams({ type, city: cityParam })
+    dispatch(getPortfolioImages(type, cityParam))
+  }, [type, selectedCity])
 
   useEffect(() => {
     window.scrollTo(0, 0)
