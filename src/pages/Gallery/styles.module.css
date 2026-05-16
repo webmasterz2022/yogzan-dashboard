@@ -133,8 +133,9 @@
 }
 
 .vertical>img {
-  width: 25vw;
+  width: 100%;
   min-width: 25vw;
+  /* max-width: 25vw; */
 }
 
 .horizontal>img {
@@ -353,7 +354,8 @@
   }
 
   .preview>img {
-    width: 68vw;
+    width: 100%;
+    min-width: 68vw;
     border-radius: 4px 4px 0 0;
   }
 
