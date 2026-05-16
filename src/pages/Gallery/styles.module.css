@@ -134,6 +134,7 @@
 
 .vertical>img {
   width: 25vw;
+  min-width: 25vw;
 }
 
 .horizontal>img {
