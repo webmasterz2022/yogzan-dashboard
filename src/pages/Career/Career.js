@@ -15,7 +15,7 @@ import { useDispatch } from 'react-redux'
 import { submitHiring } from '../../store/action'
 
 export default function Career() {
-  const { t } = useTranslation(['career'])
+  const { t, i18n } = useTranslation(['career'])
   const dispatch = useDispatch()
   const [stepperContent, setStepperContent] = useState([])
   const [step, setStep] = useState('')
