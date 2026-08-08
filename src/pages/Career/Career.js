@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './styles.module.css'
+import SEO from '../../components/SEO'
 import CardChooseUs from '../../components/CardChooseUs'
 import { careerChooseUs } from './dataMock'
 import satu from '../../assets/satu.svg'
@@ -71,6 +72,11 @@ export default function Career() {
 
   return (
     <section className={styles.root}>
+      <SEO
+        title="Karir - Gabung Tim Yogzan Fotosinema"
+        description="Bergabunglah dengan tim fotografer dan videografer profesional Yogzan. Peluang karir di industri fotografi di berbagai kota Indonesia."
+        path={i18n.language === 'en' ? '/en/career' : '/career'}
+      />
       <h3>{t('mainTitle', { ns: 'career' })}</h3>
       <p>{t('mainDesc', { ns: 'career' })}</p>
       <div className={styles.why}>

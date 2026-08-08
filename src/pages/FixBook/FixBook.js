@@ -14,6 +14,7 @@ import TextArea from '../../components/TextArea'
 import moment from 'moment'
 import { domNum, getPrefixedPath, intlNation, intlNum } from '../../utils'
 import { useTranslation } from 'react-i18next'
+import SEO from '../../components/SEO'
 
 export default function Book() {
   moment.locale('id')
@@ -176,6 +177,11 @@ export default function Book() {
 
   return (
     <>
+      <SEO
+        title="Booking Foto & Video - Yogzan Fotosinema"
+        description="Pesan sesi foto dan video profesional dengan Yogzan. Pilih paket wisuda, wedding, prewedding, keluarga, atau event di kota terdekat."
+        path={i18n.language === 'en' ? '/en/fixbook' : '/fixbook'}
+      />
       <section className={styles.root}>
         <div>
           <h3>{t('title')}</h3>

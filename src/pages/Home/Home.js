@@ -9,6 +9,7 @@ import pernikahan from '../../assets/pernikahan.jpg'
 import wisuda from '../../assets/wisuda.jpg'
 import arrowLight from '../../assets/arrow-light.svg'
 
+import SEO from '../../components/SEO'
 import Button from '../../components/Button'
 import CategoryCard from '../../components/CategoryCard'
 import CardChooseUs from '../../components/CardChooseUs'
@@ -73,6 +74,11 @@ export default function Home() {
 
   return (
     <section className={styles.root}>
+      <SEO
+        title="Yogzan - Jasa Foto & Video Profesional di 7 Kota Indonesia"
+        description="Abadikan momen berharga dengan layanan foto dan video profesional. Wedding, prewedding, wisuda, event. Tersedia di Jogja, Jakarta, Surabaya, Bandung, Malang, Semarang, dan Bali."
+        path={i18n.language === 'en' ? '/en' : '/'}
+      />
       <div className={styles.header}>
         <img src={logo} alt='yogzan' />
         <h3 className={styles.heading1}>{t('header.mainTitle', { ns: 'home' })}</h3>

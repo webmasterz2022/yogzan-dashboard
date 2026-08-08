@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next'
 import moment from 'moment'
 import chevron from '../../assets/chevron.svg'
 import SelectInputGroup from '../../components/SelectInputGroup'
+import SEO from '../../components/SEO'
 
 export default function Book() {
   const dispatch = useDispatch();
@@ -122,6 +123,7 @@ export default function Book() {
 
   return (
     <>
+      <SEO noindex />
       <section className={styles.root}>
         <div>
           <h3>{t('title')}</h3>

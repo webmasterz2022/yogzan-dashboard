@@ -10,6 +10,7 @@ import arrowLeft from '../../assets/arrow-left.svg'
 import arrowRight from '../../assets/arrow-right.svg'
 import xCircle from '../../assets/x-circle.svg'
 import check from '../../assets/check.svg'
+import SEO from '../../components/SEO'
 import ButtonFilter from '../../components/ButtonFIlter'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import SelectInput from '../../components/SelectInput'
@@ -93,6 +94,11 @@ export default function Gallery() {
 
   return (
     <div className={styles.root}>
+      <SEO
+        title="Galeri Foto & Video - Yogzan Fotosinema"
+        description="Lihat portofolio foto dan video Yogzan: wisuda, wedding, prewedding, keluarga, dan event di berbagai kota Indonesia."
+        path={i18n.language === 'en' ? '/en/gallery' : '/gallery'}
+      />
       <h3>{t('gallery.mainTitle')}</h3>
       <h5>{t('gallery.mainSubtitle')}</h5>
       <div className={styles.filters}>
