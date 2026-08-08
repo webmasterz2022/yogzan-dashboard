@@ -1,0 +1,499 @@
+{
+  "translation": {
+    "gallery": {
+      "mainTitle": "Kenang Setiap Cerita dalam Hidup Kamu",
+      "mainSubtitle": "Dari wisuda, pernikahan hingga foto keluarga, abadikan momen berharga kamu bersama tim yang berpengalaman.",
+      "selectLocation": "Pilih Lokasi",
+      "all": "Semua",
+      "allLocations": "Semua Lokasi",
+      "getPriceList": "Dapatkan Daftar Harga",
+      "seeMore": "Lihat Lebih Lengkap",
+      "category": {
+        "Wisuda": {
+          "label": "Wisuda",
+          "title": "Selamat ya, kamu akhirnya lulus!",
+          "text": "Kelulusan telah menjadi bukti perjuangan kamu selama beberapa tahun terakhir. Rayakan bersama keluarga, sahabat dan rekan-rekan lainnya. Yogzan akan membantu untuk merekam setiap momen hari kelulusan kamu untuk selalu kamu kenang."
+        },
+        "Pernikahan": {
+          "label": "Pernikahan",
+          "title": "Selamat dan bahagia untuk kamu dan pasangan! ",
+          "text": "Jadikan pengucapan janji suci kamu lebih spesial dengan dokumentasi terbaik yang bisa kamu dapatkan. Kenang cinta, tawa dan air mata bahagia dalam hari bahagia kamu. "
+        },
+        "Wedding | Pre-Wedding": {
+          "label": "Wedding | Pre-Wedding",
+          "title": "Selamat dan bahagia untuk kamu dan pasangan! ",
+          "text": "Jadikan pengucapan janji suci kamu lebih spesial dengan dokumentasi terbaik yang bisa kamu dapatkan. Kenang cinta, tawa dan air mata bahagia dalam hari bahagia kamu. "
+        },
+        "Keluarga": {
+          "label": "Keluarga",
+          "title": "Setiap cinta dimulai dari keluarga! ",
+          "text": "Abadikan setiap peristiwa bahagia di keluarga kamu, seperti menanti kehadiran si kecil, momen ulang tahun, liburan bersama, hingga foto anggota keluarga kamu. "
+        }
+      }
+    }
+  },
+  "home": {
+    "header": {
+      "mainTitle": "Momen Boleh Berlalu, Tapi Ceritanya Tetap Abadi",
+      "subtitle": "Jadikan setiap momen pentingmu terasa istimewa dengan dokumentasi visual yang penuh rasa dan berkualitas dari Yogzan."
+    },
+    "gallery": {
+      "label": "Momen",
+      "description": ""
+    },
+    "category": {
+      "Wisuda": {
+        "label": "Wisuda",
+        "title": "Selamat, kamu akhirnya wisuda!",
+        "text": "Wisuda adalah bukti kerja kerasmu selama bertahun-tahun. Rayakan bersama keluarga, teman, dan kolega. Yogzan akan membantu mengabadikan setiap momen di hari wisudamu untuk kamu kenang."
+      },
+      "Pernikahan": {
+        "label": "Pernikahan",
+        "title": "Selamat dan bahagia untukmu dan pasanganmu!",
+        "text": "Jadikan janji sucimu semakin istimewa dengan dokumentasi terbaik yang bisa kamu dapatkan. Abadikan cinta, tawa, dan air mata bahagia di hari istimewamu."
+      },
+      "Wedding | Pre-Wedding": {
+        "label": "Wedding | Pre-Wedding",
+        "title": "Selamat dan bahagia untukmu dan pasanganmu!",
+        "text": "Jadikan janji sucimu semakin istimewa dengan dokumentasi terbaik yang bisa kamu dapatkan. Abadikan cinta, tawa, dan air mata bahagia di hari istimewamu."
+      },
+      "Keluarga": {
+        "label": "Keluarga",
+        "title": "Setiap cinta dimulai dari keluarga!",
+        "text": "Abadikan setiap momen bahagia dalam keluargamu, seperti menanti kelahiran bayi, ulang tahun, liburan bersama, dan potret anggota keluarga."
+      },
+      "Cetak Album": {
+        "label": "Cetak Album",
+        "title": "Abadikan Kenangan Anda dalam Album yang Indah",
+        "text": "Ubah foto-foto Anda menjadi album yang menakjubkan yang dapat Anda hargai selamanya. Layanan cetak album kami menawarkan bahan dan desain berkualitas tinggi untuk membuat kenangan Anda bertahan."
+      }
+    },
+    "whyUs": {
+      "title": "Percayakan Setiap Momen Anda kepada Kami",
+      "desc": "Momen kamu adalah momen kami juga. Karena itu kami berikan yang terbaik untuk mengenangnya. Inilah 6 alasan mengapa kami berbeda."
+    },
+    "testimonials": {
+      "title": "Ini Kata Mereka",
+      "desc": "Setiap dari mereka berharga, demikian juga dengan kamu!"
+    },
+    "getPriceList": "Dapatkan Daftar Harga",
+    "chooseUs": [
+      {
+        "title": "Editing Khas",
+        "desc": "Bukan sekadar pasang filter. Kami sesuaikan tiap warna secara detail untuk hasil akhir yang lebih estetik dan khas Yogzan."
+      },
+      {
+        "title": "Cakupan Luas",
+        "desc": "Kamu bisa temukan layanan Yogzan di berbagai kota besar di Jawa dan Bali, bahkan luar negeri seperti Malaysia dan Singapura."
+      },
+      {
+        "title": "Tim Berpengalaman",
+        "desc": "Melalui beberapa tahapan seleksi yang ketat, tim kami didukung oleh yang berpengalaman dan terbaik di bidangnya."
+      },
+      {
+        "title": "Paket Lengkap",
+        "desc": "Mulai dari foto saja, hingga paket lengkap dengan album dan video. Semua terintegrasi dalam satu layanan praktis."
+      },
+      {
+        "title": "Terpercaya",
+        "desc": "Belasan ribu klien dari ratusan kampus telah mempercayakan momen wisudanya kepada Yogzan sejak 2017."
+      },
+      {
+        "title": "Arahan Pose",
+        "desc": "Tidak bisa bergaya di depan kamera? Tenang! Kami arahkan posenya untuk penampilan terbaikmu."
+      }
+    ]
+  },
+  "navbar": {
+    "home": "Beranda",
+    "gallery": "Galeri",
+    "career": "Karir",
+    "getPriceList": "Dapatkan Daftar Harga"
+  },
+  "footer": {
+    "ctaTitle": "Sudah siap kenang momen berhargamu selamanya?",
+    "ctaDesc": "Klik “Dapatkan Daftar Harga” dan biarkan Yogzan bantu abadikan setiap detiknya jadi cerita tak terlupakan.",
+    "getPriceList": "Dapatkan Daftar Harga",
+    "career": "Karir",
+    "contactUs": "Hubungi Kami",
+    "email": "asktoyogzan@gmail.com",
+    "phone_1": "(+62) 857-1386-6294",
+    "phone_2": "(+62) 823-3516-8686",
+    "copyright": "Copyright Yogzan 2025. All Rights Reserved"
+  },
+  "career": {
+    "mainTitle": "Salurkan Hobi dan Kembangkan Skill Fotografi Kamu!",
+    "mainDesc": "Kamu hobi motret dan mau mengembangkan skill sambil dapat penghasilan tambahan? Yuk gabung dengan Yogzan!",
+    "whyTitle": "Kenapa Harus Yogzan?",
+    "workflowTitle": "Bagaimana cara kerjanya?",
+    "workflowDesc": "Daftarkan diri kamu untuk menjadi kolaborator Yogzan melalui form yang disediakan.",
+    "workflow": [
+      {
+        "title": "Terima Tugas",
+        "desc": "Tim kami akan menghubungi kamu terkait informasi detail mengenai proyek yang akan kamu laksanakan."
+      },
+      {
+        "title": "Foto dan Kirim",
+        "desc": "Setelah melakukan sesi foto atau video, kirim semua hasilnya ke Yogzan melalui akses cloud storage milik Yogzan."
+      },
+      {
+        "title": "Terima Komisi",
+        "desc": "Setelah foto kami terima, silakan tunggu untuk mendapatkan komisi kamu dalam waktu 1 hingga 2 hari."
+      }
+    ],
+    "joinTitle": "Gabung di Yogzan Sekarang!",
+    "joinDesc": "Tak sabar ingin berkenalan dengan kamu lebih dekat, yuk isi formulir di bawah!",
+    "stepper": [
+      "Data Diri",
+      "Detail Pengalaman"
+    ],
+    "chooseUs": [
+      {
+        "title": "Waktu Fleksibel",
+        "desc": "Punya kerjaan lain? Tenang! Kamu bisa kerjakan setiap proyek kapanpun kamu siap. "
+      },
+      {
+        "title": "Klien Tersebar",
+        "desc": "Yogzan punya banyak klien yang tersebar di berbagai kota besar di Indonesia. Ambil proyek dimanapun kamu berada!"
+      },
+      {
+        "title": "Motret. Kirim. Terima Komisi",
+        "desc": "Kamu cukup melakukan eksekusi di lapangan, kirim hasilnya dan terima komisi. Selanjutnya biar kami yang tangani."
+      },
+      {
+        "title": "Kembangkan Skill",
+        "desc": "Dari banyaknya proyek di Yogzan, kamu akan dapat banyak pengalaman untuk hasilkan gambar terbaik. Dapatkan juga training khusus dari Yogzan untuk menambah kemampuanmu!"
+      }
+    ]
+  },
+  "form": {
+    "title": "Form Data Diri",
+    "subtitle": "Lengkapi data dirimu untuk melamar",
+    "fields": {
+      "name": {
+        "label": "Nama Lengkap",
+        "placeholder": "Masukkan nama lengkap"
+      },
+      "nickname": {
+        "label": "Nama Panggilan",
+        "placeholder": "Masukkan nama panggilan"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Masukkan email"
+      },
+      "phone": {
+        "label": "Nomor Telepon",
+        "placeholder": "Masukkan nomor telepon"
+      },
+      "city": {
+        "label": "Lokasi Domisili",
+        "placeholder": "Pilih lokasi domisili"
+      },
+      "knowFrom": {
+        "label": "Dari mana Anda mengetahui Yogzan?",
+        "placeholder": "Pilih salah satu"
+      },
+      "gender": {
+        "label": "Jenis Kelamin",
+        "options": {
+          "male": "Laki-laki",
+          "female": "Perempuan"
+        }
+      },
+      "birthPlace": {
+        "label": "Tempat Lahir",
+        "placeholder": "Masukkan tempat lahir"
+      },
+      "birthDate": {
+        "label": "Tanggal Lahir",
+        "placeholder": "Pilih tanggal lahir"
+      },
+      "address": {
+        "label": "Alamat",
+        "placeholder": "Masukkan alamat lengkap"
+      },
+      "education": {
+        "label": "Pendidikan Terakhir",
+        "placeholder": "Pilih pendidikan terakhir",
+        "options": {
+          "sma": "SMA/SMK",
+          "diploma": "Diploma",
+          "sarjana": "Sarjana",
+          "lainnya": "Lainnya"
+        }
+      },
+      "cv": {
+        "label": "Unggah CV",
+        "placeholder": "Pilih file CV"
+      }
+    },
+    "submit": "Kirim Lamaran"
+  },
+  "formDetailExperience": {
+    "title": "Form Detail Pengalaman",
+    "subtitle": "Lengkapi detail pengalaman kerjamu",
+    "fields": {
+      "photoshoot": {
+        "label": "Pengalaman Photoshoot",
+        "placeholder": "Ceritakan pengalaman photoshoot kamu"
+      },
+      "experience": {
+        "label": "Pengalaman Kerja",
+        "placeholder": "Ceritakan pengalaman kerja kamu"
+      },
+      "camera": {
+        "label": "Kamera yang dimiliki",
+        "placeholder": "Sebutkan kamera yang kamu miliki",
+        "description": "Boleh lebih dari satu"
+      },
+      "lens": {
+        "label": "Lensa yang dimiliki",
+        "placeholder": "Sebutkan lensa yang kamu miliki",
+        "description": "Boleh lebih dari satu"
+      },
+      "accessories": {
+        "label": "Aksesoris yang dimiliki",
+        "placeholder": "Sebutkan aksesoris yang kamu miliki",
+        "description": "Boleh lebih dari satu"
+      },
+      "workingHour": {
+        "label": "Ketersediaan Waktu Kerja",
+        "placeholder": "Jelaskan ketersediaan waktu kerjamu"
+      },
+      "fee": {
+        "label": "Fee yang Diharapkan",
+        "placeholder": "Sebutkan fee yang kamu harapkan"
+      },
+      "portfolio": {
+        "label": "Link Portfolio",
+        "placeholder": "Masukkan link portfolio",
+        "description": "Url Portfolio atau Url Akun Instagram"
+      },
+      "jobRole": {
+        "label": "Posisi yang Dilamar",
+        "placeholder": "Pilih posisi yang dilamar"
+      },
+      "cv": {
+        "label": "Link CV",
+        "placeholder": "Masukkan link CV",
+        "error": "Format link tidak valid"
+      }
+    },
+    "submit": "Kirim Detail Pengalaman",
+    "back": "Kembali"
+  },
+  "book": {
+    "title": "Selangkah lebih dekat dengan standar baru dalam mengabadikan hari spesial.",
+    "desc": "Cukup isi form di bawah ini, lalu kamu akan langsung dibawa ke WhatsApp untuk mendapatkan daftar harga secara otomatis!",
+    "fields": {
+      "name": {
+        "label": "Nama",
+        "placeholder": "Tulis Nama Pemesan"
+      },
+      "layanan": {
+        "label": "Pilih Layanan",
+        "placeholder": "Pilih salah satu",
+        "options": [
+          "Wisuda",
+          "Wedding",
+          "Pre wedding",
+          "Family",
+          "Cetak Album",
+          "Lainnya"
+        ]
+      },
+      "layananExtended": {
+        "label": "Tuliskan kebutuhan kamu secara detail",
+        "placeholder": "Tulis kebutuhanmu disini"
+      },
+      "city": {
+        "label": "Pilih Lokasi",
+        "placeholder": "Pilih salah satu",
+        "options": [
+          {
+            "title": "Indonesia",
+            "options": [
+              "Bandung",
+              "Jabodetabek",
+              "Malang",
+              "Surabaya",
+              "Semarang",
+              "Yogyakarta",
+              "Surakarta",
+              "Bali",
+              "Lokasi Lainnya"
+            ]
+          },
+          {
+            "title": "International",
+            "options": [
+              "Malaysia",
+              "Singapore",
+              "Negara Lainnya"
+            ]
+          }
+        ]
+      },
+      "cityExtended": {
+        "label": "Nama Lokasi Lainnya",
+        "placeholder": "Tulis Nama Lokasi"
+      },
+      "date": {
+        "label": "Pilih Tanggal Pemotretan",
+        "placeholder": "HH/BB/TTTT"
+      },
+      "noDate": "Belum menentukan waktu",
+      "phone": {
+        "label": "Nomor Whatsapp yang dapat dihubungi",
+        "placeholder": "Tulis kontak disini"
+      },
+      "knowFrom": {
+        "label": "Dari mana Anda mengetahui Yogzan?",
+        "placeholder": "Pilih salah satu",
+        "options": [
+          "Instagram",
+          "Tiktok",
+          "Iklan",
+          "Rekomendasi Teman",
+          "Google",
+          "Facebook",
+          "Lainnya"
+        ]
+      },
+      "knowFromExtended": {
+        "label": "Sumber Lainnya",
+        "placeholder": "Sumber Lainnya"
+      },
+      "instagramOptions": [
+        "Iklan Instagram",
+        "Muncul di explore instagram",
+        "Saya mencari hashtag tertentu dan menemukan yogzan",
+        "Dari influencer/orang lain yang saya ikuti",
+        "Lainnya"
+      ],
+      "tiktokOptions": [
+        "Iklan Tiktok",
+        "Muncul di FYP saya",
+        "Saya mencari hashtag tertentu dan menemukan yogzan",
+        "Dari influencer/orang lain yang saya ikuti",
+        "Lainnya"
+      ]
+    },
+    "submit": "Dapatkan Daftar Harga",
+    "modal": {
+      "title": "Pesanan kami terima!",
+      "desc": "Terimakasih sudah mempercayakan kepada kami.\nKami akan menghubungi Anda secepatnya, pastikan nomor Anda selalu aktif.",
+      "close": "Tutup"
+    }
+  },
+  "fixbook": {
+    "title": "Yeay! Tinggal Selangkah Lagi Pesanan Kamu Selesai!",
+    "fields": {
+      "fullname": {
+        "label": "Nama Lengkap",
+        "placeholder": "Tulis Nama Lengkap"
+      },
+      "nickname": {
+        "label": "Nama Panggilan",
+        "placeholder": "Tulis Nama Panggilan"
+      },
+      "address": {
+        "label": "Alamat Pengiriman (Khusus untuk yang memilih paket dengan cetak Foto / Album)",
+        "placeholder": "Tulis alamat lengkap",
+        "helper": "Mohon isi dengan format 'Nama Penerima - No Hp Penerima - Alamat Lengkap - Kecamatan - Kota/Kabupaten - Kode Pos'"
+      },
+      "layanan": {
+        "label": "Pilih Layanan",
+        "placeholder": "Pilih salah satu",
+        "options": [
+          "Wisuda",
+          "Wedding",
+          "Pre wedding",
+          "Family",
+          "Cetak Album",
+          "Lainnya"
+        ]
+      },
+      "layananExtended": {
+        "label": "Tuliskan kebutuhan kamu secara detail",
+        "placeholder": "Tulis kebutuhanmu disini"
+      },
+      "campus": {
+        "label": "Asal Kampus",
+        "placeholder": "Tulis Asal Kampus"
+      },
+      "faculty": {
+        "label": "Fakultas / Jurusan",
+        "placeholder": "Tulis Fakultas / Jurusan"
+      },
+      "ig": {
+        "label": "Akun Instagram",
+        "placeholder": "Contoh: @yogzan.graduation, @yogzan.fotosinema",
+        "helper": "Untuk foto grup, mohon untuk ditulis akun seluruh anggota (gunakan koma untuk memisahkan)"
+      },
+      "igMua": {
+        "label": "Akun Instagram MUA (Opsional)",
+        "placeholder": "Contoh: @ig.mua"
+      },
+      "igAttire": {
+        "label": "Akun Instagram Attire (Opsional)",
+        "placeholder": "Contoh: @ig.attire"
+      },
+      "date": {
+        "label": "Pilih Tanggal Pemotretan",
+        "placeholder": "HH/BB/TTTT"
+      },
+      "time": {
+        "label": "Pilih Waktu Pemotretan",
+        "placeholder": "JJ/MM"
+      },
+      "phone": {
+        "label": "Nomor Whatsapp yang dapat dihubungi",
+        "placeholder": "Tulis kontak disini"
+      },
+      "location": {
+        "label": "Lokasi Pemotretan",
+        "placeholder": "Tulis Lokasi Pemotretan"
+      },
+      "knowFrom": {
+        "label": "Dari mana Anda mengetahui Yogzan?",
+        "placeholder": "Pilih salah satu",
+        "options": [
+          "Instagram",
+          "Tiktok",
+          "Iklan",
+          "Rekomendasi Teman",
+          "Google",
+          "Facebook",
+          "Lainnya"
+        ]
+      },
+      "knowFromExtended": {
+        "label": "Sumber Lainnya",
+        "placeholder": "Sumber Lainnya"
+      },
+      "instagramOptions": [
+        "Iklan Instagram",
+        "Muncul di explore instagram",
+        "Saya mencari hashtag tertentu dan menemukan yogzan",
+        "Dari influencer/orang lain yang saya ikuti",
+        "Lainnya"
+      ],
+      "tiktokOptions": [
+        "Iklan Tiktok",
+        "Muncul di FYP saya",
+        "Saya mencari hashtag tertentu dan menemukan yogzan",
+        "Dari influencer/orang lain yang saya ikuti",
+        "Lainnya"
+      ]
+    },
+    "submit": "Selesaikan Pesanan",
+    "modal": {
+      "title": "Pesanan kami terima!",
+      "desc": "Terimakasih sudah mempercayakan kepada kami.\nKami akan menghubungi Anda secepatnya, pastikan nomor Anda selalu aktif.",
+      "close": "Tutup"
+    },
+    "terms": "Saya sudah membaca dan setuju dengan "
+  }
+}

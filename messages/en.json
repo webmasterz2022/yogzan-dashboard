@@ -1,0 +1,500 @@
+{
+  "translation": {
+    "gallery": {
+      "mainTitle": "Relive Every Story in Your Life",
+      "mainSubtitle": "From graduations and weddings to family portraits, capture your precious moments with an experienced team.",
+      "selectLocation": "Select Location",
+      "all": "All",
+      "allLocations": "All Locations",
+      "getPriceList": "Get Price List",
+      "seeMore": "See More",
+      "category": {
+        "Wisuda": {
+          "label": "Graduation",
+          "title": "Congratulations, you finally graduated!",
+          "text": "Your graduation is proof of all the hard work you have put in over the past few years. Celebrate with your family, friends, and loved ones. Yogzan will help capture every moment of your graduation day so you can remember it forever."
+        },
+        "Pernikahan": {
+          "label": "Wedding",
+          "title": "From Promises to a Lasting Story",
+          "text": "A wedding day is a sacred moment that unites two hearts and two families. From the emotional glances to the joyful laughter, Yogzan is ready to capture every detail with warmth and meaning. Let your love story be beautifully preserved for a lifetime."
+        },
+        "Wedding | Pre-Wedding": {
+          "label": "Wedding | Pre-Wedding",
+          "title": "From Promises to a Lasting Story",
+          "text": "A wedding day is a sacred moment that unites two hearts and two families. From the emotional glances to the joyful laughter, Yogzan is ready to capture every detail with warmth and meaning. Let your love story be beautifully preserved for a lifetime."
+        },
+        "Keluarga": {
+          "label": "Family",
+          "title": "Every love begins with family",
+          "text": "Capture every joyful family occasion, from expecting a little one and celebrating birthdays to holiday getaways and family portraits."
+        }
+      }
+    }
+  },
+  "home": {
+    "header": {
+      "mainTitle": "Moments May Pass, But Their Stories Last Forever",
+      "subtitle": "Make every special occasion truly memorable with timeless and high quality visual documentation from Yogzan, proudly from Indonesia and available worldwide."
+    },
+    "gallery": {
+      "label": "Moments",
+      "description": "Whatever the moment, every story you tell always carries meaning!"
+    },
+    "category": {
+      "Wisuda": {
+        "label": "Graduation",
+        "title": "Congratulations, you finally graduated!",
+        "text": "Graduation is proof of your hard work over the past years. Celebrate with family, friends, and colleagues. Yogzan will help capture every moment of your graduation day for you to remember."
+      },
+      "Pernikahan": {
+        "label": "Wedding",
+        "title": "Congratulations and happiness to you and your partner! ",
+        "text": "Make your sacred vow even more special with the best documentation you can get. Cherish love, laughter, and happy tears on your special day."
+      },
+      "Wedding | Pre-Wedding": {
+        "label": "Wedding | Pre-Wedding",
+        "title": "Congratulations and happiness to you and your partner! ",
+        "text": "Make your sacred vow even more special with the best documentation you can get. Cherish love, laughter, and happy tears on your special day."
+      },
+      "Keluarga": {
+        "label": "Family",
+        "title": "Every love starts from family! ",
+        "text": "Capture every happy event in your family, such as expecting a baby, birthdays, holidays together, and family member portraits."
+      },
+      "Cetak Album": {
+        "label": "Album Printing",
+        "title": "Preserve Your Memories in a Beautiful Album",
+        "text": "Transform your photos into a stunning album that you can cherish forever. Our album printing service offers high-quality materials and designs to make your memories last."
+      }
+    },
+    "whyUs": {
+      "title": "Entrust Every Moment to Us",
+      "desc": "Your milestones deserve more than just photos. They deserve to be remembered beautifully. At Yogzan, we treat your moments as our own, capturing them with passion and precision. Discover six reasons why we are your perfect choice."
+    },
+    "testimonials": {
+      "title": "What They Say",
+      "desc": "Each of them is special, and so are you!"
+    },
+    "getPriceList": "Get Price List",
+    "chooseUs": [
+      {
+        "title": "Signature Editing",
+        "desc": "More than just applying a filter. We fine-tune every color in detail to create a final result that is both aesthetic and uniquely Yogzan."
+      },
+      {
+        "title": "Wide Coverage",
+        "desc": "You can find Yogzan’s services in Indonesia, Malaysia and Singapore."
+      },
+      {
+        "title": "Experienced Team",
+        "desc": "Through a careful selection process, our team is composed of highly experienced professionals who are the best in their field."
+      },
+      {
+        "title": "Complete Packages",
+        "desc": "From photos only to a full package with an album and video. Everything is integrated into one convenient service."
+      },
+      {
+        "title": "Trusted",
+        "desc": "Since 2017, tens of thousands of clients from hundreds have trusted Yogzan to capture their most important moments."
+      },
+      {
+        "title": "Pose Guidance",
+        "desc": "Feeling awkward in front of the camera? We will guide you to bring out your best look."
+      }
+    ]
+  },
+  "navbar": {
+    "home": "Home",
+    "gallery": "Gallery",
+    "career": "Career",
+    "getPriceList": "Get Price List"
+  },
+  "footer": {
+    "ctaTitle": "Moments May Pass, But Their Stories Last Forever",
+    "ctaDesc": "Click \"Get Price List\" and let Yogzan help capture every second into an unforgettable story.",
+    "getPriceList": "Get Price List",
+    "career": "Career",
+    "contactUs": "Contact Us",
+    "email": "asktoyogzan@gmail.com",
+    "phone_1": "(+62) 823-3516-8686",
+    "phone_2": "(+62) 857-1386-6294",
+    "copyright": "Copyright Yogzan 2025. All Rights Reserved"
+  },
+  "career": {
+    "mainTitle": "Expand Your Photography Career with Yogzan",
+    "mainDesc": "Already a skilled photographer and want to work on exciting projects while earning more? Join Yogzan and be part of our professional team.",
+    "whyTitle": "Why Work with Yogzan",
+    "workflowTitle": "How does it work?",
+    "workflowDesc": "Fill out the available form to register as a Yogzan collaborator.",
+    "workflow": [
+      {
+        "title": "Receive Project",
+        "desc": "Our team will contact you with detailed information about the project you will be working on."
+      },
+      {
+        "title": "Shoot and Send",
+        "desc": "After completing the photo or video session, send all the results to Yogzan via Yogzan’s cloud storage access."
+      },
+      {
+        "title": "Receive Commission",
+        "desc": "Once we have received the photos, please wait to receive your commission within 1 to 2 days."
+      }
+    ],
+    "joinTitle": "Join Yogzan Now",
+    "joinDesc": "We can’t wait to get to know you. Fill out the form below!",
+    "stepper": [
+      "Personal Info",
+      "Experience Details"
+    ],
+    "chooseUs": [
+      {
+        "title": "Flexible Schedule",
+        "desc": "Have another job? No problem. You can work on each project whenever you are ready."
+      },
+      {
+        "title": "Clients Everywhere",
+        "desc": "Yogzan has many clients spread across major cities in Indonesia, Malaysia & Singapore. Take on projects wherever you are."
+      },
+      {
+        "title": "Shoot. Send. Earn.",
+        "desc": "You simply execute the shoot on site, send the results, and receive your commission. We will take care of the rest."
+      },
+      {
+        "title": "Develop Your Skills",
+        "desc": "With the many projects at Yogzan, you will gain valuable experience to produce your best work. You will also receive exclusive training from Yogzan to further enhance your skills."
+      }
+    ]
+  },
+  "form": {
+    "title": "Personal Data Form",
+    "subtitle": "Complete your data to apply",
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Enter your full name"
+      },
+      "nickname": {
+        "label": "Nickname",
+        "placeholder": "Enter your nickname"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email",
+        "error": "Invalid email format"
+      },
+      "phone": {
+        "label": "WhatsApp Number",
+        "placeholder": "Enter your WhatsApp number"
+      },
+      "city": {
+        "label": "Current Address",
+        "placeholder": "Select your location"
+      },
+      "knowFrom": {
+        "label": "How did you find out about Yogzan?",
+        "placeholder": "Select an option"
+      },
+      "gender": {
+        "label": "Gender",
+        "options": {
+          "male": "Male",
+          "female": "Female"
+        }
+      },
+      "birthPlace": {
+        "label": "Place of Birth",
+        "placeholder": "Enter place of birth"
+      },
+      "birthDate": {
+        "label": "Date of Birth",
+        "placeholder": "Select date of birth"
+      },
+      "address": {
+        "label": "Address",
+        "placeholder": "Enter full address"
+      },
+      "education": {
+        "label": "Last Education",
+        "placeholder": "Select last education",
+        "options": {
+          "sma": "High School",
+          "diploma": "Diploma",
+          "sarjana": "Bachelor",
+          "lainnya": "Other"
+        }
+      },
+      "cv": {
+        "label": "Upload CV",
+        "placeholder": "Choose CV file"
+      }
+    },
+    "submit": "Submit Application"
+  },
+  "formDetailExperience": {
+    "title": "Work Experience Detail Form",
+    "subtitle": "Complete your work experience details",
+    "fields": {
+      "photoshoot": {
+        "label": "Photoshoot Experience",
+        "placeholder": "Describe your photoshoot experience"
+      },
+      "experience": {
+        "label": "Describe Your Photography Experience",
+        "placeholder": "Write your experience here"
+      },
+      "camera": {
+        "label": "Camera Series You Own",
+        "placeholder": "Enter your camera series here",
+        "description": "You may add more than one"
+      },
+      "lens": {
+        "label": "Lens Series You Own",
+        "placeholder": "Enter your lens series here",
+        "description": "You may add more than one"
+      },
+      "accessories": {
+        "label": "Do you own any other camera accessories?",
+        "placeholder": "Enter your accessories here",
+        "description": "You may add more than one"
+      },
+      "workingHour": {
+        "label": "Select Your Availability for Yogzan Project",
+        "placeholder": "Choose Time"
+      },
+      "fee": {
+        "label": "Expected Fee for Photography (Photo Only within 1 hour)",
+        "placeholder": "Enter expected fee here"
+      },
+      "portfolio": {
+        "label": "Portfolio link",
+        "placeholder": "Enter portfolio link",
+        "description": "Url Portfolio or Url Instagram Account"
+      },
+      "jobRole": {
+        "label": "Position Applied For",
+        "placeholder": "Select the position you are applying for"
+      },
+      "cv": {
+        "label": "CV link",
+        "placeholder": "Enter CV link",
+        "error": "Invalid link format"
+      }
+    },
+    "submit": "Submit Work Experience",
+    "back": "Back"
+  },
+  "book": {
+    "title": "One step closer to a new standard in capturing your special day.",
+    "desc": "Just fill out the form below, and you'll be taken directly to WhatsApp to get the price list automatically!",
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Enter full name"
+      },
+      "layanan": {
+        "label": "Choose Service",
+        "placeholder": "Select one",
+        "options": [
+          "Graduation",
+          "Wedding",
+          "Pre wedding",
+          "Family",
+          "Album Printing",
+          "Other"
+        ]
+      },
+      "layananExtended": {
+        "label": "Describe your needs in detail",
+        "placeholder": "Enter your needs here"
+      },
+      "city": {
+        "label": "Choose Location",
+        "placeholder": "Select one",
+        "options": [
+          {
+            "title": "Indonesia",
+            "options": [
+              "Bandung",
+              "Jabodetabek",
+              "Malang",
+              "Surabaya",
+              "Semarang",
+              "Yogyakarta",
+              "Surakarta",
+              "Bali",
+              "Other Location"
+            ]
+          },
+          {
+            "title": "International",
+            "options": [
+              "Malaysia",
+              "Singapore",
+              "Other Country"
+            ]
+          }
+        ]
+      },
+      "cityExtended": {
+        "label": "Other Location",
+        "placeholder": "Enter location"
+      },
+      "date": {
+        "label": "Select Photoshoot Date",
+        "placeholder": "DD/MM/YYYY"
+      },
+      "noDate": "Not decided yet",
+      "phone": {
+        "label": "WhatsApp Number (reachable)",
+        "placeholder": "Enter your contact number"
+      },
+      "knowFrom": {
+        "label": "How did you hear about Yogzan",
+        "placeholder": "Select one",
+        "options": [
+          "Instagram",
+          "Tiktok",
+          "Ads",
+          "Friend Recommendation",
+          "Google",
+          "Facebook",
+          "Other"
+        ]
+      },
+      "knowFromExtended": {
+        "label": "Other Source",
+        "placeholder": "Other Source"
+      },
+      "instagramOptions": [
+        "Instagram Ads",
+        "Appeared on Instagram explore",
+        "I searched for a specific hashtag and found yogzan",
+        "From influencer/other people I follow",
+        "Other"
+      ],
+      "tiktokOptions": [
+        "Tiktok Ads",
+        "Appeared on my FYP",
+        "I searched for a specific hashtag and found yogzan",
+        "From influencer/other people I follow",
+        "Other"
+      ]
+    },
+    "submit": "Get Price List",
+    "modal": {
+      "title": "Request Received!",
+      "desc": "Thank you for placing your trust in us.\nWe will contact you as soon as possible, so please make sure your number is always active.",
+      "close": "Close"
+    }
+  },
+  "fixbook": {
+    "title": "Yeay! Just One Step Away From Completing Your Order!",
+    "fields": {
+      "fullname": {
+        "label": "Full Name",
+        "placeholder": "Enter full name"
+      },
+      "nickname": {
+        "label": "Nickname",
+        "placeholder": "Enter nickname"
+      },
+      "address": {
+        "label": "Shipping Address (Only for those who order printed photo/album packages)",
+        "placeholder": "Enter full address",
+        "helper": "Format: “Recipient Name – Recipient Phone Number – Full Address – District – City/Regency – Postal Code”"
+      },
+      "layanan": {
+        "label": "Choose Service",
+        "placeholder": "Select one",
+        "options": [
+          "Graduation",
+          "Wedding",
+          "Pre wedding",
+          "Family",
+          "Album Printing",
+          "Other"
+        ]
+      },
+      "layananExtended": {
+        "label": "Describe your needs in detail",
+        "placeholder": "Enter your needs here"
+      },
+      "campus": {
+        "label": "Campus",
+        "placeholder": "Enter campus name"
+      },
+      "faculty": {
+        "label": "Faculty / Major",
+        "placeholder": "Enter faculty / major"
+      },
+      "ig": {
+        "label": "Instagram Account",
+        "placeholder": "Example: @yogzan.graduation, @yogzan.wedding",
+        "helper": "For group photos, please list all Instagram accounts separated by commas"
+      },
+      "igMua": {
+        "label": "MUA Instagram Account (Optional)",
+        "placeholder": "Example: @yogzan.graduation"
+      },
+      "igAttire": {
+        "label": "Attire Instagram Account (Optional)",
+        "placeholder": "Example: @yogzan.graduation"
+      },
+      "date": {
+        "label": "Select Photoshoot Date",
+        "placeholder": "DD/MM/YYYY"
+      },
+      "time": {
+        "label": "Select Photoshoot Time",
+        "placeholder": "HH/MM"
+      },
+      "phone": {
+        "label": "WhatsApp Number (reachable)",
+        "placeholder": "Enter contact here"
+      },
+      "location": {
+        "label": "Photoshoot Location",
+        "placeholder": "Enter photoshoot location"
+      },
+      "knowFrom": {
+        "label": "How did you hear about Yogzan?",
+        "placeholder": "Select one",
+        "options": [
+          "Instagram",
+          "Tiktok",
+          "Ads",
+          "Friend Recommendation",
+          "Google",
+          "Facebook",
+          "Other"
+        ]
+      },
+      "knowFromExtended": {
+        "label": "Other Source",
+        "placeholder": "Other Source"
+      },
+      "instagramOptions": [
+        "Instagram Ads",
+        "Appeared on Instagram explore",
+        "I searched for a specific hashtag and found yogzan",
+        "From influencer/other people I follow",
+        "Other"
+      ],
+      "tiktokOptions": [
+        "Tiktok Ads",
+        "Appeared on my FYP",
+        "I searched for a specific hashtag and found yogzan",
+        "From influencer/other people I follow",
+        "Other"
+      ]
+    },
+    "submit": "Complete Order",
+    "modal": {
+      "title": "Request Received!",
+      "desc": "Thank you for placing your trust in us.\nWe will contact you as soon as possible, so please make sure your number is always active.",
+      "close": "Close"
+    },
+    "terms": "I have read and agree to the "
+  }
+}

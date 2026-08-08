@@ -1,0 +1,17 @@
+.root {
+  min-height: 25vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .root {
+    min-height: 80vh;
+  }
+
+  .root > h3 {
+    font-size: 18px;
+  }
+}
