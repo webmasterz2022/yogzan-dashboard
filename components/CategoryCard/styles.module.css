@@ -80,7 +80,7 @@
     border-top-right-radius: 4px;
   }
   .root > .container > img {
-    width: fill;
+    width: 100%;
     height: fill;
     object-fit: cover;
   }
@@ -89,7 +89,7 @@
     padding: 16px;
     align-items: center;
     justify-content: center;
-    width: fill;
+    width: 100%;
     background-color: var(--white);
   }
   .root > div:last-child > p {

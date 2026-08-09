@@ -360,8 +360,6 @@
 .testimonials {
   padding-top: 5rem;
   height: fit-content;
-  max-height: 35rem;
-  overflow: hidden;
 }
 
 .testimonials>h3 {
@@ -384,42 +382,35 @@
 
 .testimonials>div:not(.overlayLeft, .overlayRight) {
   padding-bottom: 1.5rem;
-  display: flex;
-  overflow: auto;
   margin-top: 1.5rem;
   height: fit-content;
   min-height: 15rem;
-  /* max-height: 35rem; */
-}
-
-.testimonials>div>div>div:first-child {
-  width: fit-content;
-  margin-left: 4rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .overlayLeft {
-  /* background-color: red; */
   background: linear-gradient(90deg, #FFF5F1 1.23%, rgba(255, 255, 255, 0) 67.57%);
   position: absolute;
-  height: 31.5rem !important;
-  /* height: 100%; */
+  top: 0;
+  bottom: 0;
+  height: 100%;
   z-index: 2;
-  /* top: -50rem; */
   left: 0;
-  width: 25rem;
+  width: 8rem;
+  pointer-events: none;
 }
 
 .overlayRight {
-  /* background-color: orange; */
   background: linear-gradient(270deg, #FFF5F1 1.23%, rgba(255, 255, 255, 0) 67.57%);
   position: absolute;
-  height: 31.5rem !important;
-  /* height: 100%; */
+  top: 0;
+  bottom: 0;
+  height: 100%;
   z-index: 2;
-  /* top: -70rem; */
   right: 0;
-  width: 25rem;
-  float: right;
+  width: 8rem;
+  pointer-events: none;
 }
 
 @media only screen and (max-width: 768px) {
@@ -472,7 +463,7 @@
   .galleries {
     display: grid;
     grid-template-columns: 100vw;
-    grid-template-rows: 0 543px 227px;
+    grid-template-rows: 0 543px auto;
     row-gap: 24px;
     padding-top: 0;
     width: 100vw;
@@ -583,7 +574,7 @@
   }
 
   .galleries>div:nth-child(2)>button {
-    width: fill;
+    width: 100%;
     height: 48px;
     border-radius: 8px;
     padding: 16px;
@@ -602,7 +593,7 @@
 
   .galleries>div:nth-child(3) {
     padding: 24px 0;
-    height: 260px;
+    height: fit-content;
   }
 
   /* .galleries>div:nth-child(3)>p {
@@ -615,13 +606,22 @@
 
   .galleries>div:nth-child(3)>div {
     display: flex;
-    overflow: scroll;
+    overflow-x: auto;
     position: relative;
-    padding: 0 40px 20px;
+    padding: 0 0 20px;
   }
 
   .galleries>div:nth-child(3)>div>div {
     margin-right: 10px;
+    flex-shrink: 0;
+  }
+
+  .galleries>div:nth-child(3)>div>div:first-child {
+    margin-left: 40px;
+  }
+
+  .galleries>div:nth-child(3)>div>div:last-child {
+    margin-right: 40px;
   }
 
   .overlay {
@@ -636,7 +636,7 @@
     text-align: left;
     padding: 40px 0;
     width: 100vw;
-    margin-top: 60px;
+    margin-top: 16px;
   }
 
   .contentWhyUs>h3 {
@@ -710,7 +710,7 @@
   .galleries {
     display: grid;
     grid-template-columns: 100vw;
-    grid-template-rows: 0 543px 227px;
+    grid-template-rows: 0 543px auto;
     row-gap: 24px;
     padding-top: 0;
     width: 100vw;
@@ -789,7 +789,7 @@
   }
 
   .galleries>div:nth-child(2)>button {
-    width: fill;
+    width: 100%;
     height: 48px;
     border-radius: 8px;
     padding: 16px;
@@ -804,23 +804,24 @@
     padding: 24px 0;
   }
 
-  /* .galleries>div:nth-child(3)>p {
-    padding-left: 40px;
-    font-size: 24px;
-    line-height: 27px;
-    text-align: left;
-    margin-bottom: 16px;
-  } */
-
   .galleries>div:nth-child(3)>div {
     display: flex;
-    overflow: scroll;
+    overflow-x: auto;
     position: relative;
-    padding: 0 40px 20px;
+    padding: 0 0 20px;
   }
 
   .galleries>div:nth-child(3)>div>div {
     margin-right: 10px;
+    flex-shrink: 0;
+  }
+
+  .galleries>div:nth-child(3)>div>div:first-child {
+    margin-left: 40px;
+  }
+
+  .galleries>div:nth-child(3)>div>div:last-child {
+    margin-right: 40px;
   }
 
   .overlay {
@@ -830,6 +831,6 @@
   }
 
   .contentWhyUs {
-    margin-top: 80px;
+    margin-top: 16px;
   }
 }

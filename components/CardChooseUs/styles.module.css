@@ -4,6 +4,8 @@
   align-items: center;
   background-color: var(--light-blue);
   border-radius: 0.25rem;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .root>div {

@@ -130,10 +130,16 @@ export default function HomeClient() {
         <p>{t('testimonials.desc')}</p>
         <div>
           <Swiper
+            className="testimonials-swiper"
             pagination={{ dynamicBullets: true, clickable: true }}
             modules={[Autoplay, Pagination]}
-            spaceBetween={2}
-            slidesPerView={lengthTestimony[device]}
+            spaceBetween={16}
+            slidesPerView={1.5}
+            breakpoints={{
+              600: { slidesPerView: 2.5 },
+              900: { slidesPerView: 3.5 },
+              1200: { slidesPerView: 4.5 },
+            }}
             centeredSlides={true}
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             loop={true}

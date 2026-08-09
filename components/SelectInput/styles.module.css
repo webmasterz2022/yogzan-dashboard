@@ -1,3 +1,8 @@
+.root {
+  position: relative;
+  width: 100%;
+}
+
 .select {
   padding: 0.5rem;
   border: solid 1px #D1D1D6;
@@ -15,7 +20,8 @@
   line-height: 1.5rem;
   font-size: 1rem;
   font-weight: 400;
-  width: 16.75rem;
+  flex: 1;
+  min-width: 0;
   margin: 0;
   margin-right: 0.5rem;
   text-align: left;
@@ -36,7 +42,7 @@
 
 .container {
   position: absolute;
-  width: 19.5rem;
+  width: 100%;
   border: solid 1px var(--tertiary-30);
   background-color: var(--white);
   border-radius: 0.25rem;
@@ -100,7 +106,8 @@
   .select>span {
     line-height: 24px;
     font-size: 14px;
-    width: 299px;
+    flex: 1;
+    min-width: 0;
     margin-right: 8px;
   }
 
@@ -114,7 +121,7 @@
   }
 
   .container {
-    width: fill;
+    width: 100%;
     margin-right: 40px;
     border-radius: 8px;
     padding: 20px 0;

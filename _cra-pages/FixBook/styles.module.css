@@ -7,7 +7,7 @@
 }
 
 .root > img {
-  width: fill;
+  width: 100%;
   height: fill;
   object-fit: cover;
   border-radius: 1rem;
@@ -47,7 +47,7 @@
 
 .root > div > form > button,
 .confirmModal > button {
-  width: fill;
+  width: 100%;
   padding: 1rem;
   border-radius: 0.25rem;
 }
@@ -106,7 +106,7 @@
 }
 
 .root > div:nth-of-type(1) > form > a > button > p {
-  width: fill;
+  width: 100%;
   padding: 1rem;
 }
 
@@ -176,7 +176,7 @@
   }
 
   .root > div:nth-of-type(1) > form > a > button > p {
-    width: fill;
+    width: 100%;
     padding: 16px;
   }
 }

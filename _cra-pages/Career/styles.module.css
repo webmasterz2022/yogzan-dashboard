@@ -164,7 +164,7 @@
   align-items: center;
   cursor: pointer;
   white-space: nowrap;
-  width: fill;
+  width: 100%;
 }
 
 .stepper>p.active {
@@ -174,7 +174,7 @@
 
 .stepper>.line {
   border: 1px solid var(--primary);
-  width: fill;
+  width: 100%;
   height: 0;
   margin: 0 0.875rem;
   border-radius: 2.5rem;
@@ -227,7 +227,7 @@
   .root>.workflow>.title {
     padding: 24px 40px 0;
     text-align: left;
-    width: fill;
+    width: 100%;
     margin-bottom: 24px;
   }
 
@@ -248,7 +248,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 24px;
-    width: fill;
+    width: 100%;
     padding-left: 48px;
   }
 
@@ -259,7 +259,7 @@
     text-align: left;
     box-shadow: 0px 11px 12px -4px rgba(138, 132, 130, 0.21);
     height: 85px;
-    width: fill;
+    width: 100%;
     margin-left: 24px;
   }
 

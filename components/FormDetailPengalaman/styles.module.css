@@ -13,12 +13,12 @@
 
 .root > div:last-child {
   display: flex;
-  width: fill;
+  width: 100%;
   justify-content: space-between;
 }
 
 .root > div:last-child > button {
-  width: fill;
+  width: 100%;
   padding: 1rem;
 }
 

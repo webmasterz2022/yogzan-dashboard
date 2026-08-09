@@ -41,7 +41,7 @@
   overflow: hidden;
 }
 
-.modal-open>div>.modal {
+.modal-open .modal {
   background-color: rgba(0, 0, 0, 0.6);
   display: block;
 }
@@ -95,4 +95,15 @@
   border: none !important;
   font-weight: 700 !important;
   padding-right: 16px !important;
+}
+
+/* Testimonials swiper: equal-height cards */
+.testimonials-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.testimonials-swiper .swiper-slide {
+  height: auto !important;
+  display: flex;
+  flex-direction: column;
 }
