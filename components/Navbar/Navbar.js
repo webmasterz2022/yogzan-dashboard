@@ -22,6 +22,9 @@ import ReactGA from 'react-ga4';
 import { Select } from 'antd';
 import Image from 'next/image';
 
+const TOPBAR_BG = 'linear-gradient(7.14deg, #FFF5F1 -1%, #FFFFFF -7.58%, #FCE6DD 100.1%)';
+const TOPBAR_SHADOW = '0px 4px 12px -4px rgba(138, 132, 130, 0.15)';
+
 export default function Navbar() {
   const t = useTranslations('navbar');
   const locale = useLocale();
@@ -30,9 +33,11 @@ export default function Navbar() {
   const fullPathname = useNextPathname();
   const logoRef = useRef();
   const rootRef = useRef();
+  const topBarRef = useRef();
   const device = getDeviceType();
 
   const sanitizedPath = pathname;
+  const isHome = sanitizedPath === routes.HOMEPAGE();
 
   const menus = [
     {
@@ -65,6 +70,7 @@ export default function Navbar() {
     },
   ];
 
+  // Desktop: hide logo/shadow on home, reveal on scroll
   useEffect(() => {
     if (!logoRef.current || !rootRef.current) return;
     if (device === 'desktop' && sanitizedPath === routes.HOMEPAGE()) {
@@ -86,13 +92,47 @@ export default function Navbar() {
     }
   }, [sanitizedPath]);
 
+  // Mobile home: add topBar bg/shadow when user scrolls past hero
+  useEffect(() => {
+    if (device === 'desktop' || !isHome || !topBarRef.current) return;
+    const handleMobileScroll = () => {
+      const scrolled = window.scrollY > 60;
+      if (topBarRef.current) {
+        topBarRef.current.style.background = scrolled ? TOPBAR_BG : 'transparent';
+        topBarRef.current.style.boxShadow = scrolled ? TOPBAR_SHADOW : 'none';
+        topBarRef.current.style.borderRadius = scrolled ? '0 0 16px 16px' : '0';
+      }
+    };
+    window.addEventListener('scroll', handleMobileScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleMobileScroll);
+  }, [isHome, device]);
+
   const switchLocale = (newLocale) => {
     router.replace(pathname, { locale: newLocale });
   };
 
   return (
-    <div ref={rootRef} className={styles.root}>
-      <img ref={logoRef} src={logoDark.src} alt="yogzan" onClick={() => router.push('/')} />
+    <div ref={rootRef} className={styles.root} style={isHome ? { boxShadow: 'none' } : undefined}>
+      {/* Mobile-only top bar: logo (hidden on home) + language selector */}
+      <div ref={topBarRef} className={`${styles.topBar} ${isHome ? styles.topBarHome : ''}`}>
+        {!isHome && <img src={logoDark.src} alt="yogzan" onClick={() => router.push('/')} />}
+        <Select
+          className={styles.languageSwitchTop}
+          suffixIcon={<img src={chevron.src} alt="chevron" />}
+          value={locale}
+          onChange={switchLocale}
+          getPopupContainer={trigger => trigger.parentElement}
+          options={[
+            { value: 'id', label: <span>🇮🇩 ID</span> },
+            { value: 'en', label: <span>🇺🇸 EN</span> },
+          ]}
+        />
+      </div>
+
+      {/* Desktop logo (hidden on mobile) */}
+      <img ref={logoRef} src={logoDark.src} alt="yogzan" style={isHome ? { opacity: 0 } : undefined} onClick={() => router.push('/')} />
+
+      {/* Menu buttons + desktop language selector */}
       <div className={styles.menuBar}>
         {menus.map((menu, idx) => (
           <Button key={idx} icon={menu.icon.src} variant={menu.variant} handleClick={menu.handleClick}>
@@ -104,6 +144,7 @@ export default function Navbar() {
           suffixIcon={<img src={chevron.src} alt="chevron" />}
           value={locale}
           onChange={switchLocale}
+          getPopupContainer={trigger => trigger.parentElement}
           options={[
             { value: 'id', label: <span>🇮🇩 ID</span> },
             { value: 'en', label: <span>🇺🇸 EN</span> },
